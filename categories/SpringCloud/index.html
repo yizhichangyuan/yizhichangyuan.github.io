@@ -6,22 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Kaptcha验证码 | 一止长渊的博客</title>
+  <title>Category: SpringCloud | 一止长渊的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Kaptcha是java中一个验证码图片校对的组件，其核心是通过配置一个Servlet为前端提供验证码图片，并将对应图片正确验证码放入到session中，便于校对用户提交的验证码。 1. 具体步骤 首先引入pom web.xml配置Kaptcha的Servlet，其中主要指定验证码图片的宽度、高度、几个字符、字体、字体颜色、干扰线的颜色以及相应请求验证码图片的url-pattern">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Kaptcha验证码">
-<meta property="og:url" content="http://example.com/2021/Spring/Kaptcha%E9%AA%8C%E8%AF%81%E7%A0%81/index.html">
+  <meta name="description" content="探索JAVA后端技术，正在艰难成长的菜鸟">
+<meta property="og:type" content="website">
+<meta property="og:title" content="一止长渊的博客">
+<meta property="og:url" content="http://example.com/categories/SpringCloud/index.html">
 <meta property="og:site_name" content="一止长渊的博客">
-<meta property="og:description" content="Kaptcha是java中一个验证码图片校对的组件，其核心是通过配置一个Servlet为前端提供验证码图片，并将对应图片正确验证码放入到session中，便于校对用户提交的验证码。 1. 具体步骤 首先引入pom web.xml配置Kaptcha的Servlet，其中主要指定验证码图片的宽度、高度、几个字符、字体、字体颜色、干扰线的颜色以及相应请求验证码图片的url-pattern">
+<meta property="og:description" content="探索JAVA后端技术，正在艰难成长的菜鸟">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2021/Spring/Kaptcha%E9%AA%8C%E8%AF%81%E7%A0%81/image-20210129220709957.png">
-<meta property="article:published_time" content="2021-01-15T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-01-30T05:59:38.016Z">
 <meta property="article:author" content="一止长渊">
-<meta property="article:tag" content="Kaptcha">
+<meta property="article:tag" content="JAVA 后端 Spring">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/Spring/Kaptcha%E9%AA%8C%E8%AF%81%E7%A0%81/image-20210129220709957.png">
   
     <link rel="alternative" href="/atom.xml" title="一止长渊的博客" type="application/atom+xml">
   
@@ -69,7 +65,7 @@
 			</ul>
 		</nav>
 		<nav>
-			<p>总文章数：8</p>
+			<p>总文章数：9</p>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -159,276 +155,130 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Kaptcha验证码" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Kaptcha验证码
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2021" class="archive-year">2021</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2021/SpringCloud/Kaptcha%E9%AA%8C%E8%AF%81%E7%A0%81/" class="archive-article-date">
+  	<time datetime="2021-03-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-14</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2021/SpringCloud/Kaptcha%E9%AA%8C%E8%AF%81%E7%A0%81/">Nacos：如何注册服务（上）</a>
     </h1>
   
 
-        <!--显示阅读次数-->
-        
-          <br/>
-          <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
-          <span class="icon-sort"></span>
-          <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-                    阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-          </span>
-          </a>
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/Spring/Kaptcha%E9%AA%8C%E8%AF%81%E7%A0%81/" class="archive-article-date">
-  	<time datetime="2021-01-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-16</time>
-</a>
-        
-      </header>
-    
-    <div align="center" class="post-count">
-    字数：1.4k字 | 预计阅读时长：6分钟
-</div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Kaptcha是java中一个验证码图片校对的组件，其核心是通过配置一个Servlet为前端提供验证码图片，并将对应图片正确验证码放入到session中，便于校对用户提交的验证码。</p>
-<h3 id="1-具体步骤"><a href="#1-具体步骤" class="headerlink" title="1. 具体步骤"></a><font size="4" color="orange">1. 具体步骤</font></h3><ol>
-<li>首先引入pom</li>
-<li>web.xml配置Kaptcha的Servlet，其中主要指定验证码图片的宽度、高度、几个字符、字体、字体颜色、干扰线的颜色以及相应请求验证码图片的url-pattern<a id="more"></a></li>
-<li>前端img的src属性填充的url就为url-pattern，img会向Kaptcha的Servlet请求验证码图片</li>
-<li>前端表单提交的时候，同时需要把用户输入的验证码也放入到表单中，以便发给后端以便进行比对</li>
-<li>后端在接收前端表单数据，第一步应该是检查验证码是否正确，如何检查？Kaptcha在向前端发送验证码图片的同时，就已经把验证码图片对应的正确的验证码放入的session中，所以后端只需要比对request中传来表单中验证码数据和Session中获取的数据是否一致即可，不一致就直接返回错误信息（其中Session的参数key是<code>com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY</code></li>
-</ol>
-<h4 id="2-实践"><a href="#2-实践" class="headerlink" title="2. 实践"></a><font size="4" color="orange">2. 实践</font></h4><p>1.首先在pom.xml中引入依赖</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--验证码校验--&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/com.github.penggle/kaptcha --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.penggle<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>kaptcha<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>2.web.xml配置Kaptcha的Servlet，其中主要指定验证码图片的宽度、高度、几个字符、字体、字体颜色、干扰线的颜色以及相应请求验证码图片的url-pattern</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--Kaptcha验证码servlet--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>Kaptcha<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>com.google.code.kaptcha.servlet.KaptchaServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--是否有边框--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>kaptcha.border<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>no<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--字体颜色--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>kaptcha.textproducer.font.color<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>red<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--图片宽度--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>kaptcha.image.width<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>135<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--使用哪些字符来生成验证码--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>kaptcha.textproducer.char.string<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>ACDEFHKPRSTWX345679<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--图片高度--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>kaptcha.image.height<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>50<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--字体大小--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>kaptcha.textproducer.font.size<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>43<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--干扰线的颜色--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>kaptcha.noise.color<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>black<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--字符个数--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>kaptcha.textproducer.char.length<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>4<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--字体--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>kaptcha.textproducer.font.names<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>Arial<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>Kaptcha<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/Kaptcha<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>3.前端img的src属性填充的url就为url-pattern，img会向Kaptcha的Servlet请求验证码图片</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item-title label&quot;</span>&gt;</span>验证码<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item-input&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;j_kaptcha&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;请输入验证码&quot;</span>/&gt;</span></span><br><span class="line">// src的地址和servlet的地址一致，这里的o2o是项目的根目录</span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span>=<span class="string">&quot;kaptcha-img&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/o2o/Kaptcha&quot;</span> <span class="attr">title</span>=<span class="string">&quot;点击更换图片&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;点击更换图片&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;changeVerifyCode(this)&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 点击切换图片就是再次发送同一个请求，加上一个两位的数字，就会重新更换前端的验证码图片</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeVerifyCode</span>(<span class="params">img</span>)</span>&#123;</span><br><span class="line">    img.src = <span class="string">&quot;/o2o/Kaptcha?&quot;</span> + <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">100</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<div align="center"><img src="/2021/Spring/Kaptcha%E9%AA%8C%E8%AF%81%E7%A0%81/image-20210129220709957.png" alt="image-20210129220709957" style="zoom:50%;"></div>
-
-<p>4.前端表单提交的时候，同时需要把用户输入的验证码也放入到表单中，以便发给后端以便进行比对</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取用户输入的验证码</span></span><br><span class="line"><span class="keyword">var</span> fromData = <span class="keyword">new</span> FormData();</span><br><span class="line"><span class="keyword">var</span> verifyCode = $(<span class="string">&quot;#j_kaptcha&quot;</span>).val();</span><br><span class="line"><span class="keyword">if</span> (!verifyCode) &#123;</span><br><span class="line">  $.toast(<span class="string">&quot;验证码为空&quot;</span>);</span><br><span class="line">  <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line">formData.append(<span class="string">&quot;verifyCodeActual&quot;</span>, verifyCode);</span><br><span class="line">$.ajax(&#123;</span><br><span class="line">  url: registerShopURL,</span><br><span class="line">  type: <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">  data: formData,</span><br><span class="line">  contentType: <span class="literal">false</span>, <span class="comment">// 因为有文字和图片，所以为false</span></span><br><span class="line">  processData: <span class="literal">false</span>,</span><br><span class="line">  cache: <span class="literal">false</span>,</span><br><span class="line">  success: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (data.success) &#123;</span><br><span class="line">      $.toast(<span class="string">&quot;提交成功！&quot;</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      $.toast(<span class="string">&quot;提交失败！&quot;</span> + data.errMsg);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 不管提交是否成功，都要改变一下验证码，因为点击事件连接着一个切换图片的事件</span></span><br><span class="line">    $(<span class="string">&#x27;#kaptcha-img&#x27;</span>).click();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>5.后端在接收前端表单数据，第一步应该是检查验证码是否正确，如何检查？Kaptcha在向前端发送验证码图片的同时，就已经把验证码图片对应的正确的验证码放入的session中，所以后端只需要比对request中传来表单中验证码数据和Session中获取的数据是否一致即可，不一致就直接返回错误信息（其中Session的参数key是<code>com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY</code>）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.imooc.o2o.util;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.google.code.kaptcha.Constants;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CodeUtil</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Boolean <span class="title">checkVerifyCode</span><span class="params">(HttpServletRequest request)</span></span>&#123;</span><br><span class="line">        <span class="comment">// 在shopOperation.html中img的src发送请求给/o2o/Kaptcha给Kaptcha Servlet的时候，</span></span><br><span class="line">        <span class="comment">// 同时图片真实的验证码就会种植在session中，便于校验用户输入与真实是否相同</span></span><br><span class="line">        String verifyCodeExpected = (String)request.getSession().getAttribute(Constants.KAPTCHA_SESSION_KEY);</span><br><span class="line">        System.out.println(<span class="string">&quot;verifyCodeExpected:&quot;</span> + verifyCodeExpected);</span><br><span class="line">        String verifyCode = HttpServletRequestUtil.getString(request, <span class="string">&quot;verifyCodeActual&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;verifyCodeActual:&quot;</span> + verifyCode);</span><br><span class="line">        <span class="keyword">if</span>(verifyCode == <span class="keyword">null</span> || !verifyCode.equals(verifyCodeExpected))&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-      
-       
-         <div class="essayending">
-           <div>
-            <div style="text-align:center;color: #ccc;font-size:22px;">
-            <br/>
-            <br/>
- -------------<i class="fa fa-paw"></i>感谢您的阅读-------------
-            <br/>
-            <br/>
-             <br/>
-             <br/>
-            </div>
-           </div>
-         </div>
-         
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你让我晚饭可以加个肠<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/wechat.jpeg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 <div class="article-tag tagcloud">
 	<i class="icon-price-tags icon"></i>
 	<ul class="article-tag-list">
 		
 		
 		<li class="article-tag-list-item">
-			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">
-				Kaptcha</a>
+			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">
+				Nacos</a>
 		</li>
 		
 		
 	</ul>
 </div>
 
-      
+          
 <div class="article-category tagcloud">
 	<i class="icon-book icon"></i>
 	<ul class="article-tag-list">
 		
 		
 		<li class="article-tag-list-item">
-			<a href="/categories/Spring//" class="article-tag-list-link color2">
-				Spring</a>
+			<a href="/categories/SpringCloud//" class="article-tag-list-link color2">
+				SpringCloud</a>
 		</li>
 		
 		
 	</ul>
 </div>
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/Spring/Kaptcha%E9%AA%8C%E8%AF%81%E7%A0%81/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
-  
-    <a href="/2021/Spring/docker%E9%85%8D%E7%BD%AEMYSQL%E9%9B%86%E7%BE%A4(%E4%B8%8A)/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Docker配置MYSQL集群(上)
-        
-      </div>
-    </a>
-  
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2021/SpringCloud/Nacos%EF%BC%9A%E5%A6%82%E6%9E%9C%E6%B3%A8%E5%86%8C%E6%9C%8D%E5%8A%A1%EF%BC%88%E4%B8%8A%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2021-03-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-14</time>
+</a>
         </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4"><span class="toc-number">1.</span> <span class="toc-text">1. 具体步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%AE%9E%E8%B7%B5"><span class="toc-number">1.1.</span> <span class="toc-text">2. 实践</span></a></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2021/SpringCloud/Nacos%EF%BC%9A%E5%A6%82%E6%9E%9C%E6%B3%A8%E5%86%8C%E6%9C%8D%E5%8A%A1%EF%BC%88%E4%B8%8A%EF%BC%89/">Nacos：如何注册服务（上）</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+<div class="article-tag tagcloud">
+	<i class="icon-price-tags icon"></i>
+	<ul class="article-tag-list">
+		
+		
+		<li class="article-tag-list-item">
+			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">
+				Nacos</a>
+		</li>
+		
+		
+	</ul>
+</div>
+
+          
+<div class="article-category tagcloud">
+	<i class="icon-book icon"></i>
+	<ul class="article-tag-list">
+		
+		
+		<li class="article-tag-list-item">
+			<a href="/categories/SpringCloud//" class="article-tag-list-link color2">
+				SpringCloud</a>
+		</li>
+		
+		
+	</ul>
+</div>
+
         </div>
-        
-    </div>
-</aside>
-
-
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
   
   
+    </div></section>
   
 
-  
-
-  
-  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: 'a40183824efdd889e8bd',
-  	clientSecret: '45d0d18823e835101990e4fb215272fc05321fa2',
-  	repo: 'blog-comments',
-  	owner: 'yizhichangyuan',
-  	admin: ['yizhichangyuan'],
-  	id: 'Sat Jan 16 2021 00:00:00 GMT+0800',
-  	distractionFreeMode: 'true'
-})
-gitalk.render('gitalk-container') 
-}
-</script>
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -462,10 +312,10 @@ gitalk.render('gitalk-container')
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
-		isCategory: false,
+		isCategory: true,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
@@ -533,10 +383,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Kaptcha</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Docker</a>
               </li>
              
@@ -566,6 +412,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Redis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Nacos</a>
               </li>
             
             <div class="clearfix"></div>
