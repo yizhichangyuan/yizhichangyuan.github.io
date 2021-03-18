@@ -282,12 +282,12 @@
       </header>
     
     <div align="center" class="post-count">
-    字数：785字 | 预计阅读时长：3分钟
+    字数：783字 | 预计阅读时长：3分钟
 </div>
     <div class="article-entry" itemprop="articleBody">
       
         <p>上节我们将微服务模块注册到了注册中心Nacos中，接下来就是如何实现微服务模块之间接口的调用。</p>
-<p>这里我们使用SpringCloud-Alibaba提供的OpenFeign进行微服务模块之间调用，如果微服务A需要调用微服务模块B的接口1，那么我们应该如何实现呢？</p>
+<p>这里我们使用SpringCloud-Alibaba提供的OpenFeign进行微服务模块之间调用，如果微服务A需要调用微服务模块B的接口1，那么我们如何实现呢？</p>
 <p><strong>原理</strong></p>
 <p>​    微服务A、微服务B相互调用，前提是两个微服务都已经注册到注册中心Nacos中。然后微服务模块A1需要调用微服务B时，就去注册中心查看健康可用微服务模块B的地址，</p>
         
