@@ -65,7 +65,7 @@
 			</ul>
 		</nav>
 		<nav>
-			<p>总文章数：35</p>
+			<p>总文章数：32</p>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -156,283 +156,6 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-    <article id="post-yuque/Nacos：如何统一配置（下）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/uncategorized/yuque/Nacos%EF%BC%9A%E5%A6%82%E4%BD%95%E7%BB%9F%E4%B8%80%E9%85%8D%E7%BD%AE%EF%BC%88%E4%B8%8B%EF%BC%89/">Nacos：如何统一配置（下）</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/uncategorized/yuque/Nacos%EF%BC%9A%E5%A6%82%E4%BD%95%E7%BB%9F%E4%B8%80%E9%85%8D%E7%BD%AE%EF%BC%88%E4%B8%8B%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2021-03-13T15:59:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-13</time>
-</a>
-        
-      </header>
-    
-    <div align="center" class="post-count">
-    字数：1.5k字 | 预计阅读时长：6分钟
-</div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="一、传统使用配置模式"><a href="#一、传统使用配置模式" class="headerlink" title="一、传统使用配置模式"></a>一、传统使用配置模式</h3><p>之前我们的开发模式为，我们将需要的配置防止在 application.properies 中，然后需要使用时通过@Value(“$(配置名)”)的方式来进行引入配置，如同下面一样 👇<br>application.properties 配置</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">coupon.user.name=test1</span></span><br><span class="line"><span class="string">coupon.user.age=1234</span></span><br></pre></td></tr></table></figure>
-<p>使用配置</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RefreshScope</span> <span class="comment">//开启Nacos配置自动刷新</span></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;coupon/coupon&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CouponController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> CouponService couponService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;coupon.user.name&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String userName;</span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;coupon.user.age&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/getvalue&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> R <span class="title">getValue</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> R.ok().put(<span class="string">&quot;name&quot;</span>, userName).put(<span class="string">&quot;age&quot;</span>, age);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>缺点</strong>：上述的缺点在于我们如果想在服务运行期间修改 application.properties，网页访问 getvalue，是不会发生修改的，因为注入是在项目启动访问时注入了，之后无法再修改，只能通过下线该服务-&gt;修改 application.properties-&gt;打包重新上线使用</p>
-<h3 id="二、Nacos-统一配置"><a href="#二、Nacos-统一配置" class="headerlink" title="二、Nacos 统一配置"></a>二、Nacos 统一配置</h3><p>如果我们该服务有很多集群，不可能每台服务都要通过以上的步骤，所以我们使用 Nacos 来同一存取我们的配置<br>优点：</p>
-<ul>
-<li>在项目运行期间可以动态修改配置</li>
-<li>当有服务集群时，可以实现修改一处，所有同集群的服务配置都发生修改</li>
-</ul>
-<p><strong>使用方式</strong><br><strong>1.引入依赖</strong></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--Nacos实现微服务配置统一管理--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-config<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h6 id="2-创建一个-bootstrap-properties"><a href="#2-创建一个-bootstrap-properties" class="headerlink" title="2. 创建一个 bootstrap.properties"></a><strong>2. 创建一个 bootstrap.properties</strong></h6><p>告诉该微服务 Nacos 配置中心地址以及该服务模块名称，这样该微服务模块才能去 Nacos 以模块名.properties 读取配置<br>bootstrap.properties</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置中心地址以及该微服务名称</span></span><br><span class="line"><span class="string">spring.cloud.nacos.config.server-addr=127.0.0.1:8848</span></span><br><span class="line"><span class="string">spring.application.name=doermail-coupon</span></span><br></pre></td></tr></table></figure>
-<p><strong>3.在 Nacos 自带的前端控制台新建一个应用名.properties 文件，写入配置</strong><br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615652533380-bcee7460-6d6f-4599-aa75-144779ab23b7.png#align=left&display=inline&height=426&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-13%2023.46.00.png&originHeight=2100&originWidth=3360&size=401474&status=done&style=none&width=682" alt="截屏2021-03-13 23.46.00.png"><br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615652545539-93613893-79f4-4224-abec-7ec217a51bad.png#align=left&display=inline&height=426&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-13%2023.46.41.png&originHeight=2100&originWidth=3360&size=475652&status=done&style=none&width=681" alt="截屏2021-03-13 23.46.41.png"><br><strong>4.项目需要引入配置的类上（不是应用启动类）添加@RefreshScope 注解表示动态获取配置以及 Value 注解</strong></p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">@RefreshScope</span> <span class="string">//开启Nacos配置自动刷新</span></span><br><span class="line"><span class="string">@RestController</span></span><br><span class="line"><span class="string">@RequestMapping(&quot;coupon/coupon&quot;)</span></span><br><span class="line"><span class="string">public</span> <span class="string">class</span> <span class="string">CouponController</span> &#123;</span><br><span class="line">    <span class="string">@Autowired</span></span><br><span class="line">    <span class="string">private</span> <span class="string">CouponService</span> <span class="string">couponService;</span></span><br><span class="line"></span><br><span class="line">    <span class="string">@Value(&quot;$</span>&#123;<span class="string">coupon.user.name</span>&#125;<span class="string">&quot;)</span></span><br><span class="line"><span class="string">    private String userName;</span></span><br><span class="line"><span class="string">    @Value(&quot;</span><span class="string">$</span>&#123;<span class="string">coupon.user.age</span>&#125;<span class="string">&quot;)</span></span><br><span class="line"><span class="string">    private int age;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    @RequestMapping(&quot;</span><span class="string">/getvalue&quot;)</span></span><br><span class="line">    <span class="string">public</span> <span class="string">R</span> <span class="string">getValue()</span>&#123;</span><br><span class="line">        <span class="string">return</span> <span class="string">R.ok().put(&quot;name&quot;</span>, <span class="string">userName).put(&quot;age&quot;</span>, <span class="string">age);</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>5.项目启动时可以看到会从 Nacos 以应用名.properties 访问配置文件，访问 getvalue</strong><br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615652827791-1f7ff4a4-ca14-427f-8af8-db5aa4dc519c.png#align=left&display=inline&height=247&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-13%2023.46.16.png&originHeight=742&originWidth=2276&size=208293&status=done&style=none&width=759" alt="截屏2021-03-13 23.46.16.png"><br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615652680034-3b8030b8-7213-4d1d-86f0-1dcf1ca2a141.png#align=left&display=inline&height=449&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-13%2023.47.33.png&originHeight=2100&originWidth=3360&size=318938&status=done&style=none&width=718" alt="截屏2021-03-13 23.47.33.png"></p>
-<ol start="6">
-<li><strong>运行期间修改配置，动态生效</strong></li>
-</ol>
-<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615652723898-9ad217b2-5b9b-4bdc-82ad-7be785a2f570.png#align=left&display=inline&height=429&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-13%2023.46.55.png&originHeight=2100&originWidth=3360&size=441175&status=done&style=none&width=686" alt="截屏2021-03-13 23.46.55.png"><br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615652738317-086ccee8-f7b5-4d88-9370-6d347decbd30.png#align=left&display=inline&height=455&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-13%2023.47.51.png&originHeight=2100&originWidth=3360&size=430692&status=done&style=none&width=728" alt="截屏2021-03-13 23.47.51.png"><br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615652749923-6ea35f74-519b-4ad8-a14a-bd83c9ad794c.png#align=left&display=inline&height=467&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-14%2000.21.15.png&originHeight=2100&originWidth=3360&size=436220&status=done&style=none&width=747" alt="截屏2021-03-14 00.21.15.png"><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615652754640-2482b7a4-6940-4593-9501-0e835c8619b3.png#align=left&display=inline&height=471&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-14%2000.21.36.png&originHeight=2100&originWidth=3360&size=323576&status=done&style=none&width=753" alt="截屏2021-03-14 00.21.36.png"></p>
-<p>当本地有 application.properties 时，又使用了 Nacos 来统一管理配置时，这时候是 Nacos 配置优先级高于本地 application.properties，优先使用 Nacos 配置</p>
-<h3 id="三、细节"><a href="#三、细节" class="headerlink" title="三、细节"></a>三、细节</h3><p><strong>1.命名空间</strong><br>命名空间主要是为了用作配置隔离，在不同的命名空间下，可以存在相同的 Group 或 Data ID 的配置，NameSpace 主要的常用场景就是不同环境的配置的区分隔离，例如开发测试环境和生产环境的资源隔离。</p>
-<ul>
-<li>在 Nacos 创建命名空间</li>
-</ul>
-<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615714557275-44291fba-6f5a-4b16-8b64-a091fd53e172.png#align=left&display=inline&height=287&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-14%2017.35.50.png&originHeight=2100&originWidth=3360&size=461545&status=done&style=none&width=459" alt="截屏2021-03-14 17.35.50.png"><br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615714804051-60b40914-43c5-4ec9-920f-06aef8f776e6.png#align=left&display=inline&height=269&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-14%2017.39.13.png&originHeight=2100&originWidth=3360&size=454098&status=done&style=none&width=430" alt="截屏2021-03-14 17.39.13.png"></p>
-<ul>
-<li>在 bootstrap.properties 中添加需引用哪个命名空间的配置信息</li>
-</ul>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spring.cloud.nacos.config.namespace=c2d59cfd-4549-493b-b741-1cc29e9101ec</span><br></pre></td></tr></table></figure>
-<ul>
-<li>上线刷新</li>
-</ul>
-<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615714825654-e0d23f2a-2314-4f4f-aaeb-7038170c1be4.png#align=left&display=inline&height=274&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-14%2017.40.21.png&originHeight=2100&originWidth=3360&size=323636&status=done&style=none&width=438" alt="截屏2021-03-14 17.40.21.png"><br><strong>2.配置集</strong><br>一组相关或者不相关的配置项的集合称为配置集，一个配置集可能包含了数据源、线程池、日志级别等各种各样的配置项<br><strong>3.配置集 ID</strong><br>类似于配置文件名 application.properties，这里就是指应用名.properties<br><strong>4.配置分组</strong><br>默认所有的配置集都属于：DEFAULT_GROUP ，通常是根据活动来划分，例如双十一采取某个配置<img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615715480238-3c54fd6a-0b0c-4d64-a89d-8a2caf015f92.png#align=left&display=inline&height=261&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-14%2017.50.52.png&originHeight=2100&originWidth=3360&size=421456&status=done&style=none&width=418" alt="截屏2021-03-14 17.50.52.png"><br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615715533376-517595fb-fc52-4adf-8f92-870134b72ba2.png#align=left&display=inline&height=256&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-14%2017.52.10.png&originHeight=2100&originWidth=3360&size=510380&status=done&style=none&width=409" alt="截屏2021-03-14 17.52.10.png"><br>可以看到该微服务有两个配置文件，属于同一个命名空间，但是不同分组，默认微服务是使用默认分组的配置文件<br>在 bootstrap.properties 中添加如下信息，就可以使用指定分组的配置了</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">spring.cloud.nacos.config.namespace=9d4cb79e-bd03-467f-9e2f-2a7bcfe2fe55</span><br><span class="line">spring.cloud.nacos.config.group=11-11</span><br></pre></td></tr></table></figure>
-<p><strong>开发规范：每个微服务拥有自己的命名空间，使用配置分组区分环境：test、dev、prod<img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615718938039-6a1d03bf-e61b-4d59-9eab-418d2ab4f8b8.png#align=left&display=inline&height=283&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-14%2018.48.48.png&originHeight=2100&originWidth=3360&size=530210&status=done&style=none&width=452" alt="截屏2021-03-14 18.48.48.png"></strong><br>**</p>
-<h4 id="四、同时加载多个配置"><a href="#四、同时加载多个配置" class="headerlink" title="四、同时加载多个配置"></a>四、同时加载多个配置</h4><p>1）微服务任何配置信息，任何配置文件都可以放在配置中心中<br>2）只需要在 bootstrap.properties 说明加载配置中心哪些配置文件即可（指定好 group）<br>3）@Value、@ConfigurationProperties 都可以进行配置代码中的注入<br>4）配置中心有的优先 使用<br>一般随着业务不断壮大，数据源、mybatis、拦截器配置不可能都放在微服务下面的 application.yml 中，这里对不同的配置进行拆分，放置在 Nacos 中进行统一管理。</p>
-<ul>
-<li><strong>数据源：</strong>将 application.yml 中数据源在 Nacos 中抽取出来，新建 datasouce.yml</li>
-</ul>
-<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615722930478-41b168bc-e48f-4c4b-9862-aac5562966be.png#align=left&display=inline&height=313&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-14%2019.55.24.png&originHeight=2100&originWidth=3360&size=456915&status=done&style=none&width=500" alt="截屏2021-03-14 19.55.24.png"></p>
-<ul>
-<li>mybatis 配置：将 application.yml 中 mybatis 在 Nacos 中抽取出来，新建 mybatis.yml</li>
-</ul>
-<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615723044580-304873c1-1d34-4f52-95ca-94bf9e30c2aa.png#align=left&display=inline&height=313&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-14%2019.57.19.png&originHeight=2100&originWidth=3360&size=446810&status=done&style=none&width=500" alt="截屏2021-03-14 19.57.19.png"></p>
-<ul>
-<li>其他配置：例如注册中心地址、应用名</li>
-</ul>
-<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615723107596-bd23ad29-09c4-4553-8544-dd0dea90ac0e.png#align=left&display=inline&height=313&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-14%2019.58.22.png&originHeight=2100&originWidth=3360&size=458856&status=done&style=none&width=500" alt="截屏2021-03-14 19.58.22.png"><br>经过上面已经将应用的数据源配置、端口号之类的搬迁到了 Nacos 中，那么接下来本地如何引用这些配置呢？还是在<strong>bootstrap.properties</strong>中进行配置<br>通过 ext-config 属性指定，可以看到是一个 List，然后每个配置下面设置好 dataId，group 属性，以及是否采用动态配置 refresh<br>本地的 application.yml 可以完全删除，直接实现 Nacos 统一配置管理</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置中心地址以及该微服务名称</span></span><br><span class="line"><span class="string">spring.cloud.nacos.config.server-addr=127.0.0.1:8848</span></span><br><span class="line"><span class="string">spring.cloud.nacos.config.namespace=9d4cb79e-bd03-467f-9e2f-2a7bcfe2fe55</span></span><br><span class="line"><span class="string">spring.cloud.nacos.config.group=dev</span></span><br><span class="line"><span class="string">spring.application.name=doermail-coupon</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据源Nacos</span></span><br><span class="line"><span class="string">spring.cloud.nacos.config.ext-config[0].data-id=datasource.yml</span></span><br><span class="line"><span class="string">spring.cloud.nacos.config.ext-config[0].group=dev</span></span><br><span class="line"><span class="string">spring.cloud.nacos.config.ext-config[0].refresh=true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># mybatis</span></span><br><span class="line"><span class="string">spring.cloud.nacos.config.ext-config[1].data-id=mybatis.yml</span></span><br><span class="line"><span class="string">spring.cloud.nacos.config.ext-config[1].group=dev</span></span><br><span class="line"><span class="string">spring.cloud.nacos.config.ext-config[1].refresh=true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 端口号、服务注册发现地址</span></span><br><span class="line"><span class="string">spring.cloud.nacos.config.ext-config[2].data-id=other.yml</span></span><br><span class="line"><span class="string">spring.cloud.nacos.config.ext-config[2].group=dev</span></span><br><span class="line"><span class="string">spring.cloud.nacos.config.ext-config[2].refresh=true</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615723288660-31f1f070-3ddf-4bfe-a72b-7b864bb540ee.png#align=left&display=inline&height=62&margin=%5Bobject%20Object%5D&name=image.png&originHeight=124&originWidth=1478&size=19779&status=done&style=none&width=739" alt="image.png"><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615723303757-c1186f25-351a-41ed-bd15-9c6475788768.png#align=left&display=inline&height=142&margin=%5Bobject%20Object%5D&name=image.png&originHeight=284&originWidth=1312&size=34676&status=done&style=none&width=656" alt="image.png"></p>
-
-      
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/uncategorized/yuque/Nacos%EF%BC%9A%E5%A6%82%E4%BD%95%E7%BB%9F%E4%B8%80%E9%85%8D%E7%BD%AE%EF%BC%88%E4%B8%8B%EF%BC%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-yuque/Nacos：如何调用其他微服务（中）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/uncategorized/yuque/Nacos%EF%BC%9A%E5%A6%82%E4%BD%95%E8%B0%83%E7%94%A8%E5%85%B6%E4%BB%96%E5%BE%AE%E6%9C%8D%E5%8A%A1%EF%BC%88%E4%B8%AD%EF%BC%89/">Nacos：如何调用其他微服务（中）</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/uncategorized/yuque/Nacos%EF%BC%9A%E5%A6%82%E4%BD%95%E8%B0%83%E7%94%A8%E5%85%B6%E4%BB%96%E5%BE%AE%E6%9C%8D%E5%8A%A1%EF%BC%88%E4%B8%AD%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2021-03-13T14:14:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-13</time>
-</a>
-        
-      </header>
-    
-    <div align="center" class="post-count">
-    字数：797字 | 预计阅读时长：3分钟
-</div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>上节我们将微服务模块注册到了注册中心 Nacos 中，接下来就是如何实现微服务模块之间接口的调用。<br>这里我们使用 SpringCloud-Alibaba 提供的 OpenFeign 进行微服务模块之间调用，如果微服务 A 需要调用微服务模块 B 的接口 1，那么我们如何实现呢？</p>
-<p>首先介绍一下原理：微服务 A、微服务 B 相互调用，前提是两个微服务都已经注册到注册中心 Nacos 中。然后微服务模块 A1 需要调用微服务 B 时，就去注册中心查看健康可用微服务模块 B 的地址，然后通过 Nacos 返回一个健康可用的微服务模块 B1 的地址给微服务模块 A1，然后微服务模块通过利用 OpenFeign 向从 Nacos 中获得的地址发送<strong>HTTP 请求</strong>给微服务模块 B1 的接口 1，然后微服务 A1 调用微服务 B1 的接口 1 完成了。<br><img src="https://cdn.nlark.com/yuque/0/2021/jpeg/2648023/1615645734755-1b3246df-3e91-474b-b901-bd58ac654797.jpeg"></p>
-<p>上面介绍了后面的一些原理后，现在我们实现微服务 A 调用微服务 B 的功能，这里以用户服务调用优惠券服务查看该用户的优惠券为例。</p>
-<ol>
-<li>首先两个模块都要注册到注册中心中，上节已经实现</li>
-<li>优惠券服务模块编写被调用接口</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;coupon/coupon&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CouponController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> CouponService couponService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping(value=&quot;/member/list&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> R <span class="title">membercoupons</span><span class="params">()</span></span>&#123;</span><br><span class="line">        CouponEntity couponEntity = <span class="keyword">new</span> CouponEntity();</span><br><span class="line">        couponEntity.setCouponName(<span class="string">&quot;满100减10&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> R.ok().put(<span class="string">&quot;coupons&quot;</span>, Arrays.asList(couponEntity));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>用户服务模块引入 OpenFeign 依赖</li>
-</ol>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-openfeign<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li><p>用户模块编写一个对应优惠券服务的声明式远程调用接口，指明需要调用微服务的名称以及调用该服务的哪个接口</p>
-<p>OpenFeign 通过声明式远程调用接口来实现调用服务，这样微服务 A 通过该接口就可以实现无感调用</p>
-</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.lookstarry.doermail.member.feign;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.lookstarry.common.utils.R;</span><br><span class="line"><span class="keyword">import</span> org.springframework.cloud.openfeign.FeignClient;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@PackageName</span>:com.lookstarry.doermail.member.feign</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@NAME</span>:CouponFeignService</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span>:</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: yizhichangyuan</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span>:2021/3/13 21:46</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 这是一个声明式的远程调用，指明调用注册中心的那个服务的那个接口方法</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@FeignClient(&quot;doermail-coupon&quot;)</span> <span class="comment">//调用的微服务名称</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">CouponFeignService</span> </span>&#123;</span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/coupon/coupon/member/list&quot;)</span> <span class="comment">//对应调用哪个接口</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> R <span class="title">membercoupons</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ol start="5">
-<li>用户服务模块需要加上 EnableFeignClients 开启远程调用功能，指明自己哪个包是远程调用模块</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.lookstarry.doermail.member;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.SpringApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.cloud.client.discovery.EnableDiscoveryClient;</span><br><span class="line"><span class="keyword">import</span> org.springframework.cloud.openfeign.EnableFeignClients;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 1、调用远程调用别人的服务</span></span><br><span class="line"><span class="comment"> * 1）、引入open-feign</span></span><br><span class="line"><span class="comment"> * 2)、编写一个接口，告诉springCloud这个接口需要调用远程服务</span></span><br><span class="line"><span class="comment"> *  1、声明接口的每一个方法都是调用哪个远程服务的哪个请求</span></span><br><span class="line"><span class="comment"> * 3）、开启远程调用功能</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@EnableFeignClients(basePackages = &quot;com.lookstarry.doermail.member.feign&quot;)</span></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableDiscoveryClient</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DoermailMemberApplication</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(DoermailMemberApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/uncategorized/yuque/Nacos%EF%BC%9A%E5%A6%82%E4%BD%95%E8%B0%83%E7%94%A8%E5%85%B6%E4%BB%96%E5%BE%AE%E6%9C%8D%E5%8A%A1%EF%BC%88%E4%B8%AD%EF%BC%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-yuque/引入SpringCloud-Nacos后出现如下错误" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/uncategorized/yuque/%E5%BC%95%E5%85%A5SpringCloud-Nacos%E5%90%8E%E5%87%BA%E7%8E%B0%E5%A6%82%E4%B8%8B%E9%94%99%E8%AF%AF/">引入SpringCloud-Nacos后出现如下错误</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/uncategorized/yuque/%E5%BC%95%E5%85%A5SpringCloud-Nacos%E5%90%8E%E5%87%BA%E7%8E%B0%E5%A6%82%E4%B8%8B%E9%94%99%E8%AF%AF/" class="archive-article-date">
-  	<time datetime="2021-03-13T09:27:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-13</time>
-</a>
-        
-      </header>
-    
-    <div align="center" class="post-count">
-    字数：158字 | 预计阅读时长：1分钟
-</div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>引入 SpringCloud-Nacos 启动项目启动类后，出现如下错误<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615627657531-31972978-5ad1-47cc-9b02-fa897be90b06.png#align=left&display=inline&height=222&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-13%2017.27.19.png&originHeight=222&originWidth=1740&size=64087&status=done&style=none&width=1740" alt="截屏2021-03-13 17.27.19.png"><br>原因在于微服务模块中&lt;spring-cloud.version&gt;2020.0.0&lt;/spring-cloud.version&gt;就是这个引起的，新的 cloud 定义方式升级了原来的包，要么更新 springboot 的包到 2.5 以后，要么就把 spring-cloud 的包改回原来伦敦地铁命名方式<br>解决方案：将微服务模块中的 spring-cloud.version 有 2020.0.0 改为如下即可</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">java.version</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">java.version</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">spring-cloud.version</span>&gt;</span>Greenwich.SR3<span class="tag">&lt;/<span class="name">spring-cloud.version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/shuttle33/article/details/112258314">https://blog.csdn.net/shuttle33/article/details/112258314</a></p>
-
-      
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/uncategorized/yuque/%E5%BC%95%E5%85%A5SpringCloud-Nacos%E5%90%8E%E5%87%BA%E7%8E%B0%E5%A6%82%E4%B8%8B%E9%94%99%E8%AF%AF/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
   
     <article id="post-yuque/Nacos：如何注册服务（上）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -586,6 +309,242 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/uncategorized/yuque/docker%E5%AE%B9%E5%99%A8%E8%87%AA%E5%90%AF%E5%8A%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-yuque/github免密" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/uncategorized/yuque/github%E5%85%8D%E5%AF%86/">github免密</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/uncategorized/yuque/github%E5%85%8D%E5%AF%86/" class="archive-article-date">
+  	<time datetime="2021-03-11T14:48:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-11</time>
+</a>
+        
+      </header>
+    
+    <div align="center" class="post-count">
+    字数：63字 | 预计阅读时长：1分钟
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#生成秘钥</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">&#x27;695999620@qq.com&#x27;</span></span><br><span class="line"><span class="comment"># 查看秘钥，将生成秘钥在github -&gt; setting -&gt; ssh and GPG keys中完成填写</span></span><br><span class="line">cat ~/.ssh/id_rsa.pub</span><br><span class="line"><span class="comment"># 测试</span></span><br><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<p>参考：<a target="_blank" rel="noopener" href="https://docs.github.com/cn/github/authenticating-to-github/testing-your-ssh-connection">https://docs.github.com/cn/github/authenticating-to-github/testing-your-ssh-connection</a></p>
+
+      
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/uncategorized/yuque/github%E5%85%8D%E5%AF%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-yuque/本地navicat如何连接centos虚拟机下docker内mysql容器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/uncategorized/yuque/%E6%9C%AC%E5%9C%B0navicat%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5centos%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8Bdocker%E5%86%85mysql%E5%AE%B9%E5%99%A8/">本地navicat如何连接centos虚拟机下docker内mysql容器</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/uncategorized/yuque/%E6%9C%AC%E5%9C%B0navicat%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5centos%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8Bdocker%E5%86%85mysql%E5%AE%B9%E5%99%A8/" class="archive-article-date">
+  	<time datetime="2021-03-11T12:55:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-11</time>
+</a>
+        
+      </header>
+    
+    <div align="center" class="post-count">
+    字数：392字 | 预计阅读时长：1分钟
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>首先确保宿主机能够 ping 同 centos 虚拟机</li>
+<li>centos 虚拟机需要开放 mysql 容器创建时指定的 centos 映射端口 3306，类似腾讯云中的安全组来开放</li>
+</ol>
+<p>查看 centos 中是否安装 iptables 防火墙，如果没有进行安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/etc/sysconfig/iptables不存在，就是没有安装iptables防火墙</span><br><span class="line">可以通过以下命令安装iptables防火墙</span><br><span class="line">systemctl stop firewalld</span><br><span class="line">systemctl mask firewalld</span><br><span class="line">yum install iptables-services</span><br><span class="line">service iptables status</span><br><span class="line">//设置开机启动</span><br><span class="line">systemctl <span class="built_in">enable</span> iptables</span><br><span class="line">之后你就能找到/etc/sysconfig/iptables文件</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>编辑 iptables 文件</li>
+</ol>
+<p>文件内容长这样</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sample configuration for iptables service</span></span><br><span class="line"><span class="comment"># you can edit this manually or use system-config-firewall</span></span><br><span class="line"><span class="comment"># please do not ask us to add additional ports/services to this default configuration</span></span><br><span class="line">*filter</span><br><span class="line">:INPUT ACCEPT [0:0]</span><br><span class="line">:FORWARD ACCEPT [0:0]</span><br><span class="line">:OUTPUT ACCEPT [0:0]</span><br><span class="line">-A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT</span><br><span class="line">-A INPUT -p icmp -j ACCEPT</span><br><span class="line">-A INPUT -i lo -j ACCEPT</span><br><span class="line">-A INPUT -p tcp -m state --state NEW -m tcp --dport 22 -j ACCEPT</span><br><span class="line">-A INPUT -j REJECT --reject-with icmp-host-prohibited</span><br><span class="line">-A FORWARD -j REJECT --reject-with icmp-host-prohibited</span><br><span class="line">COMMIT</span><br></pre></td></tr></table></figure>
+<p>在开放的 22 端口下面添加上这一行，来开放 3306 端口<br>注意这里自己编写容易出错，这里直接复制 22 端口那一行，然后修改 22 为 3306 即可，否则</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-A INPUT -p tcp -m state --state NEW -m tcp --dport 3306 -j ACCEPT</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启防火墙</span></span><br><span class="line">service iptables restart</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>这时候 navicat 还是不能访问，因为我们创建的 root 用户访问只能 locahost</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入mysql容器</span></span><br><span class="line">docker <span class="built_in">exec</span> -it mysql /bin/bash</span><br><span class="line">mydql -uroot -pmake1234</span><br><span class="line">update user <span class="built_in">set</span> host = <span class="string">&#x27;%&#x27;</span> <span class="built_in">where</span> user = <span class="string">&#x27;root&#x27;</span>; <span class="comment"># 修改为任何主机都可以root远程连接</span></span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615471359760-f3290f17-7c8c-4de4-ab86-e606b0d1f30e.png#align=left&display=inline&height=1548&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-11%2022.02.28.png&originHeight=1548&originWidth=1664&size=718198&status=done&style=none&width=1664" alt="截屏2021-03-11 22.02.28.png"></p>
+<p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/szu_Vegetable_Bird/article/details/80216201">https://blog.csdn.net/szu_Vegetable_Bird/article/details/80216201</a></p>
+
+      
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/uncategorized/yuque/%E6%9C%AC%E5%9C%B0navicat%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5centos%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8Bdocker%E5%86%85mysql%E5%AE%B9%E5%99%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-yuque/docker新建redis容器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/uncategorized/yuque/docker%E6%96%B0%E5%BB%BAredis%E5%AE%B9%E5%99%A8/">docker新建redis容器</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/uncategorized/yuque/docker%E6%96%B0%E5%BB%BAredis%E5%AE%B9%E5%99%A8/" class="archive-article-date">
+  	<time datetime="2021-03-11T12:06:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-11</time>
+</a>
+        
+      </header>
+    
+    <div align="center" class="post-count">
+    字数：478字 | 预计阅读时长：2分钟
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1-创建挂在目录文件"><a href="#1-创建挂在目录文件" class="headerlink" title="1. 创建挂在目录文件"></a>1. 创建挂在目录文件</h4><p>预先创建好 redis.conf 文件<br>cd /mydata<br>mkdir -p redis/conf<br>cd redis/conf<br>touch redis.conf<br>后面的 redis-server /etc/redis/redis.conf 为 redis 的启动命令</p>
+<h4 id="2-创建容器"><a href="#2-创建容器" class="headerlink" title="2. 创建容器"></a>2. 创建容器</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 6379:6379 --name redis -v /mydata/redis/data:/data -v /mydata/redis/conf/redis.conf:/etc/redis/redis.conf -d redis redis-server /etc/redis/redis.conf</span><br></pre></td></tr></table></figure>
+<h4 id="3-使用-redis-容器利用-redis-cli-连接，而不是使用控制台-bin-bash"><a href="#3-使用-redis-容器利用-redis-cli-连接，而不是使用控制台-bin-bash" class="headerlink" title="3. 使用 redis 容器利用 redis-cli 连接，而不是使用控制台/bin/bash"></a>3. 使用 redis 容器利用 redis-cli 连接，而不是使用控制台/bin/bash</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it redis redis-cli</span><br><span class="line">127.0.0.1:6379&gt; ping</span><br><span class="line">PONG</span><br><span class="line">127.0.0.1:6379&gt; <span class="built_in">set</span> a <span class="string">&#x27;test&#x27;</span></span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; get a</span><br><span class="line"><span class="string">&quot;test&quot;</span></span><br></pre></td></tr></table></figure>
+<h4 id="4-redis-持久化"><a href="#4-redis-持久化" class="headerlink" title="4.redis 持久化"></a>4.redis 持久化</h4><p>由于 redis 是使用内存存储，如果上述第三步之后重启 redis 容器，就 get 不到 a 的值了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@CentOS1 conf]<span class="comment"># docker exec -it redis redis-cli</span></span><br><span class="line">127.0.0.1:6379&gt; get a</span><br><span class="line">(nil)</span><br><span class="line">127.0.0.1:6379&gt;</span><br></pre></td></tr></table></figure>
+<p>上面我们把 redis 的配置文件挂载到了容器外，这时候起到了作用<br>我们修改 redis.conf 文件，输入一下，保存即可（简写就是 Redis 中的 AOF 持久化方式，Redis 持久化分为 RDD 和 AOF，前者是写数据到磁盘，后者是记录操作到操作日志）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">appendonly yes</span><br></pre></td></tr></table></figure>
+<h4 id="5-测试是否持久化"><a href="#5-测试是否持久化" class="headerlink" title="5. 测试是否持久化"></a>5. 测试是否持久化</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[root@CentOS1 conf]<span class="comment"># docker restart redis</span></span><br><span class="line">redis</span><br><span class="line">[root@CentOS1 conf]<span class="comment"># docker exec -it redis redis-cli</span></span><br><span class="line">127.0.0.1:6379&gt; ping</span><br><span class="line">PONG</span><br><span class="line">127.0.0.1:6379&gt; get a</span><br><span class="line">(nil)</span><br><span class="line">127.0.0.1:6379&gt; <span class="built_in">set</span> a <span class="string">&#x27;test&#x27;</span></span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; get a</span><br><span class="line"><span class="string">&quot;test&quot;</span></span><br><span class="line">127.0.0.1:6379&gt; <span class="built_in">exit</span>;</span><br><span class="line">(error) ERR unknown <span class="built_in">command</span> `<span class="built_in">exit</span>;`, with args beginning with:</span><br><span class="line">127.0.0.1:6379&gt; <span class="built_in">exit</span></span><br><span class="line">[root@CentOS1 conf]<span class="comment"># docker restart redis</span></span><br><span class="line">redis</span><br><span class="line">[root@CentOS1 conf]<span class="comment"># docker exec -it redis redis-cli</span></span><br><span class="line">127.0.0.1:6379&gt; get a</span><br><span class="line"><span class="string">&quot;test&quot;</span></span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>redis desktop 工具连接 redis</li>
+</ol>
+<p>首先需要在 centos 中防火墙中开放容器映射到主机的端口 6379（就是-p 前面的是 centos 虚拟机端口，后面为容器端口）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-A INPUT -p tcp -m state --state NEW -m tcp --dport 6379 -j ACCEPT</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615471896587-280f931f-8b66-4a95-9032-c745b8ed5373.png#align=left&display=inline&height=303&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-11%2022.11.28.png&originHeight=1528&originWidth=1624&size=449226&status=done&style=none&width=322" alt="截屏2021-03-11 22.11.28.png"><br>redis 官方 redis.conf 配置文档 -》 <a target="_blank" rel="noopener" href="https://redis.io/topics/config">https://redis.io/topics/config</a> -》<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/redis/redis/6.0/redis.conf">https://raw.githubusercontent.com/redis/redis/6.0/redis.conf</a></p>
+
+      
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/uncategorized/yuque/docker%E6%96%B0%E5%BB%BAredis%E5%AE%B9%E5%99%A8/">展开全文 >></a>
         </p>
       
 

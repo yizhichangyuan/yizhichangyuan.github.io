@@ -65,7 +65,7 @@
 			</ul>
 		</nav>
 		<nav>
-			<p>总文章数：35</p>
+			<p>总文章数：32</p>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -156,242 +156,6 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-    <article id="post-yuque/github免密" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/uncategorized/yuque/github%E5%85%8D%E5%AF%86/">github免密</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/uncategorized/yuque/github%E5%85%8D%E5%AF%86/" class="archive-article-date">
-  	<time datetime="2021-03-11T14:48:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-11</time>
-</a>
-        
-      </header>
-    
-    <div align="center" class="post-count">
-    字数：63字 | 预计阅读时长：1分钟
-</div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#生成秘钥</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">&#x27;695999620@qq.com&#x27;</span></span><br><span class="line"><span class="comment"># 查看秘钥，将生成秘钥在github -&gt; setting -&gt; ssh and GPG keys中完成填写</span></span><br><span class="line">cat ~/.ssh/id_rsa.pub</span><br><span class="line"><span class="comment"># 测试</span></span><br><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-<p>参考：<a target="_blank" rel="noopener" href="https://docs.github.com/cn/github/authenticating-to-github/testing-your-ssh-connection">https://docs.github.com/cn/github/authenticating-to-github/testing-your-ssh-connection</a></p>
-
-      
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/uncategorized/yuque/github%E5%85%8D%E5%AF%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-yuque/本地navicat如何连接centos虚拟机下docker内mysql容器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/uncategorized/yuque/%E6%9C%AC%E5%9C%B0navicat%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5centos%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8Bdocker%E5%86%85mysql%E5%AE%B9%E5%99%A8/">本地navicat如何连接centos虚拟机下docker内mysql容器</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/uncategorized/yuque/%E6%9C%AC%E5%9C%B0navicat%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5centos%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8Bdocker%E5%86%85mysql%E5%AE%B9%E5%99%A8/" class="archive-article-date">
-  	<time datetime="2021-03-11T12:55:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-11</time>
-</a>
-        
-      </header>
-    
-    <div align="center" class="post-count">
-    字数：392字 | 预计阅读时长：1分钟
-</div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li>首先确保宿主机能够 ping 同 centos 虚拟机</li>
-<li>centos 虚拟机需要开放 mysql 容器创建时指定的 centos 映射端口 3306，类似腾讯云中的安全组来开放</li>
-</ol>
-<p>查看 centos 中是否安装 iptables 防火墙，如果没有进行安装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/etc/sysconfig/iptables不存在，就是没有安装iptables防火墙</span><br><span class="line">可以通过以下命令安装iptables防火墙</span><br><span class="line">systemctl stop firewalld</span><br><span class="line">systemctl mask firewalld</span><br><span class="line">yum install iptables-services</span><br><span class="line">service iptables status</span><br><span class="line">//设置开机启动</span><br><span class="line">systemctl <span class="built_in">enable</span> iptables</span><br><span class="line">之后你就能找到/etc/sysconfig/iptables文件</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>编辑 iptables 文件</li>
-</ol>
-<p>文件内容长这样</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sample configuration for iptables service</span></span><br><span class="line"><span class="comment"># you can edit this manually or use system-config-firewall</span></span><br><span class="line"><span class="comment"># please do not ask us to add additional ports/services to this default configuration</span></span><br><span class="line">*filter</span><br><span class="line">:INPUT ACCEPT [0:0]</span><br><span class="line">:FORWARD ACCEPT [0:0]</span><br><span class="line">:OUTPUT ACCEPT [0:0]</span><br><span class="line">-A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT</span><br><span class="line">-A INPUT -p icmp -j ACCEPT</span><br><span class="line">-A INPUT -i lo -j ACCEPT</span><br><span class="line">-A INPUT -p tcp -m state --state NEW -m tcp --dport 22 -j ACCEPT</span><br><span class="line">-A INPUT -j REJECT --reject-with icmp-host-prohibited</span><br><span class="line">-A FORWARD -j REJECT --reject-with icmp-host-prohibited</span><br><span class="line">COMMIT</span><br></pre></td></tr></table></figure>
-<p>在开放的 22 端口下面添加上这一行，来开放 3306 端口<br>注意这里自己编写容易出错，这里直接复制 22 端口那一行，然后修改 22 为 3306 即可，否则</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-A INPUT -p tcp -m state --state NEW -m tcp --dport 3306 -j ACCEPT</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启防火墙</span></span><br><span class="line">service iptables restart</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>这时候 navicat 还是不能访问，因为我们创建的 root 用户访问只能 locahost</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 进入mysql容器</span></span><br><span class="line">docker <span class="built_in">exec</span> -it mysql /bin/bash</span><br><span class="line">mydql -uroot -pmake1234</span><br><span class="line">update user <span class="built_in">set</span> host = <span class="string">&#x27;%&#x27;</span> <span class="built_in">where</span> user = <span class="string">&#x27;root&#x27;</span>; <span class="comment"># 修改为任何主机都可以root远程连接</span></span><br><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
-<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615471359760-f3290f17-7c8c-4de4-ab86-e606b0d1f30e.png#align=left&display=inline&height=1548&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-11%2022.02.28.png&originHeight=1548&originWidth=1664&size=718198&status=done&style=none&width=1664" alt="截屏2021-03-11 22.02.28.png"></p>
-<p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/szu_Vegetable_Bird/article/details/80216201">https://blog.csdn.net/szu_Vegetable_Bird/article/details/80216201</a></p>
-
-      
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/uncategorized/yuque/%E6%9C%AC%E5%9C%B0navicat%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5centos%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8Bdocker%E5%86%85mysql%E5%AE%B9%E5%99%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-yuque/docker新建redis容器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/uncategorized/yuque/docker%E6%96%B0%E5%BB%BAredis%E5%AE%B9%E5%99%A8/">docker新建redis容器</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/uncategorized/yuque/docker%E6%96%B0%E5%BB%BAredis%E5%AE%B9%E5%99%A8/" class="archive-article-date">
-  	<time datetime="2021-03-11T12:06:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-11</time>
-</a>
-        
-      </header>
-    
-    <div align="center" class="post-count">
-    字数：478字 | 预计阅读时长：2分钟
-</div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="1-创建挂在目录文件"><a href="#1-创建挂在目录文件" class="headerlink" title="1. 创建挂在目录文件"></a>1. 创建挂在目录文件</h4><p>预先创建好 redis.conf 文件<br>cd /mydata<br>mkdir -p redis/conf<br>cd redis/conf<br>touch redis.conf<br>后面的 redis-server /etc/redis/redis.conf 为 redis 的启动命令</p>
-<h4 id="2-创建容器"><a href="#2-创建容器" class="headerlink" title="2. 创建容器"></a>2. 创建容器</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 6379:6379 --name redis -v /mydata/redis/data:/data -v /mydata/redis/conf/redis.conf:/etc/redis/redis.conf -d redis redis-server /etc/redis/redis.conf</span><br></pre></td></tr></table></figure>
-<h4 id="3-使用-redis-容器利用-redis-cli-连接，而不是使用控制台-bin-bash"><a href="#3-使用-redis-容器利用-redis-cli-连接，而不是使用控制台-bin-bash" class="headerlink" title="3. 使用 redis 容器利用 redis-cli 连接，而不是使用控制台/bin/bash"></a>3. 使用 redis 容器利用 redis-cli 连接，而不是使用控制台/bin/bash</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it redis redis-cli</span><br><span class="line">127.0.0.1:6379&gt; ping</span><br><span class="line">PONG</span><br><span class="line">127.0.0.1:6379&gt; <span class="built_in">set</span> a <span class="string">&#x27;test&#x27;</span></span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; get a</span><br><span class="line"><span class="string">&quot;test&quot;</span></span><br></pre></td></tr></table></figure>
-<h4 id="4-redis-持久化"><a href="#4-redis-持久化" class="headerlink" title="4.redis 持久化"></a>4.redis 持久化</h4><p>由于 redis 是使用内存存储，如果上述第三步之后重启 redis 容器，就 get 不到 a 的值了</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@CentOS1 conf]<span class="comment"># docker exec -it redis redis-cli</span></span><br><span class="line">127.0.0.1:6379&gt; get a</span><br><span class="line">(nil)</span><br><span class="line">127.0.0.1:6379&gt;</span><br></pre></td></tr></table></figure>
-<p>上面我们把 redis 的配置文件挂载到了容器外，这时候起到了作用<br>我们修改 redis.conf 文件，输入一下，保存即可（简写就是 Redis 中的 AOF 持久化方式，Redis 持久化分为 RDD 和 AOF，前者是写数据到磁盘，后者是记录操作到操作日志）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">appendonly yes</span><br></pre></td></tr></table></figure>
-<h4 id="5-测试是否持久化"><a href="#5-测试是否持久化" class="headerlink" title="5. 测试是否持久化"></a>5. 测试是否持久化</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[root@CentOS1 conf]<span class="comment"># docker restart redis</span></span><br><span class="line">redis</span><br><span class="line">[root@CentOS1 conf]<span class="comment"># docker exec -it redis redis-cli</span></span><br><span class="line">127.0.0.1:6379&gt; ping</span><br><span class="line">PONG</span><br><span class="line">127.0.0.1:6379&gt; get a</span><br><span class="line">(nil)</span><br><span class="line">127.0.0.1:6379&gt; <span class="built_in">set</span> a <span class="string">&#x27;test&#x27;</span></span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; get a</span><br><span class="line"><span class="string">&quot;test&quot;</span></span><br><span class="line">127.0.0.1:6379&gt; <span class="built_in">exit</span>;</span><br><span class="line">(error) ERR unknown <span class="built_in">command</span> `<span class="built_in">exit</span>;`, with args beginning with:</span><br><span class="line">127.0.0.1:6379&gt; <span class="built_in">exit</span></span><br><span class="line">[root@CentOS1 conf]<span class="comment"># docker restart redis</span></span><br><span class="line">redis</span><br><span class="line">[root@CentOS1 conf]<span class="comment"># docker exec -it redis redis-cli</span></span><br><span class="line">127.0.0.1:6379&gt; get a</span><br><span class="line"><span class="string">&quot;test&quot;</span></span><br></pre></td></tr></table></figure>
-<ol start="6">
-<li>redis desktop 工具连接 redis</li>
-</ol>
-<p>首先需要在 centos 中防火墙中开放容器映射到主机的端口 6379（就是-p 前面的是 centos 虚拟机端口，后面为容器端口）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-A INPUT -p tcp -m state --state NEW -m tcp --dport 6379 -j ACCEPT</span><br></pre></td></tr></table></figure>
-<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615471896587-280f931f-8b66-4a95-9032-c745b8ed5373.png#align=left&display=inline&height=303&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-11%2022.11.28.png&originHeight=1528&originWidth=1624&size=449226&status=done&style=none&width=322" alt="截屏2021-03-11 22.11.28.png"><br>redis 官方 redis.conf 配置文档 -》 <a target="_blank" rel="noopener" href="https://redis.io/topics/config">https://redis.io/topics/config</a> -》<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/redis/redis/6.0/redis.conf">https://raw.githubusercontent.com/redis/redis/6.0/redis.conf</a></p>
-
-      
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/uncategorized/yuque/docker%E6%96%B0%E5%BB%BAredis%E5%AE%B9%E5%99%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
   
     <article id="post-yuque/docker创建mysql后，显示daemon is not running" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -508,6 +272,249 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/uncategorized/yuque/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E5%9B%BE/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-yuque/分布式基础概念" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/uncategorized/yuque/%E5%88%86%E5%B8%83%E5%BC%8F%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/">分布式基础概念</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/uncategorized/yuque/%E5%88%86%E5%B8%83%E5%BC%8F%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/" class="archive-article-date">
+  	<time datetime="2021-03-01T06:58:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-01</time>
+</a>
+        
+      </header>
+    
+    <div align="center" class="post-count">
+    字数：1.2k字 | 预计阅读时长：3分钟
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>微服务：拒绝大型单体引用，基于业务边界进行服务微化拆分，各个服务独立部署运行，,每个服务之间相互调用<br>例如：订单服务 -》商品服务 -》仓库服务</p>
+<p>集群<br>例如：京东就是一个分布式系统，众多业务运行在不同的机器上，所有业务构成了一个大型的业务集群。<br>集群是一个物理形态，分布式是一个工作方式<br>分布式的每一个结点，都可以做集群，而集群并不一定就是分布式的<br>结点：集群中的一个服务器</p>
+<p>远程调用：<br>在分布式系统中，各个服务会处于不同主机，但是服务之间不可避免的会产生相互调用，我们称之为远程调用。SpringCloud 中使用 HTTP + JSON 的方式完成调用</p>
+<p>负载均衡：<br>订单服务需要查询商品服务，如果商品服务有很多的结点，为了不让商品服务每个服务器太忙或者太闲，通过负载均衡的调用每一个服务器，提高网站的健壮性。<br>常见负载均衡算法：<br>轮询：为第一个请求选择健康池中的第一个服务器，然后按照顺序依次往后进行选择<br>最小连接：选择连接最少的后端服务器，在会话比较长的时候可以采取考虑此种方式<br>散列：通过请求源的 IP 地址的 hash 来选择对应的服务器</p>
+<p>服务注册/发现<br>A 服务有三台机器，A 服务被 B 服务调用，A 服务三台机器需要去注册中心进行注册，B 服务调用并不知道 A 服务有哪几台可用，这时就去注册中心询问 A 服务有几台可用。<br>注册中心：维护哪些服务在哪些机器</p>
+<p>配置中心：<br>每个服务都有很多的配置，例如 A 服务有服务配置，A 服务运行在三台机器上，如果服务配置发生修改，此时就需要对这三台服务同时进行下线然后逐个修改，如果服务器数量过多，这样肯定是不行的。这时候就引入了配置中心，A 服务配置发生修改，我们只需要修改配置中心 A 服务的配置，A 服务的三台机器都会自动获得修改的值，实现改一处配置即可更新所有机器的配置</p>
+<p>服务熔断&amp;服务降级<br>在服务相互调用过程中，例如商品服务查询仓库服务是否有库存时，如果网络不可靠或者仓库服务宕机了，商品服务源源不断接收到上层的请求，商品服务就会阻塞等待，就会导致<strong>请求积压</strong>，过多请求阻塞会导致商品<strong>服务内存耗尽</strong>，商品服务不可用了，上层的订单服务也会导致请求积压也会发生连锁反应，这就是雪崩现象，由于一个服务的不可用导致整个上游服务调用链均不可用<br>解决办法：</p>
+<ul>
+<li>服务熔断：设置服务的超时，如果被调用的服务达到一个阈值，就开启短路保护机制，后来的请求就不会调用下游的服务，直接本地返回默认的数据或者 NULL</li>
+<li>服务降级：系统处于高峰期是，系统资源紧张，这是可以让非核心业务降级运行，让某些服务不处理请求或者处理简单【抛异常、返回 NULL、调用 Mock 数据、调用 Faaback 处理逻辑】</li>
+</ul>
+<p>API 网关<br>前端发送的请求都是 HTTP 的形式，这个 HTTP 请求不会直接流向后端的服务集群，而是先通过 API 网关，比如对所有请求进行验证哪些合法哪些非法，非法的请求就拦截不放行到后端的业务集群，API 网关抽象了微服务中都需要的公共功能，同时提供了客户端负载均衡、服务自动熔断、灰度发布、限流流控、日志统计等功能。通过 API 网关的请求后端服务群才进行处理，当大量请求时，网关还有以一定恒定的速率对请求进行放行，防止后端服务集群收到瞬时过大的请求将后端服务集群压垮，可以帮助我们解决很多 API 管理难题。</p>
+
+      
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/uncategorized/yuque/%E5%88%86%E5%B8%83%E5%BC%8F%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-yuque/分布式架构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/uncategorized/yuque/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/">分布式架构</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/uncategorized/yuque/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/" class="archive-article-date">
+  	<time datetime="2021-03-01T06:55:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-01</time>
+</a>
+        
+      </header>
+    
+    <div align="center" class="post-count">
+    字数：0字 | 预计阅读时长：1分钟
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/uncategorized/yuque/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-Redis使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/Spring/Redis%E4%BD%BF%E7%94%A8/">Redis使用</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/Spring/Redis%E4%BD%BF%E7%94%A8/" class="archive-article-date">
+  	<time datetime="2021-02-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-25</time>
+</a>
+        
+      </header>
+    
+    <div align="center" class="post-count">
+    字数：7.3k字 | 预计阅读时长：35分钟
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>redis是一个key-value型存储系统，支持的value类型比较丰富，支持String、List、集合set（没有顺序，元素唯一）、有序集合Zset，都支持push、pop、add、remove、交并集等操作，这些操作都是原子性的，调用redis的操作不用考虑多进程之间的并发问题。在此基础上，redis支持各种方式的排序，为了保证效率，数据都是缓存在内存中的，区别在于：redis会周期性的把更新的数据写到磁盘或者修改操作追加的记录文件中，前者就是默认的RDD模式，就是把数据写到临时文件中，持久化结束后，把临时文件替换为上次持久化的文件，达到数据恢复的目的，优点在于：使用单独子进程进行持久化，主进程不会进行任何IO操作，保证了redis的高效性能，缺点在于RDD是间隔一段时间进行持久化，如果持久化间隔期间，redis发生故障，那么这个持久化就不会更新到磁盘中，就会发生数据的丢失。</p></blockquote>
+        
+      
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+<div class="article-tag tagcloud">
+	<i class="icon-price-tags icon"></i>
+	<ul class="article-tag-list">
+		
+		
+		<li class="article-tag-list-item">
+			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">
+				Redis</a>
+		</li>
+		
+		
+	</ul>
+</div>
+
+      
+<div class="article-category tagcloud">
+	<i class="icon-book icon"></i>
+	<ul class="article-tag-list">
+		
+		
+		<li class="article-tag-list-item">
+			<a href="/categories/Spring//" class="article-tag-list-link color2">
+				Spring</a>
+		</li>
+		
+		
+	</ul>
+</div>
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/Spring/Redis%E4%BD%BF%E7%94%A8/">展开全文 >></a>
         </p>
       
 
