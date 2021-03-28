@@ -65,7 +65,7 @@
 			</ul>
 		</nav>
 		<nav>
-			<p>总文章数：31</p>
+			<p>总文章数：32</p>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -156,6 +156,119 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-yuque/Nacos：如何注册服务（上）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/uncategorized/yuque/Nacos%EF%BC%9A%E5%A6%82%E4%BD%95%E6%B3%A8%E5%86%8C%E6%9C%8D%E5%8A%A1%EF%BC%88%E4%B8%8A%EF%BC%89/">Nacos：如何注册服务（上）</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/uncategorized/yuque/Nacos%EF%BC%9A%E5%A6%82%E4%BD%95%E6%B3%A8%E5%86%8C%E6%9C%8D%E5%8A%A1%EF%BC%88%E4%B8%8A%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2021-03-13T08:43:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-13</time>
+</a>
+        
+      </header>
+    
+    <div align="center" class="post-count">
+    字数：1.2k字 | 预计阅读时长：5分钟
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>SpringCloud-Alibaba-Nacos 是阿里出品的一个服务发现与注册的组件，微服务需要调用其他微服务模块的服务或者微服务模块需要被其他模块调用，都需要到 Nacos 注册中心中注册该微服务模块<br><strong>如何微服务模块注册到注册中心，主要是以下几个步骤</strong></p>
+<ol>
+<li>在微服务模块引入 Nacos 的依赖</li>
+<li>启动 Nacos 服务器</li>
+<li>微服务模块设置好注册中心的接口以及该微服务模块需要注册到服务中心的名称</li>
+<li>在启动类加入  @EnableDiscoveryClient  注解表示该服务注册到 Nacos 中</li>
+</ol>
+<h3 id="一、引入-Nacos-依赖"><a href="#一、引入-Nacos-依赖" class="headerlink" title="一、引入 Nacos 依赖"></a>一、引入 Nacos 依赖</h3><p>首先需要引入 SpringCloud-Alibaba 组件包，其中就有 Nacos，由于我们每个微服务都需要将自身注册到注册中心以及发现要调用的服务地址，因此我们首先将 SpringCloud-Alibaba 组件包放置在 Common 通用模块下，然后 Common 模块引入 Nacos 依赖，然后下个每个微模块通过引用 common 模块来实现引入 Common 模块的 Nacos 依赖以及公共工具类、Bean 等<br>Common 模块–对应的 Module 为 Maven</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>doermail<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.lookstarry.doermail<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>doermail-common<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!--所有微服务共同的依赖，注意这里的dependency不能有scope标签，这样其他微服务模块好像无法引入该依赖，要去掉&lt;/scope&gt;标签--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!--Nacos微服务发现与注册--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-discovery<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">&lt;!--dependencyManagement含义表示依赖管理，</span></span><br><span class="line"><span class="comment">    以后再dependencies中引入spring-cloud-alibaba依赖不需要指定版本号--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-alibaba-dependencies<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.1.0.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">scope</span>&gt;</span>import<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>其他微服务模块如何引用 Common 模块下的依赖以及工具类呢？<br>通过在其他模块的 pom.xml 中 dependencies 中引入 Common 模块的信息</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.lookstarry.doermail<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>doermail-common<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这样其他微服务模块都能引入 Common 模块下 nacos</p>
+<h3 id="二、下载并启动-Nacos-Server"><a href="#二、下载并启动-Nacos-Server" class="headerlink" title="二、下载并启动 Nacos Server"></a>二、下载并启动 Nacos Server</h3><ol>
+<li>首先需要获取 Nacos Server，支持直接下载和源码构建两种方式。<ol>
+<li>直接下载：<a target="_blank" rel="noopener" href="https://github.com/alibaba/nacos/releases">Nacos Server 下载页</a></li>
+<li>源码构建：进入 Nacos <a target="_blank" rel="noopener" href="https://github.com/alibaba/nacos">Github 项目页面</a>，将代码 git clone 到本地自行编译打包，<a target="_blank" rel="noopener" href="https://nacos.io/zh-cn/docs/quick-start.html">参考此文档</a>。<strong>推荐使用源码构建方式以获取最新版本</strong></li>
+</ol>
+</li>
+<li>启动 Server，进入解压后文件夹或编译打包好的文件夹，找到如下相对文件夹 nacos/bin，并对照操作系统实际情况之下如下命令。<ol>
+<li>Linux/Unix/Mac 操作系统，执行命令<code>sh startup.sh -m standalone</code></li>
+<li>Windows 操作系统，执行命令 <code>cmd startup.cmd</code></li>
+</ol>
+</li>
+</ol>
+<p><code>![image.png](https://cdn.nlark.com/yuque/0/2021/png/2648023/1615625705374-a7db4ed1-7021-4e98-9eee-058ae34afd4d.png#align=left&amp;display=inline&amp;height=189&amp;margin=%5Bobject%20Object%5D&amp;name=image.png&amp;originHeight=378&amp;originWidth=2038&amp;size=121650&amp;status=done&amp;style=none&amp;width=1019)</code></p>
+<h3 id="三、微服务模块引入-Nacos-依赖"><a href="#三、微服务模块引入-Nacos-依赖" class="headerlink" title="三、微服务模块引入 Nacos 依赖"></a>三、微服务模块引入 Nacos 依赖</h3><ol>
+<li>首先，在 Common 模块修改 pom.xml 文件，引入 Nacos Discovery Starter，在第一步在 Common 模块已经引入，所以微服务模块不需要重复引入</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-discovery<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="四、微服务模块配置注册中心-Nacos-地址以及该微服务注册到注册中心的地址"><a href="#四、微服务模块配置注册中心-Nacos-地址以及该微服务注册到注册中心的地址" class="headerlink" title="四、微服务模块配置注册中心 Nacos 地址以及该微服务注册到注册中心的地址"></a>四、微服务模块配置注册中心 Nacos 地址以及该微服务注册到注册中心的地址</h3><ol>
+<li>在微服务应用的 /src/main/resources/application.properties 配置文件中配置 Nacos Server 地址，</li>
+</ol>
+<p>此外还需要配置注册服务的名称，否则无法注册服务</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">discovery:</span></span><br><span class="line">        <span class="attr">server-addr:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:8848</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">application:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">doermail-member</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>使用 @EnableDiscoveryClient 注解在微服务的启动类上开启服务注册与发现功能</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableDiscoveryClient</span> <span class="comment">//本微服务开启服务注册与发现</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProviderApplication</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SpringApplication.run(ProviderApplication.class, args);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>启动该微服务，控制台就会出现如下，表示该微服务注册到了 nacos 中</li>
+</ol>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615627294785-e203d13a-6656-44b9-b5e2-69f5a32017d1.png#align=left&display=inline&height=223&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-13%2017.20.39.png&originHeight=588&originWidth=2170&size=228770&status=done&style=none&width=823" alt="截屏2021-03-13 17.20.39.png"></p>
+<ol start="4">
+<li>浏览器访问 nacos 提供的可视化页面<a target="_blank" rel="noopener" href="http://127.0.0.1:8848/nacos/">http://127.0.0.1:8848/nacos/</a>,用户名和密码均为 nacos</li>
+</ol>
+<p>就可以看到刚刚注册的微服务 doermail-coupon，名称为我们指定的 application-name<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615627330848-e62fcb72-d405-48f1-8e27-0053b1fcf750.png#align=left&display=inline&height=323&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-13%2017.22.05.png&originHeight=2100&originWidth=3360&size=409241&status=done&style=none&width=517" alt="截屏2021-03-13 17.22.05.png"></p>
+<h3 id><a href="#" class="headerlink" title></a><strong><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615718938039-6a1d03bf-e61b-4d59-9eab-418d2ab4f8b8.png#align=left&display=inline&height=283&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-14%2018.48.48.png&originHeight=2100&originWidth=3360&size=530210&status=done&style=none&width=452" alt="截屏2021-03-14 18.48.48.png"></strong></h3>
+      
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/uncategorized/yuque/Nacos%EF%BC%9A%E5%A6%82%E4%BD%95%E6%B3%A8%E5%86%8C%E6%9C%8D%E5%8A%A1%EF%BC%88%E4%B8%8A%EF%BC%89/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
   
     <article id="post-yuque/docker容器自启动" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -432,80 +545,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/uncategorized/yuque/docker%E6%96%B0%E5%BB%BAredis%E5%AE%B9%E5%99%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-yuque/docker创建mysql后，显示daemon is not running" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/uncategorized/yuque/docker%E5%88%9B%E5%BB%BAmysql%E5%90%8E%EF%BC%8C%E6%98%BE%E7%A4%BAdaemon%20is%20not%20running/">docker创建mysql后，显示daemon is not running</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/uncategorized/yuque/docker%E5%88%9B%E5%BB%BAmysql%E5%90%8E%EF%BC%8C%E6%98%BE%E7%A4%BAdaemon%20is%20not%20running/" class="archive-article-date">
-  	<time datetime="2021-03-10T13:16:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-10</time>
-</a>
-        
-      </header>
-    
-    <div align="center" class="post-count">
-    字数：378字 | 预计阅读时长：1分钟
-</div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>创建 mysql 容器，并通过-v 将 mysql 内的日志、数据卷、配置挂在到容器外 mydata 相应目录下，实现修改容器外 mydata 内容，会同步修改 mysql 容器中内容</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 3306:3306 --name mysql -v /mydata/mysql/<span class="built_in">log</span>:/var/<span class="built_in">log</span>/mysql -v /mydata/mysql/data:/var/lib/mysql -v /mydata/mysql/conf:/etc/mysql -e MYSQL_ROOT_PASSWORD=make1234 -d mysql:latest</span><br></pre></td></tr></table></figure>
-<p>这时候启动 mysql 容器，显示 daemon is not running，那是因为 MYSQL 新特性 secure_file_priv 对读写文件的影响。</p>
-<p>解决办法： 1.删除旧的 mysql 容器<br>docker rm mysql 2.新建容器，但是不要输入密码<br>docker run -p 3306:3306 –name mysql -v /mydata/mysql/log:/var/log/mysql -v /mydata/mysql/data:/var/lib/mysql -v /mydata/mysql/conf:/etc/mysql -d mysql:latest 3.新建 my.cnf<br>因为我们使用了-v 将文件挂载到了外部，所以直接在 mydata/mysql/conf 下新建 my.conf<br>my.cnf 添加如下内容，其他配置都不重要，重要的是 secure_file_priv=/var/lib/mysql  这一行，然后就可以启动创建好的 mysql 容器了</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">secure_file_priv=/var/lib/mysql</span><br><span class="line">user=mysql</span><br><span class="line">character-set-server=utf8</span><br><span class="line"><span class="comment">#default_authentication_plugin=mysql_native_password  #此行要注释掉，否则密码验证方式不对</span></span><br><span class="line">secure_file_priv=/var/lib/mysql</span><br><span class="line">expire_logs_days=7</span><br><span class="line">sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION</span><br><span class="line">max_connections=1000</span><br><span class="line">secure_file_priv=/var/lib/mysql</span><br><span class="line"></span><br><span class="line">[client]</span><br><span class="line">default-character-set=utf8</span><br><span class="line"></span><br><span class="line">[mysql]</span><br><span class="line">default-character-set=utf8</span><br></pre></td></tr></table></figure>
-<p>4.进入 mysql 容器<br>docker exec -it mysql /bin/bash<br>mysql -uroot #因为没有设置 root 密码，所以直接登入 5.设置 root 用户密码永久修改<br>ALTER USER ‘root’@’localhost’ IDENTIFIED BY ‘新密码’ PASSWORD EXPIRE NEVER; 6.退出就可以用密码登陆了<br>mysql -uroot -pmake1234</p>
-<p>参考：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/98920303">https://zhuanlan.zhihu.com/p/98920303</a></p>
-
-      
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/uncategorized/yuque/docker%E5%88%9B%E5%BB%BAmysql%E5%90%8E%EF%BC%8C%E6%98%BE%E7%A4%BAdaemon%20is%20not%20running/">展开全文 >></a>
         </p>
       
 

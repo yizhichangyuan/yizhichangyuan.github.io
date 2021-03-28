@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>WebMvcConfigurer | 一止长渊的博客</title>
+  <title>强化学习结构 | 一止长渊的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="为什么要使用 WebMvcConfigurer？WebMvcConfigurer 是一个接口，提供很多自定义的拦截器，例如跨域设置、类型转化器等等。可以说此接口为开发者提前想到了很多拦截层面的需求，方便开发者自由选择使用。由于 Spring5.0 废弃了 WebMvcConfigurerAdapter，所以 WebMvcConfigurer 继承了 WebMvcConfigurerAdapter">
+  <meta name="description" content="main.py 负责环境交互部分 环境初始化 每轮比赛开始初始化环境 每步调用环境的接口获取状态 obs 调用算法模型传入 obs，获取动作 得到动作序列存入 replay buffer 每隔 n 步 sample 样本进行模型训练  算法模型.py 构建模型 初始化参数 接受从 replay buffer 取出的动作序列，放入构建的模型层，计算 loss 函数，反向传播、优化器优化网络结构（算法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="WebMvcConfigurer">
-<meta property="og:url" content="http://example.com/2021/uncategorized/yuque/WebMvcConfigurer/index.html">
+<meta property="og:title" content="强化学习结构">
+<meta property="og:url" content="http://example.com/2021/uncategorized/yuque/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%BB%93%E6%9E%84/index.html">
 <meta property="og:site_name" content="一止长渊的博客">
-<meta property="og:description" content="为什么要使用 WebMvcConfigurer？WebMvcConfigurer 是一个接口，提供很多自定义的拦截器，例如跨域设置、类型转化器等等。可以说此接口为开发者提前想到了很多拦截层面的需求，方便开发者自由选择使用。由于 Spring5.0 废弃了 WebMvcConfigurerAdapter，所以 WebMvcConfigurer 继承了 WebMvcConfigurerAdapter">
+<meta property="og:description" content="main.py 负责环境交互部分 环境初始化 每轮比赛开始初始化环境 每步调用环境的接口获取状态 obs 调用算法模型传入 obs，获取动作 得到动作序列存入 replay buffer 每隔 n 步 sample 样本进行模型训练  算法模型.py 构建模型 初始化参数 接受从 replay buffer 取出的动作序列，放入构建的模型层，计算 loss 函数，反向传播、优化器优化网络结构（算法">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-03-28T16:19:40.000Z">
-<meta property="article:modified_time" content="2021-03-28T16:40:08.243Z">
+<meta property="article:published_time" content="2021-03-28T16:34:53.000Z">
+<meta property="article:modified_time" content="2021-03-28T16:40:08.167Z">
 <meta property="article:author" content="一止长渊">
 <meta property="article:tag" content="JAVA 后端 Spring">
 <meta name="twitter:card" content="summary">
@@ -157,14 +157,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-yuque/WebMvcConfigurer" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-yuque/强化学习结构" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      WebMvcConfigurer
+      强化学习结构
     </h1>
   
 
@@ -180,38 +180,70 @@
         
         <!--显示阅读次数完毕-->
         
-        <a href="/2021/uncategorized/yuque/WebMvcConfigurer/" class="archive-article-date">
-  	<time datetime="2021-03-28T16:19:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-29</time>
+        <a href="/2021/uncategorized/yuque/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%BB%93%E6%9E%84/" class="archive-article-date">
+  	<time datetime="2021-03-28T16:34:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-29</time>
 </a>
         
       </header>
     
     <div align="center" class="post-count">
-    字数：1.1k字 | 预计阅读时长：4分钟
+    字数：490字 | 预计阅读时长：1分钟
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="为什么要使用-WebMvcConfigurer？"><a href="#为什么要使用-WebMvcConfigurer？" class="headerlink" title="为什么要使用 WebMvcConfigurer？"></a>为什么要使用 WebMvcConfigurer？</h3><p>WebMvcConfigurer 是一个接口，提供很多自定义的拦截器，例如跨域设置、类型转化器等等。可以说此接口为开发者提前想到了很多拦截层面的需求，方便开发者自由选择使用。由于 Spring5.0 废弃了 WebMvcConfigurerAdapter，所以 WebMvcConfigurer 继承了 WebMvcConfigurerAdapter 大部分内容。</p>
-<h3 id="WebMvcConfigurer-方法介绍"><a href="#WebMvcConfigurer-方法介绍" class="headerlink" title="WebMvcConfigurer 方法介绍"></a>WebMvcConfigurer 方法介绍</h3><blockquote>
-<p>由于内容太多，只展示 3 个关键的接口，用的比较少的，只是阐述下含义，不再详解，用的更少的，就不看了，毕竟十多个方法呢…</p>
-</blockquote>
-<h4 id="1-configurePathMatch-PathMatchConfigurer-configurer"><a href="#1-configurePathMatch-PathMatchConfigurer-configurer" class="headerlink" title="1.configurePathMatch(PathMatchConfigurer configurer)"></a>1.configurePathMatch(PathMatchConfigurer configurer)</h4><p>这个用到的比较少，这个是和访问路径有关的。举个例子，比如说 PathMatchConfigurer 有个配置是 setUseTrailingSlashMatch(),如果设置为 true 的话（默认为 true），后面加个斜杠并不影响路径访问，例如“/user”等同于“/user/“。我们在开发中很少在访问路径上搞事情，所以这个方法如果有需要的请自行研究吧。</p>
-<h4 id="2-configureContentNegotiation-ContentNegotiationConfigurer-configurer"><a href="#2-configureContentNegotiation-ContentNegotiationConfigurer-configurer" class="headerlink" title="2.configureContentNegotiation(ContentNegotiationConfigurer configurer)"></a>2.configureContentNegotiation(ContentNegotiationConfigurer configurer)</h4><p>这个东西直译叫做内容协商机制，主要是方便一个请求路径返回多个数据格式。ContentNegotiationConfigurer 这个配置里面你会看到 MediaType，里面有众多的格式。此方法不在多赘述。</p>
-<h4 id="3-configureAsyncSupport-AsyncSupportConfigurer-configurer"><a href="#3-configureAsyncSupport-AsyncSupportConfigurer-configurer" class="headerlink" title="3.configureAsyncSupport(AsyncSupportConfigurer configurer)"></a>3.configureAsyncSupport(AsyncSupportConfigurer configurer)</h4><p>顾名思义，这是处理异步请求的。只能设置两个值，一个超时时间（毫秒，Tomcat 下默认是 10000 毫秒，即 10 秒），还有一个是 AsyncTaskExecutor，异步任务执行器。</p>
-<h4 id="4-configureDefaultServletHandling-DefaultServletHandlerConfigurer-configurer"><a href="#4-configureDefaultServletHandling-DefaultServletHandlerConfigurer-configurer" class="headerlink" title="4.configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer)"></a>4.configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer)</h4><p>这个接口可以实现静态文件可以像 Servlet 一样被访问。</p>
-<h4 id="5-addFormatters-FormatterRegistry-registry"><a href="#5-addFormatters-FormatterRegistry-registry" class="headerlink" title="5.addFormatters(FormatterRegistry registry)"></a>5.addFormatters(FormatterRegistry registry)</h4><p>增加转化器或者格式化器。这边不仅可以把时间转化成你需要时区或者样式。还可以自定义转化器和你数据库做交互，比如传进来 userId，经过转化可以拿到 user 对象。</p>
-<h4 id="6-addInterceptors-InterceptorRegistry-registry"><a href="#6-addInterceptors-InterceptorRegistry-registry" class="headerlink" title="6.addInterceptors(InterceptorRegistry registry)"></a>6.addInterceptors(InterceptorRegistry registry)</h4><p>盼望着，盼望着，你一个常用的方法来了。这个方法可以自定义写拦截器，并指定拦截路径。来，咱们写一个拦截器。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyInterceptor</span> <span class="keyword">implements</span> <span class="title">HandlerInterceptor</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">preHandle</span><span class="params">(HttpServletRequest request,</span></span></span><br><span class="line"><span class="function"><span class="params">                             HttpServletResponse response, Object handler)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;preHandle,ok,假设给你一个true，运行去吧&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postHandle</span><span class="params">(HttpServletRequest request,</span></span></span><br><span class="line"><span class="function"><span class="params">                           HttpServletResponse response, Object handler, ModelAndView modelAndView)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;postHandle,ok,看看我什么时候运行的。&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterCompletion</span><span class="params">(HttpServletRequest request,</span></span></span><br><span class="line"><span class="function"><span class="params">                                HttpServletResponse response, Object handler, Exception ex)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;afterCompletion,ok,看完不点个赞再走吗？&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>然后配置一下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyConfigurer</span> <span class="keyword">implements</span> <span class="title">WebMvcConfigurer</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> MyInterceptor <span class="title">getMyInterceptor</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span>  <span class="keyword">new</span> MyInterceptor();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addInterceptors</span><span class="params">(InterceptorRegistry registry)</span> </span>&#123;</span><br><span class="line">        registry.addInterceptor(<span class="keyword">this</span>.getMyInterceptor())</span><br><span class="line">        .addPathPatterns(<span class="string">&quot;/abc&quot;</span>,<span class="string">&quot;/configurePathMatch&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>可以看出 addPathPatterns()里面可以尝试添加多个路径，或者写成”/**“，包含所有路径都需要尝试拦截一下。<br>测试一下，输出：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">preHandle,ok,假设给你一个true，运行去吧</span><br><span class="line">&#x3D;&#x3D;&#x3D;》执行业务逻辑&#x3D;&#x3D;&#x3D;》</span><br><span class="line">postHandle,ok,看看我什么时候运行的。</span><br><span class="line">afterCompletion,ok,看完不点个赞再走吗？</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<h4 id="7-addResourceHandlers-ResourceHandlerRegistry-registry"><a href="#7-addResourceHandlers-ResourceHandlerRegistry-registry" class="headerlink" title="7.addResourceHandlers(ResourceHandlerRegistry registry)"></a>7.addResourceHandlers(ResourceHandlerRegistry registry)</h4><p>自定义资源映射。这个东西也比较常用，业务场景就是自己的服务器作为文件服务器，不利用第三方的图床，就需要一个虚拟路径映射到我们服务器的地址。值得一提的是，如果你的项目是 war 包启动，一般都是再 Tomcat 中配置一下（配置方法请百度）；如果是 jar 包启动（SpringBoot 经常用这种方式启动），就可以用到这个方法了。例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public void addResourceHandlers(ResourceHandlerRegistry registry) &#123;</span><br><span class="line">    registry.addResourceHandler(&quot;&#x2F;my&#x2F;**&quot;)</span><br><span class="line">    .addResourceLocations(&quot;file:E:&#x2F;my&#x2F;&quot;);</span><br><span class="line">    super.addResourceHandlers(registry);</span><br><span class="line">&#125;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>真实路径，wndows 当服务器的情况下，前面一定要加上一个 file:。</p>
-<h4 id="8-addCorsMappings-CorsRegistry-registry"><a href="#8-addCorsMappings-CorsRegistry-registry" class="headerlink" title="8.addCorsMappings(CorsRegistry registry)"></a>8.addCorsMappings(CorsRegistry registry)</h4><p>这个是设置跨域问题的，几乎是每个后台服务器都需要配置的东西。我曾写过一篇文章，专门讲跨域问题和 SpringBoot 怎么配置的，请查询：<a target="_blank" rel="noopener" href="https://juejin.im/post/6844903862956982279">juejin.im/post/684490…</a></p>
-<h4 id="9-addViewControllers-ViewControllerRegistry-registry"><a href="#9-addViewControllers-ViewControllerRegistry-registry" class="headerlink" title="9.addViewControllers(ViewControllerRegistry registry)"></a>9.addViewControllers(ViewControllerRegistry registry)</h4><p>这个方法可以实现，一个路径自动跳转到一个页面。不过现在多为前后端分离的项目，是不是可以把跳转路由的问题直接扔给前端。<br>后面还有七个：configureViewResolvers、addArgumentResolvers、addReturnValueHandlers、configureMessageConverters、extendMessageConverters、configureHandlerExceptionResolvers、extendHandlerExceptionResolvers。是在用的太少了，就不再看了</p>
-<p>作者：啤酒就辣条<br>链接：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903863640653832">https://juejin.cn/post/6844903863640653832</a><br>来源：掘金<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+        <h4 id="main-py-负责环境交互部分"><a href="#main-py-负责环境交互部分" class="headerlink" title="main.py 负责环境交互部分"></a>main.py 负责环境交互部分</h4><ul>
+<li>环境初始化</li>
+<li>每轮比赛开始初始化环境</li>
+<li>每步调用环境的接口获取状态 obs</li>
+<li>调用算法模型传入 obs，获取动作</li>
+<li>得到动作序列存入 replay buffer</li>
+<li>每隔 n 步 sample 样本进行模型训练</li>
+</ul>
+<h4 id="算法模型-py"><a href="#算法模型-py" class="headerlink" title="算法模型.py"></a>算法模型.py</h4><ul>
+<li>构建模型</li>
+<li>初始化参数</li>
+<li>接受从 replay buffer 取出的动作序列，放入构建的模型层，计算 loss 函数，反向传播、优化器优化网络结构（算法的核心部分）</li>
+<li>选择动作的接口</li>
+</ul>
+<h4 id="模型层-py"><a href="#模型层-py" class="headerlink" title="模型层.py"></a>模型层.py</h4><ul>
+<li>模型初始化</li>
+<li>DQN：两个带激励函数的全连接、一个不带激励函数的全连接</li>
+<li>提供 forward 方法</li>
+<li>提供 reset parameter 方法</li>
+</ul>
+<h4 id="环境-py"><a href="#环境-py" class="headerlink" title="环境.py"></a>环境.py</h4><ul>
+<li>提供初始化环境参数接口</li>
+<li>提供观测值 obs 接口</li>
+<li>提供接收动作接口</li>
+<li>提供计算回报值接口</li>
+<li>提供一轮比赛结束接口</li>
+</ul>
+<h4 id="绘图（util-py）"><a href="#绘图（util-py）" class="headerlink" title="绘图（util.py）"></a>绘图（util.py）</h4><ul>
+<li>负责从文件读取每轮比赛的最终奖励</li>
+<li>绘制 loss 图、奖励-时间图</li>
+</ul>
+<h4 id="ReplayBuffer-py"><a href="#ReplayBuffer-py" class="headerlink" title="ReplayBuffer.py"></a>ReplayBuffer.py</h4><ul>
+<li>定义 Buffer 数据结构</li>
+<li>存入动作序列接口</li>
+<li>根据大小进行随机采样接口</li>
+</ul>
+<h4 id="回合式更新和单步更新；"><a href="#回合式更新和单步更新；" class="headerlink" title="回合式更新和单步更新；"></a>回合式更新和单步更新；</h4><p>回合式更新是一轮比赛从头到尾的完整序列 单步更新是从 buffer 取出的 size 大小的样本，之间没有明显的时间相关性</p>
+<h4 id="on-policy-和-off-policy-区别"><a href="#on-policy-和-off-policy-区别" class="headerlink" title="on-policy 和 off-policy 区别"></a>on-policy 和 off-policy 区别</h4><p>评判这个动作价值的策略和选出动作的策略是否为同一个策略 on-policy 更容易达到局部最优因为训练的是一条线 off-policy</p>
+<table>
+<thead>
+<tr>
+<th align="center">loss</th>
+<th align="center">收敛</th>
+<th align="center">不收敛</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">奖励</td>
+<td align="center">奖励很低（奖励函数设置问题也可能一些环境没有探索到）</td>
+<td align="center">奖励很高</td>
+</tr>
+</tbody></table>
+<h4 id="DQN-正常现象："><a href="#DQN-正常现象：" class="headerlink" title="DQN 正常现象："></a>DQN 正常现象：</h4><p>loss 不收敛（因为 DQN 计算 loss 是评估网络计算和目标网络的差值，中间隔了一个 r 值）评判标准就是奖励收敛</p>
 
       
       
@@ -312,7 +344,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/uncategorized/yuque/WebMvcConfigurer/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/uncategorized/yuque/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%BB%93%E6%9E%84/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -326,18 +358,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/uncategorized/yuque/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%BB%93%E6%9E%84/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          强化学习结构
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/uncategorized/yuque/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E6%9F%A5%E7%9C%8B%E6%97%A5%E5%BF%97%E4%BF%A1%E6%81%AF/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">项目部署查看日志信息</div>
+    <a href="/2021/uncategorized/yuque/WebMvcConfigurer/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">WebMvcConfigurer</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -381,7 +404,7 @@ if(true){
   	repo: 'blog-comments',
   	owner: 'yizhichangyuan',
   	admin: ['yizhichangyuan'],
-  	id: 'Mon Mar 29 2021 00:19:40 GMT+0800',
+  	id: 'Mon Mar 29 2021 00:34:53 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
