@@ -65,7 +65,7 @@
 			</ul>
 		</nav>
 		<nav>
-			<p>总文章数：29</p>
+			<p>总文章数：30</p>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -157,6 +157,76 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-yuque/项目部署查看日志信息" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/uncategorized/yuque/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E6%9F%A5%E7%9C%8B%E6%97%A5%E5%BF%97%E4%BF%A1%E6%81%AF/">项目部署查看日志信息</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/uncategorized/yuque/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E6%9F%A5%E7%9C%8B%E6%97%A5%E5%BF%97%E4%BF%A1%E6%81%AF/" class="archive-article-date">
+  	<time datetime="2021-03-28T16:08:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-29</time>
+</a>
+        
+      </header>
+    
+    <div align="center" class="post-count">
+    字数：474字 | 预计阅读时长：2分钟
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在 o2o 项目部署到远程服务器时，发现出现报错，首先登陆远程服务器，查看 tomcat 的日志信息<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1612840638265-6dda7d31-b29f-4540-b2fc-e90dbfd298b7.png#align=left&display=inline&height=274&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-02-09%2011.17.13.png&originHeight=274&originWidth=1648&size=85164&status=done&style=none&width=1648" alt="截屏2021-02-09 11.17.13.png"><br>可以看到如下日志信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Caused by: com.mysql.cj.exceptions.CJCommunicationsException: The last packet successfully received from the server was 32,945,617 milliseconds ago. The last packet sent successfully to the server was 32,945,626 milliseconds ago. is longer than the server configured value of <span class="string">&#x27;wait_timeout&#x27;</span>. You should consider either expiring and/or testing connection validity before use <span class="keyword">in</span> your application, increasing the server configured values <span class="keyword">for</span> client timeouts, or using the Connector/J connection property <span class="string">&#x27;autoReconnect=true&#x27;</span> to avoid this problem.</span><br><span class="line">        at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)</span><br><span class="line">        at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)</span><br><span class="line">        at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)</span><br><span class="line">        at java.lang.reflect.Constructor.newInstance(Constructor.java:423)</span><br><span class="line">        at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)</span><br><span class="line">        at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105)</span><br><span class="line">        at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151)</span><br><span class="line">        at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167)</span><br><span class="line">        at com.mysql.cj.protocol.a.NativeProtocol.readMessage(NativeProtocol.java:546)</span><br><span class="line">        at com.mysql.cj.protocol.a.NativeProtocol.checkErrorMessage(NativeProtocol.java:710)</span><br><span class="line">        at com.mysql.cj.protocol.a.NativeProtocol.sendCommand(NativeProtocol.java:649)</span><br><span class="line">        at com.mysql.cj.protocol.a.NativeProtocol.sendQueryPacket(NativeProtocol.java:948)</span><br><span class="line">        at com.mysql.cj.NativeSession.execSQL(NativeSession.java:1075)</span><br><span class="line">        at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:930)</span><br><span class="line">        ... 84 common frames omitted</span><br></pre></td></tr></table></figure>
+<p>解决：原因在于 Mysql 客户端中 wait_timeout 是 28800 秒（8 个小时），如果项目在 8 个小时都没有访问数据库，那么连接池的连接就会自动的失效，等项目访问时，使用数据库连接时因为连接已经失效，所以就会报错超时的信息<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1612840882926-7717557a-59bd-4ac0-8aa1-8ee7983fad19.png#align=left&display=inline&height=307&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-02-09%2011.21.19.png&originHeight=900&originWidth=892&size=160802&status=done&style=none&width=304" alt="截屏2021-02-09 11.21.19.png"><br>解决办法 1：延长 mysql 的 wait_timeout 值（不推荐）<br>解决办法 2：在数据库连接池中配置定期使用数据库连接，在小于 8 个小时的连接就访问一次数据库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--解决办法：定期18000秒（5个小时）使用连接，使得连接不会因为timeout被Mysql断开--&gt;</span><br><span class="line">&lt;property name=<span class="string">&quot;preferredTestQuery&quot;</span> value=<span class="string">&quot;SELECT 1&quot;</span>/&gt;</span><br><span class="line">&lt;property name=<span class="string">&quot;idleConnectionTestPeriod&quot;</span> value=<span class="string">&quot;18000&quot;</span>/&gt;</span><br><span class="line">&lt;property name=<span class="string">&quot;testConnectionOnCheckout&quot;</span> value=<span class="string">&quot;true&quot;</span>/&gt;</span><br></pre></td></tr></table></figure>
+      
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/uncategorized/yuque/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E6%9F%A5%E7%9C%8B%E6%97%A5%E5%BF%97%E4%BF%A1%E6%81%AF/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
     <article id="post-yuque/统一异常处理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -179,11 +249,15 @@
       </header>
     
     <div align="center" class="post-count">
-    字数：127字 | 预计阅读时长：1分钟
+    字数：168字 | 预计阅读时长：1分钟
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>前面我们后端数据校验每个 controller 校验的 bean 的属性上添加上校验注解，然后在 controller 入参上加上@Valid 注解，然后通过紧跟着的 BindingResult 来进行获取校验的结果，如果错误则返回给前端，否则入库。这样有一个弊端就是每个 controller 都需要进行 BindResult 绑定，这是十分重复的。我们可以利用 Advice 来解决，因为 Controller，发顺丰打发范德萨发大水发大发</p>
+        <p>前面我们后端数据校验每个 controller 校验的 bean 的属性上添加上校验注解，然后在 controller 入参上加上@Valid 注解，然后通过紧跟着的 BindingResult 来进行获取校验的结果，如果错误则返回给前端，否则入库。这样有一个弊端就是每个 controller 都需要进行 BindResult 绑定，这是十分重复的。我们可以利用 Advice 来解决。</p>
+<ul>
+<li><strong>那么我们如果获取数据校验错误的信息呢？</strong></li>
+</ul>
+<p>如果我们不添加 BindResult 来绑定抛出的结果的话，controller 则会把异常抛出，我们可以通过抛出的特定异常来</p>
 
       
       
@@ -504,109 +578,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/uncategorized/yuque/JS%E8%84%9A%E6%9C%AC%E8%AF%B7%E6%B1%82%E8%B7%A8%E5%9F%9F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-微服务基础概念" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/SpringCloud/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/">微服务基础概念</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/SpringCloud/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/" class="archive-article-date">
-  	<time datetime="2021-03-17T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-18</time>
-</a>
-        
-      </header>
-    
-    <div align="center" class="post-count">
-    字数：1.2k字 | 预计阅读时长：3分钟
-</div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>1.微服务</strong></p>
-<p>拒绝大型单体引用，基于业务边界进行服务微化拆分，各个服务独立部署运行，,每个服务之间相互调用</p>
-<p>例如：订单服务 -》商品服务 -》仓库服务</p>
-<p><strong>2.集群</strong></p>
-<p>例如：京东就是一个分布式系统，众多业务运行在不同的机器上，所有业务构成了一个大型的业务集群。</p>
-<p>集群是一个物理形态，分布式是一个工作方式</p>
-<p>分布式的每一个结点，都可以做集群，而集群并不一定就是分布式的</p>
-<p>结点：集群中一个服务器</p>
-        
-      
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-<div class="article-tag tagcloud">
-	<i class="icon-price-tags icon"></i>
-	<ul class="article-tag-list">
-		
-		
-		<li class="article-tag-list-item">
-			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">
-				微服务</a>
-		</li>
-		
-		
-	</ul>
-</div>
-
-      
-<div class="article-category tagcloud">
-	<i class="icon-book icon"></i>
-	<ul class="article-tag-list">
-		
-		
-		<li class="article-tag-list-item">
-			<a href="/categories/SpringCloud//" class="article-tag-list-link color2">
-				SpringCloud</a>
-		</li>
-		
-		
-	</ul>
-</div>
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/SpringCloud/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/">展开全文 >></a>
         </p>
       
 
