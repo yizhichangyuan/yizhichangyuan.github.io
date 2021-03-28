@@ -65,7 +65,7 @@
 			</ul>
 		</nav>
 		<nav>
-			<p>总文章数：11</p>
+			<p>总文章数：29</p>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -157,14 +157,14 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-复杂mapper映射出现Expected one result (or null) to be returned by selectOne(), but found_ 6" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Nacos如何调用其他微服务(中）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/Spring/%E5%A4%8D%E6%9D%82mapper%E6%98%A0%E5%B0%84%E5%87%BA%E7%8E%B0Expected%20one%20result%20(or%20null)%20to%20be%20returned%20by%20selectOne(),%20but%20found_%206/">Mybatis复杂mapper映射出现Expected one result (or null) to be returned by selectOne(), but found:6</a>
+      <a class="article-title" href="/2021/SpringCloud/Nacos%E5%A6%82%E4%BD%95%E8%B0%83%E7%94%A8%E5%85%B6%E4%BB%96%E5%BE%AE%E6%9C%8D%E5%8A%A1(%E4%B8%AD%EF%BC%89/">Nacos：如何调用其他微服务（中）</a>
     </h1>
   
 
@@ -172,22 +172,21 @@
         
         <!--显示阅读次数完毕-->
         
-        <a href="/2021/Spring/%E5%A4%8D%E6%9D%82mapper%E6%98%A0%E5%B0%84%E5%87%BA%E7%8E%B0Expected%20one%20result%20(or%20null)%20to%20be%20returned%20by%20selectOne(),%20but%20found_%206/" class="archive-article-date">
-  	<time datetime="2021-01-31T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-01</time>
+        <a href="/2021/SpringCloud/Nacos%E5%A6%82%E4%BD%95%E8%B0%83%E7%94%A8%E5%85%B6%E4%BB%96%E5%BE%AE%E6%9C%8D%E5%8A%A1(%E4%B8%AD%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2021-03-17T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-18</time>
 </a>
         
       </header>
     
     <div align="center" class="post-count">
-    字数：2.8k字 | 预计阅读时长：12分钟
+    字数：783字 | 预计阅读时长：3分钟
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p>今天在项目使用mybatis写映射文件时，做测试发现报错<code>Expected one result (or null) to be returned by selectOne(), but found: 6</code>，下面记录一下解决的过程：</p>
-</blockquote>
-<p><img src="/2021/Spring/%E5%A4%8D%E6%9D%82mapper%E6%98%A0%E5%B0%84%E5%87%BA%E7%8E%B0Expected%20one%20result%20(or%20null)%20to%20be%20returned%20by%20selectOne(),%20but%20found_%206/1612149739610-d371499a-4d5a-4ba7-9b0d-8f9b8bc133ec.png" alt="image.png"></p>
-<h3 id="1-问题介绍："><a href="#1-问题介绍：" class="headerlink" title="1. 问题介绍："></a><font color="orange">1. 问题介绍：</font></h3>
+        <p>上节我们将微服务模块注册到了注册中心Nacos中，接下来就是如何实现微服务模块之间接口的调用。</p>
+<p>这里我们使用SpringCloud-Alibaba提供的OpenFeign进行微服务模块之间调用，如果微服务A需要调用微服务模块B的接口1，那么我们如何实现呢？</p>
+<p><strong>原理</strong></p>
+<p>​    微服务A、微服务B相互调用，前提是两个微服务都已经注册到注册中心Nacos中。然后微服务模块A1需要调用微服务B时，就去注册中心查看健康可用微服务模块B的地址，</p>
         
       
       
@@ -203,8 +202,15 @@
 		
 		
 		<li class="article-tag-list-item">
-			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">
-				Mybatis</a>
+			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">
+				Nacos</a>
+		</li>
+		
+		
+		
+		<li class="article-tag-list-item">
+			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">
+				微服务</a>
 		</li>
 		
 		
@@ -218,8 +224,8 @@
 		
 		
 		<li class="article-tag-list-item">
-			<a href="/categories/Spring//" class="article-tag-list-link color2">
-				Spring</a>
+			<a href="/categories/SpringCloud//" class="article-tag-list-link color2">
+				SpringCloud</a>
 		</li>
 		
 		
@@ -228,7 +234,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/Spring/%E5%A4%8D%E6%9D%82mapper%E6%98%A0%E5%B0%84%E5%87%BA%E7%8E%B0Expected%20one%20result%20(or%20null)%20to%20be%20returned%20by%20selectOne(),%20but%20found_%206/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/SpringCloud/Nacos%E5%A6%82%E4%BD%95%E8%B0%83%E7%94%A8%E5%85%B6%E4%BB%96%E5%BE%AE%E6%9C%8D%E5%8A%A1(%E4%B8%AD%EF%BC%89/">展开全文 >></a>
         </p>
       
 
@@ -257,14 +263,14 @@
 
 
   
-    <article id="post-docker配置Mysql集群(下)——Spring代码层读写分离" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-yuque/Stream流建立多级菜单" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/Spring/docker%E9%85%8D%E7%BD%AEMysql%E9%9B%86%E7%BE%A4(%E4%B8%8B)%E2%80%94%E2%80%94Spring%E4%BB%A3%E7%A0%81%E5%B1%82%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/">docker配置Mysql集群(下)——Spring代码层读写分离</a>
+      <a class="article-title" href="/2021/uncategorized/yuque/Stream%E6%B5%81%E5%BB%BA%E7%AB%8B%E5%A4%9A%E7%BA%A7%E8%8F%9C%E5%8D%95/">Stream流建立多级菜单</a>
     </h1>
   
 
@@ -272,20 +278,22 @@
         
         <!--显示阅读次数完毕-->
         
-        <a href="/2021/Spring/docker%E9%85%8D%E7%BD%AEMysql%E9%9B%86%E7%BE%A4(%E4%B8%8B)%E2%80%94%E2%80%94Spring%E4%BB%A3%E7%A0%81%E5%B1%82%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/" class="archive-article-date">
-  	<time datetime="2021-01-28T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-29</time>
+        <a href="/2021/uncategorized/yuque/Stream%E6%B5%81%E5%BB%BA%E7%AB%8B%E5%A4%9A%E7%BA%A7%E8%8F%9C%E5%8D%95/" class="archive-article-date">
+  	<time datetime="2021-03-17T14:01:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-17</time>
 </a>
         
       </header>
     
     <div align="center" class="post-count">
-    字数：3k字 | 预计阅读时长：14分钟
+    字数：454字 | 预计阅读时长：1分钟
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>上节介绍了利用Docker部署MYSQL集群，下面介绍如何利用部署好的master和slave实现Spring代码层的读写分离，保证发生读操作时访问slave结点，发生写操作时访问master结点。</p>
-<h3 id="1-实现基础"><a href="#1-实现基础" class="headerlink" title="1. 实现基础"></a><span style="color:orange;">1. 实现基础</span></h3><p><strong>a.spring有关数据源路由的源码</strong></p>
-        
+        <p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615989864846-639b3558-0e78-4e44-afa7-b6a6677486c1.png#align=left&display=inline&height=478&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-17%2022.04.20.png&originHeight=478&originWidth=2344&size=176414&status=done&style=none&width=2344" alt="截屏2021-03-17 22.04.20.png"><br>先数据库中有表描述商品分类信息，其中 parent_cid 就是其父类分类的 id，如何从数据库中查出结果后，找出每个分类的子分类。如果有 SQL 查询，如果想找到所有的二级分类，则需要先找到所有的一级分类的 id，然后利用 in 操作找出所有的二级分类，然后三级分类还是需要再写一个 SQL 语句，然后查询完还需要将相应的 children 归并到相应的一级分类中，这是十分麻烦的，多次 SQL 查询也会造成性能比较低。</p>
+<p>利用 Stream 流中的 filter 先找出一级分类，然后对每个一级分类使用 map，对每个一级分类菜单又接着找出所有孩子这就是 getChildren，但是孩子菜单也有 children，所有 getChildren 是递归调用，递归的出口就是经过 filter 后的流已经没有数据了，就是该流中没了孩子了</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;CategoryEntity&gt; <span class="title">listWithTree</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 查出所有分类</span></span><br><span class="line">    List&lt;CategoryEntity&gt; entities = baseMapper.selectList(<span class="keyword">null</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2.组装成父子的属性结构</span></span><br><span class="line">    <span class="comment">// 1)找到所有的以及分类</span></span><br><span class="line">    List&lt;CategoryEntity&gt; level1Menus = entities.stream().filter(categoryEntity -&gt;</span><br><span class="line">        categoryEntity.getParentCid() == <span class="number">0</span></span><br><span class="line">    ).map((menu) -&gt;&#123;</span><br><span class="line">        menu.setChildren(getChildren(menu, entities));</span><br><span class="line">        <span class="keyword">return</span> menu;</span><br><span class="line">    &#125;).sorted((x,y) -&gt; x.getSort() - y.getSort()).collect(Collectors.toList());</span><br><span class="line">    <span class="keyword">return</span> level1Menus;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 递归找出当前节点的所有孩子，递归出去条件就为filter找不到相应的孩子了</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> root</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> all</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> List&lt;CategoryEntity&gt; <span class="title">getChildren</span><span class="params">(CategoryEntity root, List&lt;CategoryEntity&gt; all)</span></span>&#123;</span><br><span class="line">    List&lt;CategoryEntity&gt; rootChildren = all.stream().filter(categoryEntity -&gt;</span><br><span class="line">        categoryEntity.getParentCid().equals(root.getCatId())</span><br><span class="line">    ).map(categoryEntity -&gt; &#123;</span><br><span class="line">        <span class="comment">// 1、找到该子菜单的子菜单</span></span><br><span class="line">        categoryEntity.setChildren(getChildren(categoryEntity, all));</span><br><span class="line">        <span class="keyword">return</span> categoryEntity;</span><br><span class="line">    &#125;).sorted((x,y) -&gt; x.getSort() - y.getSort()).collect(Collectors.toList());</span><br><span class="line">    <span class="keyword">return</span> rootChildren;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果，找出了所有的菜单以及子菜单<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615990831709-14d01d4f-d7f6-4cf5-9a55-26a2ef51fb81.png#align=left&display=inline&height=1126&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-17%2022.20.10.png&originHeight=1126&originWidth=1866&size=375322&status=done&style=none&width=1866" alt="截屏2021-03-17 22.20.10.png"></p>
+
       
       
 
@@ -294,45 +302,10 @@
     <div class="article-info article-info-index">
       
       
-<div class="article-tag tagcloud">
-	<i class="icon-price-tags icon"></i>
-	<ul class="article-tag-list">
-		
-		
-		<li class="article-tag-list-item">
-			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">
-				Docker</a>
-		</li>
-		
-		
-		
-		<li class="article-tag-list-item">
-			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">
-				MYSQL集群</a>
-		</li>
-		
-		
-	</ul>
-</div>
-
       
-<div class="article-category tagcloud">
-	<i class="icon-book icon"></i>
-	<ul class="article-tag-list">
-		
-		
-		<li class="article-tag-list-item">
-			<a href="/categories/Spring//" class="article-tag-list-link color2">
-				Spring</a>
-		</li>
-		
-		
-	</ul>
-</div>
-
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/Spring/docker%E9%85%8D%E7%BD%AEMysql%E9%9B%86%E7%BE%A4(%E4%B8%8B)%E2%80%94%E2%80%94Spring%E4%BB%A3%E7%A0%81%E5%B1%82%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/uncategorized/yuque/Stream%E6%B5%81%E5%BB%BA%E7%AB%8B%E5%A4%9A%E7%BA%A7%E8%8F%9C%E5%8D%95/">展开全文 >></a>
         </p>
       
 
@@ -361,14 +334,14 @@
 
 
   
-    <article id="post-奥斯曼帝国的衰落原由" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-yuque/Gateway网关" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/%E4%B8%AD%E4%B8%9C%E6%88%98%E4%BA%89%E5%8F%B2/%E5%A5%A5%E6%96%AF%E6%9B%BC%E5%B8%9D%E5%9B%BD%E7%9A%84%E8%A1%B0%E8%90%BD%E5%8E%9F%E7%94%B1/">奥斯曼帝国的衰落原由</a>
+      <a class="article-title" href="/2021/uncategorized/yuque/Gateway%E7%BD%91%E5%85%B3/">Gateway网关</a>
     </h1>
   
 
@@ -376,22 +349,51 @@
         
         <!--显示阅读次数完毕-->
         
-        <a href="/2021/%E4%B8%AD%E4%B8%9C%E6%88%98%E4%BA%89%E5%8F%B2/%E5%A5%A5%E6%96%AF%E6%9B%BC%E5%B8%9D%E5%9B%BD%E7%9A%84%E8%A1%B0%E8%90%BD%E5%8E%9F%E7%94%B1/" class="archive-article-date">
-  	<time datetime="2021-01-27T12:30:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-27</time>
+        <a href="/2021/uncategorized/yuque/Gateway%E7%BD%91%E5%85%B3/" class="archive-article-date">
+  	<time datetime="2021-03-14T12:23:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-14</time>
 </a>
         
       </header>
     
     <div align="center" class="post-count">
-    字数：444字 | 预计阅读时长：1分钟
+    字数：599字 | 预计阅读时长：2分钟
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近闲暇之余看中东战争史，记录一下</p>
+        <p>网关的意义在于</p>
+<ul>
+<li>在控制界面对所有服务集群进行管理时，如果某个服务挂了，我们不可能还在控制界面的后台修改代码将请求转向另一个服务的端口号</li>
+<li>利用网关可以进行鉴权，然后将服务转发给后端集群，避免了每个服务都要编写鉴权这一步</li>
+<li>服务发现注册、服务熔断、过滤、匹配请求</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615724888791-ddb9ccc4-4f0a-4e71-a2e9-4f04d962257c.png#align=left&display=inline&height=219&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-14%2020.28.04.png&originHeight=860&originWidth=1416&size=118972&status=done&style=none&width=361" alt="截屏2021-03-14 20.28.04.png"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615725358020-1b95b438-fb1e-41b4-9dd5-88789e3491a6.png#align=left&display=inline&height=247&margin=%5Bobject%20Object%5D&name=image.png&originHeight=494&originWidth=1970&size=136663&status=done&style=none&width=985" alt="image.png"><br>核心概念：</p>
+<ul>
+<li>路由：发送请求给网关，网关要将请求路由到指定的服务 uri。路由有 id，目的地 uri，断言的集合，匹配了断言就能到达指定位置 uri</li>
+<li>断言：匹配请求里的任何信息，例如请求参数或者请求头</li>
+<li>过滤：可以允许以某种方式对进入网关或出网关的 HTTP 请求进行修改</li>
+</ul>
+<p>客户端发请求给服务端，中间有网关。先交给映射器，如果能处理就交给 handler 处理，然后交给一系列 filer，然后给指定的服务，再返回回来给客户端。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615735342435-8d31c9be-eabe-4f11-9207-69d27453dd7b.png#align=left&display=inline&height=298&margin=%5Bobject%20Object%5D&name=image.png&originHeight=595&originWidth=443&size=26813&status=done&style=none&width=221.5" alt="image.png"><br>例如下面我们将根据请求参数 url 来连接到对应的地址，例如 url 参数是 qq 就连接到<a target="_blank" rel="noopener" href="http://www.qq.com,如果url参数是baidu就连接到www.baidu.com/">www.qq.com，如果url参数是baidu就连接到www.baidu.com</a></p>
+<p>参考<a target="_blank" rel="noopener" href="https://docs.spring.io/spring-cloud-gateway/docs/2.2.7.RELEASE/reference/html/#the-query-route-predicate-factory">https://docs.spring.io/spring-cloud-gateway/docs/2.2.7.RELEASE/reference/html/#the-query-route-predicate-factory</a>中的 Query Route 断言</p>
 <ol>
-<li>军权无法牢牢掌握在苏丹手中，往往出现改革一触及军阀保守势力的利益就被推翻的场面，改革在上层就无法推行</li>
-<li>政权更替完全是靠王室之间的屠杀优胜者当王，政治内斗严重，政法思想无法一脉相承</li></ol>
-        
+<li>首次网关模块，新建模块是指定 Gateway 依赖</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-gateway<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>在 application.yml 需要开启服务注册发现，指定 Nacos 中心地址，这样网关才知道 Nacos 注册中心有哪   些服务在什么地方，才能将请求交给哪个服务</li>
+<li>在启动类上添加@EnableDiscoveryClient 注解</li>
+<li>编写断言策略</li>
+</ol>
+<p>路由的每个 id 都要不同，-是 yml 中数组的语法，如果请求参数中 url 是 baidu，则路由到指定的 uri 中</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 开启服务注册</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">discovery:</span></span><br><span class="line">        <span class="attr">server-addr:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:8848</span></span><br><span class="line"></span><br><span class="line">      <span class="attr">application:</span></span><br><span class="line">    		<span class="attr">name:</span> <span class="string">doermail-member</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">gateway:</span></span><br><span class="line">      <span class="attr">routes:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">id:</span> <span class="string">baidu_route</span></span><br><span class="line">          <span class="attr">uri:</span> <span class="string">https://www.baidu.com</span></span><br><span class="line">          <span class="attr">predicates:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">Query=url,baidu</span></span><br><span class="line"></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">id:</span> <span class="string">qq_route</span></span><br><span class="line">          <span class="attr">uri:</span> <span class="string">https://www.qq.com</span></span><br><span class="line">          <span class="attr">predicates:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">Query=url,qq</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">88</span></span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>测试发送请求给网关 localhost:88?url=baidu</li>
+</ol>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615736106018-d74b101d-7b27-4803-a9e4-90892651c7cd.png#align=left&display=inline&height=313&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-14%2023.34.28.png&originHeight=2100&originWidth=3360&size=396869&status=done&style=none&width=500" alt="截屏2021-03-14 23.34.28.png"><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615736360311-c1496210-38f3-41ff-ae65-c87b19a5d8a8.png#align=left&display=inline&height=313&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-14%2023.38.43.png&originHeight=2100&originWidth=3360&size=2057734&status=done&style=none&width=500" alt="截屏2021-03-14 23.38.43.png"></p>
+<ol start="6">
+<li>如果请求路由中有路径，则也会进行转发，例如 localhost:88/hello?url=baidu，则会转发到<a target="_blank" rel="noopener" href="http://www.baidu.com/hello">www.baidu.com/hello</a></li>
+</ol>
+
       
       
 
@@ -400,45 +402,10 @@
     <div class="article-info article-info-index">
       
       
-<div class="article-tag tagcloud">
-	<i class="icon-price-tags icon"></i>
-	<ul class="article-tag-list">
-		
-		
-		<li class="article-tag-list-item">
-			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">
-				随笔</a>
-		</li>
-		
-		
-		
-		<li class="article-tag-list-item">
-			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">
-				历史</a>
-		</li>
-		
-		
-	</ul>
-</div>
-
       
-<div class="article-category tagcloud">
-	<i class="icon-book icon"></i>
-	<ul class="article-tag-list">
-		
-		
-		<li class="article-tag-list-item">
-			<a href="/categories/中东战争史//" class="article-tag-list-link color1">
-				中东战争史</a>
-		</li>
-		
-		
-	</ul>
-</div>
-
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/%E4%B8%AD%E4%B8%9C%E6%88%98%E4%BA%89%E5%8F%B2/%E5%A5%A5%E6%96%AF%E6%9B%BC%E5%B8%9D%E5%9B%BD%E7%9A%84%E8%A1%B0%E8%90%BD%E5%8E%9F%E7%94%B1/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/uncategorized/yuque/Gateway%E7%BD%91%E5%85%B3/">展开全文 >></a>
         </p>
       
 
@@ -467,14 +434,14 @@
 
 
   
-    <article id="post-Java中ThreadLocal是如何保证线程安全的" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Nacos：如果注册服务（上）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/Java%E4%B8%ADThreadLocal%E6%98%AF%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84/">JAVA中ThreadLocal是如何保证线程安全的</a>
+      <a class="article-title" href="/2021/SpringCloud/Nacos%EF%BC%9A%E5%A6%82%E6%9E%9C%E6%B3%A8%E5%86%8C%E6%9C%8D%E5%8A%A1%EF%BC%88%E4%B8%8A%EF%BC%89/">Nacos：如何注册服务（上）</a>
     </h1>
   
 
@@ -482,21 +449,23 @@
         
         <!--显示阅读次数完毕-->
         
-        <a href="/2021/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/Java%E4%B8%ADThreadLocal%E6%98%AF%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84/" class="archive-article-date">
-  	<time datetime="2021-01-27T06:59:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-27</time>
+        <a href="/2021/SpringCloud/Nacos%EF%BC%9A%E5%A6%82%E6%9E%9C%E6%B3%A8%E5%86%8C%E6%9C%8D%E5%8A%A1%EF%BC%88%E4%B8%8A%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2021-03-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-14</time>
 </a>
         
       </header>
     
     <div align="center" class="post-count">
-    字数：1.4k字 | 预计阅读时长：6分钟
+    字数：1.2k字 | 预计阅读时长：5分钟
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-线程安全"><a href="#1-线程安全" class="headerlink" title="1.线程安全"></a><span style="color:orange;">1.线程安全</span></h3><p>当多个线程试图同时对一个共享变量进行访问修改的时候，容易引发数据不安全的操作。<br>例如一个线程1正准备对变量进行修改+1时，另一个线程2也进行了修改+1，那么这个线程1进行修改的操作就可能是不成功的。</p>
-<h3 id="2-可以采取的措施"><a href="#2-可以采取的措施" class="headerlink" title="2.可以采取的措施"></a><span style="color:orange;">2.可以采取的措施</span></h3><ol>
-<li>加锁，保证线程在写入时是加锁的，其他线程的修改只能等待</li>
-<li>ThreadLocal采用的方法，每个线程访问的都是共享变量的拷贝变量</li></ol>
+        <p>SpringCloud-Alibaba-Nacos是阿里出品的一个服务发现与注册的组件，微服务需要调用其他微服务模块的服务或者微服务模块需要被其他模块调用，都需要到Nacos注册中心中注册该微服务模块</p>
+<p><strong>如何微服务模块注册到注册中心，主要是以下几个步骤</strong></p>
+<p>1.在微服务模块引入Nacos的依赖</p>
+<p>2.启动Nacos服务器</p>
+<p>3.微服务模块设置好注册中心的接口以及该微服务模块需要注册到服务中心的名称</p>
+<p>4.在启动类加入 @EnableDiscoveryClient 注解表示该服务注册到Nacos中</p>
         
       
       
@@ -512,8 +481,8 @@
 		
 		
 		<li class="article-tag-list-item">
-			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">
-				线程</a>
+			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">
+				Nacos</a>
 		</li>
 		
 		
@@ -527,8 +496,8 @@
 		
 		
 		<li class="article-tag-list-item">
-			<a href="/categories/线程安全//" class="article-tag-list-link color5">
-				线程安全</a>
+			<a href="/categories/SpringCloud//" class="article-tag-list-link color2">
+				SpringCloud</a>
 		</li>
 		
 		
@@ -537,7 +506,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/Java%E4%B8%ADThreadLocal%E6%98%AF%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/SpringCloud/Nacos%EF%BC%9A%E5%A6%82%E6%9E%9C%E6%B3%A8%E5%86%8C%E6%9C%8D%E5%8A%A1%EF%BC%88%E4%B8%8A%EF%BC%89/">展开全文 >></a>
         </p>
       
 
@@ -566,14 +535,14 @@
 
 
   
-    <article id="post-docker配置MYSQL集群(上)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-yuque/Nacos：如何统一配置（下）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/Spring/docker%E9%85%8D%E7%BD%AEMYSQL%E9%9B%86%E7%BE%A4(%E4%B8%8A)/">Docker配置MYSQL集群(上)</a>
+      <a class="article-title" href="/2021/uncategorized/yuque/Nacos%EF%BC%9A%E5%A6%82%E4%BD%95%E7%BB%9F%E4%B8%80%E9%85%8D%E7%BD%AE%EF%BC%88%E4%B8%8B%EF%BC%89/">Nacos：如何统一配置（下）</a>
     </h1>
   
 
@@ -581,22 +550,70 @@
         
         <!--显示阅读次数完毕-->
         
-        <a href="/2021/Spring/docker%E9%85%8D%E7%BD%AEMYSQL%E9%9B%86%E7%BE%A4(%E4%B8%8A)/" class="archive-article-date">
-  	<time datetime="2021-01-27T02:41:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-27</time>
+        <a href="/2021/uncategorized/yuque/Nacos%EF%BC%9A%E5%A6%82%E4%BD%95%E7%BB%9F%E4%B8%80%E9%85%8D%E7%BD%AE%EF%BC%88%E4%B8%8B%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2021-03-13T15:59:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-13</time>
 </a>
         
       </header>
     
     <div align="center" class="post-count">
-    字数：2.2k字 | 预计阅读时长：8分钟
+    字数：1.5k字 | 预计阅读时长：6分钟
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>利用Docker部署MYSQL集群，可以缓解服务器的压力，接下来一起来学习使用Docker部署MYSQL集群吧！</p>
-<h3 id="1-MYSQL集群读写分离的原理知识"><a href="#1-MYSQL集群读写分离的原理知识" class="headerlink" title="1.MYSQL集群读写分离的原理知识"></a><span style="color:orange;">1.MYSQL集群读写分离的原理知识</span></h3><blockquote>
-<p>MYSQL集群是为了减轻服务器负担，防止网站面对业务过多，达到数据库操作瓶颈，防止用户的数据没有及时的记录或修改造成损失，其中MYSQL集群的主要目的就是设立一个master节点，主要负责写，还有若干个salve节点，负责读，其中涉及到master、slave数据一致性的问题。</p>
-</blockquote>
-        
+        <h3 id="一、传统使用配置模式"><a href="#一、传统使用配置模式" class="headerlink" title="一、传统使用配置模式"></a>一、传统使用配置模式</h3><p>之前我们的开发模式为，我们将需要的配置防止在 application.properies 中，然后需要使用时通过@Value(“$(配置名)”)的方式来进行引入配置，如同下面一样 👇<br>application.properties 配置</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">coupon.user.name=test1</span></span><br><span class="line"><span class="string">coupon.user.age=1234</span></span><br></pre></td></tr></table></figure>
+<p>使用配置</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RefreshScope</span> <span class="comment">//开启Nacos配置自动刷新</span></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;coupon/coupon&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CouponController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> CouponService couponService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;coupon.user.name&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String userName;</span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;coupon.user.age&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/getvalue&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> R <span class="title">getValue</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> R.ok().put(<span class="string">&quot;name&quot;</span>, userName).put(<span class="string">&quot;age&quot;</span>, age);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>缺点</strong>：上述的缺点在于我们如果想在服务运行期间修改 application.properties，网页访问 getvalue，是不会发生修改的，因为注入是在项目启动访问时注入了，之后无法再修改，只能通过下线该服务-&gt;修改 application.properties-&gt;打包重新上线使用</p>
+<h3 id="二、Nacos-统一配置"><a href="#二、Nacos-统一配置" class="headerlink" title="二、Nacos 统一配置"></a>二、Nacos 统一配置</h3><p>如果我们该服务有很多集群，不可能每台服务都要通过以上的步骤，所以我们使用 Nacos 来同一存取我们的配置<br>优点：</p>
+<ul>
+<li>在项目运行期间可以动态修改配置</li>
+<li>当有服务集群时，可以实现修改一处，所有同集群的服务配置都发生修改</li>
+</ul>
+<p><strong>使用方式</strong><br><strong>1.引入依赖</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--Nacos实现微服务配置统一管理--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-alibaba-nacos-config<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h6 id="2-创建一个-bootstrap-properties"><a href="#2-创建一个-bootstrap-properties" class="headerlink" title="2. 创建一个 bootstrap.properties"></a><strong>2. 创建一个 bootstrap.properties</strong></h6><p>告诉该微服务 Nacos 配置中心地址以及该服务模块名称，这样该微服务模块才能去 Nacos 以模块名.properties 读取配置<br>bootstrap.properties</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置中心地址以及该微服务名称</span></span><br><span class="line"><span class="string">spring.cloud.nacos.config.server-addr=127.0.0.1:8848</span></span><br><span class="line"><span class="string">spring.application.name=doermail-coupon</span></span><br></pre></td></tr></table></figure>
+<p><strong>3.在 Nacos 自带的前端控制台新建一个应用名.properties 文件，写入配置</strong><br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615652533380-bcee7460-6d6f-4599-aa75-144779ab23b7.png#align=left&display=inline&height=426&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-13%2023.46.00.png&originHeight=2100&originWidth=3360&size=401474&status=done&style=none&width=682" alt="截屏2021-03-13 23.46.00.png"><br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615652545539-93613893-79f4-4224-abec-7ec217a51bad.png#align=left&display=inline&height=426&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-13%2023.46.41.png&originHeight=2100&originWidth=3360&size=475652&status=done&style=none&width=681" alt="截屏2021-03-13 23.46.41.png"><br><strong>4.项目需要引入配置的类上（不是应用启动类）添加@RefreshScope 注解表示动态获取配置以及 Value 注解</strong></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">@RefreshScope</span> <span class="string">//开启Nacos配置自动刷新</span></span><br><span class="line"><span class="string">@RestController</span></span><br><span class="line"><span class="string">@RequestMapping(&quot;coupon/coupon&quot;)</span></span><br><span class="line"><span class="string">public</span> <span class="string">class</span> <span class="string">CouponController</span> &#123;</span><br><span class="line">    <span class="string">@Autowired</span></span><br><span class="line">    <span class="string">private</span> <span class="string">CouponService</span> <span class="string">couponService;</span></span><br><span class="line"></span><br><span class="line">    <span class="string">@Value(&quot;$</span>&#123;<span class="string">coupon.user.name</span>&#125;<span class="string">&quot;)</span></span><br><span class="line"><span class="string">    private String userName;</span></span><br><span class="line"><span class="string">    @Value(&quot;</span><span class="string">$</span>&#123;<span class="string">coupon.user.age</span>&#125;<span class="string">&quot;)</span></span><br><span class="line"><span class="string">    private int age;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    @RequestMapping(&quot;</span><span class="string">/getvalue&quot;)</span></span><br><span class="line">    <span class="string">public</span> <span class="string">R</span> <span class="string">getValue()</span>&#123;</span><br><span class="line">        <span class="string">return</span> <span class="string">R.ok().put(&quot;name&quot;</span>, <span class="string">userName).put(&quot;age&quot;</span>, <span class="string">age);</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>5.项目启动时可以看到会从 Nacos 以应用名.properties 访问配置文件，访问 getvalue</strong><br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615652827791-1f7ff4a4-ca14-427f-8af8-db5aa4dc519c.png#align=left&display=inline&height=247&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-13%2023.46.16.png&originHeight=742&originWidth=2276&size=208293&status=done&style=none&width=759" alt="截屏2021-03-13 23.46.16.png"><br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615652680034-3b8030b8-7213-4d1d-86f0-1dcf1ca2a141.png#align=left&display=inline&height=449&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-13%2023.47.33.png&originHeight=2100&originWidth=3360&size=318938&status=done&style=none&width=718" alt="截屏2021-03-13 23.47.33.png"></p>
+<ol start="6">
+<li><strong>运行期间修改配置，动态生效</strong></li>
+</ol>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615652723898-9ad217b2-5b9b-4bdc-82ad-7be785a2f570.png#align=left&display=inline&height=429&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-13%2023.46.55.png&originHeight=2100&originWidth=3360&size=441175&status=done&style=none&width=686" alt="截屏2021-03-13 23.46.55.png"><br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615652738317-086ccee8-f7b5-4d88-9370-6d347decbd30.png#align=left&display=inline&height=455&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-13%2023.47.51.png&originHeight=2100&originWidth=3360&size=430692&status=done&style=none&width=728" alt="截屏2021-03-13 23.47.51.png"><br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615652749923-6ea35f74-519b-4ad8-a14a-bd83c9ad794c.png#align=left&display=inline&height=467&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-14%2000.21.15.png&originHeight=2100&originWidth=3360&size=436220&status=done&style=none&width=747" alt="截屏2021-03-14 00.21.15.png"><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615652754640-2482b7a4-6940-4593-9501-0e835c8619b3.png#align=left&display=inline&height=471&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-14%2000.21.36.png&originHeight=2100&originWidth=3360&size=323576&status=done&style=none&width=753" alt="截屏2021-03-14 00.21.36.png"></p>
+<p>当本地有 application.properties 时，又使用了 Nacos 来统一管理配置时，这时候是 Nacos 配置优先级高于本地 application.properties，优先使用 Nacos 配置</p>
+<h3 id="三、细节"><a href="#三、细节" class="headerlink" title="三、细节"></a>三、细节</h3><p><strong>1.命名空间</strong><br>命名空间主要是为了用作配置隔离，在不同的命名空间下，可以存在相同的 Group 或 Data ID 的配置，NameSpace 主要的常用场景就是不同环境的配置的区分隔离，例如开发测试环境和生产环境的资源隔离。</p>
+<ul>
+<li>在 Nacos 创建命名空间</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615714557275-44291fba-6f5a-4b16-8b64-a091fd53e172.png#align=left&display=inline&height=287&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-14%2017.35.50.png&originHeight=2100&originWidth=3360&size=461545&status=done&style=none&width=459" alt="截屏2021-03-14 17.35.50.png"><br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615714804051-60b40914-43c5-4ec9-920f-06aef8f776e6.png#align=left&display=inline&height=269&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-14%2017.39.13.png&originHeight=2100&originWidth=3360&size=454098&status=done&style=none&width=430" alt="截屏2021-03-14 17.39.13.png"></p>
+<ul>
+<li>在 bootstrap.properties 中添加需引用哪个命名空间的配置信息</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spring.cloud.nacos.config.namespace=c2d59cfd-4549-493b-b741-1cc29e9101ec</span><br></pre></td></tr></table></figure>
+<ul>
+<li>上线刷新</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615714825654-e0d23f2a-2314-4f4f-aaeb-7038170c1be4.png#align=left&display=inline&height=274&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-14%2017.40.21.png&originHeight=2100&originWidth=3360&size=323636&status=done&style=none&width=438" alt="截屏2021-03-14 17.40.21.png"><br><strong>2.配置集</strong><br>一组相关或者不相关的配置项的集合称为配置集，一个配置集可能包含了数据源、线程池、日志级别等各种各样的配置项<br><strong>3.配置集 ID</strong><br>类似于配置文件名 application.properties，这里就是指应用名.properties<br><strong>4.配置分组</strong><br>默认所有的配置集都属于：DEFAULT_GROUP ，通常是根据活动来划分，例如双十一采取某个配置<img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615715480238-3c54fd6a-0b0c-4d64-a89d-8a2caf015f92.png#align=left&display=inline&height=261&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-14%2017.50.52.png&originHeight=2100&originWidth=3360&size=421456&status=done&style=none&width=418" alt="截屏2021-03-14 17.50.52.png"><br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615715533376-517595fb-fc52-4adf-8f92-870134b72ba2.png#align=left&display=inline&height=256&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-14%2017.52.10.png&originHeight=2100&originWidth=3360&size=510380&status=done&style=none&width=409" alt="截屏2021-03-14 17.52.10.png"><br>可以看到该微服务有两个配置文件，属于同一个命名空间，但是不同分组，默认微服务是使用默认分组的配置文件<br>在 bootstrap.properties 中添加如下信息，就可以使用指定分组的配置了</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">spring.cloud.nacos.config.namespace=9d4cb79e-bd03-467f-9e2f-2a7bcfe2fe55</span><br><span class="line">spring.cloud.nacos.config.group=11-11</span><br></pre></td></tr></table></figure>
+<p><strong>开发规范：每个微服务拥有自己的命名空间，使用配置分组区分环境：test、dev、prod<img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615718938039-6a1d03bf-e61b-4d59-9eab-418d2ab4f8b8.png#align=left&display=inline&height=283&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-14%2018.48.48.png&originHeight=2100&originWidth=3360&size=530210&status=done&style=none&width=452" alt="截屏2021-03-14 18.48.48.png"></strong><br>**</p>
+<h4 id="四、同时加载多个配置"><a href="#四、同时加载多个配置" class="headerlink" title="四、同时加载多个配置"></a>四、同时加载多个配置</h4><p>1）微服务任何配置信息，任何配置文件都可以放在配置中心中<br>2）只需要在 bootstrap.properties 说明加载配置中心哪些配置文件即可（指定好 group）<br>3）@Value、@ConfigurationProperties 都可以进行配置代码中的注入<br>4）配置中心有的优先 使用<br>一般随着业务不断壮大，数据源、mybatis、拦截器配置不可能都放在微服务下面的 application.yml 中，这里对不同的配置进行拆分，放置在 Nacos 中进行统一管理。</p>
+<ul>
+<li><strong>数据源：</strong>将 application.yml 中数据源在 Nacos 中抽取出来，新建 datasouce.yml</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615722930478-41b168bc-e48f-4c4b-9862-aac5562966be.png#align=left&display=inline&height=313&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-14%2019.55.24.png&originHeight=2100&originWidth=3360&size=456915&status=done&style=none&width=500" alt="截屏2021-03-14 19.55.24.png"></p>
+<ul>
+<li>mybatis 配置：将 application.yml 中 mybatis 在 Nacos 中抽取出来，新建 mybatis.yml</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615723044580-304873c1-1d34-4f52-95ca-94bf9e30c2aa.png#align=left&display=inline&height=313&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-14%2019.57.19.png&originHeight=2100&originWidth=3360&size=446810&status=done&style=none&width=500" alt="截屏2021-03-14 19.57.19.png"></p>
+<ul>
+<li>其他配置：例如注册中心地址、应用名</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615723107596-bd23ad29-09c4-4553-8544-dd0dea90ac0e.png#align=left&display=inline&height=313&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-14%2019.58.22.png&originHeight=2100&originWidth=3360&size=458856&status=done&style=none&width=500" alt="截屏2021-03-14 19.58.22.png"><br>经过上面已经将应用的数据源配置、端口号之类的搬迁到了 Nacos 中，那么接下来本地如何引用这些配置呢？还是在<strong>bootstrap.properties</strong>中进行配置<br>通过 ext-config 属性指定，可以看到是一个 List，然后每个配置下面设置好 dataId，group 属性，以及是否采用动态配置 refresh<br>本地的 application.yml 可以完全删除，直接实现 Nacos 统一配置管理</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置中心地址以及该微服务名称</span></span><br><span class="line"><span class="string">spring.cloud.nacos.config.server-addr=127.0.0.1:8848</span></span><br><span class="line"><span class="string">spring.cloud.nacos.config.namespace=9d4cb79e-bd03-467f-9e2f-2a7bcfe2fe55</span></span><br><span class="line"><span class="string">spring.cloud.nacos.config.group=dev</span></span><br><span class="line"><span class="string">spring.application.name=doermail-coupon</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据源Nacos</span></span><br><span class="line"><span class="string">spring.cloud.nacos.config.ext-config[0].data-id=datasource.yml</span></span><br><span class="line"><span class="string">spring.cloud.nacos.config.ext-config[0].group=dev</span></span><br><span class="line"><span class="string">spring.cloud.nacos.config.ext-config[0].refresh=true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># mybatis</span></span><br><span class="line"><span class="string">spring.cloud.nacos.config.ext-config[1].data-id=mybatis.yml</span></span><br><span class="line"><span class="string">spring.cloud.nacos.config.ext-config[1].group=dev</span></span><br><span class="line"><span class="string">spring.cloud.nacos.config.ext-config[1].refresh=true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 端口号、服务注册发现地址</span></span><br><span class="line"><span class="string">spring.cloud.nacos.config.ext-config[2].data-id=other.yml</span></span><br><span class="line"><span class="string">spring.cloud.nacos.config.ext-config[2].group=dev</span></span><br><span class="line"><span class="string">spring.cloud.nacos.config.ext-config[2].refresh=true</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615723288660-31f1f070-3ddf-4bfe-a72b-7b864bb540ee.png#align=left&display=inline&height=62&margin=%5Bobject%20Object%5D&name=image.png&originHeight=124&originWidth=1478&size=19779&status=done&style=none&width=739" alt="image.png"><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615723303757-c1186f25-351a-41ed-bd15-9c6475788768.png#align=left&display=inline&height=142&margin=%5Bobject%20Object%5D&name=image.png&originHeight=284&originWidth=1312&size=34676&status=done&style=none&width=656" alt="image.png"></p>
+
       
       
 
@@ -605,45 +622,10 @@
     <div class="article-info article-info-index">
       
       
-<div class="article-tag tagcloud">
-	<i class="icon-price-tags icon"></i>
-	<ul class="article-tag-list">
-		
-		
-		<li class="article-tag-list-item">
-			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">
-				Docker</a>
-		</li>
-		
-		
-		
-		<li class="article-tag-list-item">
-			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">
-				MYSQL集群</a>
-		</li>
-		
-		
-	</ul>
-</div>
-
       
-<div class="article-category tagcloud">
-	<i class="icon-book icon"></i>
-	<ul class="article-tag-list">
-		
-		
-		<li class="article-tag-list-item">
-			<a href="/categories/Spring//" class="article-tag-list-link color2">
-				Spring</a>
-		</li>
-		
-		
-	</ul>
-</div>
-
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/Spring/docker%E9%85%8D%E7%BD%AEMYSQL%E9%9B%86%E7%BE%A4(%E4%B8%8A)/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/uncategorized/yuque/Nacos%EF%BC%9A%E5%A6%82%E4%BD%95%E7%BB%9F%E4%B8%80%E9%85%8D%E7%BD%AE%EF%BC%88%E4%B8%8B%EF%BC%89/">展开全文 >></a>
         </p>
       
 
@@ -674,7 +656,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -789,15 +771,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">微服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Docker</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">MYSQL集群</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">微服务</a>
               </li>
              
               <li class="article-tag-list-item">
