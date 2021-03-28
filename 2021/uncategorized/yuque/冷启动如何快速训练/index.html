@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>强化学习结构 | 一止长渊的博客</title>
+  <title>冷启动如何快速训练 | 一止长渊的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="main.py 负责环境交互部分 环境初始化 每轮比赛开始初始化环境 每步调用环境的接口获取状态 obs 调用算法模型传入 obs，获取动作 得到动作序列存入 replay buffer 每隔 n 步 sample 样本进行模型训练  算法模型.py 构建模型 初始化参数 接受从 replay buffer 取出的动作序列，放入构建的模型层，计算 loss 函数，反向传播、优化器优化网络结构（算法">
+  <meta name="description" content="1.训练速度慢涉及到的两个原因1）增量式的参数更新，最初的算法，从输入的环境，到输出的 AI 动作之间，是靠梯度下降来完成映射的。在这个过程中，每个增量都需要非常小，才不至于让新学到的信息，把之前学到的经验覆盖了（这叫做灾难性干扰），如此一来，学习过程就十分缓慢。2）弱归纳偏置，任何学习过程都面临着偏见-方差权衡所谓偏见，就是一开始限定好一些可能的结果，AI 从里面找出自己想要的一种，限定越窄，A">
 <meta property="og:type" content="article">
-<meta property="og:title" content="强化学习结构">
-<meta property="og:url" content="http://example.com/2021/uncategorized/yuque/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%BB%93%E6%9E%84/index.html">
+<meta property="og:title" content="冷启动如何快速训练">
+<meta property="og:url" content="http://example.com/2021/uncategorized/yuque/%E5%86%B7%E5%90%AF%E5%8A%A8%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%AD%E7%BB%83/index.html">
 <meta property="og:site_name" content="一止长渊的博客">
-<meta property="og:description" content="main.py 负责环境交互部分 环境初始化 每轮比赛开始初始化环境 每步调用环境的接口获取状态 obs 调用算法模型传入 obs，获取动作 得到动作序列存入 replay buffer 每隔 n 步 sample 样本进行模型训练  算法模型.py 构建模型 初始化参数 接受从 replay buffer 取出的动作序列，放入构建的模型层，计算 loss 函数，反向传播、优化器优化网络结构（算法">
+<meta property="og:description" content="1.训练速度慢涉及到的两个原因1）增量式的参数更新，最初的算法，从输入的环境，到输出的 AI 动作之间，是靠梯度下降来完成映射的。在这个过程中，每个增量都需要非常小，才不至于让新学到的信息，把之前学到的经验覆盖了（这叫做灾难性干扰），如此一来，学习过程就十分缓慢。2）弱归纳偏置，任何学习过程都面临着偏见-方差权衡所谓偏见，就是一开始限定好一些可能的结果，AI 从里面找出自己想要的一种，限定越窄，A">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-03-28T16:34:53.000Z">
-<meta property="article:modified_time" content="2021-03-28T16:40:08.167Z">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2020/jpeg/2648023/1601781998253-0f171a22-fc7d-4784-bca7-88395931a76f.jpeg#align=left&display=inline&height=255&margin=%5Bobject%20Object%5D&name=image.jpeg&originHeight=574&originWidth=1080&size=53970&status=done&style=none&width=480">
+<meta property="article:published_time" content="2021-03-28T16:48:57.000Z">
+<meta property="article:modified_time" content="2021-03-28T16:55:50.653Z">
 <meta property="article:author" content="一止长渊">
 <meta property="article:tag" content="JAVA 后端 Spring">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2020/jpeg/2648023/1601781998253-0f171a22-fc7d-4784-bca7-88395931a76f.jpeg#align=left&display=inline&height=255&margin=%5Bobject%20Object%5D&name=image.jpeg&originHeight=574&originWidth=1080&size=53970&status=done&style=none&width=480">
   
     <link rel="alternative" href="/atom.xml" title="一止长渊的博客" type="application/atom+xml">
   
@@ -157,14 +159,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-yuque/强化学习结构" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-yuque/冷启动如何快速训练" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      强化学习结构
+      冷启动如何快速训练
     </h1>
   
 
@@ -180,70 +182,22 @@
         
         <!--显示阅读次数完毕-->
         
-        <a href="/2021/uncategorized/yuque/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%BB%93%E6%9E%84/" class="archive-article-date">
-  	<time datetime="2021-03-28T16:34:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-29</time>
+        <a href="/2021/uncategorized/yuque/%E5%86%B7%E5%90%AF%E5%8A%A8%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%AD%E7%BB%83/" class="archive-article-date">
+  	<time datetime="2021-03-28T16:48:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-29</time>
 </a>
         
       </header>
     
     <div align="center" class="post-count">
-    字数：490字 | 预计阅读时长：1分钟
+    字数：1.4k字 | 预计阅读时长：4分钟
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="main-py-负责环境交互部分"><a href="#main-py-负责环境交互部分" class="headerlink" title="main.py 负责环境交互部分"></a>main.py 负责环境交互部分</h4><ul>
-<li>环境初始化</li>
-<li>每轮比赛开始初始化环境</li>
-<li>每步调用环境的接口获取状态 obs</li>
-<li>调用算法模型传入 obs，获取动作</li>
-<li>得到动作序列存入 replay buffer</li>
-<li>每隔 n 步 sample 样本进行模型训练</li>
-</ul>
-<h4 id="算法模型-py"><a href="#算法模型-py" class="headerlink" title="算法模型.py"></a>算法模型.py</h4><ul>
-<li>构建模型</li>
-<li>初始化参数</li>
-<li>接受从 replay buffer 取出的动作序列，放入构建的模型层，计算 loss 函数，反向传播、优化器优化网络结构（算法的核心部分）</li>
-<li>选择动作的接口</li>
-</ul>
-<h4 id="模型层-py"><a href="#模型层-py" class="headerlink" title="模型层.py"></a>模型层.py</h4><ul>
-<li>模型初始化</li>
-<li>DQN：两个带激励函数的全连接、一个不带激励函数的全连接</li>
-<li>提供 forward 方法</li>
-<li>提供 reset parameter 方法</li>
-</ul>
-<h4 id="环境-py"><a href="#环境-py" class="headerlink" title="环境.py"></a>环境.py</h4><ul>
-<li>提供初始化环境参数接口</li>
-<li>提供观测值 obs 接口</li>
-<li>提供接收动作接口</li>
-<li>提供计算回报值接口</li>
-<li>提供一轮比赛结束接口</li>
-</ul>
-<h4 id="绘图（util-py）"><a href="#绘图（util-py）" class="headerlink" title="绘图（util.py）"></a>绘图（util.py）</h4><ul>
-<li>负责从文件读取每轮比赛的最终奖励</li>
-<li>绘制 loss 图、奖励-时间图</li>
-</ul>
-<h4 id="ReplayBuffer-py"><a href="#ReplayBuffer-py" class="headerlink" title="ReplayBuffer.py"></a>ReplayBuffer.py</h4><ul>
-<li>定义 Buffer 数据结构</li>
-<li>存入动作序列接口</li>
-<li>根据大小进行随机采样接口</li>
-</ul>
-<h4 id="回合式更新和单步更新；"><a href="#回合式更新和单步更新；" class="headerlink" title="回合式更新和单步更新；"></a>回合式更新和单步更新；</h4><p>回合式更新是一轮比赛从头到尾的完整序列 单步更新是从 buffer 取出的 size 大小的样本，之间没有明显的时间相关性</p>
-<h4 id="on-policy-和-off-policy-区别"><a href="#on-policy-和-off-policy-区别" class="headerlink" title="on-policy 和 off-policy 区别"></a>on-policy 和 off-policy 区别</h4><p>评判这个动作价值的策略和选出动作的策略是否为同一个策略 on-policy 更容易达到局部最优因为训练的是一条线 off-policy</p>
-<table>
-<thead>
-<tr>
-<th align="center">loss</th>
-<th align="center">收敛</th>
-<th align="center">不收敛</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">奖励</td>
-<td align="center">奖励很低（奖励函数设置问题也可能一些环境没有探索到）</td>
-<td align="center">奖励很高</td>
-</tr>
-</tbody></table>
-<h4 id="DQN-正常现象："><a href="#DQN-正常现象：" class="headerlink" title="DQN 正常现象："></a>DQN 正常现象：</h4><p>loss 不收敛（因为 DQN 计算 loss 是评估网络计算和目标网络的差值，中间隔了一个 r 值）评判标准就是奖励收敛</p>
+        <h3 id="1-训练速度慢涉及到的两个原因"><a href="#1-训练速度慢涉及到的两个原因" class="headerlink" title="1.训练速度慢涉及到的两个原因"></a>1.训练速度慢涉及到的两个原因</h3><p>1）增量式的参数更新，最初的算法，从输入的环境，到输出的 AI 动作之间，是靠梯度下降来完成映射的。在这个过程中，每个增量都需要非常小，才不至于让新学到的信息，把之前学到的经验覆盖了（这叫做灾难性干扰），如此一来，学习过程就十分缓慢。<br>2）弱归纳偏置，任何学习过程都面临着偏见-方差权衡<br>所谓偏见，就是一开始限定好一些可能的结果，AI 从里面找出自己想要的一种，限定越窄，AI 就可以只考虑到为数不多的可能性，更快地出结果。<br>弱归纳偏置，就需要考虑到更多的可能性，学习就会慢一些，通用神经网络都是偏见极低的系统，因为他们有大量的参数，可以用来拟合大范围的数据。</p>
+<h3 id="2-如何解决"><a href="#2-如何解决" class="headerlink" title="2.如何解决"></a>2.如何解决</h3><h4 id="1）如何解决训练慢的问题"><a href="#1）如何解决训练慢的问题" class="headerlink" title="1）如何解决训练慢的问题:"></a>1）如何解决训练慢的问题:</h4><p>首先解决参数增量的问题：<br><strong>情节性深度强化学习</strong>：就<strong>是给过去发生的事件，保留一个明确的记录</strong>，这个记录会作为依据，指导 AI 做出新的决策。<br><img src="https://cdn.nlark.com/yuque/0/2020/jpeg/2648023/1601781998253-0f171a22-fc7d-4784-bca7-88395931a76f.jpeg#align=left&display=inline&height=255&margin=%5Bobject%20Object%5D&name=image.jpeg&originHeight=574&originWidth=1080&size=53970&status=done&style=none&width=480" alt="image.jpeg"><br>当遇到一个新事件，该作决策的时候，就把当前事件的内部表征，跟存储的各种过去时间对比一下，匹配分数最高的选中，和增量方法的区别在于：在这里，从过去的事件里学到的信息，<strong>都可以立刻派上用场</strong>，由此加速了学习过程。</p>
+<p>因此，在把当前事件和过去时间的表征对比之前，AI 要先学习这些表征，连接权重的学习，依然要靠增量来进行，就像传统的 DRL 算法那样。慢慢学好表征之后，才能开始迅猛地奔跑。<br>DeepMind 说，“快从慢中生”并不是什么巧合，在心理学和神经科学上的体现，不亚于 AI 领域 (这个部分，大家可以自行探索原文) 。<br>**</p>
+<h4 id="2）弱归纳偏置问题："><a href="#2）弱归纳偏置问题：" class="headerlink" title="2）弱归纳偏置问题："></a>2）弱归纳偏置问题：</h4><p><strong>然后，再解决归纳偏置的问题：</strong><br>首先限定好一个狭窄的范围，再让 AI 去探索。道理都懂，可怎么知道应该限定在哪里？<br>答案是，借鉴过去的经验。<br>打个比方，第一次用智能手机的人类，可能从前还用过其他的设备。那里的经验，就可以帮他很快学会智能手机的用法。如果没有那些经验，就只能广泛尝试，影响学习速度了。<br>这个思路，也是从心理学上来的，叫做“学着学习 (Learning to Learn)”。<br>心理学家 Harry Harlow 就曾经用猴子来做实验：给猴子两个不熟悉的物体，一个下面放食物，一个不放。换两个物体，再换两个……久之猴子就知道，一边有食物一边没有，不管物体是什么，不管左边有还是右边有。<br>回到 AI 上来，用过去的经验来加速学习，在机器学习里叫做<strong>元学习 (Meta-Learning) **。<br>Wang 与 Duan 带领的两项研究，几乎是同时发表。都把这样的原理用在了深度强化学习上，就是</strong>元强化学习 (Meta RL) <strong>。<br>一个 RNN 是用许多互相关联的 RL 任务来训练的。<br>RNN 的权重慢慢调整，然后可以吸取各种 RL 任务里面的共同点，改变网络的设定。原本，它没办法做到快速改变，来支持任何一个单一任务。<br>**重点来了</strong>，从 RNN 的活动动态 (Activity Dynamics) 中，可以<strong>生出一个独立的 RL 算法</strong>，根据过往的任务，快速解决新任务。<br><strong>一个 RL 算法，能生出另一个 RL 算法，这就是元强化学习。</strong></p>
+<h3 id="3-快从慢中来"><a href="#3-快从慢中来" class="headerlink" title="3.快从慢中来"></a>3.快从慢中来</h3><p>像情节性 RL 一样，元 RL 也涉及了快速和慢速之间的联系：<br>RNN 中的连接，是在不同 RL 任务的学习中缓慢更新的，建立起不同任务之间共同的部分，把它内置到网络里去。<br>让这个 RNN，来实现新的 RL 算法，就可以快速搞定各种情况了。毕竟，已经有了慢速学习的归纳偏置做基础 (就像人类使用智能手机之前，已经用过其他设备那样)。<br><strong>依然，慢是快的前提。</strong><br>当然，情节性 DRL 可以和元 RL 合在一起用，相辅相成。<br>在情节性的元强化学习里，元学习是在 RNN 里实现的，不过上面叠加了一个情节记忆系统，作用是恢复 RNN 里的活动模式 (Patterns of Activity) 。<br>就像情节性 RL 一样，情节记忆会对各种过去的事件进行编目，可以查询。<br><strong>但决策过程不一样，不是按照匹配分数来选择下一步的动作。而是和 RNN 存储好的活动模式，联系起来。</strong><br>这些模式非常重要，通过 RNN，它们可以总结出智能体学到的东西。<br>当智能体遇到了类似过去的情况，就会在从前的经验中，恢复一些隐藏的 activations，让之前学过的信息立即派上用场，影响当前的策略。<br>这就叫“<strong>情节性元强化学习</strong>”，可以进一步加快强化学习的速度</p>
 
       
       
@@ -344,7 +298,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/uncategorized/yuque/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0%E7%BB%93%E6%9E%84/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/uncategorized/yuque/%E5%86%B7%E5%90%AF%E5%8A%A8%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%AD%E7%BB%83/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -404,7 +358,7 @@ if(true){
   	repo: 'blog-comments',
   	owner: 'yizhichangyuan',
   	admin: ['yizhichangyuan'],
-  	id: 'Mon Mar 29 2021 00:34:53 GMT+0800',
+  	id: 'Mon Mar 29 2021 00:48:57 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
