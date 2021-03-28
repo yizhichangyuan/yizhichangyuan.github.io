@@ -65,7 +65,7 @@
 			</ul>
 		</nav>
 		<nav>
-			<p>总文章数：30</p>
+			<p>总文章数：31</p>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -156,6 +156,89 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-yuque/JS脚本请求跨域" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/uncategorized/yuque/JS%E8%84%9A%E6%9C%AC%E8%AF%B7%E6%B1%82%E8%B7%A8%E5%9F%9F/">JS脚本请求跨域</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/uncategorized/yuque/JS%E8%84%9A%E6%9C%AC%E8%AF%B7%E6%B1%82%E8%B7%A8%E5%9F%9F/" class="archive-article-date">
+  	<time datetime="2021-03-17T16:30:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-18</time>
+</a>
+        
+      </header>
+    
+    <div align="center" class="post-count">
+    字数：680字 | 预计阅读时长：2分钟
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>跨域请求是针对 JS 的，也就是浏览器输入的网址协议+地址+端口号部分如果与执行脚本发送的 HTTP 请求地址有一处不同的话，就会被 CORS policy 跨域协议所<br>拦截，注意这里只针对 JS 脚本发出的 HTTP 请求<br><strong><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615998960194-cbd156cf-1bf8-4735-9c33-150b87b0b32e.png#align=left&display=inline&height=341&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-18%2000.35.54.png&originHeight=1166&originWidth=2050&size=1297290&status=done&style=none&width=600" alt="截屏2021-03-18 00.35.54.png"></strong><br>图中地址栏端口号为 8001，但是请求的地址为 88 端口，当执行登陆时，login 的 js 脚本就会发送请求给 88，就会导致跨域请求，但是图中的验证码虽然也是向 88 端口发送请求，但是其实在 src 属性中填充的地址，不是 js 脚本发送的请求所以不会引起跨域请求</p>
+<p><strong>跨域请求流程</strong><br>当点击登录时，浏览器发现是跨域请求，会先发送一个预检请求，也就是 Request Method 为 OPTIONS 给请求的服务器，服务器根据收到请求判断是不是简单的请求，如果是简单请求就响应允许跨域（响应头中会包含允许的来源、允许跨域方法、允许跨域请求格式），这时候浏览器收到服务器允许跨域的通知后，才会发送一个真实请求，然后服务器响应数据；如果服务器发现不是简单请求，就会拒绝该请求，浏览器端就会显示被 CORS policy 跨域协议所拦截</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615999283978-8f9d0146-1754-4e9b-b42e-ddab3c01a892.png#align=left&display=inline&height=248&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-18%2000.40.51.png&originHeight=768&originWidth=1858&size=227239&status=done&style=none&width=600" alt="截屏2021-03-18 00.40.51.png"><br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615999193658-8bececcc-84f7-4ccd-9d0a-620480d97745.png#align=left&display=inline&height=322&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-18%2000.39.47.png&originHeight=996&originWidth=1856&size=727993&status=done&style=none&width=600" alt="截屏2021-03-18 00.39.47.png"><br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615998829026-d270a19a-d7fe-42a4-adf8-b0b5f578277b.png#align=left&display=inline&height=375&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-18%2000.32.42.png&originHeight=2100&originWidth=3360&size=1373208&status=done&style=none&width=600" alt="截屏2021-03-18 00.32.42.png"><br>**<br>**<br><strong>简单请求定义</strong><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CORS">https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CORS</a><br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615999631051-323f0f14-f83d-4c00-ba3d-c0e7a0d35c6e.png#align=left&display=inline&height=547&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-18%2000.47.07.png&originHeight=1576&originWidth=1728&size=360261&status=done&style=none&width=600" alt="截屏2021-03-18 00.47.07.png"><br>如何在开发中进行跨域请求呢？<br>我们在微服务开发中，开发的管理后台因为管理多个微服务，不可避免向微服务发送请求，这时候就会引起跨域，这应该怎么解决呢？</p>
+<ul>
+<li>通过 Ngnix 将管理后台和网关置于同一域中：</li>
+</ul>
+<p>这样管理后台发送的所有请求都是 Ngnix，然后被 Ngnix 反向代理，发送给同一域中的网关，网关接收到请求后，然后经过断言判断、过滤等操作发给真正的微服务（这时候不要求微服务也在同域中）</p>
+<ul>
+<li>管理后台发送给网关的请求，网关直接返回允许跨域的响应：</li>
+</ul>
+<p>上面知道服务器如果允许跨域，会返回一个响应，响应头中会有这么几个响应头字段：</p>
+<ul>
+<li>Access-Control-Allow-Origin（允许访问该服务的外部 URL）</li>
+<li>Access-Control-Allow-Methods（字段用于预检请求的响应，其指明了实际请求所允许使用的  HTTP 方法）</li>
+<li>Access-Control-Allow-Headers（部字段用于预检请求的响应。其指明了实际请求中允许携带的首部字段）</li>
+</ul>
+
+      
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/uncategorized/yuque/JS%E8%84%9A%E6%9C%AC%E8%AF%B7%E6%B1%82%E8%B7%A8%E5%9F%9F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
   
     <article id="post-微服务基础概念" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -537,110 +620,9 @@
 
 
   
-    <article id="post-Nacos：如果注册服务（上）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/SpringCloud/Nacos%EF%BC%9A%E5%A6%82%E6%9E%9C%E6%B3%A8%E5%86%8C%E6%9C%8D%E5%8A%A1%EF%BC%88%E4%B8%8A%EF%BC%89/">Nacos：如何注册服务（上）</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/SpringCloud/Nacos%EF%BC%9A%E5%A6%82%E6%9E%9C%E6%B3%A8%E5%86%8C%E6%9C%8D%E5%8A%A1%EF%BC%88%E4%B8%8A%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2021-03-13T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-14</time>
-</a>
-        
-      </header>
-    
-    <div align="center" class="post-count">
-    字数：1.2k字 | 预计阅读时长：5分钟
-</div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>SpringCloud-Alibaba-Nacos是阿里出品的一个服务发现与注册的组件，微服务需要调用其他微服务模块的服务或者微服务模块需要被其他模块调用，都需要到Nacos注册中心中注册该微服务模块</p>
-<p><strong>如何微服务模块注册到注册中心，主要是以下几个步骤</strong></p>
-<p>1.在微服务模块引入Nacos的依赖</p>
-<p>2.启动Nacos服务器</p>
-<p>3.微服务模块设置好注册中心的接口以及该微服务模块需要注册到服务中心的名称</p>
-<p>4.在启动类加入 @EnableDiscoveryClient 注解表示该服务注册到Nacos中</p>
-        
-      
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-<div class="article-tag tagcloud">
-	<i class="icon-price-tags icon"></i>
-	<ul class="article-tag-list">
-		
-		
-		<li class="article-tag-list-item">
-			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">
-				Nacos</a>
-		</li>
-		
-		
-	</ul>
-</div>
-
-      
-<div class="article-category tagcloud">
-	<i class="icon-book icon"></i>
-	<ul class="article-tag-list">
-		
-		
-		<li class="article-tag-list-item">
-			<a href="/categories/SpringCloud//" class="article-tag-list-link color2">
-				SpringCloud</a>
-		</li>
-		
-		
-	</ul>
-</div>
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/SpringCloud/Nacos%EF%BC%9A%E5%A6%82%E6%9E%9C%E6%B3%A8%E5%86%8C%E6%9C%8D%E5%8A%A1%EF%BC%88%E4%B8%8A%EF%BC%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
     </nav>
   
 

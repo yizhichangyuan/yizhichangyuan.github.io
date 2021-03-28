@@ -65,7 +65,7 @@
 			</ul>
 		</nav>
 		<nav>
-			<p>总文章数：30</p>
+			<p>总文章数：31</p>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -156,6 +156,94 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-yuque/WebMvcConfigurer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/uncategorized/yuque/WebMvcConfigurer/">WebMvcConfigurer</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/uncategorized/yuque/WebMvcConfigurer/" class="archive-article-date">
+  	<time datetime="2021-03-28T16:19:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-29</time>
+</a>
+        
+      </header>
+    
+    <div align="center" class="post-count">
+    字数：1.1k字 | 预计阅读时长：4分钟
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="为什么要使用-WebMvcConfigurer？"><a href="#为什么要使用-WebMvcConfigurer？" class="headerlink" title="为什么要使用 WebMvcConfigurer？"></a>为什么要使用 WebMvcConfigurer？</h3><p>WebMvcConfigurer 是一个接口，提供很多自定义的拦截器，例如跨域设置、类型转化器等等。可以说此接口为开发者提前想到了很多拦截层面的需求，方便开发者自由选择使用。由于 Spring5.0 废弃了 WebMvcConfigurerAdapter，所以 WebMvcConfigurer 继承了 WebMvcConfigurerAdapter 大部分内容。</p>
+<h3 id="WebMvcConfigurer-方法介绍"><a href="#WebMvcConfigurer-方法介绍" class="headerlink" title="WebMvcConfigurer 方法介绍"></a>WebMvcConfigurer 方法介绍</h3><blockquote>
+<p>由于内容太多，只展示 3 个关键的接口，用的比较少的，只是阐述下含义，不再详解，用的更少的，就不看了，毕竟十多个方法呢…</p>
+</blockquote>
+<h4 id="1-configurePathMatch-PathMatchConfigurer-configurer"><a href="#1-configurePathMatch-PathMatchConfigurer-configurer" class="headerlink" title="1.configurePathMatch(PathMatchConfigurer configurer)"></a>1.configurePathMatch(PathMatchConfigurer configurer)</h4><p>这个用到的比较少，这个是和访问路径有关的。举个例子，比如说 PathMatchConfigurer 有个配置是 setUseTrailingSlashMatch(),如果设置为 true 的话（默认为 true），后面加个斜杠并不影响路径访问，例如“/user”等同于“/user/“。我们在开发中很少在访问路径上搞事情，所以这个方法如果有需要的请自行研究吧。</p>
+<h4 id="2-configureContentNegotiation-ContentNegotiationConfigurer-configurer"><a href="#2-configureContentNegotiation-ContentNegotiationConfigurer-configurer" class="headerlink" title="2.configureContentNegotiation(ContentNegotiationConfigurer configurer)"></a>2.configureContentNegotiation(ContentNegotiationConfigurer configurer)</h4><p>这个东西直译叫做内容协商机制，主要是方便一个请求路径返回多个数据格式。ContentNegotiationConfigurer 这个配置里面你会看到 MediaType，里面有众多的格式。此方法不在多赘述。</p>
+<h4 id="3-configureAsyncSupport-AsyncSupportConfigurer-configurer"><a href="#3-configureAsyncSupport-AsyncSupportConfigurer-configurer" class="headerlink" title="3.configureAsyncSupport(AsyncSupportConfigurer configurer)"></a>3.configureAsyncSupport(AsyncSupportConfigurer configurer)</h4><p>顾名思义，这是处理异步请求的。只能设置两个值，一个超时时间（毫秒，Tomcat 下默认是 10000 毫秒，即 10 秒），还有一个是 AsyncTaskExecutor，异步任务执行器。</p>
+<h4 id="4-configureDefaultServletHandling-DefaultServletHandlerConfigurer-configurer"><a href="#4-configureDefaultServletHandling-DefaultServletHandlerConfigurer-configurer" class="headerlink" title="4.configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer)"></a>4.configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer)</h4><p>这个接口可以实现静态文件可以像 Servlet 一样被访问。</p>
+<h4 id="5-addFormatters-FormatterRegistry-registry"><a href="#5-addFormatters-FormatterRegistry-registry" class="headerlink" title="5.addFormatters(FormatterRegistry registry)"></a>5.addFormatters(FormatterRegistry registry)</h4><p>增加转化器或者格式化器。这边不仅可以把时间转化成你需要时区或者样式。还可以自定义转化器和你数据库做交互，比如传进来 userId，经过转化可以拿到 user 对象。</p>
+<h4 id="6-addInterceptors-InterceptorRegistry-registry"><a href="#6-addInterceptors-InterceptorRegistry-registry" class="headerlink" title="6.addInterceptors(InterceptorRegistry registry)"></a>6.addInterceptors(InterceptorRegistry registry)</h4><p>盼望着，盼望着，你一个常用的方法来了。这个方法可以自定义写拦截器，并指定拦截路径。来，咱们写一个拦截器。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyInterceptor</span> <span class="keyword">implements</span> <span class="title">HandlerInterceptor</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">preHandle</span><span class="params">(HttpServletRequest request,</span></span></span><br><span class="line"><span class="function"><span class="params">                             HttpServletResponse response, Object handler)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;preHandle,ok,假设给你一个true，运行去吧&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postHandle</span><span class="params">(HttpServletRequest request,</span></span></span><br><span class="line"><span class="function"><span class="params">                           HttpServletResponse response, Object handler, ModelAndView modelAndView)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;postHandle,ok,看看我什么时候运行的。&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterCompletion</span><span class="params">(HttpServletRequest request,</span></span></span><br><span class="line"><span class="function"><span class="params">                                HttpServletResponse response, Object handler, Exception ex)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;afterCompletion,ok,看完不点个赞再走吗？&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+<p>然后配置一下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyConfigurer</span> <span class="keyword">implements</span> <span class="title">WebMvcConfigurer</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> MyInterceptor <span class="title">getMyInterceptor</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span>  <span class="keyword">new</span> MyInterceptor();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addInterceptors</span><span class="params">(InterceptorRegistry registry)</span> </span>&#123;</span><br><span class="line">        registry.addInterceptor(<span class="keyword">this</span>.getMyInterceptor())</span><br><span class="line">        .addPathPatterns(<span class="string">&quot;/abc&quot;</span>,<span class="string">&quot;/configurePathMatch&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+<p>可以看出 addPathPatterns()里面可以尝试添加多个路径，或者写成”/**“，包含所有路径都需要尝试拦截一下。<br>测试一下，输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">preHandle,ok,假设给你一个true，运行去吧</span><br><span class="line">&#x3D;&#x3D;&#x3D;》执行业务逻辑&#x3D;&#x3D;&#x3D;》</span><br><span class="line">postHandle,ok,看看我什么时候运行的。</span><br><span class="line">afterCompletion,ok,看完不点个赞再走吗？</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+<h4 id="7-addResourceHandlers-ResourceHandlerRegistry-registry"><a href="#7-addResourceHandlers-ResourceHandlerRegistry-registry" class="headerlink" title="7.addResourceHandlers(ResourceHandlerRegistry registry)"></a>7.addResourceHandlers(ResourceHandlerRegistry registry)</h4><p>自定义资源映射。这个东西也比较常用，业务场景就是自己的服务器作为文件服务器，不利用第三方的图床，就需要一个虚拟路径映射到我们服务器的地址。值得一提的是，如果你的项目是 war 包启动，一般都是再 Tomcat 中配置一下（配置方法请百度）；如果是 jar 包启动（SpringBoot 经常用这种方式启动），就可以用到这个方法了。例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public void addResourceHandlers(ResourceHandlerRegistry registry) &#123;</span><br><span class="line">    registry.addResourceHandler(&quot;&#x2F;my&#x2F;**&quot;)</span><br><span class="line">    .addResourceLocations(&quot;file:E:&#x2F;my&#x2F;&quot;);</span><br><span class="line">    super.addResourceHandlers(registry);</span><br><span class="line">&#125;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
+<p>真实路径，wndows 当服务器的情况下，前面一定要加上一个 file:。</p>
+<h4 id="8-addCorsMappings-CorsRegistry-registry"><a href="#8-addCorsMappings-CorsRegistry-registry" class="headerlink" title="8.addCorsMappings(CorsRegistry registry)"></a>8.addCorsMappings(CorsRegistry registry)</h4><p>这个是设置跨域问题的，几乎是每个后台服务器都需要配置的东西。我曾写过一篇文章，专门讲跨域问题和 SpringBoot 怎么配置的，请查询：<a target="_blank" rel="noopener" href="https://juejin.im/post/6844903862956982279">juejin.im/post/684490…</a></p>
+<h4 id="9-addViewControllers-ViewControllerRegistry-registry"><a href="#9-addViewControllers-ViewControllerRegistry-registry" class="headerlink" title="9.addViewControllers(ViewControllerRegistry registry)"></a>9.addViewControllers(ViewControllerRegistry registry)</h4><p>这个方法可以实现，一个路径自动跳转到一个页面。不过现在多为前后端分离的项目，是不是可以把跳转路由的问题直接扔给前端。<br>后面还有七个：configureViewResolvers、addArgumentResolvers、addReturnValueHandlers、configureMessageConverters、extendMessageConverters、configureHandlerExceptionResolvers、extendHandlerExceptionResolvers。是在用的太少了，就不再看了</p>
+<p>作者：啤酒就辣条<br>链接：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903863640653832">https://juejin.cn/post/6844903863640653832</a><br>来源：掘金<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+
+      
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/uncategorized/yuque/WebMvcConfigurer/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
   
     <article id="post-yuque/项目部署查看日志信息" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -523,92 +611,9 @@
 
 
   
-    <article id="post-yuque/JS脚本请求跨域" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/uncategorized/yuque/JS%E8%84%9A%E6%9C%AC%E8%AF%B7%E6%B1%82%E8%B7%A8%E5%9F%9F/">JS脚本请求跨域</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/uncategorized/yuque/JS%E8%84%9A%E6%9C%AC%E8%AF%B7%E6%B1%82%E8%B7%A8%E5%9F%9F/" class="archive-article-date">
-  	<time datetime="2021-03-17T16:30:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-18</time>
-</a>
-        
-      </header>
-    
-    <div align="center" class="post-count">
-    字数：680字 | 预计阅读时长：2分钟
-</div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>跨域请求是针对 JS 的，也就是浏览器输入的网址协议+地址+端口号部分如果与执行脚本发送的 HTTP 请求地址有一处不同的话，就会被 CORS policy 跨域协议所<br>拦截，注意这里只针对 JS 脚本发出的 HTTP 请求<br><strong><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615998960194-cbd156cf-1bf8-4735-9c33-150b87b0b32e.png#align=left&display=inline&height=341&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-18%2000.35.54.png&originHeight=1166&originWidth=2050&size=1297290&status=done&style=none&width=600" alt="截屏2021-03-18 00.35.54.png"></strong><br>图中地址栏端口号为 8001，但是请求的地址为 88 端口，当执行登陆时，login 的 js 脚本就会发送请求给 88，就会导致跨域请求，但是图中的验证码虽然也是向 88 端口发送请求，但是其实在 src 属性中填充的地址，不是 js 脚本发送的请求所以不会引起跨域请求</p>
-<p><strong>跨域请求流程</strong><br>当点击登录时，浏览器发现是跨域请求，会先发送一个预检请求，也就是 Request Method 为 OPTIONS 给请求的服务器，服务器根据收到请求判断是不是简单的请求，如果是简单请求就响应允许跨域（响应头中会包含允许的来源、允许跨域方法、允许跨域请求格式），这时候浏览器收到服务器允许跨域的通知后，才会发送一个真实请求，然后服务器响应数据；如果服务器发现不是简单请求，就会拒绝该请求，浏览器端就会显示被 CORS policy 跨域协议所拦截</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615999283978-8f9d0146-1754-4e9b-b42e-ddab3c01a892.png#align=left&display=inline&height=248&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-18%2000.40.51.png&originHeight=768&originWidth=1858&size=227239&status=done&style=none&width=600" alt="截屏2021-03-18 00.40.51.png"><br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615999193658-8bececcc-84f7-4ccd-9d0a-620480d97745.png#align=left&display=inline&height=322&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-18%2000.39.47.png&originHeight=996&originWidth=1856&size=727993&status=done&style=none&width=600" alt="截屏2021-03-18 00.39.47.png"><br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615998829026-d270a19a-d7fe-42a4-adf8-b0b5f578277b.png#align=left&display=inline&height=375&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-18%2000.32.42.png&originHeight=2100&originWidth=3360&size=1373208&status=done&style=none&width=600" alt="截屏2021-03-18 00.32.42.png"><br>**<br>**<br><strong>简单请求定义</strong><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CORS">https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CORS</a><br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615999631051-323f0f14-f83d-4c00-ba3d-c0e7a0d35c6e.png#align=left&display=inline&height=547&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-18%2000.47.07.png&originHeight=1576&originWidth=1728&size=360261&status=done&style=none&width=600" alt="截屏2021-03-18 00.47.07.png"><br>如何在开发中进行跨域请求呢？<br>我们在微服务开发中，开发的管理后台因为管理多个微服务，不可避免向微服务发送请求，这时候就会引起跨域，这应该怎么解决呢？</p>
-<ul>
-<li>通过 Ngnix 将管理后台和网关置于同一域中：</li>
-</ul>
-<p>这样管理后台发送的所有请求都是 Ngnix，然后被 Ngnix 反向代理，发送给同一域中的网关，网关接收到请求后，然后经过断言判断、过滤等操作发给真正的微服务（这时候不要求微服务也在同域中）</p>
-<ul>
-<li>管理后台发送给网关的请求，网关直接返回允许跨域的响应：</li>
-</ul>
-<p>上面知道服务器如果允许跨域，会返回一个响应，响应头中会有这么几个响应头字段：</p>
-<ul>
-<li>Access-Control-Allow-Origin（允许访问该服务的外部 URL）</li>
-<li>Access-Control-Allow-Methods（字段用于预检请求的响应，其指明了实际请求所允许使用的  HTTP 方法）</li>
-<li>Access-Control-Allow-Headers（部字段用于预检请求的响应。其指明了实际请求中允许携带的首部字段）</li>
-</ul>
-
-      
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/uncategorized/yuque/JS%E8%84%9A%E6%9C%AC%E8%AF%B7%E6%B1%82%E8%B7%A8%E5%9F%9F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 
