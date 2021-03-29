@@ -18,7 +18,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/2648023/1614703508357-a8e8f6d3-99e8-41d9-a344-21d1d22394b2.png#align=left&display=inline&height=617&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1234&originWidth=2099&size=365599&status=done&style=none&width=1049.5">
 <meta property="article:published_time" content="2021-03-02T16:44:53.000Z">
-<meta property="article:modified_time" content="2021-03-29T03:32:15.200Z">
+<meta property="article:modified_time" content="2021-03-29T03:32:51.946Z">
 <meta property="article:author" content="一止长渊">
 <meta property="article:tag" content="JAVA 后端 Spring">
 <meta name="twitter:card" content="summary">
@@ -194,7 +194,7 @@
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1614703508357-a8e8f6d3-99e8-41d9-a344-21d1d22394b2.png#align=left&display=inline&height=617&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1234&originWidth=2099&size=365599&status=done&style=none&width=1049.5" alt="image.png"><br>前端部署在外网内，也就是图中左边部分，后端集群部署在内网，当外网客户端通过发送请求后，首先会通过 Nginx 集群，Nginx 集群会对请求进行分流，发送给相应的 SpringCloud Gateway 网关，网关对用户的请求进行认证授权、负载均衡，通过之后则会发送给后端的业务集群，业务集群之间相互调用采用 Feign，有些业务需要通过认证之后才能进行，所以这里用到了 OAuth2.0 进行权限验证，为了方便快速的发现集群运行产生的 bug，使用 ELK 架构来收集日志，这里采用 LogStash 收集集群之间运行的 bug，然后存储在 ES 中方便文件检索，最后利用 Kibana 前端进行可视化展示，对于商品检索服务，使用功能 ES 集群提供全文检索功能，集群之间的相互通信采用 RabbitMQ 消息队列，在数据库使用 MySQL 集群进行读写分离负载均衡，对于用户读多写少的数据，通过分布式 Redis 进行缓存，用户上传的图片文件等通过阿里云的 OSS 进行文件存储。由于一项服务可能会部署在多台机器之中，为了方便服务之间相互发现和注册，使用功能了 Nacos 注册中心来进行服务注册、服务发现，由于每台服务都有服务配置，同一个服务配置几乎相同，为了方便配置的集中管理和改动，使用了阿里的 Nacos 配置中心对服务器配置进行集中化的管理，对于服务之间相互调用产生的延迟等问题，使用了服务追踪来追踪发现服务之间相互调用产生问题，并通过手机预警信息和邮件来进行告警提示。<br>由于是业务集群，当业务改动时，为了方便最新的代码同步到所有机器上，开发时使用 github 上传代码后，自动化的配置 Docker 镜像仓库，然后通过 Kuberneters API 部署到服务器集群中，实现代码的自动化管理、部署、运营。</p>
+        <p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1614703508357-a8e8f6d3-99e8-41d9-a344-21d1d22394b2.png#align=left&display=inline&height=617&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1234&originWidth=2099&size=365599&status=done&style=none&width=1049.5" alt="image.png"><br>前端部署在外网内，也就是图中左边部分，后端集群部署在内网，当外网客户端通过发送请求后，首先会通过 Nginx 集群，Nginx 集群会对请求进行分流，发送给相应的 SpringCloud Gateway 网关，网关对用户的请求进行认证授权、负载均衡，通过之后则会发送给后端的业务集群，业务集群之间相互调用采用 Feign，有些业务需要通过认证之后才能进行，所以这里用到了 OAuth2.0 进行权限验证，<a id="more"></a>为了方便快速的发现集群运行产生的 bug，使用 ELK 架构来收集日志，这里采用 LogStash 收集集群之间运行的 bug，然后存储在 ES 中方便文件检索，最后利用 Kibana 前端进行可视化展示，对于商品检索服务，使用功能 ES 集群提供全文检索功能，集群之间的相互通信采用 RabbitMQ 消息队列，在数据库使用 MySQL 集群进行读写分离负载均衡，对于用户读多写少的数据，通过分布式 Redis 进行缓存，用户上传的图片文件等通过阿里云的 OSS 进行文件存储。由于一项服务可能会部署在多台机器之中，为了方便服务之间相互发现和注册，使用功能了 Nacos 注册中心来进行服务注册、服务发现，由于每台服务都有服务配置，同一个服务配置几乎相同，为了方便配置的集中管理和改动，使用了阿里的 Nacos 配置中心对服务器配置进行集中化的管理，对于服务之间相互调用产生的延迟等问题，使用了服务追踪来追踪发现服务之间相互调用产生问题，并通过手机预警信息和邮件来进行告警提示。<br>由于是业务集群，当业务改动时，为了方便最新的代码同步到所有机器上，开发时使用 github 上传代码后，自动化的配置 Docker 镜像仓库，然后通过 Kuberneters API 部署到服务器集群中，实现代码的自动化管理、部署、运营。</p>
 <p>SpringCloud Alibaba - Nacos: 注册中心（服务发现/注册）<br>SpringCloud Alibaba - Nacos: 配置中心（动态配置管理）<br>SpringCloud - Ribbon: 负载均衡<br>SpringCloud - Feign: 声明式 HTTP 客户端（调用远程服务）<br>SpringCloud Alibaba -Sentinel：服务容错（限流、降级、熔断）<br>SpringCloud Gateway: API 网关（webflux 编程模式）<br>SpringCloud - Sleuth: 调用链监控<br>SpringCloud Alibaba - Seata: 原 Fescar，即分布式事务解决方案</p>
 
       
