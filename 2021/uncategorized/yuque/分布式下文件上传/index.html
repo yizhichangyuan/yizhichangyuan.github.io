@@ -36,7 +36,7 @@
 <meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/2648023/1616860373909-43f8686d-b753-43b1-983a-da55b6245a42.png#align=left&display=inline&height=313&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-27%2023.03.17.png&originHeight=2100&originWidth=3360&size=540377&status=done&style=none&width=500">
 <meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/2648023/1616860182182-6cefa878-3f7a-4a01-834c-ed778da46213.png#align=left&display=inline&height=375&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-27%2023.14.43.png&originHeight=2100&originWidth=3360&size=737871&status=done&style=none&width=600">
 <meta property="article:published_time" content="2021-03-26T14:58:05.000Z">
-<meta property="article:modified_time" content="2021-03-29T03:09:39.512Z">
+<meta property="article:modified_time" content="2021-03-29T03:10:29.523Z">
 <meta property="article:author" content="一止长渊">
 <meta property="article:tag" content="JAVA 后端 Spring">
 <meta name="twitter:card" content="summary">
@@ -212,7 +212,10 @@
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在微服务分布式情况下，不同于以前的单体项目校园中铺项目，是将用户上传的图片放置在单体项目所在服务器的某个文件夹下，单体应用也在这个文件夹，然后单体应用就可以直接访问。但是在分布式情况下，一个服务可能有很多实例部署在多台服务器上，如果仍然使用向单体项目一样的图片存储，则会导致该服务的其他实例的服务器上没有该用户上传的图片，所以为了解决这个问题，分布式中通过使用将用户的图片同一放置在一个位置，然后每个服务都来访问这个位置来存取图片就可以了，这里使用阿里云的对象存储 OSS。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1616770699701-f9790556-8ff5-431d-bf42-0727c09fd9c7.png#align=left&display=inline&height=305&margin=%5Bobject%20Object%5D&name=image.png&originHeight=828&originWidth=1730&size=216539&status=done&style=none&width=637" alt="image.png"><br>阿里 OSS 中这么几个概念：</p>
+        <p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1616770699701-f9790556-8ff5-431d-bf42-0727c09fd9c7.png#align=left&display=inline&height=305&margin=%5Bobject%20Object%5D&name=image.png&originHeight=828&originWidth=1730&size=216539&status=done&style=none&width=637" alt="image.png"><br>在微服务分布式情况下，不同于以前的单体项目校园中铺项目，是将用户上传的图片放置在单体项目所在服务器的某个文件夹下，单体应用也在这个文件夹，然后单体应用就可以直接访问。但是在分布式情况下，一个服务可能有很多实例部署在多台服务器上，如果仍然使用向单体项目一样的图片存储，则会导致该服务的其他实例的服务器上没有该用户上传的图片，所以为了解决这个问题，分布式中通过使用将用户的图片同一放置在一个位置，然后每个服务都来访问这个位置来存取图片就可以了，这里使用阿里云的对象存储 OSS。</p>
+<a id="more"></a>
+
+<p>阿里 OSS 中这么几个概念：</p>
 <ul>
 <li>Bucket 就是容器，一般一个微服务对应一个容器即可，存放该微服务所需的照片</li>
 <li>对象：就是用户上传的图片或者文件</li>
@@ -220,7 +223,7 @@
 <li>访问域名：就是微服务拿取某一张照片，该照片的 URL 地址，例如图中标注</li>
 <li>访问密匙：用在身份验证，保证只有拥有密匙才可以向该容器中写入文件，读取的话可以设置公共读不需要验证密匙</li>
 </ul>
-<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1616771101596-d72705ed-4311-4a36-8788-68c60a393a95.png#align=left&display=inline&height=383&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1232&originWidth=1608&size=268079&status=done&style=none&width=500" alt="image.png"> <img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1616774551139-d663a130-1e84-43ab-9457-29e61bb539f8.png#align=left&display=inline&height=280&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-27%2000.01.22.png&originHeight=1882&originWidth=3358&size=1136906&status=done&style=none&width=500" alt="截屏2021-03-27 00.01.22.png"><br>因为文件上传是写入，所以需要使用到 AccessKey，文件上传也有两种方式：</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1616771101596-d72705ed-4311-4a36-8788-68c60a393a95.png#align=left&display=inline&height=383&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1232&originWidth=1608&size=268079&status=done&style=none&width=500" alt="image.png"><br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1616774551139-d663a130-1e84-43ab-9457-29e61bb539f8.png#align=left&display=inline&height=280&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-27%2000.01.22.png&originHeight=1882&originWidth=3358&size=1136906&status=done&style=none&width=500" alt="截屏2021-03-27 00.01.22.png"><br>因为文件上传是写入，所以需要使用到 AccessKey，文件上传也有两种方式：</p>
 <ul>
 <li>用户上传图片到我们的应用服务器（也就是微服务端），然后微服务端添加上 AccessKey 再通过流的形式发给 OSS</li>
 </ul>
