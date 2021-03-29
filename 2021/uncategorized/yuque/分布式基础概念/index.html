@@ -9,15 +9,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>分布式基础概念 | 一止长渊的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title: 微服务基础概念date: 2021-3-18tags:- 微服务categories:- SpringCloudtoc: true 1.微服务 拒绝大型单体引用，基于业务边界进行服务微化拆分，各个服务独立部署运行，,每个服务之间相互调用 例如：订单服务 -》商品服务 -》仓库服务 2.集群 例如：京东就是一个分布式系统，众多业务运行在不同的机器上，所有业务构成了一个大型的业务集群。">
+  <meta name="description" content="1.微服务 拒绝大型单体引用，基于业务边界进行服务微化拆分，各个服务独立部署运行，,每个服务之间相互调用 例如：订单服务 -》商品服务 -》仓库服务 2.集群 例如：京东就是一个分布式系统，众多业务运行在不同的机器上，所有业务构成了一个大型的业务集群。集群是一个物理形态，分布式是一个工作方式分布式的每一个结点，都可以做集群，而集群并不一定就是分布式的结点：集群中一个服务器">
 <meta property="og:type" content="article">
 <meta property="og:title" content="分布式基础概念">
 <meta property="og:url" content="http://example.com/2021/uncategorized/yuque/%E5%88%86%E5%B8%83%E5%BC%8F%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/index.html">
 <meta property="og:site_name" content="一止长渊的博客">
-<meta property="og:description" content="title: 微服务基础概念date: 2021-3-18tags:- 微服务categories:- SpringCloudtoc: true 1.微服务 拒绝大型单体引用，基于业务边界进行服务微化拆分，各个服务独立部署运行，,每个服务之间相互调用 例如：订单服务 -》商品服务 -》仓库服务 2.集群 例如：京东就是一个分布式系统，众多业务运行在不同的机器上，所有业务构成了一个大型的业务集群。">
+<meta property="og:description" content="1.微服务 拒绝大型单体引用，基于业务边界进行服务微化拆分，各个服务独立部署运行，,每个服务之间相互调用 例如：订单服务 -》商品服务 -》仓库服务 2.集群 例如：京东就是一个分布式系统，众多业务运行在不同的机器上，所有业务构成了一个大型的业务集群。集群是一个物理形态，分布式是一个工作方式分布式的每一个结点，都可以做集群，而集群并不一定就是分布式的结点：集群中一个服务器">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-03-01T06:58:20.000Z">
-<meta property="article:modified_time" content="2021-03-29T03:24:49.501Z">
+<meta property="article:modified_time" content="2021-03-29T03:31:50.514Z">
 <meta property="article:author" content="一止长渊">
 <meta property="article:tag" content="JAVA 后端 Spring">
 <meta name="twitter:card" content="summary">
@@ -188,20 +188,18 @@
       </header>
     
     <div align="center" class="post-count">
-    字数：1.2k字 | 预计阅读时长：4分钟
+    字数：1.2k字 | 预计阅读时长：3分钟
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<h6 id="title-微服务基础概念"><a href="#title-微服务基础概念" class="headerlink" title="title: 微服务基础概念"></a>title: 微服务基础概念</h6><h6 id="date-2021-3-18"><a href="#date-2021-3-18" class="headerlink" title="date: 2021-3-18"></a>date: 2021-3-18</h6><h6 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h6><h6 id="微服务"><a href="#微服务" class="headerlink" title="- 微服务"></a>- 微服务</h6><h6 id="categories"><a href="#categories" class="headerlink" title="categories:"></a>categories:</h6><h6 id="SpringCloud"><a href="#SpringCloud" class="headerlink" title="- SpringCloud"></a>- SpringCloud</h6><h6 id="toc-true"><a href="#toc-true" class="headerlink" title="toc: true"></a>toc: true</h6><hr>
-<p><strong>1.微服务</strong></p>
+        <p><strong>1.微服务</strong></p>
 <p>拒绝大型单体引用，基于业务边界进行服务微化拆分，各个服务独立部署运行，,每个服务之间相互调用</p>
 <p>例如：订单服务 -》商品服务 -》仓库服务</p>
 <p><strong>2.集群</strong></p>
-<p>例如：京东就是一个分布式系统，众多业务运行在不同的机器上，所有业务构成了一个大型的业务集群。</p>
-<p>集群是一个物理形态，分布式是一个工作方式</p>
-<p>分布式的每一个结点，都可以做集群，而集群并不一定就是分布式的</p>
-<p>结点：集群中一个服务器<br><strong>3.远程调用</strong></p>
+<p>例如：京东就是一个分布式系统，众多业务运行在不同的机器上，所有业务构成了一个大型的业务集群。<br>集群是一个物理形态，分布式是一个工作方式<br>分布式的每一个结点，都可以做集群，而集群并不一定就是分布式的<br>结点：集群中一个服务器</p>
+<a id="more"></a>
+
+<p><strong>3.远程调用</strong></p>
 <p>在分布式系统中，各个服务会处于不同主机，但是服务之间不可避免的会产生相互调用，我们称之为远程调用。SpringCloud 中使用 HTTP + JSON 的方式完成调用</p>
 <p><strong>4.负载均衡</strong></p>
 <p>订单服务需要查询商品服务，如果商品服务有很多的结点，为了不让商品服务每个服务器太忙或者太闲，通过负载均衡的调用每一个服务器，提高网站的健壮性。</p>
