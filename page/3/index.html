@@ -191,33 +191,7 @@
 <li>服务发现注册、服务熔断、过滤、匹配请求</li>
 </ul>
 <p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615724888791-ddb9ccc4-4f0a-4e71-a2e9-4f04d962257c.png#align=left&display=inline&height=219&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-14%2020.28.04.png&originHeight=860&originWidth=1416&size=118972&status=done&style=none&width=361" alt="截屏2021-03-14 20.28.04.png"></p>
-<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615725358020-1b95b438-fb1e-41b4-9dd5-88789e3491a6.png#align=left&display=inline&height=247&margin=%5Bobject%20Object%5D&name=image.png&originHeight=494&originWidth=1970&size=136663&status=done&style=none&width=985" alt="image.png"><br>核心概念：</p>
-<ul>
-<li>路由：发送请求给网关，网关要将请求路由到指定的服务 uri。路由有 id，目的地 uri，断言的集合，匹配了断言就能到达指定位置 uri</li>
-<li>断言：匹配请求里的任何信息，例如请求参数或者请求头</li>
-<li>过滤：可以允许以某种方式对进入网关或出网关的 HTTP 请求进行修改</li>
-</ul>
-<p>客户端发请求给服务端，中间有网关。先交给映射器，如果能处理就交给 handler 处理，然后交给一系列 filer，然后给指定的服务，再返回回来给客户端。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615735342435-8d31c9be-eabe-4f11-9207-69d27453dd7b.png#align=left&display=inline&height=298&margin=%5Bobject%20Object%5D&name=image.png&originHeight=595&originWidth=443&size=26813&status=done&style=none&width=221.5" alt="image.png"><br>例如下面我们将根据请求参数 url 来连接到对应的地址，例如 url 参数是 qq 就连接到<a target="_blank" rel="noopener" href="http://www.qq.com,如果url参数是baidu就连接到www.baidu.com/">www.qq.com，如果url参数是baidu就连接到www.baidu.com</a></p>
-<p>参考<a target="_blank" rel="noopener" href="https://docs.spring.io/spring-cloud-gateway/docs/2.2.7.RELEASE/reference/html/#the-query-route-predicate-factory">https://docs.spring.io/spring-cloud-gateway/docs/2.2.7.RELEASE/reference/html/#the-query-route-predicate-factory</a>中的 Query Route 断言</p>
-<ol>
-<li>首次网关模块，新建模块是指定 Gateway 依赖</li>
-</ol>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-gateway<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>在 application.yml 需要开启服务注册发现，指定 Nacos 中心地址，这样网关才知道 Nacos 注册中心有哪   些服务在什么地方，才能将请求交给哪个服务</li>
-<li>在启动类上添加@EnableDiscoveryClient 注解</li>
-<li>编写断言策略</li>
-</ol>
-<p>路由的每个 id 都要不同，-是 yml 中数组的语法，如果请求参数中 url 是 baidu，则路由到指定的 uri 中</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 开启服务注册</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">cloud:</span></span><br><span class="line">    <span class="attr">nacos:</span></span><br><span class="line">      <span class="attr">discovery:</span></span><br><span class="line">        <span class="attr">server-addr:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:8848</span></span><br><span class="line"></span><br><span class="line">      <span class="attr">application:</span></span><br><span class="line">    		<span class="attr">name:</span> <span class="string">doermail-member</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">gateway:</span></span><br><span class="line">      <span class="attr">routes:</span></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">id:</span> <span class="string">baidu_route</span></span><br><span class="line">          <span class="attr">uri:</span> <span class="string">https://www.baidu.com</span></span><br><span class="line">          <span class="attr">predicates:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">Query=url,baidu</span></span><br><span class="line"></span><br><span class="line">        <span class="bullet">-</span> <span class="attr">id:</span> <span class="string">qq_route</span></span><br><span class="line">          <span class="attr">uri:</span> <span class="string">https://www.qq.com</span></span><br><span class="line">          <span class="attr">predicates:</span></span><br><span class="line">            <span class="bullet">-</span> <span class="string">Query=url,qq</span></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">88</span></span><br></pre></td></tr></table></figure>
-<ol start="5">
-<li>测试发送请求给网关 localhost:88?url=baidu</li>
-</ol>
-<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615736106018-d74b101d-7b27-4803-a9e4-90892651c7cd.png#align=left&display=inline&height=313&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-14%2023.34.28.png&originHeight=2100&originWidth=3360&size=396869&status=done&style=none&width=500" alt="截屏2021-03-14 23.34.28.png"><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615736360311-c1496210-38f3-41ff-ae65-c87b19a5d8a8.png#align=left&display=inline&height=313&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-14%2023.38.43.png&originHeight=2100&originWidth=3360&size=2057734&status=done&style=none&width=500" alt="截屏2021-03-14 23.38.43.png"></p>
-<ol start="6">
-<li>如果请求路由中有路径，则也会进行转发，例如 localhost:88/hello?url=baidu，则会转发到<a target="_blank" rel="noopener" href="http://www.baidu.com/hello">www.baidu.com/hello</a></li>
-</ol>
-
+        
       
       
 
