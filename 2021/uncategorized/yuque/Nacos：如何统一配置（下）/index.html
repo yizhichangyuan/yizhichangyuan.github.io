@@ -9,12 +9,12 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>Nacos：如何统一配置（下） | 一止长渊的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、传统使用配置模式之前我们的开发模式为，我们将需要的配置防止在 application.properies 中，然后需要使用时通过@Value(“$(配置名)”)的方式来进行引入配置，如同下面一样 👇application.properties 配置 12coupon.user.name&#x3D;test1coupon.user.age&#x3D;1234 使用配置 1234567891011121314151">
+  <meta name="description" content="我们项目部署期间，如果修改配置，则需要重新打包部署到服务器上，这一过程十分繁琐，有什么简便的方法能够实现在服务不停机的情况下，动态修改配置呢？这里就要使用 Nacos 来统一管理我们的配置了。一、传统使用配置模式之前我们的开发模式为，我们将需要的配置防止在 application.properies 中，然后需要使用时通过@Value(“$(配置名)”)的方式来进行引入配置，如同下面一样 👇">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nacos：如何统一配置（下）">
 <meta property="og:url" content="http://example.com/2021/uncategorized/yuque/Nacos%EF%BC%9A%E5%A6%82%E4%BD%95%E7%BB%9F%E4%B8%80%E9%85%8D%E7%BD%AE%EF%BC%88%E4%B8%8B%EF%BC%89/index.html">
 <meta property="og:site_name" content="一止长渊的博客">
-<meta property="og:description" content="一、传统使用配置模式之前我们的开发模式为，我们将需要的配置防止在 application.properies 中，然后需要使用时通过@Value(“$(配置名)”)的方式来进行引入配置，如同下面一样 👇application.properties 配置 12coupon.user.name&#x3D;test1coupon.user.age&#x3D;1234 使用配置 1234567891011121314151">
+<meta property="og:description" content="我们项目部署期间，如果修改配置，则需要重新打包部署到服务器上，这一过程十分繁琐，有什么简便的方法能够实现在服务不停机的情况下，动态修改配置呢？这里就要使用 Nacos 来统一管理我们的配置了。一、传统使用配置模式之前我们的开发模式为，我们将需要的配置防止在 application.properies 中，然后需要使用时通过@Value(“$(配置名)”)的方式来进行引入配置，如同下面一样 👇">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615652533380-bcee7460-6d6f-4599-aa75-144779ab23b7.png#align=left&display=inline&height=426&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-13%2023.46.00.png&originHeight=2100&originWidth=3360&size=401474&status=done&style=none&width=682">
 <meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615652545539-93613893-79f4-4224-abec-7ec217a51bad.png#align=left&display=inline&height=426&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-13%2023.46.41.png&originHeight=2100&originWidth=3360&size=475652&status=done&style=none&width=681">
@@ -36,7 +36,7 @@
 <meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615723288660-31f1f070-3ddf-4bfe-a72b-7b864bb540ee.png#align=left&display=inline&height=62&margin=%5Bobject%20Object%5D&name=image.png&originHeight=124&originWidth=1478&size=19779&status=done&style=none&width=739">
 <meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615723303757-c1186f25-351a-41ed-bd15-9c6475788768.png#align=left&display=inline&height=142&margin=%5Bobject%20Object%5D&name=image.png&originHeight=284&originWidth=1312&size=34676&status=done&style=none&width=656">
 <meta property="article:published_time" content="2021-03-13T15:59:55.000Z">
-<meta property="article:modified_time" content="2021-03-29T03:13:28.823Z">
+<meta property="article:modified_time" content="2021-03-29T03:17:56.615Z">
 <meta property="article:author" content="一止长渊">
 <meta property="article:tag" content="JAVA 后端 Spring">
 <meta name="twitter:card" content="summary">
@@ -88,7 +88,7 @@
 			</ul>
 		</nav>
 		<nav>
-			<p>总文章数：32</p>
+			<p>总文章数：31</p>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -208,11 +208,15 @@
       </header>
     
     <div align="center" class="post-count">
-    字数：1.5k字 | 预计阅读时长：6分钟
+    字数：1.6k字 | 预计阅读时长：6分钟
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="一、传统使用配置模式"><a href="#一、传统使用配置模式" class="headerlink" title="一、传统使用配置模式"></a>一、传统使用配置模式</h3><p>之前我们的开发模式为，我们将需要的配置防止在 application.properies 中，然后需要使用时通过@Value(“$(配置名)”)的方式来进行引入配置，如同下面一样 👇<br>application.properties 配置</p>
+        <blockquote>
+</blockquote>
+<h6 id="我们项目部署期间，如果修改配置，则需要重新打包部署到服务器上，这一过程十分繁琐，有什么简便的方法能够实现在服务不停机的情况下，动态修改配置呢？这里就要使用-Nacos-来统一管理我们的配置了。"><a href="#我们项目部署期间，如果修改配置，则需要重新打包部署到服务器上，这一过程十分繁琐，有什么简便的方法能够实现在服务不停机的情况下，动态修改配置呢？这里就要使用-Nacos-来统一管理我们的配置了。" class="headerlink" title="我们项目部署期间，如果修改配置，则需要重新打包部署到服务器上，这一过程十分繁琐，有什么简便的方法能够实现在服务不停机的情况下，动态修改配置呢？这里就要使用 Nacos 来统一管理我们的配置了。"></a>我们项目部署期间，如果修改配置，则需要重新打包部署到服务器上，这一过程十分繁琐，有什么简便的方法能够实现在服务不停机的情况下，动态修改配置呢？这里就要使用 Nacos 来统一管理我们的配置了。</h6><h3 id="一、传统使用配置模式"><a href="#一、传统使用配置模式" class="headerlink" title="一、传统使用配置模式"></a>一、传统使用配置模式</h3><p>之前我们的开发模式为，我们将需要的配置防止在 application.properies 中，然后需要使用时通过@Value(“$(配置名)”)的方式来进行引入配置，如同下面一样 👇<br>application.properties 配置</p>
+<a id="more"></a>
+
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">coupon.user.name=test1</span></span><br><span class="line"><span class="string">coupon.user.age=1234</span></span><br></pre></td></tr></table></figure>
 <p>使用配置</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RefreshScope</span> <span class="comment">//开启Nacos配置自动刷新</span></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;coupon/coupon&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CouponController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> CouponService couponService;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;coupon.user.name&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String userName;</span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;coupon.user.age&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/getvalue&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> R <span class="title">getValue</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> R.ok().put(<span class="string">&quot;name&quot;</span>, userName).put(<span class="string">&quot;age&quot;</span>, age);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
