@@ -149,20 +149,6 @@
   </url>
   
   <url>
-    <loc>http://example.com/temp/GANs.html</loc>
-    
-    <lastmod>2021-03-29</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://example.com/blog-photo/index.html</loc>
-    
-    <lastmod>2021-03-29</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://example.com/blog-photo/index.html</loc>
     
     <lastmod>2021-03-29</lastmod>
@@ -184,7 +170,21 @@
   </url>
   
   <url>
+    <loc>http://example.com/blog-photo/index.html</loc>
+    
+    <lastmod>2021-03-29</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://example.com/blog-photo/videos.html</loc>
+    
+    <lastmod>2021-03-29</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/temp/GANs.html</loc>
     
     <lastmod>2021-03-29</lastmod>
     

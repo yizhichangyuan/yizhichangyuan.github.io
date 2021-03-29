@@ -16,13 +16,13 @@
 <meta property="og:site_name" content="一止长渊的博客">
 <meta property="og:description" content="上节我们将微服务模块注册到了注册中心 Nacos 中，接下来就是如何实现微服务模块之间接口的调用。这里我们使用 SpringCloud-Alibaba 提供的 OpenFeign 进行微服务模块之间调用，如果微服务 A 需要调用微服务模块 B 的接口 1，那么我们如何实现呢？ 首先介绍一下原理：微服务 A、微服务 B 相互调用，前提是两个微服务都已经注册到注册中心 Nacos 中。然后微服务模块">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/jpeg/2648023/1615645734755-1b3246df-3e91-474b-b901-bd58ac654797.jpeg">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/jpeg/2648023/1616988817545-b6dc1e8c-2983-46ff-ae0b-61165a03319c.jpeg">
 <meta property="article:published_time" content="2021-03-13T14:14:34.000Z">
-<meta property="article:modified_time" content="2021-03-29T03:33:41.403Z">
+<meta property="article:modified_time" content="2021-03-29T03:34:10.455Z">
 <meta property="article:author" content="一止长渊">
 <meta property="article:tag" content="JAVA 后端 Spring">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2021/jpeg/2648023/1615645734755-1b3246df-3e91-474b-b901-bd58ac654797.jpeg">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2021/jpeg/2648023/1616988817545-b6dc1e8c-2983-46ff-ae0b-61165a03319c.jpeg">
   
     <link rel="alternative" href="/atom.xml" title="一止长渊的博客" type="application/atom+xml">
   
@@ -195,8 +195,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>上节我们将微服务模块注册到了注册中心 Nacos 中，接下来就是如何实现微服务模块之间接口的调用。<br>这里我们使用 SpringCloud-Alibaba 提供的 OpenFeign 进行微服务模块之间调用，如果微服务 A 需要调用微服务模块 B 的接口 1，那么我们如何实现呢？</p>
-<p>首先介绍一下原理：微服务 A、微服务 B 相互调用，前提是两个微服务都已经注册到注册中心 Nacos 中。然后微服务模块 A1 需要调用微服务 B 时，就去注册中心查看健康可用微服务模块 B 的地址，然后通过 Nacos 返回一个健康可用的微服务模块 B1 的地址给微服务模块 A1，然后微服务模块通过利用 OpenFeign 向从 Nacos 中获得的地址发送<strong>HTTP 请求</strong>给微服务模块 B1 的接口 1，然后微服务 A1 调用微服务 B1 的接口 1 完成了。<br><img src="https://cdn.nlark.com/yuque/0/2021/jpeg/2648023/1615645734755-1b3246df-3e91-474b-b901-bd58ac654797.jpeg"></p>
-<p>上面介绍了后面的一些原理后，现在我们实现微服务 A 调用微服务 B 的功能，这里以用户服务调用优惠券服务查看该用户的优惠券为例。</p>
+<p>首先介绍一下原理：微服务 A、微服务 B 相互调用，前提是两个微服务都已经注册到注册中心 Nacos 中。然后微服务模块 A1 需要调用微服务 B 时，就去注册中心查看健康可用微服务模块 B 的地址，然后通过 Nacos 返回一个健康可用的微服务模块 B1 的地址给微服务模块 A1，然后微服务模块通过利用 OpenFeign 向从 Nacos 中获得的地址发送<strong>HTTP 请求</strong>给微服务模块 B1 的接口 1，然后微服务 A1 调用微服务 B1 的接口 1 完成了。<br><img src="https://cdn.nlark.com/yuque/0/2021/jpeg/2648023/1616988817545-b6dc1e8c-2983-46ff-ae0b-61165a03319c.jpeg"><a id="more"></a><br>上面介绍了后面的一些原理后，现在我们实现微服务 A 调用微服务 B 的功能，这里以用户服务调用优惠券服务查看该用户的优惠券为例。</p>
 <ol>
 <li>首先两个模块都要注册到注册中心中，上节已经实现</li>
 <li>优惠券服务模块编写被调用接口</li>
