@@ -12,7 +12,7 @@
   <meta name="description" content="设计模式的目的是为了降低代码的耦合性，同时也保证代码的可维护性和扩展性，一共有 23 种设计模式。分为以下三类：  创建型设计模式  注重于隐藏对象的创建逻辑，使用时无需 new 对象，直接获取对象  结构性模型  注重已有对象之间的相互组合  行为型模式  注重对象之间相互调用的行为，关注对象之间的通信">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式">
-<meta property="og:url" content="http://example.com/2021/uncategorized/yuque/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.html">
+<meta property="og:url" content="http://example.com/2021/%E4%BF%AE%E8%A1%8C/yuque/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.html">
 <meta property="og:site_name" content="一止长渊的博客">
 <meta property="og:description" content="设计模式的目的是为了降低代码的耦合性，同时也保证代码的可维护性和扩展性，一共有 23 种设计模式。分为以下三类：  创建型设计模式  注重于隐藏对象的创建逻辑，使用时无需 new 对象，直接获取对象  结构性模型  注重已有对象之间的相互组合  行为型模式  注重对象之间相互调用的行为，关注对象之间的通信">
 <meta property="og:locale" content="en_US">
@@ -21,10 +21,11 @@
 <meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617289119283-4d7c6029-ebb8-49b8-a59f-fc55f60833b1.png#align=left&display=inline&height=241&margin=%5Bobject%20Object%5D&name=image.png&originHeight=481&originWidth=457&size=38884&status=done&style=none&width=228.5">
 <meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617290426463-b6bfbbe4-bea8-4596-a557-26bd4b7ccf6a.png#align=left&display=inline&height=338&margin=%5Bobject%20Object%5D&name=image.png&originHeight=676&originWidth=804&size=65997&status=done&style=none&width=402">
 <meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617291246404-dfcab769-5497-48cf-8286-d6d9daa81fcf.png#align=left&display=inline&height=298&margin=%5Bobject%20Object%5D&name=image.png&originHeight=596&originWidth=802&size=59416&status=done&style=none&width=401">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617292901588-d7582ade-a2c2-4617-b560-8237792b67c8.png#align=left&display=inline&height=285&margin=%5Bobject%20Object%5D&name=image.png&originHeight=569&originWidth=1056&size=46113&status=done&style=none&width=528">
 <meta property="article:published_time" content="2021-04-01T11:08:09.000Z">
-<meta property="article:modified_time" content="2021-04-01T15:46:43.597Z">
+<meta property="article:modified_time" content="2021-04-01T16:14:22.418Z">
 <meta property="article:author" content="一止长渊">
-<meta property="article:tag" content="JAVA 后端 Spring">
+<meta property="article:tag" content="设计模式">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617275734178-cde98717-f4ee-4775-b9be-da55f521e9cd.png#align=left&display=inline&height=221&margin=%5Bobject%20Object%5D&name=image.png&originHeight=441&originWidth=772&size=61693&status=done&style=none&width=386">
   
@@ -187,14 +188,14 @@
         
         <!--显示阅读次数完毕-->
         
-        <a href="/2021/uncategorized/yuque/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
+        <a href="/2021/%E4%BF%AE%E8%A1%8C/yuque/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
   	<time datetime="2021-04-01T11:08:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-01</time>
 </a>
         
       </header>
     
     <div align="center" class="post-count">
-    字数：1.8k字 | 预计阅读时长：7分钟
+    字数：2.2k字 | 预计阅读时长：9分钟
 </div>
     <div class="article-entry" itemprop="articleBody">
       
@@ -247,6 +248,11 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span> <span class="keyword">extends</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">Rectangle</span><span class="params">()</span></span>&#123;</span><br><span class="line">     type = <span class="string">&quot;Rectangle&quot;</span>;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;Inside Rectangle::draw() method.&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Square</span> <span class="keyword">extends</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">Square</span><span class="params">()</span></span>&#123;</span><br><span class="line">     type = <span class="string">&quot;Square&quot;</span>;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">draw</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      System.out.println(<span class="string">&quot;Inside Square::draw() method.&quot;</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>原型提前创建，放入缓存中，后续取出为缓存的复制，避免了创建对象的资源消耗</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Hashtable;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ShapeCache</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">private</span> <span class="keyword">static</span> Hashtable&lt;String, Shape&gt; shapeMap</span><br><span class="line">      = <span class="keyword">new</span> Hashtable&lt;String, Shape&gt;();</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Shape <span class="title">getShape</span><span class="params">(String shapeId)</span> </span>&#123;</span><br><span class="line">      Shape cachedShape = shapeMap.get(shapeId);</span><br><span class="line">      <span class="keyword">return</span> (Shape) cachedShape.clone(); <span class="comment">// 返回的缓存中的复制体</span></span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">// 对每种形状都运行数据库查询，并创建该形状</span></span><br><span class="line">   <span class="comment">// shapeMap.put(shapeKey, shape);</span></span><br><span class="line">   <span class="comment">// 例如，我们要添加三种形状</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">loadCache</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      Circle circle = <span class="keyword">new</span> Circle();</span><br><span class="line">      circle.setId(<span class="string">&quot;1&quot;</span>);</span><br><span class="line">      shapeMap.put(circle.getId(),circle);</span><br><span class="line"></span><br><span class="line">      Square square = <span class="keyword">new</span> Square();</span><br><span class="line">      square.setId(<span class="string">&quot;2&quot;</span>);</span><br><span class="line">      shapeMap.put(square.getId(),square);</span><br><span class="line"></span><br><span class="line">      Rectangle rectangle = <span class="keyword">new</span> Rectangle();</span><br><span class="line">      rectangle.setId(<span class="string">&quot;3&quot;</span>);</span><br><span class="line">      shapeMap.put(rectangle.getId(),rectangle);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="6-适配器模式"><a href="#6-适配器模式" class="headerlink" title="6.适配器模式"></a>6.适配器模式</h4><p>将现有的一个接口添加一些功能来应对用户新增加的需求，在原有的接口功能仍然可以使用的情况下，增加扩展性。<br>优点：适配器模式使得原本由于接口不兼容而不能一起工作的那些类可以一起工作<br>缺点：过多地使用适配器，会让系统非常零乱，不易整体进行把握。比如，明明看到调用的是 A 接口，其实内部被适配成了 B 接口的实现。<br>例如现有一个类 AudioPlayer 可以播放 mp3 格式歌曲，但用户希望 AudioPlayer 在现有基础上还可以播放 VLC 和 Mp4 格式歌曲，那么可以对 AudioPlayer 内部播放 Mp4 歌曲，实质上是调用的成员变量 MediaAdpter 对象中的 AdvancedMeidPlayer 进行播放相应格式歌曲。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617292901588-d7582ade-a2c2-4617-b560-8237792b67c8.png#align=left&display=inline&height=285&margin=%5Bobject%20Object%5D&name=image.png&originHeight=569&originWidth=1056&size=46113&status=done&style=none&width=528" alt="image.png"></p>
+<p>MediaAdapter 实现 MediaPlayer 接口是为了保证和 AudioPlayer 同样的 Play 接口。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MediaAdapter</span> <span class="keyword">implements</span> <span class="title">MediaPlayer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   AdvancedMediaPlayer advancedMusicPlayer;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="title">MediaAdapter</span><span class="params">(String audioType)</span></span>&#123;</span><br><span class="line">      <span class="keyword">if</span>(audioType.equalsIgnoreCase(<span class="string">&quot;vlc&quot;</span>) )&#123;</span><br><span class="line">         advancedMusicPlayer = <span class="keyword">new</span> VlcPlayer();</span><br><span class="line">      &#125; <span class="keyword">else</span> <span class="keyword">if</span> (audioType.equalsIgnoreCase(<span class="string">&quot;mp4&quot;</span>))&#123;</span><br><span class="line">         advancedMusicPlayer = <span class="keyword">new</span> Mp4Player();</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">(String audioType, String fileName)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">if</span>(audioType.equalsIgnoreCase(<span class="string">&quot;vlc&quot;</span>))&#123;</span><br><span class="line">         advancedMusicPlayer.playVlc(fileName);</span><br><span class="line">      &#125;<span class="keyword">else</span> <span class="keyword">if</span>(audioType.equalsIgnoreCase(<span class="string">&quot;mp4&quot;</span>))&#123;</span><br><span class="line">         advancedMusicPlayer.playMp4(fileName);</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>AudioPlayer 进行扩展</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AudioPlayer</span> <span class="keyword">implements</span> <span class="title">MediaPlayer</span> </span>&#123;</span><br><span class="line">   MediaAdapter mediaAdapter;</span><br><span class="line"></span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">(String audioType, String fileName)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">      <span class="comment">//播放 mp3 音乐文件的内置支持</span></span><br><span class="line">      <span class="keyword">if</span>(audioType.equalsIgnoreCase(<span class="string">&quot;mp3&quot;</span>))&#123;</span><br><span class="line">         System.out.println(<span class="string">&quot;Playing mp3 file. Name: &quot;</span>+ fileName);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">//mediaAdapter 提供了播放其他文件格式的支持</span></span><br><span class="line">      <span class="keyword">else</span> <span class="keyword">if</span>(audioType.equalsIgnoreCase(<span class="string">&quot;vlc&quot;</span>)</span><br><span class="line">         || audioType.equalsIgnoreCase(<span class="string">&quot;mp4&quot;</span>))&#123;</span><br><span class="line">         mediaAdapter = <span class="keyword">new</span> MediaAdapter(audioType);</span><br><span class="line">         mediaAdapter.play(audioType, fileName);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span>&#123;</span><br><span class="line">         System.out.println(<span class="string">&quot;Invalid media. &quot;</span>+</span><br><span class="line">            audioType + <span class="string">&quot; format not supported&quot;</span>);</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
       
        
@@ -297,7 +303,35 @@
     <div class="article-info article-info-index">
       
       
+<div class="article-tag tagcloud">
+	<i class="icon-price-tags icon"></i>
+	<ul class="article-tag-list">
+		
+		
+		<li class="article-tag-list-item">
+			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">
+				设计模式</a>
+		</li>
+		
+		
+	</ul>
+</div>
+
       
+<div class="article-category tagcloud">
+	<i class="icon-book icon"></i>
+	<ul class="article-tag-list">
+		
+		
+		<li class="article-tag-list-item">
+			<a href="/categories/修行//" class="article-tag-list-link color3">
+				修行</a>
+		</li>
+		
+		
+	</ul>
+</div>
+
       
 
       
@@ -346,7 +380,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/uncategorized/yuque/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/%E4%BF%AE%E8%A1%8C/yuque/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -550,6 +584,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">历史</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
               </li>
              
               <li class="article-tag-list-item">

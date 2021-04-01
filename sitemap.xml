@@ -135,7 +135,7 @@
   </url>
   
   <url>
-    <loc>http://example.com/2021/uncategorized/yuque/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
+    <loc>http://example.com/2021/%E4%BF%AE%E8%A1%8C/yuque/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
     
     <lastmod>2021-04-01</lastmod>
     
@@ -333,6 +333,13 @@
   </url>
   
   <url>
+    <loc>http://example.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
+    <lastmod>2021-04-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://example.com/tags/Zxing/</loc>
     <lastmod>2021-04-01</lastmod>
     <changefreq>daily</changefreq>
@@ -378,6 +385,13 @@
   
   <url>
     <loc>http://example.com/categories/%E4%B8%AD%E4%B8%9C%E6%88%98%E4%BA%89%E5%8F%B2/</loc>
+    <lastmod>2021-04-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/categories/%E4%BF%AE%E8%A1%8C/</loc>
     <lastmod>2021-04-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
