@@ -7,17 +7,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <meta name="referrer" content="no-referrer" />
   <link rel="dns-prefetch" href="http://example.com">
-  <title>WebMvcConfigurer | 一止长渊的博客</title>
+  <title>Tag: 数据校验 | 一止长渊的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="为什么要使用 WebMvcConfigurer？WebMvcConfigurer 是一个接口，提供很多自定义的拦截器，例如跨域设置、类型转化器等等。可以说此接口为开发者提前想到了很多拦截层面的需求，方便开发者自由选择使用。由于 Spring5.0 废弃了 WebMvcConfigurerAdapter，所以 WebMvcConfigurer 继承了 WebMvcConfigurerAdapter">
-<meta property="og:type" content="article">
-<meta property="og:title" content="WebMvcConfigurer">
-<meta property="og:url" content="http://example.com/2021/uncategorized/yuque/WebMvcConfigurer/index.html">
+  <meta name="description" content="探索JAVA后端技术，正在艰难成长的菜鸟">
+<meta property="og:type" content="website">
+<meta property="og:title" content="一止长渊的博客">
+<meta property="og:url" content="http://example.com/tags/%E6%95%B0%E6%8D%AE%E6%A0%A1%E9%AA%8C/index.html">
 <meta property="og:site_name" content="一止长渊的博客">
-<meta property="og:description" content="为什么要使用 WebMvcConfigurer？WebMvcConfigurer 是一个接口，提供很多自定义的拦截器，例如跨域设置、类型转化器等等。可以说此接口为开发者提前想到了很多拦截层面的需求，方便开发者自由选择使用。由于 Spring5.0 废弃了 WebMvcConfigurerAdapter，所以 WebMvcConfigurer 继承了 WebMvcConfigurerAdapter">
+<meta property="og:description" content="探索JAVA后端技术，正在艰难成长的菜鸟">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-03-28T16:19:40.000Z">
-<meta property="article:modified_time" content="2021-04-05T10:34:59.209Z">
 <meta property="article:author" content="一止长渊">
 <meta property="article:tag" content="JAVA 后端 Spring">
 <meta name="twitter:card" content="summary">
@@ -158,243 +156,76 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-yuque/WebMvcConfigurer" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      WebMvcConfigurer
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2021" class="archive-year">2021</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2021/Spring/yuque/%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" class="archive-article-date">
+  	<time datetime="2021-04-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-05</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2021/Spring/yuque/%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/">统一异常处理</a>
     </h1>
   
 
-        <!--显示阅读次数-->
-        
-          <br/>
-          <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
-          <span class="icon-sort"></span>
-          <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
-                    阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
-          </span>
-          </a>
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/uncategorized/yuque/WebMvcConfigurer/" class="archive-article-date">
-  	<time datetime="2021-03-28T16:19:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-29</time>
-</a>
-        
-      </header>
-    
-    <div align="center" class="post-count">
-    字数：1.1k字 | 预计阅读时长：4分钟
+        <div class="article-info info-on-right">
+          
+<div class="article-tag tagcloud">
+	<i class="icon-price-tags icon"></i>
+	<ul class="article-tag-list">
+		
+		
+		<li class="article-tag-list-item">
+			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">
+				数据校验</a>
+		</li>
+		
+		
+	</ul>
 </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="为什么要使用-WebMvcConfigurer？"><a href="#为什么要使用-WebMvcConfigurer？" class="headerlink" title="为什么要使用 WebMvcConfigurer？"></a>为什么要使用 WebMvcConfigurer？</h3><p>WebMvcConfigurer 是一个接口，提供很多自定义的拦截器，例如跨域设置、类型转化器等等。可以说此接口为开发者提前想到了很多拦截层面的需求，方便开发者自由选择使用。由于 Spring5.0 废弃了 WebMvcConfigurerAdapter，所以 WebMvcConfigurer 继承了 WebMvcConfigurerAdapter 大部分内容。</p>
-<h3 id="WebMvcConfigurer-方法介绍"><a href="#WebMvcConfigurer-方法介绍" class="headerlink" title="WebMvcConfigurer 方法介绍"></a>WebMvcConfigurer 方法介绍</h3><blockquote>
-<p>由于内容太多，只展示 3 个关键的接口，用的比较少的，只是阐述下含义，不再详解，用的更少的，就不看了，毕竟十多个方法呢…</p>
-</blockquote>
-<a id="more"></a>
 
-<h4 id="1-configurePathMatch-PathMatchConfigurer-configurer"><a href="#1-configurePathMatch-PathMatchConfigurer-configurer" class="headerlink" title="1.configurePathMatch(PathMatchConfigurer configurer)"></a>1.configurePathMatch(PathMatchConfigurer configurer)</h4><p>这个用到的比较少，这个是和访问路径有关的。举个例子，比如说 PathMatchConfigurer 有个配置是 setUseTrailingSlashMatch(),如果设置为 true 的话（默认为 true），后面加个斜杠并不影响路径访问，例如“/user”等同于“/user/“。我们在开发中很少在访问路径上搞事情，所以这个方法如果有需要的请自行研究吧。</p>
-<h4 id="2-configureContentNegotiation-ContentNegotiationConfigurer-configurer"><a href="#2-configureContentNegotiation-ContentNegotiationConfigurer-configurer" class="headerlink" title="2.configureContentNegotiation(ContentNegotiationConfigurer configurer)"></a>2.configureContentNegotiation(ContentNegotiationConfigurer configurer)</h4><p>这个东西直译叫做内容协商机制，主要是方便一个请求路径返回多个数据格式。ContentNegotiationConfigurer 这个配置里面你会看到 MediaType，里面有众多的格式。此方法不在多赘述。</p>
-<h4 id="3-configureAsyncSupport-AsyncSupportConfigurer-configurer"><a href="#3-configureAsyncSupport-AsyncSupportConfigurer-configurer" class="headerlink" title="3.configureAsyncSupport(AsyncSupportConfigurer configurer)"></a>3.configureAsyncSupport(AsyncSupportConfigurer configurer)</h4><p>顾名思义，这是处理异步请求的。只能设置两个值，一个超时时间（毫秒，Tomcat 下默认是 10000 毫秒，即 10 秒），还有一个是 AsyncTaskExecutor，异步任务执行器。</p>
-<h4 id="4-configureDefaultServletHandling-DefaultServletHandlerConfigurer-configurer"><a href="#4-configureDefaultServletHandling-DefaultServletHandlerConfigurer-configurer" class="headerlink" title="4.configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer)"></a>4.configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer)</h4><p>这个接口可以实现静态文件可以像 Servlet 一样被访问。</p>
-<h4 id="5-addFormatters-FormatterRegistry-registry"><a href="#5-addFormatters-FormatterRegistry-registry" class="headerlink" title="5.addFormatters(FormatterRegistry registry)"></a>5.addFormatters(FormatterRegistry registry)</h4><p>增加转化器或者格式化器。这边不仅可以把时间转化成你需要时区或者样式。还可以自定义转化器和你数据库做交互，比如传进来 userId，经过转化可以拿到 user 对象。</p>
-<h4 id="6-addInterceptors-InterceptorRegistry-registry"><a href="#6-addInterceptors-InterceptorRegistry-registry" class="headerlink" title="6.addInterceptors(InterceptorRegistry registry)"></a>6.addInterceptors(InterceptorRegistry registry)</h4><p>盼望着，盼望着，你一个常用的方法来了。这个方法可以自定义写拦截器，并指定拦截路径。来，咱们写一个拦截器。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyInterceptor</span> <span class="keyword">implements</span> <span class="title">HandlerInterceptor</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">preHandle</span><span class="params">(HttpServletRequest request,</span></span></span><br><span class="line"><span class="function"><span class="params">                             HttpServletResponse response, Object handler)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;preHandle,ok,假设给你一个true，运行去吧&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postHandle</span><span class="params">(HttpServletRequest request,</span></span></span><br><span class="line"><span class="function"><span class="params">                           HttpServletResponse response, Object handler, ModelAndView modelAndView)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;postHandle,ok,看看我什么时候运行的。&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterCompletion</span><span class="params">(HttpServletRequest request,</span></span></span><br><span class="line"><span class="function"><span class="params">                                HttpServletResponse response, Object handler, Exception ex)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;afterCompletion,ok,看完不点个赞再走吗？&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>然后配置一下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyConfigurer</span> <span class="keyword">implements</span> <span class="title">WebMvcConfigurer</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> MyInterceptor <span class="title">getMyInterceptor</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span>  <span class="keyword">new</span> MyInterceptor();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addInterceptors</span><span class="params">(InterceptorRegistry registry)</span> </span>&#123;</span><br><span class="line">        registry.addInterceptor(<span class="keyword">this</span>.getMyInterceptor())</span><br><span class="line">        .addPathPatterns(<span class="string">&quot;/abc&quot;</span>,<span class="string">&quot;/configurePathMatch&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>可以看出 addPathPatterns()里面可以尝试添加多个路径，或者写成”/**“，包含所有路径都需要尝试拦截一下。<br>测试一下，输出：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">preHandle,ok,假设给你一个true，运行去吧</span><br><span class="line">&#x3D;&#x3D;&#x3D;》执行业务逻辑&#x3D;&#x3D;&#x3D;》</span><br><span class="line">postHandle,ok,看看我什么时候运行的。</span><br><span class="line">afterCompletion,ok,看完不点个赞再走吗？</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<h4 id="7-addResourceHandlers-ResourceHandlerRegistry-registry"><a href="#7-addResourceHandlers-ResourceHandlerRegistry-registry" class="headerlink" title="7.addResourceHandlers(ResourceHandlerRegistry registry)"></a>7.addResourceHandlers(ResourceHandlerRegistry registry)</h4><p>自定义资源映射。这个东西也比较常用，业务场景就是自己的服务器作为文件服务器，不利用第三方的图床，就需要一个虚拟路径映射到我们服务器的地址。值得一提的是，如果你的项目是 war 包启动，一般都是再 Tomcat 中配置一下（配置方法请百度）；如果是 jar 包启动（SpringBoot 经常用这种方式启动），就可以用到这个方法了。例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public void addResourceHandlers(ResourceHandlerRegistry registry) &#123;</span><br><span class="line">    registry.addResourceHandler(&quot;&#x2F;my&#x2F;**&quot;)</span><br><span class="line">    .addResourceLocations(&quot;file:E:&#x2F;my&#x2F;&quot;);</span><br><span class="line">    super.addResourceHandlers(registry);</span><br><span class="line">&#125;</span><br><span class="line">复制代码</span><br></pre></td></tr></table></figure>
-<p>真实路径，wndows 当服务器的情况下，前面一定要加上一个 file:。</p>
-<h4 id="8-addCorsMappings-CorsRegistry-registry"><a href="#8-addCorsMappings-CorsRegistry-registry" class="headerlink" title="8.addCorsMappings(CorsRegistry registry)"></a>8.addCorsMappings(CorsRegistry registry)</h4><p>这个是设置跨域问题的，几乎是每个后台服务器都需要配置的东西。我曾写过一篇文章，专门讲跨域问题和 SpringBoot 怎么配置的，请查询：<a target="_blank" rel="noopener" href="https://juejin.im/post/6844903862956982279">juejin.im/post/684490…</a></p>
-<h4 id="9-addViewControllers-ViewControllerRegistry-registry"><a href="#9-addViewControllers-ViewControllerRegistry-registry" class="headerlink" title="9.addViewControllers(ViewControllerRegistry registry)"></a>9.addViewControllers(ViewControllerRegistry registry)</h4><p>这个方法可以实现，一个路径自动跳转到一个页面。不过现在多为前后端分离的项目，是不是可以把跳转路由的问题直接扔给前端。<br>后面还有七个：configureViewResolvers、addArgumentResolvers、addReturnValueHandlers、configureMessageConverters、extendMessageConverters、configureHandlerExceptionResolvers、extendHandlerExceptionResolvers。是在用的太少了，就不再看了</p>
-<p>作者：啤酒就辣条<br>链接：<a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903863640653832">https://juejin.cn/post/6844903863640653832</a><br>来源：掘金<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+          
+<div class="article-category tagcloud">
+	<i class="icon-book icon"></i>
+	<ul class="article-tag-list">
+		
+		
+		<li class="article-tag-list-item">
+			<a href="/categories/Spring//" class="article-tag-list-link color2">
+				Spring</a>
+		</li>
+		
+		
+	</ul>
+</div>
 
-      
-      
-       
-         <div class="essayending">
-           <div>
-            <div style="text-align:center;color: #ccc;font-size:22px;">
-            <br/>
-            <br/>
- -------------<i class="fa fa-paw"></i>感谢您的阅读-------------
-            <br/>
-            <br/>
-             <br/>
-             <br/>
-            </div>
-           </div>
-         </div>
-         
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你让我晚饭可以加个肠<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/wechat.jpeg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
         </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/uncategorized/yuque/WebMvcConfigurer/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2021/uncategorized/yuque/%E5%86%B7%E5%90%AF%E5%8A%A8%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%AD%E7%BB%83/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          冷启动如何快速训练
-        
-      </div>
-    </a>
   
   
-    <a href="/2021/uncategorized/yuque/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E6%9F%A5%E7%9C%8B%E6%97%A5%E5%BF%97%E4%BF%A1%E6%81%AF/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">项目部署查看日志信息</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-
-if(true){
-	var gitalk = new Gitalk({
-  	clientID: 'a40183824efdd889e8bd',
-  	clientSecret: '45d0d18823e835101990e4fb215272fc05321fa2',
-  	repo: 'blog-comments',
-  	owner: 'yizhichangyuan',
-  	admin: ['yizhichangyuan'],
-  	id: 'Mon Mar 29 2021 00:19:40 GMT+0800',
-  	distractionFreeMode: 'true'
-})
-gitalk.render('gitalk-container') 
-}
-</script>
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -428,9 +259,9 @@ gitalk.render('gitalk-container')
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

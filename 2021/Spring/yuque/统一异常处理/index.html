@@ -12,17 +12,17 @@
   <meta name="description" content="前面我们后端数据校验每个 controller 校验的 bean 的属性上添加上校验注解，然后在 controller 入参上加上@Valid 注解，然后通过紧跟着的 BindingResult 来进行获取校验的结果，如果错误则返回给前端，否则正常入库。这样有一个弊端就是每个 controller 都需要进行一套将错误信息封装到 Request 中的过程，这是十分重复的。我们可以利用 Advice">
 <meta property="og:type" content="article">
 <meta property="og:title" content="统一异常处理">
-<meta property="og:url" content="http://example.com/2021/uncategorized/yuque/%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/index.html">
+<meta property="og:url" content="http://example.com/2021/Spring/yuque/%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/index.html">
 <meta property="og:site_name" content="一止长渊的博客">
 <meta property="og:description" content="前面我们后端数据校验每个 controller 校验的 bean 的属性上添加上校验注解，然后在 controller 入参上加上@Valid 注解，然后通过紧跟着的 BindingResult 来进行获取校验的结果，如果错误则返回给前端，否则正常入库。这样有一个弊端就是每个 controller 都需要进行一套将错误信息封装到 Request 中的过程，这是十分重复的。我们可以利用 Advice">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617462481017-a37fe325-5041-4f72-b01c-f64e56686f0a.png#align=left&display=inline&height=313&margin=%5Bobject%20Object%5D&name=image.png&originHeight=2100&originWidth=3360&size=503675&status=done&style=none&width=500">
 <meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617462845461-314687bd-d0db-45f3-88da-c3ea2f10642a.png#align=left&display=inline&height=199&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-03%2023.13.21.png&originHeight=756&originWidth=2308&size=158821&status=done&style=none&width=607">
 <meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617618512174-ef9895dd-f2a2-4da3-8b02-032d9e98b86c.png#align=left&display=inline&height=313&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-05%2018.28.28.png&originHeight=2100&originWidth=3360&size=580570&status=done&style=none&width=500">
-<meta property="article:published_time" content="2021-03-28T05:15:38.000Z">
-<meta property="article:modified_time" content="2021-04-05T10:31:31.469Z">
+<meta property="article:published_time" content="2021-04-04T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-04-05T10:34:59.273Z">
 <meta property="article:author" content="一止长渊">
-<meta property="article:tag" content="JAVA 后端 Spring">
+<meta property="article:tag" content="数据校验">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617462481017-a37fe325-5041-4f72-b01c-f64e56686f0a.png#align=left&display=inline&height=313&margin=%5Bobject%20Object%5D&name=image.png&originHeight=2100&originWidth=3360&size=503675&status=done&style=none&width=500">
   
@@ -185,8 +185,8 @@
         
         <!--显示阅读次数完毕-->
         
-        <a href="/2021/uncategorized/yuque/%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" class="archive-article-date">
-  	<time datetime="2021-03-28T05:15:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-28</time>
+        <a href="/2021/Spring/yuque/%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" class="archive-article-date">
+  	<time datetime="2021-04-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-05</time>
 </a>
         
       </header>
@@ -205,6 +205,8 @@
 <li>如何获取 Controller 层发出的异常</li>
 </ul>
 <p>通过注解**@ControllerAdvice<strong>或</strong>@RestControllerAdvice**注解</p>
+<a id="more"></a>
+
 <h4 id="一、Controller-层同一异常处理"><a href="#一、Controller-层同一异常处理" class="headerlink" title="一、Controller 层同一异常处理"></a>一、Controller 层同一异常处理</h4><p>1.数据对象添加校验注解</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@TableName(&quot;pms_brand&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BrandEntity</span> <span class="keyword">implements</span> <span class="title">Serializable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 品牌id</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@TableId</span></span><br><span class="line">    <span class="keyword">private</span> Long brandId;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 品牌名</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@NotBlank(message = &quot;品牌名必须不为空&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 品牌logo地址</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@NotEmpty</span></span><br><span class="line">    <span class="meta">@URL(message=&quot;logo必须是一个合法的url地址&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String logo;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 介绍</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> String descript;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 显示状态[0-不显示；1-显示]</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> Integer showStatus;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 检索首字母</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@NotEmpty</span></span><br><span class="line">    <span class="meta">@Pattern(regexp=&quot;/^[a-zA-Z]$/&quot;, message = &quot;检索首字符必须是一个字母&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String firstLetter;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 排序</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@NotNull</span></span><br><span class="line">    <span class="meta">@Min(value=0, message=&quot;排序必须大于等于0&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Integer sort;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h6 id="2-Controller-层校验入参添加-Valid-注解"><a href="#2-Controller-层校验入参添加-Valid-注解" class="headerlink" title="2.Controller 层校验入参添加@Valid 注解"></a>2.Controller 层校验入参添加@Valid 注解</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 保存，方法入参添加<span class="doctag">@Valid</span>进行参数校验，校验发生失败则会抛出异常不会入库，就会被异常捕捉类捕捉到</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/save&quot;)</span></span><br><span class="line">    <span class="comment">//@RequiresPermissions(&quot;product:brand:save&quot;)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> R <span class="title">save</span><span class="params">(<span class="meta">@Valid</span> <span class="meta">@RequestBody</span> BrandEntity brand<span class="comment">/** ,BindingResult bindingResult*/</span>)</span> </span>&#123;</span><br><span class="line"><span class="comment">//        if(bindingResult.hasErrors())&#123;</span></span><br><span class="line"><span class="comment">//            Map&lt;String, String&gt; map = new HashMap&lt;&gt;();</span></span><br><span class="line"><span class="comment">//            // 1、获取校验的错误结果</span></span><br><span class="line"><span class="comment">//            bindingResult.getFieldErrors().forEach(item -&gt;&#123;</span></span><br><span class="line"><span class="comment">//                // 获取到错误提示</span></span><br><span class="line"><span class="comment">//                String errorMessage = item.getDefaultMessage();</span></span><br><span class="line"><span class="comment">//                // 获取错误的属性名</span></span><br><span class="line"><span class="comment">//                String field = item.getField();</span></span><br><span class="line"><span class="comment">//                map.put(field, errorMessage);</span></span><br><span class="line"><span class="comment">//            &#125;);</span></span><br><span class="line"><span class="comment">//            return R.error(400, &quot;请求的数据不合法&quot;).put(&quot;data&quot;, map);</span></span><br><span class="line"><span class="comment">//        &#125;else&#123;</span></span><br><span class="line"><span class="comment">//            brandService.save(brand);</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line">        brandService.save(brand);</span><br><span class="line">        <span class="keyword">return</span> R.ok();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
@@ -269,7 +271,35 @@
     <div class="article-info article-info-index">
       
       
+<div class="article-tag tagcloud">
+	<i class="icon-price-tags icon"></i>
+	<ul class="article-tag-list">
+		
+		
+		<li class="article-tag-list-item">
+			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">
+				数据校验</a>
+		</li>
+		
+		
+	</ul>
+</div>
+
       
+<div class="article-category tagcloud">
+	<i class="icon-book icon"></i>
+	<ul class="article-tag-list">
+		
+		
+		<li class="article-tag-list-item">
+			<a href="/categories/Spring//" class="article-tag-list-link color2">
+				Spring</a>
+		</li>
+		
+		
+	</ul>
+</div>
+
       
 
       
@@ -318,7 +348,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/uncategorized/yuque/%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/Spring/yuque/%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -332,18 +362,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/uncategorized/yuque/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E6%9F%A5%E7%9C%8B%E6%97%A5%E5%BF%97%E4%BF%A1%E6%81%AF/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          项目部署查看日志信息
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/uncategorized/yuque/%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E6%A0%A1%E9%AA%8C/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">后端数据校验</div>
+    <a href="/2021/%E4%BF%AE%E8%A1%8C/yuque/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">设计模式</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -387,7 +408,7 @@ if(true){
   	repo: 'blog-comments',
   	owner: 'yizhichangyuan',
   	admin: ['yizhichangyuan'],
-  	id: 'Sun Mar 28 2021 13:15:38 GMT+0800',
+  	id: 'Mon Apr 05 2021 00:00:00 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 
@@ -531,6 +552,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">历史</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">数据校验</a>
               </li>
              
               <li class="article-tag-list-item">
