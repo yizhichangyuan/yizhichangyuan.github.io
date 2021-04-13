@@ -7,18 +7,28 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <meta name="referrer" content="no-referrer" />
   <link rel="dns-prefetch" href="http://example.com">
-  <title>一止长渊的博客</title>
+  <title>ElasticSearch | 一止长渊的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="探索JAVA后端技术，正在艰难成长的菜鸟">
-<meta property="og:type" content="website">
-<meta property="og:title" content="一止长渊的博客">
-<meta property="og:url" content="http://example.com/page/2/index.html">
+  <meta name="description" content="Elastcisearch 是分布式的文档存储。它能以实时的方式存储和检索复杂的数据结构——序列化成为JSON 文档。换句话说，一旦一个文档被存储在 Elasticsearch 中，它就是可以被集群中的任意节点检索到。尽管现存的 NoSQL 解决方案允许我们以文档的形式存储对象，但是他们仍旧需要我们思考如何查询我们的数据，以及确定哪些字段需要被索引以加快数据检索。在 Elasticsearch 中">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ElasticSearch">
+<meta property="og:url" content="http://example.com/2021/uncategorized/yuque/ElasticSearch/index.html">
 <meta property="og:site_name" content="一止长渊的博客">
-<meta property="og:description" content="探索JAVA后端技术，正在艰难成长的菜鸟">
+<meta property="og:description" content="Elastcisearch 是分布式的文档存储。它能以实时的方式存储和检索复杂的数据结构——序列化成为JSON 文档。换句话说，一旦一个文档被存储在 Elasticsearch 中，它就是可以被集群中的任意节点检索到。尽管现存的 NoSQL 解决方案允许我们以文档的形式存储对象，但是他们仍旧需要我们思考如何查询我们的数据，以及确定哪些字段需要被索引以加快数据检索。在 Elasticsearch 中">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618236147408-58773255-c9b0-41fd-aad6-dae7e2bc62ab.png#align=left&display=inline&height=271&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-12%2022.02.21.png&originHeight=992&originWidth=1970&size=255178&status=done&style=none&width=539">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618236219246-5f98988b-3d9c-4ac3-82d7-884a982ad74a.png#align=left&display=inline&height=257&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-12%2022.03.34.png&originHeight=932&originWidth=1810&size=201859&status=done&style=none&width=500">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618238501621-a3c320b1-da26-46bf-9ea1-883c9a3f0f9f.png#align=left&display=inline&height=306&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-12%2022.41.37.png&originHeight=734&originWidth=1680&size=179569&status=done&style=none&width=700">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618240320519-cea239e6-a912-4f9f-b6b5-4dab3494e182.png#align=left&display=inline&height=225&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-12%2023.11.51.png&originHeight=1072&originWidth=3332&size=344542&status=done&style=none&width=700">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618244009322-cdc02e3d-efea-4a5b-bc68-52275377c23c.png#align=left&display=inline&height=475&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-13%2000.13.25.png&originHeight=1678&originWidth=2474&size=303160&status=done&style=none&width=700">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618282759326-9f5fcad4-e8ae-408e-95d5-8081d102ec1d.png#align=left&display=inline&height=423&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-13%2010.47.17.png&originHeight=1400&originWidth=1080&size=170684&status=done&style=none&width=326">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618282779490-13195ce9-29e6-4bd4-a12f-ef9edc3c6ec6.png#align=left&display=inline&height=436&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-13%2010.47.48.png&originHeight=1392&originWidth=1080&size=190801&status=done&style=none&width=338">
+<meta property="article:published_time" content="2021-04-12T13:54:50.000Z">
+<meta property="article:modified_time" content="2021-04-13T14:19:49.542Z">
 <meta property="article:author" content="一止长渊">
 <meta property="article:tag" content="JAVA 后端 Spring">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618236147408-58773255-c9b0-41fd-aad6-dae7e2bc62ab.png#align=left&display=inline&height=271&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-12%2022.02.21.png&originHeight=992&originWidth=1970&size=255178&status=done&style=none&width=539">
   
     <link rel="alternative" href="/atom.xml" title="一止长渊的博客" type="application/atom+xml">
   
@@ -156,185 +166,200 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-yuque/WebMvcConfigurer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-yuque/ElasticSearch" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/uncategorized/yuque/WebMvcConfigurer/">WebMvcConfigurer</a>
+    <h1 class="article-title" itemprop="name">
+      ElasticSearch
     </h1>
   
 
         <!--显示阅读次数-->
         
+          <br/>
+          <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+          <span class="icon-sort"></span>
+          <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+                    阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+          </span>
+          </a>
+        
         <!--显示阅读次数完毕-->
         
-        <a href="/2021/uncategorized/yuque/WebMvcConfigurer/" class="archive-article-date">
-  	<time datetime="2021-03-28T16:19:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-29</time>
+        <a href="/2021/uncategorized/yuque/ElasticSearch/" class="archive-article-date">
+  	<time datetime="2021-04-12T13:54:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-12</time>
 </a>
         
       </header>
     
     <div align="center" class="post-count">
-    字数：1.1k字 | 预计阅读时长：4分钟
+    字数：3.8k字 | 预计阅读时长：17分钟
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="为什么要使用-WebMvcConfigurer？"><a href="#为什么要使用-WebMvcConfigurer？" class="headerlink" title="为什么要使用 WebMvcConfigurer？"></a>为什么要使用 WebMvcConfigurer？</h3><p>WebMvcConfigurer 是一个接口，提供很多自定义的拦截器，例如跨域设置、类型转化器等等。可以说此接口为开发者提前想到了很多拦截层面的需求，方便开发者自由选择使用。由于 Spring5.0 废弃了 WebMvcConfigurerAdapter，所以 WebMvcConfigurer 继承了 WebMvcConfigurerAdapter 大部分内容。</p>
-<h3 id="WebMvcConfigurer-方法介绍"><a href="#WebMvcConfigurer-方法介绍" class="headerlink" title="WebMvcConfigurer 方法介绍"></a>WebMvcConfigurer 方法介绍</h3><blockquote>
-<p>由于内容太多，只展示 3 个关键的接口，用的比较少的，只是阐述下含义，不再详解，用的更少的，就不看了，毕竟十多个方法呢…</p>
-</blockquote>
-        
-      
-      
+        <p>Elastcisearch 是分布式的文档存储。它能以实时的方式存储和检索复杂的数据结构——序列化成为<strong>JSON 文档</strong>。换句话说，一旦一个文档被存储在 Elasticsearch 中，它就是可以被集群中的任意节点检索到。<br>尽管现存的 NoSQL 解决方案允许我们以文档的形式存储对象，但是他们仍旧需要我们思考如何查询我们的数据，以及确定哪些字段需要被索引以加快数据检索。在 Elasticsearch 中， <strong>每个字段的所有数据都是默认被索引的</strong> 。 即每个字段都有为了快速检索设置的<strong>专用倒排索引</strong>。而且，不像其他多数的数据库，它能在   同一个查询中   使用所有这些倒排索引，并以惊人的速度返回结果。<br>ES 的底层是开源库 Lucene，ES 是对 Lucene 的封装，对外提供了<strong>REST API</strong>的操作接口，外部调用就是向 ES 发送请求即可，做到开箱即用。</p>
+<a id="more"></a>
 
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/uncategorized/yuque/WebMvcConfigurer/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-yuque/项目部署查看日志信息" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/uncategorized/yuque/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E6%9F%A5%E7%9C%8B%E6%97%A5%E5%BF%97%E4%BF%A1%E6%81%AF/">项目部署查看日志信息</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/uncategorized/yuque/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E6%9F%A5%E7%9C%8B%E6%97%A5%E5%BF%97%E4%BF%A1%E6%81%AF/" class="archive-article-date">
-  	<time datetime="2021-03-28T16:08:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-29</time>
-</a>
-        
-      </header>
-    
-    <div align="center" class="post-count">
-    字数：484字 | 预计阅读时长：2分钟
-</div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在 o2o 项目部署到远程服务器时，发现出现报错，这时候如何及时发现错误呢？登陆远程服务器，查看 tomcat 的日志信息<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1612840638265-6dda7d31-b29f-4540-b2fc-e90dbfd298b7.png#align=left&display=inline&height=274&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-02-09%2011.17.13.png&originHeight=274&originWidth=1648&size=85164&status=done&style=none&width=1648" alt="截屏2021-02-09 11.17.13.png"></p>
-        
-      
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/uncategorized/yuque/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E6%9F%A5%E7%9C%8B%E6%97%A5%E5%BF%97%E4%BF%A1%E6%81%AF/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-yuque/后端数据校验" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/uncategorized/yuque/%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E6%A0%A1%E9%AA%8C/">后端数据校验</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/uncategorized/yuque/%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E6%A0%A1%E9%AA%8C/" class="archive-article-date">
-  	<time datetime="2021-03-27T17:20:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-28</time>
-</a>
-        
-      </header>
-    
-    <div align="center" class="post-count">
-    字数：839字 | 预计阅读时长：3分钟
-</div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>JSR303（java 规范提案：303 提案），是关于数据校验的规范。在前端发送的数据在前端经过校验后，发送给后台还需要经过校验后才能入库，这是因为如果有人知道你的接口就可以通过 PostMan 工具向你的接口恶意发送坏数据入库，给其他用户浏览页面就会造成不好的影响，为此需要使用后端数据校验。前台防君子后台防小人</p>
-<p>JSR 主要使用 javax.validation.constraints 定义的注解此外也可以采用 hibernate 提供的一些注解或者自定义规则注解@Pattern</p>
-<ul>
-<li>1)、给 Bean 需要校验字段添加校验注解 可以在 javax.validation.constraints，并定义 message 错误提示</li>
-<li>2)、在 Controller 方法体中对相应的 Bean 添加上**@Valid**，否则光在字段标注了注解是没有用的：public R save(<a href="/Valid">@Valid </a> <a href="/RequestBody">@RequestBody </a> BrandEntity brand)</li>
-<li>效果：校验错误以后会有默认的响应，并显示错误信息 message</li>
-<li>3)、在方法体校验参数后面紧跟 BindingResult，就可以获取到校验的结果</li>
+<h3 id="一、基础概念"><a href="#一、基础概念" class="headerlink" title="一、基础概念"></a>一、基础概念</h3><p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618236147408-58773255-c9b0-41fd-aad6-dae7e2bc62ab.png#align=left&display=inline&height=271&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-12%2022.02.21.png&originHeight=992&originWidth=1970&size=255178&status=done&style=none&width=539" alt="截屏2021-04-12 22.02.21.png"></p>
+<h4 id="1、Index（索引）"><a href="#1、Index（索引）" class="headerlink" title="1、Index（索引）"></a>1、Index（索引）</h4><p>动词：相当于 MySQL 中的 insert<br>名词：相当于 MySQL 中的 database</p>
+<h4 id="2、Type（类型）"><a href="#2、Type（类型）" class="headerlink" title="2、Type（类型）"></a>2、Type（类型）</h4><p>在 Index（索引中），可以定义一个或多个类型。<br>类似于 MySQL 中的 Table，每一种类型的数据放在一起</p>
+<h4 id="3、Document（文档）"><a href="#3、Document（文档）" class="headerlink" title="3、Document（文档）"></a>3、Document（文档）</h4><p>保存在某个索引（Index）下，某种类型（Type）的一个数据（Document）。ES 中每条记录是以 JSON 文档的格式存储的，相当于 MySQL 中的一条记录</p>
+<h4 id="4、倒排索引"><a href="#4、倒排索引" class="headerlink" title="4、倒排索引"></a>4、倒排索引</h4><p>就是每个分词对应于哪些文档的 id<br>插入一条记录，就会将该数据进行分词，然后每个分词都有对应一个记录，该记录记下该分词出现在哪些文档中<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618236219246-5f98988b-3d9c-4ac3-82d7-884a982ad74a.png#align=left&display=inline&height=257&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-12%2022.03.34.png&originHeight=932&originWidth=1810&size=201859&status=done&style=none&width=500" alt="截屏2021-04-12 22.03.34.png"><br>查询时也会将查询的语句进行分词，然后统计哪些记录命中的分词数多计算相关性得分，返回评分的结果列表。</p>
+<h3 id="二、Docker-安装"><a href="#二、Docker-安装" class="headerlink" title="二、Docker 安装"></a>二、Docker 安装</h3><h4 id="1、下载镜像文件"><a href="#1、下载镜像文件" class="headerlink" title="1、下载镜像文件"></a>1、下载镜像文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker pull elasticsearch:7.4.2 <span class="comment"># 存储和检索数据</span></span><br><span class="line">docker pull kibana:7.4.2  <span class="comment"># 可视化界面：方便可视化检索数据</span></span><br></pre></td></tr></table></figure>
+<h4 id="2、创建-ES-实例"><a href="#2、创建-ES-实例" class="headerlink" title="2、创建 ES 实例"></a>2、创建 ES 实例</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将docker中ES容器文件挂在到外部</span></span><br><span class="line">mkdir -p /mydata/elasticsearch/config</span><br><span class="line">mkdir -p /mydata/elasticsearch/data</span><br><span class="line"><span class="comment"># 将ES配置为可以被远程的任何机器访问</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;http.host: 0.0.0.0&quot;</span> &gt;&gt; /mydata/elasticsearch/config/elasticsearch.yml</span><br><span class="line"></span><br><span class="line"><span class="comment"># 9200端口为外面向ES发送REST API端口，9300为ES集群间相互通信端口</span></span><br><span class="line"><span class="comment"># discovery.type=single-node ES以单节点运行</span></span><br><span class="line"><span class="comment"># -Xms64m -Xmx128m 非常重要，不设置初始堆和最大堆的大小，ES会默认抢占所有内存，会造成卡死</span></span><br><span class="line"><span class="comment"># -v 将ES容器的文件关联到外面文件下，实现外面修改容器里面也同时修改，plugins实现以后在外面安装插件重启就可以了</span></span><br><span class="line">docker run --name elasticsearch -p 9200:9200 -p 9300:9300 \</span><br><span class="line">-e <span class="string">&quot;discovery.type=single-node&quot;</span> \</span><br><span class="line">-e ES_JAVA_OPTS=<span class="string">&quot;-Xms64m -Xmx128m&quot;</span> \</span><br><span class="line">-v /mydata/elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml \</span><br><span class="line">-v /mydata/elasticsearch/data:/usr/share/elasticsearch/data \</span><br><span class="line">-v /mydata/elasticsearch/plugins:/usr/share/elasticsearch/plugins \</span><br><span class="line">-d elasticsearch:7.4.2</span><br><span class="line"></span><br><span class="line"><span class="comment"># 服务如果没启动，查看启动日志</span></span><br><span class="line">docker logs -f -t --tail 20 elasticsearch</span><br><span class="line"><span class="comment"># 如果是Caused by: java.nio.file.AccessDeniedException: /usr/share/elasticsearch/data/nodes</span></span><br><span class="line"><span class="comment"># 则使用以下语句授权</span></span><br><span class="line">chmod 777 -R /mydata/elasticsearch/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 自动重启</span></span><br><span class="line">docker update elasticsearch --restart=always</span><br><span class="line">docker update kibana --restart=always</span><br></pre></td></tr></table></figure>
+<p>浏览器访问虚拟机 IP+9200 端口出现以下界面即成功<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618238501621-a3c320b1-da26-46bf-9ea1-883c9a3f0f9f.png#align=left&display=inline&height=306&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-12%2022.41.37.png&originHeight=734&originWidth=1680&size=179569&status=done&style=none&width=700" alt="截屏2021-04-12 22.41.37.png"></p>
+<h4 id="3、安装-Kibana-实例（可视化界面）"><a href="#3、安装-Kibana-实例（可视化界面）" class="headerlink" title="3、安装 Kibana 实例（可视化界面）"></a>3、安装 Kibana 实例（可视化界面）</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看elasticsearch容器的ip：172.17.0.4</span></span><br><span class="line">docker inspect -f <span class="string">&#x27;&#123;&#123;range .NetworkSettings.Networks&#125;&#125;&#123;&#123;.IPAddress&#125;&#125;&#123;&#123;end&#125;&#125;&#x27;</span> elasticsearch</span><br><span class="line"><span class="comment"># 注意这里的ip填写为elasticsearch容器的ip，而不是虚拟机的ip 10.211.55.4</span></span><br><span class="line">docker run --name kibana -e ELASTICSEARCH_HOSTS=http://172.17.0.4:9200 -p 5601:5601 -d kibana:7.4.2</span><br></pre></td></tr></table></figure>
+<p>浏览器访问<a href="http://10.211.55.4:5601（这里为虚拟机的ip）">http://10.211.55.4:5601（这里为虚拟机的ip）</a><br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618240320519-cea239e6-a912-4f9f-b6b5-4dab3494e182.png#align=left&display=inline&height=225&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-12%2023.11.51.png&originHeight=1072&originWidth=3332&size=344542&status=done&style=none&width=700" alt="截屏2021-04-12 23.11.51.png"></p>
+<h3 id="三、ES-实践"><a href="#三、ES-实践" class="headerlink" title="三、ES 实践"></a>三、ES 实践</h3><p>ES 是以 REST API 提供服务，外界向接口发送请求即可<br>下面的地址默认前缀都为<a target="_blank" rel="noopener" href="http://10.211.55.4:9200/"><strong>http://10.211.55.4:9200</strong></a></p>
+<h4 id="1、查看结点信息"><a href="#1、查看结点信息" class="headerlink" title="1、查看结点信息"></a>1、查看结点信息</h4><ul>
+<li>GET /_cat/nodes 查看 ES 集群所有结点信息</li>
+<li>GET /_cat/health 查看 ES 集群健康</li>
+<li>GET /_cat/master 查看 ES 集群的主节点信息</li>
+<li>GET /_cat/indices 查看 ES 集群的所有索引信息（相当于 MySQL 中的 show databases）</li>
 </ul>
-        
+<h4 id="2、索引一个文档（保存）"><a href="#2、索引一个文档（保存）" class="headerlink" title="2、索引一个文档（保存）"></a>2、索引一个文档（保存）</h4><p>保存一个数据：保存在哪个索引的哪个类型下，指定用哪一个唯一标识，对应的数据以 JSON 形式放置在请求 Body。<br>请求方法：PUT 或 POST 都可以，PUT 时需要指定唯一标识（否则出错），POST 时可以指定唯一标识也可以不指定（ES 会分配一个唯一标识）</p>
+<ul>
+<li>PUT customer/external/1</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;John Doe&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>响应：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;_index&quot;</span>: <span class="string">&quot;customer&quot;</span>, <span class="comment">// 索引：对应MySQL中的数据库</span></span><br><span class="line">  <span class="attr">&quot;_type&quot;</span>: <span class="string">&quot;external&quot;</span>, <span class="comment">// 类型：对应MySQL中的表</span></span><br><span class="line">  <span class="attr">&quot;_id&quot;</span>: <span class="string">&quot;1&quot;</span>, <span class="comment">// 标识</span></span><br><span class="line">  <span class="attr">&quot;_version&quot;</span>: <span class="number">1</span>, <span class="comment">// 版本号：发送多次则是一个更新操作，版本号会逐渐加1递增</span></span><br><span class="line">  <span class="attr">&quot;result&quot;</span>: <span class="string">&quot;created&quot;</span>, <span class="comment">// 结果：第一次发送为created，第二次及以后则是更新updated，与Map相似</span></span><br><span class="line">  <span class="attr">&quot;_shards&quot;</span>: &#123;</span><br><span class="line">    <span class="comment">// 分片：集群时会用到</span></span><br><span class="line">    <span class="attr">&quot;total&quot;</span>: <span class="number">2</span>,</span><br><span class="line">    <span class="attr">&quot;successful&quot;</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">&quot;failed&quot;</span>: <span class="number">0</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">&quot;_seq_no&quot;</span>: <span class="number">0</span>,</span><br><span class="line">  <span class="attr">&quot;_primary_term&quot;</span>: <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>保存/更新</th>
+<th>携带 id</th>
+<th>不携带 id</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>PUT</td>
+<td>必须项，更新保存二合一</td>
+<td>报错</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>非必须，更新保存二合一</td>
+<td>新增操作</td>
+</tr>
+</tbody></table>
+<h4 id="3、查询数据"><a href="#3、查询数据" class="headerlink" title="3、查询数据"></a>3、查询数据</h4><p>GET /customer/external/1<br>响应：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;_index&quot;</span>: <span class="string">&quot;customer&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;_type&quot;</span>: <span class="string">&quot;external&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;_id&quot;</span>: <span class="string">&quot;1&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;_version&quot;</span>: <span class="number">5</span>,</span><br><span class="line">  <span class="attr">&quot;_seq_no&quot;</span>: <span class="number">5</span>, <span class="comment">//并发控制字段，序列号（每次更新自动加1），与_primary_term搭配可以作为乐观锁</span></span><br><span class="line">  <span class="attr">&quot;_primary_term&quot;</span>: <span class="number">1</span>, <span class="comment">// 主分片，主分片重新分配，如重启，就会变化</span></span><br><span class="line">  <span class="attr">&quot;found&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">&quot;_source&quot;</span>: &#123;</span><br><span class="line">    <span class="comment">// 数据真正内容在_source中</span></span><br><span class="line">    <span class="attr">&quot;name&quot;</span>: <span class="string">&quot;John Doe&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>更新操作（乐观锁）携带上 ?if_seq_no=#{当前的版本号}&amp;if_primary_term=1</p>
+<h6 id="乐观锁-CAS-举例："><a href="#乐观锁-CAS-举例：" class="headerlink" title="乐观锁(CAS)举例："></a><strong>乐观锁(CAS)举例：</strong></h6><p>例如两个线程多时发起 PUT 操作同一个文档，两个请求都先发起查询，发现当前文档版本号_seq_no 为 5，故同时发起 PUT 请求，仅在版本号为 1 时才 PUT 更新。<br>当第一个请求先达到 ES，发现版本号为 5 与自己预料的是正确的的，则将 name 修改为了 1，此时版本号_seq_no 会自动加一个随机数，改为了 8；<br>第二个请求后随后到达，准备将 name 修改 2，但是发现此时的版本号为 8 与自己预料的版本号 5 对不上，则该 PUT 操作就不会执行，会显示 409 错误码。</p>
+<ul>
+<li>PUT customer/external/1?if_seq_no=5&amp;if_primary_term=1 {“name”:”1”}</li>
+<li>PUT customer/external/1?if_seq_no=5&amp;if_primary_term=1 {“name”:”2”}</li>
+</ul>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618244009322-cdc02e3d-efea-4a5b-bc68-52275377c23c.png#align=left&display=inline&height=475&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-13%2000.13.25.png&originHeight=1678&originWidth=2474&size=303160&status=done&style=none&width=700" alt="截屏2021-04-13 00.13.25.png"></p>
+<h4 id="4、更新数据"><a href="#4、更新数据" class="headerlink" title="4、更新数据"></a>4、更新数据</h4><ul>
+<li>POST customer/external/1/_update</li>
+</ul>
+<p>请求体为：<br>{<br>“doc”:{<br>“name”: “John”<br>}<br>}</p>
+<ul>
+<li>POST customer/external/1</li>
+</ul>
+<p>请求体为：<br>{<br>“name”: “John”<br>}</p>
+<ul>
+<li><p>PUT customer/external/1</p>
+<pre><code> 请求体为
+</code></pre>
+<p>{<br>“name”: “John”<br>}<br><strong>不同点：</strong><br>1.POST 发送请求携带上 update，请求体需要“doc”字段，doc 下才是文档数据<br>2.POST 发送请求携带上 update，会对比要更新的数据，</p>
+</li>
+<li><p>如果不存在则会将请求体数据创建</p>
+</li>
+<li><p>如果存在</p>
+<ul>
+<li>对比数据相同：则什么也不做，version、seq_no 都不会发生变化</li>
+<li>对比数据不相同：发生更新操作，此时版本号才会发生变化（只有对比更新的数据有不同，才会进行更新）</li>
+</ul>
+<p>3.POST 不携带 update 和 PUT 请求，原来数据存在的话，都会发生更新，不会去进行对比，不存在就会创建<br>共同点： 1.都可以在原来的基础上，更新增加属性<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618282759326-9f5fcad4-e8ae-408e-95d5-8081d102ec1d.png#align=left&display=inline&height=423&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-13%2010.47.17.png&originHeight=1400&originWidth=1080&size=170684&status=done&style=none&width=326" alt="截屏2021-04-13 10.47.17.png"><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618282779490-13195ce9-29e6-4bd4-a12f-ef9edc3c6ec6.png#align=left&display=inline&height=436&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-13%2010.47.48.png&originHeight=1392&originWidth=1080&size=190801&status=done&style=none&width=338" alt="截屏2021-04-13 10.47.48.png"></p>
+</li>
+</ul>
+<h4 id="5、删除文档-amp-索引"><a href="#5、删除文档-amp-索引" class="headerlink" title="5、删除文档&amp;索引"></a>5、删除文档&amp;索引</h4><p>ES 中没有直接删除类型 Type</p>
+<ul>
+<li>DELETE /customer/external/1 删除文档</li>
+<li>DELETE /customer 删除索引</li>
+</ul>
+<h4 id="6、bulk-批量-API"><a href="#6、bulk-批量-API" class="headerlink" title="6、bulk 批量 API"></a>6、bulk 批量 API</h4><p>在 kibana 中批量操作形式为：</p>
+<ul>
+<li>其中 action 可选为 index/create/update/delete</li>
+<li>其中 metadata 可选为_index,_type,_id</li>
+<li>其中 requestbody 为数据</li>
+</ul>
+<p>create 和 index 的区别：<br>如果数据存在，使用 create 操作失败，会提示文档已经存在，使用 index 则可以执行成功，如果存在会进行覆盖<br>bulk 批量操作，<strong>一个操作失败不会影响后续的操作</strong></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;action&quot;: &#123;metedta&#125;&#125;</span><br><span class="line">&#123;requestbody&#125;</span><br><span class="line">&#123;&quot;action&quot;: &#123;metedta&#125;&#125;</span><br><span class="line">&#123;requestbody&#125;</span><br></pre></td></tr></table></figure>
+<p>举例：</p>
+<ul>
+<li>POST customer/external/_bulk</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">&quot;index&quot;</span>: &#123;<span class="attr">&quot;_id&quot;</span>: <span class="number">1</span>&#125;&#125;</span><br><span class="line">&#123;<span class="attr">&quot;name&quot;</span>: <span class="string">&quot;1&quot;</span>&#125;</span><br><span class="line">&#123;<span class="attr">&quot;index&quot;</span>: &#123;<span class="attr">&quot;_id&quot;</span>: <span class="number">2</span>&#125;&#125;</span><br><span class="line">&#123;<span class="attr">&quot;name&quot;</span>: <span class="string">&quot;2&quot;</span>&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>POST _bulk</li>
+</ul>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">&quot;delete&quot;</span>: &#123;<span class="attr">&quot;_index&quot;</span>:<span class="string">&quot;website&quot;</span>, <span class="attr">&quot;_type&quot;</span>:<span class="string">&quot;blog&quot;</span>,<span class="attr">&quot;_id&quot;</span>:<span class="string">&quot;123&quot;</span>&#125;&#125; <span class="comment">// 删除数据，初次会提示404，但不影响后续的操作</span></span><br><span class="line">&#123;<span class="attr">&quot;create&quot;</span>: &#123;<span class="attr">&quot;_index&quot;</span>:<span class="string">&quot;website&quot;</span>, <span class="attr">&quot;_type&quot;</span>:<span class="string">&quot;blog&quot;</span>,<span class="attr">&quot;_id&quot;</span>:<span class="number">123</span>&#125;&#125; <span class="comment">// 创建数据</span></span><br><span class="line">&#123;<span class="attr">&quot;title&quot;</span>:<span class="string">&quot;My first blog post&quot;</span>&#125;</span><br><span class="line">&#123;<span class="attr">&quot;index&quot;</span>: &#123;<span class="attr">&quot;_index&quot;</span>:<span class="string">&quot;website&quot;</span>,<span class="attr">&quot;_type&quot;</span>:<span class="string">&quot;blog&quot;</span>&#125;&#125; <span class="comment">// 插入数据</span></span><br><span class="line">&#123;<span class="attr">&quot;title&quot;</span>: <span class="string">&quot;My second blog post&quot;</span>&#125;</span><br><span class="line">&#123;<span class="attr">&quot;update&quot;</span>:&#123;<span class="attr">&quot;_index&quot;</span>:<span class="string">&quot;website&quot;</span>, <span class="attr">&quot;_type&quot;</span>:<span class="string">&quot;blog&quot;</span>,<span class="attr">&quot;_id&quot;</span>:<span class="string">&quot;123&quot;</span>&#125;&#125; <span class="comment">// 更新数据</span></span><br><span class="line">&#123;<span class="attr">&quot;doc&quot;</span>:&#123;<span class="attr">&quot;title&quot;</span>:<span class="string">&quot;My updated blog post&quot;</span>&#125;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="四、复杂检索"><a href="#四、复杂检索" class="headerlink" title="四、复杂检索"></a>四、复杂检索</h3><p>首先批量导入数据 POST /bank/account/_bulk<br><a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/elastic/elasticsearch/master/docs/src/test/resources/accounts.json">https://raw.githubusercontent.com/elastic/elasticsearch/master/docs/src/test/resources/accounts.json</a><br>支持两种方式：</p>
+<ul>
+<li>将请求检索参数防止在 GET 请求路径背后 例如：<ul>
+<li>GET /bank/_search?q=*&amp;sort=account_number:sort</li>
+</ul>
+</li>
+<li>将请求检索参数放置在请求体中<ul>
+<li>GET bank/_search</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;query&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;match_all&quot;</span>:&#123;&#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&quot;sort&quot;</span>:[</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">&quot;account_number&quot;</span>: <span class="string">&quot;asc&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2、Query-DSL"><a href="#2、Query-DSL" class="headerlink" title="2、Query DSL"></a>2、Query DSL</h4><h4 id="1）、基本语法格式"><a href="#1）、基本语法格式" class="headerlink" title="1）、基本语法格式"></a>1）、基本语法格式</h4><p>ES 提供了一个可以执行查询的 json 风格的 DSL（domain-specific language 领域特定语言），也被称为 Query DSL。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 分页查询 from和size相当于MySQL中的limit</span></span><br><span class="line">GET bank/_search</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;query&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;match_all&quot;</span>:&#123;&#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&quot;sort&quot;</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">&quot;balance&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;order&quot;</span>: <span class="string">&quot;desc&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="string">&quot;from&quot;</span>: 0,</span><br><span class="line">  <span class="string">&quot;size&quot;</span>: 5</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查询特定字段的分页查询，_source指定查询字段</span></span><br><span class="line">GET bank/_search</span><br><span class="line">GET bank/_search</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;query&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;match_all&quot;</span>:&#123;&#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&quot;sort&quot;</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">&quot;balance&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;order&quot;</span>: <span class="string">&quot;desc&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  <span class="string">&quot;from&quot;</span>: 0,</span><br><span class="line">  <span class="string">&quot;size&quot;</span>: 5,</span><br><span class="line">  <span class="string">&quot;_source&quot;</span>: [<span class="string">&quot;balance&quot;</span>,<span class="string">&quot;firstname&quot;</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># match用在字段为数字上相当于精确查询</span></span><br><span class="line">GET bank/_search</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;query&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;match&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;account_number&quot;</span>: 20</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># match模糊检索，会对检索条件进行分词匹配，不指定排序的话，结果会按照评分进行排序</span></span><br><span class="line">GET bank/_search</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;query&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;match&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;address&quot;</span>: <span class="string">&quot;mill lane&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># match全文检索，指定了排序则会按照排序字段进行排序</span></span><br><span class="line">GET bank/_search</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;query&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;match&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;address&quot;</span>: <span class="string">&quot;mill lane&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&quot;sort&quot;</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">&quot;balance&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;order&quot;</span>: <span class="string">&quot;desc&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># match_pharse 短语匹配，将查询条件当成不可分割的短语进行匹配查询</span></span><br><span class="line"><span class="comment"># 包含了完成的短语mill lane会检索出来</span></span><br><span class="line">GET /bank/_search</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;query&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;match_phrase&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;address&quot;</span>: <span class="string">&quot;mill lane&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># multi_match 多字段查询，query的词也会进行分词，两个字段有任意一个字段包含分的词检索出来，是or关系</span></span><br><span class="line">GET /bank/_search</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;query&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;multi_match&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;query&quot;</span>: <span class="string">&quot;mill lane&quot;</span>,</span><br><span class="line">      <span class="string">&quot;fields&quot;</span>: [<span class="string">&quot;state&quot;</span>, <span class="string">&quot;address&quot;</span>]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 复合查询，利用bool可以组合多种查询条件</span></span><br><span class="line"><span class="comment"># bool中可以有多个查询条件，这里的must含义就是must数组中的条件都必须满足</span></span><br><span class="line"><span class="comment"># must_not必须不满足</span></span><br><span class="line">GET bank/_search</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;query&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;bool&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;must&quot;</span>: [</span><br><span class="line">        &#123;<span class="string">&quot;match&quot;</span>:</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="string">&quot;gender&quot;</span>: <span class="string">&quot;F&quot;</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="string">&quot;match&quot;</span>: &#123;</span><br><span class="line">            <span class="string">&quot;address&quot;</span>: <span class="string">&quot;mill&quot;</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 复合查询，must：必须满足，must_not：必须不满足</span></span><br><span class="line"><span class="comment"># 查找出gender为M，address中有mill且age不是38的记录</span></span><br><span class="line">GET bank/_search</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;query&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;bool&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;must&quot;</span>: [</span><br><span class="line">        &#123;<span class="string">&quot;match&quot;</span>:</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="string">&quot;gender&quot;</span>: <span class="string">&quot;M&quot;</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="string">&quot;match&quot;</span>: &#123;</span><br><span class="line">            <span class="string">&quot;address&quot;</span>: <span class="string">&quot;mill&quot;</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      ],</span><br><span class="line">      <span class="string">&quot;must_not&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="string">&quot;match&quot;</span>:</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="string">&quot;age&quot;</span>: 38</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 复合查询，其中的should表示满足最好，不满足也可以，是加分项，满足了评分会更高</span></span><br><span class="line">GET bank/_search</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;query&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;bool&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;must&quot;</span>: [</span><br><span class="line">        &#123;<span class="string">&quot;match&quot;</span>:</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="string">&quot;gender&quot;</span>: <span class="string">&quot;M&quot;</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="string">&quot;match&quot;</span>: &#123;</span><br><span class="line">            <span class="string">&quot;address&quot;</span>: <span class="string">&quot;mill&quot;</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      ],</span><br><span class="line">      <span class="string">&quot;must_not&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="string">&quot;match&quot;</span>:</span><br><span class="line">          &#123;</span><br><span class="line">            <span class="string">&quot;age&quot;</span>: 18</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      ],</span><br><span class="line">      <span class="string">&quot;should&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="string">&quot;match&quot;</span>:</span><br><span class="line">          &#123;</span><br><span class="line">          <span class="string">&quot;lastname&quot;</span>: <span class="string">&quot;Wallace&quot;</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># must和filter配合range都可以进行过滤</span></span><br><span class="line"><span class="comment"># 区别在于：must会贡献评分，但是filter不会贡献评分</span></span><br><span class="line">GET bank/_search</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;query&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;bool&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;must&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="string">&quot;range&quot;</span>: &#123;</span><br><span class="line">            <span class="string">&quot;age&quot;</span>: &#123;</span><br><span class="line">              <span class="string">&quot;gte&quot;</span>: 18,</span><br><span class="line">              <span class="string">&quot;lte&quot;</span>: 30</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">GET bank/_search</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;query&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;bool&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;filter&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;range&quot;</span>: &#123;</span><br><span class="line">          <span class="string">&quot;age&quot;</span>: &#123;</span><br><span class="line">            <span class="string">&quot;gte&quot;</span>: 18,</span><br><span class="line">            <span class="string">&quot;lte&quot;</span>: 30</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># match_phrase和keyword区别</span></span><br><span class="line"><span class="comment"># match_phrase是将查询词不可拆分进行查询，只有完整包含了这个短语就可以得到匹配</span></span><br><span class="line"><span class="comment"># keyword则是精确查询，要求查询字段只能是该短语，而不是仅仅的包含关系</span></span><br><span class="line"><span class="comment"># 对于有一条记录为&quot;address&quot; : &quot;789 Madison Street&quot;</span></span><br><span class="line"><span class="comment"># match_phrase可以查到一条记录，而keyword差不到该条记录，是精确查询</span></span><br><span class="line">GET bank/_search</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;query&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;match_phrase&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;address&quot;</span>: <span class="string">&quot;789 Madison&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># keyword精确匹配</span></span><br><span class="line">GET bank/_search</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;query&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;match&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;address.keyword&quot;</span> : <span class="string">&quot;789 Madison&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># term查询，和match一样匹配某个属性的值</span></span><br><span class="line"><span class="comment"># 只能用于查询非文本字段，查询文本字段会始终显示结果数为0</span></span><br><span class="line"><span class="comment"># 全文检索字段用match，其他非text字段用term</span></span><br><span class="line"><span class="comment"># 官方推荐：term用于查询非文本字段，match用于查询文本字段</span></span><br><span class="line">GET bank/_search</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;query&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;term&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;balance&quot;</span>: 32838</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># aggragations 执行聚合</span></span><br><span class="line"><span class="comment"># 聚合提供了从数据中分组和提取数据的能力，最简单的聚合方法大致等于SQL中的group by和SQL聚合函数</span></span><br><span class="line"><span class="comment"># ES中，您有执行搜索返回hits（命中结果），并且同时返回聚合结果，将一个响应中的所有hits（命中结果）</span></span><br><span class="line"><span class="comment"># 分隔开的能力，可以执行查询和多个聚合，并且在一次使用中得到各自的返回结果，使用一次简洁和简化的</span></span><br><span class="line"><span class="comment"># API来避免网络往返</span></span><br><span class="line">聚合语法：</span><br><span class="line"><span class="string">&quot;aggregations&quot;</span> : &#123;</span><br><span class="line">    <span class="string">&quot;&lt;aggregation_name&gt;&quot;</span> : &#123;        <span class="comment"># 这次聚合的名字，自定义方便展示在结果集中</span></span><br><span class="line">        <span class="string">&quot;&lt;aggregation_type&gt;&quot;</span> : &#123;    <span class="comment"># 聚合类型</span></span><br><span class="line">            &lt;aggregation_body&gt;      <span class="comment"># 聚合体</span></span><br><span class="line">        &#125;</span><br><span class="line">        [,<span class="string">&quot;meta&quot;</span> : &#123;  [&lt;meta_data_body&gt;] &#125; ]?</span><br><span class="line">        [,<span class="string">&quot;aggregations&quot;</span> : &#123; [&lt;sub_aggregation&gt;]+ &#125; ]?   <span class="comment"># 聚合内嵌套子聚合</span></span><br><span class="line">    &#125;</span><br><span class="line">    [,<span class="string">&quot;&lt;aggregation_name_2&gt;&quot;</span> : &#123; ... &#125; ]* <span class="comment"># 第二个聚合，和第一聚合是相互独立的</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> 1.搜索address中包含mill的所有人的年龄分布以及平均年龄</span><br><span class="line"> GET bank/_search</span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;query&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;match&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;address&quot;</span>: <span class="string">&quot;mill&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">&quot;aggs&quot;</span>: &#123;</span><br><span class="line">    <span class="string">&quot;aggAge&quot;</span>: &#123;</span><br><span class="line">      <span class="string">&quot;terms&quot;</span>: &#123;   <span class="comment"># terms相当于SQL中的count + group by，这里是先年龄分组计算每个分组总数</span></span><br><span class="line">        <span class="string">&quot;field&quot;</span>: <span class="string">&quot;age&quot;</span>,</span><br><span class="line">        <span class="string">&quot;size&quot;</span>: 10</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">&quot;ageAvg&quot;</span>:&#123;</span><br><span class="line">      <span class="string">&quot;avg&quot;</span>: &#123;   <span class="comment"># 第二个聚合：计算平均年龄</span></span><br><span class="line">        <span class="string">&quot;field&quot;</span>: <span class="string">&quot;age&quot;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
+      
+       
+         <div class="essayending">
+           <div>
+            <div style="text-align:center;color: #ccc;font-size:22px;">
+            <br/>
+            <br/>
+ -------------<i class="fa fa-paw"></i>感谢您的阅读-------------
+            <br/>
+            <br/>
+             <br/>
+             <br/>
+            </div>
+           </div>
+         </div>
+         
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你让我晚饭可以加个肠<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wechat.jpeg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -342,152 +367,75 @@
       
       
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/uncategorized/yuque/%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E6%A0%A1%E9%AA%8C/">展开全文 >></a>
-        </p>
-      
 
       
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
         
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-yuque/分布式下文件上传" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/uncategorized/yuque/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%8B%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">分布式下文件上传</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/uncategorized/yuque/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%8B%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" class="archive-article-date">
-  	<time datetime="2021-03-26T14:58:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-26</time>
-</a>
-        
-      </header>
-    
-    <div align="center" class="post-count">
-    字数：3.6k字 | 预计阅读时长：17分钟
+      </div>
+    </span>
+  </div>
 </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1616770699701-f9790556-8ff5-431d-bf42-0727c09fd9c7.png#align=left&display=inline&height=305&margin=%5Bobject%20Object%5D&name=image.png&originHeight=828&originWidth=1730&size=216539&status=done&style=none&width=637" alt="image.png"><br>在微服务分布式情况下，不同于以前的单体项目校园中铺项目，是将用户上传的图片放置在单体项目所在服务器的某个文件夹下，单体应用也在这个文件夹，然后单体应用就可以直接访问。但是在分布式情况下，一个服务可能有很多实例部署在多台服务器上，如果仍然使用向单体项目一样的图片存储，则会导致该服务的其他实例的服务器上没有该用户上传的图片，所以为了解决这个问题，分布式中通过使用将用户的图片同一放置在一个位置，然后每个服务都来访问这个位置来存取图片就可以了，这里使用阿里云的对象存储 OSS。</p>
-        
-      
-      
 
-      
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/uncategorized/yuque/ElasticSearch/" alt="微信分享二维码">
     </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/uncategorized/yuque/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%8B%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-yuque/JS脚本请求跨域" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/uncategorized/yuque/JS%E8%84%9A%E6%9C%AC%E8%AF%B7%E6%B1%82%E8%B7%A8%E5%9F%9F/">JS脚本请求跨域</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/uncategorized/yuque/JS%E8%84%9A%E6%9C%AC%E8%AF%B7%E6%B1%82%E8%B7%A8%E5%9F%9F/" class="archive-article-date">
-  	<time datetime="2021-03-17T16:30:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-18</time>
-</a>
-        
-      </header>
-    
-    <div align="center" class="post-count">
-    字数：680字 | 预计阅读时长：2分钟
 </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>跨域请求是针对 JS 的，也就是浏览器输入的网址协议+地址+端口号部分如果与执行脚本发送的 HTTP 请求地址有一处不同的话，就会被 CORS policy 跨域协议所<br>拦截，注意这里只针对 JS 脚本发出的 HTTP 请求<br><strong><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615998960194-cbd156cf-1bf8-4735-9c33-150b87b0b32e.png#align=left&display=inline&height=341&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-18%2000.35.54.png&originHeight=1166&originWidth=2050&size=1297290&status=done&style=none&width=600" alt="截屏2021-03-18 00.35.54.png"></strong><br>图中地址栏端口号为 8001，但是请求的地址为 88 端口，当执行登陆时，login 的 js 脚本就会发送请求给 88，就会导致跨域请求，但是图中的验证码虽然也是向 88 端口发送请求，但是其实在 src 属性中填充的地址，不是 js 脚本发送的请求所以不会引起跨域请求</p>
-        
-      
-      
 
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/uncategorized/yuque/JS%E8%84%9A%E6%9C%AC%E8%AF%B7%E6%B1%82%E8%B7%A8%E5%9F%9F/">展开全文 >></a>
-        </p>
-      
-
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2021/Spring/yuque/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E6%A0%A1%E9%AA%8C%E6%B3%A8%E8%A7%A3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">自定义数据校验注解</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -506,12 +454,36 @@
 </aside>
 
 
+  
+  
+  
 
   
+
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
-    </nav>
+  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: 'a40183824efdd889e8bd',
+  	clientSecret: '45d0d18823e835101990e4fb215272fc05321fa2',
+  	repo: 'blog-comments',
+  	owner: 'yizhichangyuan',
+  	admin: ['yizhichangyuan'],
+  	id: 'Mon Apr 12 2021 21:54:50 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container') 
+}
+</script>
+  
+
+  
+
   
 
 
@@ -545,8 +517,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

@@ -66,7 +66,7 @@
 			</ul>
 		</nav>
 		<nav>
-			<p>总文章数：32</p>
+			<p>总文章数：33</p>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -158,14 +158,14 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-yuque/统一异常处理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-yuque/ElasticSearch" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/Spring/yuque/%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/">统一异常处理</a>
+      <a class="article-title" href="/2021/uncategorized/yuque/ElasticSearch/">ElasticSearch</a>
     </h1>
   
 
@@ -173,26 +173,18 @@
         
         <!--显示阅读次数完毕-->
         
-        <a href="/2021/Spring/yuque/%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" class="archive-article-date">
-  	<time datetime="2021-04-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-05</time>
+        <a href="/2021/uncategorized/yuque/ElasticSearch/" class="archive-article-date">
+  	<time datetime="2021-04-12T13:54:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-12</time>
 </a>
         
       </header>
     
     <div align="center" class="post-count">
-    字数：1.7k字 | 预计阅读时长：7分钟
+    字数：3.8k字 | 预计阅读时长：17分钟
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>前面我们后端数据校验每个 controller 校验的 bean 的属性上添加上校验注解，然后在 controller 入参上加上@Valid 注解，然后通过紧跟着的 BindingResult 来进行获取校验的结果，如果错误则返回给前端，否则正常入库。这样有一个弊端就是每个 controller 都需要进行一套将错误信息封装到 Request 中的过程，这是十分重复的。我们可以利用 Advice 来解决。</p>
-<ul>
-<li>那么我们如果获取数据校验错误的信息呢？</li>
-</ul>
-<p>如果我们不添加 BindResult 来绑定抛出的结果的话，controller 则会把异常抛出，我们可以通过抛出的特定异常**@ExceptionHandler**来捕捉</p>
-<ul>
-<li>如何获取 Controller 层发出的异常</li>
-</ul>
-<p>通过注解**@ControllerAdvice<strong>或</strong>@RestControllerAdvice**注解</p>
+        <p>Elastcisearch 是分布式的文档存储。它能以实时的方式存储和检索复杂的数据结构——序列化成为<strong>JSON 文档</strong>。换句话说，一旦一个文档被存储在 Elasticsearch 中，它就是可以被集群中的任意节点检索到。<br>尽管现存的 NoSQL 解决方案允许我们以文档的形式存储对象，但是他们仍旧需要我们思考如何查询我们的数据，以及确定哪些字段需要被索引以加快数据检索。在 Elasticsearch 中， <strong>每个字段的所有数据都是默认被索引的</strong> 。 即每个字段都有为了快速检索设置的<strong>专用倒排索引</strong>。而且，不像其他多数的数据库，它能在   同一个查询中   使用所有这些倒排索引，并以惊人的速度返回结果。<br>ES 的底层是开源库 Lucene，ES 是对 Lucene 的封装，对外提供了<strong>REST API</strong>的操作接口，外部调用就是向 ES 发送请求即可，做到开箱即用。</p>
         
       
       
@@ -202,38 +194,10 @@
     <div class="article-info article-info-index">
       
       
-<div class="article-tag tagcloud">
-	<i class="icon-price-tags icon"></i>
-	<ul class="article-tag-list">
-		
-		
-		<li class="article-tag-list-item">
-			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">
-				数据校验</a>
-		</li>
-		
-		
-	</ul>
-</div>
-
       
-<div class="article-category tagcloud">
-	<i class="icon-book icon"></i>
-	<ul class="article-tag-list">
-		
-		
-		<li class="article-tag-list-item">
-			<a href="/categories/Spring//" class="article-tag-list-link color2">
-				Spring</a>
-		</li>
-		
-		
-	</ul>
-</div>
-
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/Spring/yuque/%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/uncategorized/yuque/ElasticSearch/">展开全文 >></a>
         </p>
       
 
@@ -330,6 +294,110 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/Spring/yuque/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E6%A0%A1%E9%AA%8C%E6%B3%A8%E8%A7%A3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-yuque/统一异常处理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/Spring/yuque/%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/">统一异常处理</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/Spring/yuque/%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" class="archive-article-date">
+  	<time datetime="2021-04-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-05</time>
+</a>
+        
+      </header>
+    
+    <div align="center" class="post-count">
+    字数：1.7k字 | 预计阅读时长：7分钟
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前面我们后端数据校验每个 controller 校验的 bean 的属性上添加上校验注解，然后在 controller 入参上加上@Valid 注解，然后通过紧跟着的 BindingResult 来进行获取校验的结果，如果错误则返回给前端，否则正常入库。这样有一个弊端就是每个 controller 都需要进行一套将错误信息封装到 Request 中的过程，这是十分重复的。我们可以利用 Advice 来解决。</p>
+<ul>
+<li>那么我们如果获取数据校验错误的信息呢？</li>
+</ul>
+<p>如果我们不添加 BindResult 来绑定抛出的结果的话，controller 则会把异常抛出，我们可以通过抛出的特定异常**@ExceptionHandler**来捕捉</p>
+<ul>
+<li>如何获取 Controller 层发出的异常</li>
+</ul>
+<p>通过注解**@ControllerAdvice<strong>或</strong>@RestControllerAdvice**注解</p>
+        
+      
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+<div class="article-tag tagcloud">
+	<i class="icon-price-tags icon"></i>
+	<ul class="article-tag-list">
+		
+		
+		<li class="article-tag-list-item">
+			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">
+				数据校验</a>
+		</li>
+		
+		
+	</ul>
+</div>
+
+      
+<div class="article-category tagcloud">
+	<i class="icon-book icon"></i>
+	<ul class="article-tag-list">
+		
+		
+		<li class="article-tag-list-item">
+			<a href="/categories/Spring//" class="article-tag-list-link color2">
+				Spring</a>
+		</li>
+		
+		
+	</ul>
+</div>
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/Spring/yuque/%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/">展开全文 >></a>
         </p>
       
 
@@ -506,77 +574,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/uncategorized/yuque/%E5%86%B7%E5%90%AF%E5%8A%A8%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%AD%E7%BB%83/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-yuque/WebMvcConfigurer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/uncategorized/yuque/WebMvcConfigurer/">WebMvcConfigurer</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/uncategorized/yuque/WebMvcConfigurer/" class="archive-article-date">
-  	<time datetime="2021-03-28T16:19:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-29</time>
-</a>
-        
-      </header>
-    
-    <div align="center" class="post-count">
-    字数：1.1k字 | 预计阅读时长：4分钟
-</div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="为什么要使用-WebMvcConfigurer？"><a href="#为什么要使用-WebMvcConfigurer？" class="headerlink" title="为什么要使用 WebMvcConfigurer？"></a>为什么要使用 WebMvcConfigurer？</h3><p>WebMvcConfigurer 是一个接口，提供很多自定义的拦截器，例如跨域设置、类型转化器等等。可以说此接口为开发者提前想到了很多拦截层面的需求，方便开发者自由选择使用。由于 Spring5.0 废弃了 WebMvcConfigurerAdapter，所以 WebMvcConfigurer 继承了 WebMvcConfigurerAdapter 大部分内容。</p>
-<h3 id="WebMvcConfigurer-方法介绍"><a href="#WebMvcConfigurer-方法介绍" class="headerlink" title="WebMvcConfigurer 方法介绍"></a>WebMvcConfigurer 方法介绍</h3><blockquote>
-<p>由于内容太多，只展示 3 个关键的接口，用的比较少的，只是阐述下含义，不再详解，用的更少的，就不看了，毕竟十多个方法呢…</p>
-</blockquote>
-        
-      
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/uncategorized/yuque/WebMvcConfigurer/">展开全文 >></a>
         </p>
       
 

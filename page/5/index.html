@@ -66,7 +66,7 @@
 			</ul>
 		</nav>
 		<nav>
-			<p>总文章数：32</p>
+			<p>总文章数：33</p>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -157,6 +157,74 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-yuque/docker新建redis容器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/uncategorized/yuque/docker%E6%96%B0%E5%BB%BAredis%E5%AE%B9%E5%99%A8/">docker新建redis容器</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/uncategorized/yuque/docker%E6%96%B0%E5%BB%BAredis%E5%AE%B9%E5%99%A8/" class="archive-article-date">
+  	<time datetime="2021-03-11T12:06:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-11</time>
+</a>
+        
+      </header>
+    
+    <div align="center" class="post-count">
+    字数：519字 | 预计阅读时长：2分钟
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1-创建挂在目录文件"><a href="#1-创建挂在目录文件" class="headerlink" title="1. 创建挂在目录文件"></a>1. 创建挂在目录文件</h4><p>预先创建好 redis.conf 文件<br>cd /mydata<br>mkdir -p redis/conf<br>cd redis/conf<br>touch redis.conf<br>后面的 redis-server /etc/redis/redis.conf 为 redis 的启动命令</p>
+        
+      
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/uncategorized/yuque/docker%E6%96%B0%E5%BB%BAredis%E5%AE%B9%E5%99%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
   
     <article id="post-yuque/docker创建mysql后，显示daemon is not running" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -407,103 +475,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/uncategorized/yuque/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-Redis使用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/Spring/Redis%E4%BD%BF%E7%94%A8/">Redis使用</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/Spring/Redis%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2021-02-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-25</time>
-</a>
-        
-      </header>
-    
-    <div align="center" class="post-count">
-    字数：7.3k字 | 预计阅读时长：35分钟
-</div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>redis是一个key-value型存储系统，支持的value类型比较丰富，支持String、List、集合set（没有顺序，元素唯一）、有序集合Zset，都支持push、pop、add、remove、交并集等操作，这些操作都是原子性的，调用redis的操作不用考虑多进程之间的并发问题。在此基础上，redis支持各种方式的排序，为了保证效率，数据都是缓存在内存中的，区别在于：redis会周期性的把更新的数据写到磁盘或者修改操作追加的记录文件中，前者就是默认的RDD模式，就是把数据写到临时文件中，持久化结束后，把临时文件替换为上次持久化的文件，达到数据恢复的目的，优点在于：使用单独子进程进行持久化，主进程不会进行任何IO操作，保证了redis的高效性能，缺点在于RDD是间隔一段时间进行持久化，如果持久化间隔期间，redis发生故障，那么这个持久化就不会更新到磁盘中，就会发生数据的丢失。</p></blockquote>
-        
-      
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-<div class="article-tag tagcloud">
-	<i class="icon-price-tags icon"></i>
-	<ul class="article-tag-list">
-		
-		
-		<li class="article-tag-list-item">
-			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">
-				Redis</a>
-		</li>
-		
-		
-	</ul>
-</div>
-
-      
-<div class="article-category tagcloud">
-	<i class="icon-book icon"></i>
-	<ul class="article-tag-list">
-		
-		
-		<li class="article-tag-list-item">
-			<a href="/categories/Spring//" class="article-tag-list-link color2">
-				Spring</a>
-		</li>
-		
-		
-	</ul>
-</div>
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/Spring/Redis%E4%BD%BF%E7%94%A8/">展开全文 >></a>
         </p>
       
 
