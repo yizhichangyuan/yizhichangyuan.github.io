@@ -7,18 +7,25 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <meta name="referrer" content="no-referrer" />
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: Kaptcha | 一止长渊的博客</title>
+  <title>SpringBoot整合ES各种问题解决 | 一止长渊的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="探索JAVA后端技术，正在艰难成长的菜鸟">
-<meta property="og:type" content="website">
-<meta property="og:title" content="一止长渊的博客">
-<meta property="og:url" content="http://example.com/tags/Kaptcha/index.html">
+  <meta name="description" content="一、No Available Nodes问题原因：1、可能是版本不兼容，例如我的 SpringBoot 版本是 2.1.8.RELEASE，那么对应的 ES 版本应该在 6.2.2 到 6.8.12 之间，这里选择了 ES:6.8.4 版本版本对应表：https:&#x2F;&#x2F;docs.spring.io&#x2F;spring-data&#x2F;elasticsearch&#x2F;docs&#x2F;4.2.0&#x2F;reference&#x2F;html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot整合ES各种问题解决">
+<meta property="og:url" content="http://example.com/2021/uncategorized/yuque/SpringBoot%E6%95%B4%E5%90%88ES%E5%90%84%E7%A7%8D%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/index.html">
 <meta property="og:site_name" content="一止长渊的博客">
-<meta property="og:description" content="探索JAVA后端技术，正在艰难成长的菜鸟">
+<meta property="og:description" content="一、No Available Nodes问题原因：1、可能是版本不兼容，例如我的 SpringBoot 版本是 2.1.8.RELEASE，那么对应的 ES 版本应该在 6.2.2 到 6.8.12 之间，这里选择了 ES:6.8.4 版本版本对应表：https:&#x2F;&#x2F;docs.spring.io&#x2F;spring-data&#x2F;elasticsearch&#x2F;docs&#x2F;4.2.0&#x2F;reference&#x2F;html">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618457104528-5fab2852-ccf4-4063-b8e6-7804d9261d5e.png#align=left&display=inline&height=213&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-15%2011.25.02.png&originHeight=828&originWidth=1948&size=152387&status=done&style=none&width=500">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618457245031-fcd10424-69b7-44b4-82d3-68e6dd7b5860.png#align=left&display=inline&height=104&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-15%2011.27.21.png&originHeight=104&originWidth=616&size=17745&status=done&style=none&width=616">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618457379750-58ed4ab5-f142-499f-a1f1-eecb425dbb6d.png#align=left&display=inline&height=80&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-15%2011.29.35.png&originHeight=184&originWidth=1150&size=34278&status=done&style=none&width=500">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618457344233-2938ef0f-8933-4f60-b405-d54f4bc086db.png#align=left&display=inline&height=203&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-15%2011.28.59.png&originHeight=560&originWidth=1380&size=76719&status=done&style=none&width=500">
+<meta property="article:published_time" content="2021-04-15T03:24:09.000Z">
+<meta property="article:modified_time" content="2021-04-15T08:57:46.298Z">
 <meta property="article:author" content="一止长渊">
 <meta property="article:tag" content="JAVA 后端 Spring">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618457104528-5fab2852-ccf4-4063-b8e6-7804d9261d5e.png#align=left&display=inline&height=213&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-15%2011.25.02.png&originHeight=828&originWidth=1948&size=152387&status=done&style=none&width=500">
   
     <link rel="alternative" href="/atom.xml" title="一止长渊的博客" type="application/atom+xml">
   
@@ -156,76 +163,213 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-yuque/SpringBoot整合ES各种问题解决" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/Spring/Kaptcha%E9%AA%8C%E8%AF%81%E7%A0%81/" class="archive-article-date">
-  	<time datetime="2021-01-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-16</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/Spring/Kaptcha%E9%AA%8C%E8%AF%81%E7%A0%81/">Kaptcha验证码</a>
+    <h1 class="article-title" itemprop="name">
+      SpringBoot整合ES各种问题解决
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-<div class="article-tag tagcloud">
-	<i class="icon-price-tags icon"></i>
-	<ul class="article-tag-list">
-		
-		
-		<li class="article-tag-list-item">
-			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">
-				Kaptcha</a>
-		</li>
-		
-		
-	</ul>
+        <!--显示阅读次数-->
+        
+          <br/>
+          <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+          <span class="icon-sort"></span>
+          <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+                    阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+          </span>
+          </a>
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/uncategorized/yuque/SpringBoot%E6%95%B4%E5%90%88ES%E5%90%84%E7%A7%8D%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" class="archive-article-date">
+  	<time datetime="2021-04-15T03:24:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-15</time>
+</a>
+        
+      </header>
+    
+    <div align="center" class="post-count">
+    字数：558字 | 预计阅读时长：3分钟
 </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="一、No-Available-Nodes"><a href="#一、No-Available-Nodes" class="headerlink" title="一、No Available Nodes"></a>一、No Available Nodes</h4><p>问题原因：<br>1、可能是版本不兼容，例如我的 SpringBoot 版本是 2.1.8.RELEASE，那么对应的 ES 版本应该在 6.2.2 到 6.8.12 之间，这里选择了 ES:6.8.4 版本<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618457104528-5fab2852-ccf4-4063-b8e6-7804d9261d5e.png#align=left&display=inline&height=213&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-15%2011.25.02.png&originHeight=828&originWidth=1948&size=152387&status=done&style=none&width=500" alt="截屏2021-04-15 11.25.02.png"><br>版本对应表：<a target="_blank" rel="noopener" href="https://docs.spring.io/spring-data/elasticsearch/docs/4.2.0/reference/html/#preface.requirements">https://docs.spring.io/spring-data/elasticsearch/docs/4.2.0/reference/html/#preface.requirements</a><br>2、在 elasticsearch.yml 中添加上配置<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618457245031-fcd10424-69b7-44b4-82d3-68e6dd7b5860.png#align=left&display=inline&height=104&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-15%2011.27.21.png&originHeight=104&originWidth=616&size=17745&status=done&style=none&width=616" alt="截屏2021-04-15 11.27.21.png"></p>
+<h4 id="二、使用-ElasticsearchTemplate-提示找不到-Caused-by-java-lang-ClassNotFoundException-org-elasticsearch-action-admin-indices-mapping-put-PutMappingResponse"><a href="#二、使用-ElasticsearchTemplate-提示找不到-Caused-by-java-lang-ClassNotFoundException-org-elasticsearch-action-admin-indices-mapping-put-PutMappingResponse" class="headerlink" title="二、使用 ElasticsearchTemplate 提示找不到 Caused by: java.lang.ClassNotFoundException: org.elasticsearch.action.admin.indices.mapping.put.PutMappingResponse"></a>二、使用 ElasticsearchTemplate 提示找不到 Caused by: java.lang.ClassNotFoundException: org.elasticsearch.action.admin.indices.mapping.put.PutMappingResponse</h4><p>按照知乎老哥的回答，应该将 pom.xml 中的 properties 中的 ES 相关版本去掉，这里我将填写的注释掉了，就好用了<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618457379750-58ed4ab5-f142-499f-a1f1-eecb425dbb6d.png#align=left&display=inline&height=80&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-15%2011.29.35.png&originHeight=184&originWidth=1150&size=34278&status=done&style=none&width=500" alt="截屏2021-04-15 11.29.35.png"><br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618457344233-2938ef0f-8933-4f60-b405-d54f4bc086db.png#align=left&display=inline&height=203&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-15%2011.28.59.png&originHeight=560&originWidth=1380&size=76719&status=done&style=none&width=500" alt="截屏2021-04-15 11.28.59.png"><br><strong>附录-依赖信息：</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">	<span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">version</span>&gt;</span>2.1.8.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">relativePath</span>/&gt;</span> <span class="comment">&lt;!-- lookup parent from repository --&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.lookstarry.doermail<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>doermail-search<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">name</span>&gt;</span>doermail-search<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">description</span>&gt;</span>检索服务<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">java.version</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">java.version</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--		&lt;elasticsearch.version&gt;7.4.2&lt;/elasticsearch.version&gt;--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--		&lt;elasticsearch.version&gt;6.8.4&lt;/elasticsearch.version&gt;--&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.lookstarry.doermail<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>doermail-common<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-elasticsearch<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="comment">&lt;!--&lt;dependency&gt;</span></span><br><span class="line"><span class="comment">			&lt;groupId&gt;org.elasticsearch.client&lt;/groupId&gt;</span></span><br><span class="line"><span class="comment">			&lt;artifactId&gt;elasticsearch-rest-high-level-client&lt;/artifactId&gt;</span></span><br><span class="line"><span class="comment">			&lt;version&gt;6.8.4&lt;/version&gt;</span></span><br><span class="line"><span class="comment">		&lt;/dependency&gt;--&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+      
+       
+         <div class="essayending">
+           <div>
+            <div style="text-align:center;color: #ccc;font-size:22px;">
+            <br/>
+            <br/>
+ -------------<i class="fa fa-paw"></i>感谢您的阅读-------------
+            <br/>
+            <br/>
+             <br/>
+             <br/>
+            </div>
+           </div>
+         </div>
+         
+      
 
-          
-<div class="article-category tagcloud">
-	<i class="icon-book icon"></i>
-	<ul class="article-tag-list">
-		
-		
-		<li class="article-tag-list-item">
-			<a href="/categories/Spring//" class="article-tag-list-link color2">
-				Spring</a>
-		</li>
-		
-		
-	</ul>
-</div>
-
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你让我晚饭可以加个肠<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wechat.jpeg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/uncategorized/yuque/SpringBoot%E6%95%B4%E5%90%88ES%E5%90%84%E7%A7%8D%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2021/uncategorized/yuque/ElasticSearch/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ElasticSearch</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+  
+  
   
 
-    
+  
+
+  
+  <div id="gitalk-container" style="padding: 0px 30px 0px 30px;"></div> 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+
+if(true){
+	var gitalk = new Gitalk({
+  	clientID: 'a40183824efdd889e8bd',
+  	clientSecret: '45d0d18823e835101990e4fb215272fc05321fa2',
+  	repo: 'blog-comments',
+  	owner: 'yizhichangyuan',
+  	admin: ['yizhichangyuan'],
+  	id: 'Thu Apr 15 2021 11:24:09 GMT+0800',
+  	distractionFreeMode: 'true'
+})
+gitalk.render('gitalk-container') 
+}
+</script>
+  
+
+  
+
+  
 
 
           </div>
@@ -259,9 +403,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

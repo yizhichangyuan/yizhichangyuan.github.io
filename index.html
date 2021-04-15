@@ -66,7 +66,7 @@
 			</ul>
 		</nav>
 		<nav>
-			<p>总文章数：33</p>
+			<p>总文章数：34</p>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -158,6 +158,75 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-yuque/SpringBoot整合ES各种问题解决" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/uncategorized/yuque/SpringBoot%E6%95%B4%E5%90%88ES%E5%90%84%E7%A7%8D%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">SpringBoot整合ES各种问题解决</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/uncategorized/yuque/SpringBoot%E6%95%B4%E5%90%88ES%E5%90%84%E7%A7%8D%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" class="archive-article-date">
+  	<time datetime="2021-04-15T03:24:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-15</time>
+</a>
+        
+      </header>
+    
+    <div align="center" class="post-count">
+    字数：558字 | 预计阅读时长：3分钟
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="一、No-Available-Nodes"><a href="#一、No-Available-Nodes" class="headerlink" title="一、No Available Nodes"></a>一、No Available Nodes</h4><p>问题原因：<br>1、可能是版本不兼容，例如我的 SpringBoot 版本是 2.1.8.RELEASE，那么对应的 ES 版本应该在 6.2.2 到 6.8.12 之间，这里选择了 ES:6.8.4 版本<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618457104528-5fab2852-ccf4-4063-b8e6-7804d9261d5e.png#align=left&display=inline&height=213&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-15%2011.25.02.png&originHeight=828&originWidth=1948&size=152387&status=done&style=none&width=500" alt="截屏2021-04-15 11.25.02.png"><br>版本对应表：<a target="_blank" rel="noopener" href="https://docs.spring.io/spring-data/elasticsearch/docs/4.2.0/reference/html/#preface.requirements">https://docs.spring.io/spring-data/elasticsearch/docs/4.2.0/reference/html/#preface.requirements</a><br>2、在 elasticsearch.yml 中添加上配置<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618457245031-fcd10424-69b7-44b4-82d3-68e6dd7b5860.png#align=left&display=inline&height=104&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-15%2011.27.21.png&originHeight=104&originWidth=616&size=17745&status=done&style=none&width=616" alt="截屏2021-04-15 11.27.21.png"></p>
+<h4 id="二、使用-ElasticsearchTemplate-提示找不到-Caused-by-java-lang-ClassNotFoundException-org-elasticsearch-action-admin-indices-mapping-put-PutMappingResponse"><a href="#二、使用-ElasticsearchTemplate-提示找不到-Caused-by-java-lang-ClassNotFoundException-org-elasticsearch-action-admin-indices-mapping-put-PutMappingResponse" class="headerlink" title="二、使用 ElasticsearchTemplate 提示找不到 Caused by: java.lang.ClassNotFoundException: org.elasticsearch.action.admin.indices.mapping.put.PutMappingResponse"></a>二、使用 ElasticsearchTemplate 提示找不到 Caused by: java.lang.ClassNotFoundException: org.elasticsearch.action.admin.indices.mapping.put.PutMappingResponse</h4><p>按照知乎老哥的回答，应该将 pom.xml 中的 properties 中的 ES 相关版本去掉，这里我将填写的注释掉了，就好用了<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618457379750-58ed4ab5-f142-499f-a1f1-eecb425dbb6d.png#align=left&display=inline&height=80&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-15%2011.29.35.png&originHeight=184&originWidth=1150&size=34278&status=done&style=none&width=500" alt="截屏2021-04-15 11.29.35.png"><br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618457344233-2938ef0f-8933-4f60-b405-d54f4bc086db.png#align=left&display=inline&height=203&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-15%2011.28.59.png&originHeight=560&originWidth=1380&size=76719&status=done&style=none&width=500" alt="截屏2021-04-15 11.28.59.png"><br><strong>附录-依赖信息：</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0&quot;</span> <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">	<span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">version</span>&gt;</span>2.1.8.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">relativePath</span>/&gt;</span> <span class="comment">&lt;!-- lookup parent from repository --&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.lookstarry.doermail<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>doermail-search<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">name</span>&gt;</span>doermail-search<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">description</span>&gt;</span>检索服务<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">java.version</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">java.version</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--		&lt;elasticsearch.version&gt;7.4.2&lt;/elasticsearch.version&gt;--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--		&lt;elasticsearch.version&gt;6.8.4&lt;/elasticsearch.version&gt;--&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.lookstarry.doermail<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>doermail-common<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-elasticsearch<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="comment">&lt;!--&lt;dependency&gt;</span></span><br><span class="line"><span class="comment">			&lt;groupId&gt;org.elasticsearch.client&lt;/groupId&gt;</span></span><br><span class="line"><span class="comment">			&lt;artifactId&gt;elasticsearch-rest-high-level-client&lt;/artifactId&gt;</span></span><br><span class="line"><span class="comment">			&lt;version&gt;6.8.4&lt;/version&gt;</span></span><br><span class="line"><span class="comment">		&lt;/dependency&gt;--&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/uncategorized/yuque/SpringBoot%E6%95%B4%E5%90%88ES%E5%90%84%E7%A7%8D%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
     <article id="post-yuque/ElasticSearch" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -180,7 +249,7 @@
       </header>
     
     <div align="center" class="post-count">
-    字数：3.8k字 | 预计阅读时长：17分钟
+    字数：6.4k字 | 预计阅读时长：28分钟
 </div>
     <div class="article-entry" itemprop="articleBody">
       
@@ -506,74 +575,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/%E4%BF%AE%E8%A1%8C/yuque/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-yuque/冷启动如何快速训练" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/uncategorized/yuque/%E5%86%B7%E5%90%AF%E5%8A%A8%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%AD%E7%BB%83/">冷启动如何快速训练</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/uncategorized/yuque/%E5%86%B7%E5%90%AF%E5%8A%A8%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%AD%E7%BB%83/" class="archive-article-date">
-  	<time datetime="2021-03-28T16:48:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-29</time>
-</a>
-        
-      </header>
-    
-    <div align="center" class="post-count">
-    字数：1.4k字 | 预计阅读时长：4分钟
-</div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id><a href="#" class="headerlink" title></a><img src="https://cdn.nlark.com/yuque/0/2020/jpeg/2648023/1601781998253-0f171a22-fc7d-4784-bca7-88395931a76f.jpeg#align=left&display=inline&height=255&margin=%5Bobject%20Object%5D&name=image.jpeg&originHeight=574&originWidth=1080&size=53970&status=done&style=none&width=480" alt="image.jpeg"></h3><h3 id="1-训练速度慢涉及到的两个原因"><a href="#1-训练速度慢涉及到的两个原因" class="headerlink" title="1.训练速度慢涉及到的两个原因"></a>1.训练速度慢涉及到的两个原因</h3><p>1）增量式的参数更新，最初的算法，从输入的环境，到输出的 AI 动作之间，是靠梯度下降来完成映射的。在这个过程中，每个增量都需要非常小，才不至于让新学到的信息，把之前学到的经验覆盖了（这叫做灾难性干扰），如此一来，学习过程就十分缓慢。<br>2）弱归纳偏置，任何学习过程都面临着偏见-方差权衡<br>所谓偏见，就是一开始限定好一些可能的结果，AI 从里面找出自己想要的一种，限定越窄，AI 就可以只考虑到为数不多的可能性，更快地出结果。<br>弱归纳偏置，就需要考虑到更多的可能性，学习就会慢一些，通用神经网络都是偏见极低的系统，因为他们有大量的参数，可以用来拟合大范围的数据。</p>
-        
-      
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/uncategorized/yuque/%E5%86%B7%E5%90%AF%E5%8A%A8%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%AD%E7%BB%83/">展开全文 >></a>
         </p>
       
 
