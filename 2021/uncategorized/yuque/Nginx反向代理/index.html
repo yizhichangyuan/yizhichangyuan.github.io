@@ -7,22 +7,24 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <meta name="referrer" content="no-referrer" />
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Kaptcha验证码 | 一止长渊的博客</title>
+  <title>Nginx反向代理 | 一止长渊的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Kaptcha是java中一个验证码图片校对的组件，其核心是通过配置一个Servlet为前端提供验证码图片，并将对应图片正确验证码放入到session中，便于校对用户提交的验证码。 1. 具体步骤 首先引入pom web.xml配置Kaptcha的Servlet，其中主要指定验证码图片的宽度、高度、几个字符、字体、字体颜色、干扰线的颜色以及相应请求验证码图片的url-pattern">
+  <meta name="description" content="我们的项目是部署到内网的，其中 nginx 帮我们进行反向代理，当用户访问 doermall.com 的时候，我们可以利用 nginx 将请求转发给商品服务 192.168.2.100:9200 服务本文只是尝试 nginx 反向代理教学，负载均衡请看**Nginx 负载均衡地反向代理** 12cd &#x2F;mydata&#x2F;nginx&#x2F;confvi nginx.conf  1234567891011121">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Kaptcha验证码">
-<meta property="og:url" content="http://example.com/2021/Spring/Kaptcha%E9%AA%8C%E8%AF%81%E7%A0%81/index.html">
+<meta property="og:title" content="Nginx反向代理">
+<meta property="og:url" content="http://example.com/2021/uncategorized/yuque/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/index.html">
 <meta property="og:site_name" content="一止长渊的博客">
-<meta property="og:description" content="Kaptcha是java中一个验证码图片校对的组件，其核心是通过配置一个Servlet为前端提供验证码图片，并将对应图片正确验证码放入到session中，便于校对用户提交的验证码。 1. 具体步骤 首先引入pom web.xml配置Kaptcha的Servlet，其中主要指定验证码图片的宽度、高度、几个字符、字体、字体颜色、干扰线的颜色以及相应请求验证码图片的url-pattern">
+<meta property="og:description" content="我们的项目是部署到内网的，其中 nginx 帮我们进行反向代理，当用户访问 doermall.com 的时候，我们可以利用 nginx 将请求转发给商品服务 192.168.2.100:9200 服务本文只是尝试 nginx 反向代理教学，负载均衡请看**Nginx 负载均衡地反向代理** 12cd &#x2F;mydata&#x2F;nginx&#x2F;confvi nginx.conf  1234567891011121">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2021/Spring/Kaptcha%E9%AA%8C%E8%AF%81%E7%A0%81/image-20210129220709957.png">
-<meta property="article:published_time" content="2021-01-15T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-04-19T14:05:56.447Z">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618673019140-ca5321c3-5c84-4f64-9d78-4f88d49f4006.png#align=left&display=inline&height=485&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-17%2023.14.30.png&originHeight=1066&originWidth=1540&size=167130&status=done&style=none&width=700">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618674556256-fff17f0a-9cb9-4fa1-9970-3e13794a3fdc.png#align=left&display=inline&height=493&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-17%2023.49.12.png&originHeight=900&originWidth=912&size=256777&status=done&style=none&width=500">
+<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618675141133-e2d92727-4400-42e4-946d-2e70eab169ec.png#align=left&display=inline&height=789&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-17%2023.55.14.png&originHeight=1506&originWidth=1336&size=265664&status=done&style=none&width=700">
+<meta property="article:published_time" content="2021-04-18T04:15:46.000Z">
+<meta property="article:modified_time" content="2021-04-19T14:06:33.192Z">
 <meta property="article:author" content="一止长渊">
-<meta property="article:tag" content="Kaptcha">
+<meta property="article:tag" content="JAVA 后端 Spring">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/Spring/Kaptcha%E9%AA%8C%E8%AF%81%E7%A0%81/image-20210129220709957.png">
+<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618673019140-ca5321c3-5c84-4f64-9d78-4f88d49f4006.png#align=left&display=inline&height=485&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-17%2023.14.30.png&originHeight=1066&originWidth=1540&size=167130&status=done&style=none&width=700">
   
     <link rel="alternative" href="/atom.xml" title="一止长渊的博客" type="application/atom+xml">
   
@@ -160,14 +162,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Kaptcha验证码" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-yuque/Nginx反向代理" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Kaptcha验证码
+      Nginx反向代理
     </h1>
   
 
@@ -183,38 +185,29 @@
         
         <!--显示阅读次数完毕-->
         
-        <a href="/2021/Spring/Kaptcha%E9%AA%8C%E8%AF%81%E7%A0%81/" class="archive-article-date">
-  	<time datetime="2021-01-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-16</time>
+        <a href="/2021/uncategorized/yuque/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/" class="archive-article-date">
+  	<time datetime="2021-04-18T04:15:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-18</time>
 </a>
         
       </header>
     
     <div align="center" class="post-count">
-    字数：1.4k字 | 预计阅读时长：6分钟
+    字数：588字 | 预计阅读时长：2分钟
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Kaptcha是java中一个验证码图片校对的组件，其核心是通过配置一个Servlet为前端提供验证码图片，并将对应图片正确验证码放入到session中，便于校对用户提交的验证码。</p>
-<h3 id="1-具体步骤"><a href="#1-具体步骤" class="headerlink" title="1. 具体步骤"></a><font size="4" color="orange">1. 具体步骤</font></h3><ol>
-<li>首先引入pom</li>
-<li>web.xml配置Kaptcha的Servlet，其中主要指定验证码图片的宽度、高度、几个字符、字体、字体颜色、干扰线的颜色以及相应请求验证码图片的url-pattern<a id="more"></a></li>
-<li>前端img的src属性填充的url就为url-pattern，img会向Kaptcha的Servlet请求验证码图片</li>
-<li>前端表单提交的时候，同时需要把用户输入的验证码也放入到表单中，以便发给后端以便进行比对</li>
-<li>后端在接收前端表单数据，第一步应该是检查验证码是否正确，如何检查？Kaptcha在向前端发送验证码图片的同时，就已经把验证码图片对应的正确的验证码放入的session中，所以后端只需要比对request中传来表单中验证码数据和Session中获取的数据是否一致即可，不一致就直接返回错误信息（其中Session的参数key是<code>com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY</code></li>
-</ol>
-<h4 id="2-实践"><a href="#2-实践" class="headerlink" title="2. 实践"></a><font size="4" color="orange">2. 实践</font></h4><p>1.首先在pom.xml中引入依赖</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--验证码校验--&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/com.github.penggle/kaptcha --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.penggle<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>kaptcha<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>2.web.xml配置Kaptcha的Servlet，其中主要指定验证码图片的宽度、高度、几个字符、字体、字体颜色、干扰线的颜色以及相应请求验证码图片的url-pattern</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--Kaptcha验证码servlet--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>Kaptcha<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>com.google.code.kaptcha.servlet.KaptchaServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--是否有边框--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>kaptcha.border<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>no<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--字体颜色--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>kaptcha.textproducer.font.color<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>red<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--图片宽度--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>kaptcha.image.width<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>135<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--使用哪些字符来生成验证码--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>kaptcha.textproducer.char.string<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>ACDEFHKPRSTWX345679<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--图片高度--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>kaptcha.image.height<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>50<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--字体大小--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>kaptcha.textproducer.font.size<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>43<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--干扰线的颜色--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>kaptcha.noise.color<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>black<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--字符个数--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>kaptcha.textproducer.char.length<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>4<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--字体--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>kaptcha.textproducer.font.names<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>Arial<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>Kaptcha<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/Kaptcha<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>3.前端img的src属性填充的url就为url-pattern，img会向Kaptcha的Servlet请求验证码图片</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item-title label&quot;</span>&gt;</span>验证码<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;item-input&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">id</span>=<span class="string">&quot;j_kaptcha&quot;</span> <span class="attr">placeholder</span>=<span class="string">&quot;请输入验证码&quot;</span>/&gt;</span></span><br><span class="line">// src的地址和servlet的地址一致，这里的o2o是项目的根目录</span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">id</span>=<span class="string">&quot;kaptcha-img&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/o2o/Kaptcha&quot;</span> <span class="attr">title</span>=<span class="string">&quot;点击更换图片&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;点击更换图片&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;changeVerifyCode(this)&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 点击切换图片就是再次发送同一个请求，加上一个两位的数字，就会重新更换前端的验证码图片</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeVerifyCode</span>(<span class="params">img</span>)</span>&#123;</span><br><span class="line">    img.src = <span class="string">&quot;/o2o/Kaptcha?&quot;</span> + <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">100</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<div align="center"><img src="/2021/Spring/Kaptcha%E9%AA%8C%E8%AF%81%E7%A0%81/image-20210129220709957.png" alt="image-20210129220709957" style="zoom:50%;"></div>
+        <p>我们的项目是部署到内网的，其中 nginx 帮我们进行反向代理，当用户访问 doermall.com 的时候，我们可以利用 nginx 将请求转发给商品服务 192.168.2.100:9200 服务<br>本文只是尝试 nginx 反向代理教学，负载均衡请看**<em>Nginx 负载均衡地反向代理**</em></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /mydata/nginx/conf</span><br><span class="line">vi nginx.conf</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618673019140-ca5321c3-5c84-4f64-9d78-4f88d49f4006.png#align=left&display=inline&height=485&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-17%2023.14.30.png&originHeight=1066&originWidth=1540&size=167130&status=done&style=none&width=700" alt="截屏2021-04-17 23.14.30.png"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看默认的访问80端口nginx的server块内容</span></span><br><span class="line"><span class="built_in">cd</span> conf.d</span><br><span class="line">cat default.conf</span><br><span class="line"><span class="comment"># 内容如下</span></span><br><span class="line">server &#123;</span><br><span class="line">    listen       80;        <span class="comment"># 监听80端口</span></span><br><span class="line">    server_name  localhost;  <span class="comment"># 域名为localhost</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#charset koi8-r;</span></span><br><span class="line">    <span class="comment">#access_log  /var/log/nginx/log/host.access.log  main;</span></span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        root   /usr/share/nginx/html;</span><br><span class="line">        index  index.html index.htm;   <span class="comment"># 访问域名下的index，可以路由到index.html静态资源</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#error_page  404              /404.html;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># redirect server error pages to the static page /50x.html</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    error_page   500 502 503 504  /50x.html;  <span class="comment"># 定义错误状态码以及对应的错误页面</span></span><br><span class="line">    location = /50x.html &#123;</span><br><span class="line">        root   /usr/share/nginx/html;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># proxy the PHP scripts to Apache listening on 127.0.0.1:80</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment">#location ~ \.php$ &#123;</span></span><br><span class="line">    <span class="comment">#    proxy_pass   http://127.0.0.1;</span></span><br><span class="line">    <span class="comment">#&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment">#location ~ \.php$ &#123;</span></span><br><span class="line">    <span class="comment">#    root           html;</span></span><br><span class="line">    <span class="comment">#    fastcgi_pass   127.0.0.1:9000;</span></span><br><span class="line">    <span class="comment">#    fastcgi_index  index.php;</span></span><br><span class="line">    <span class="comment">#    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</span></span><br><span class="line">    <span class="comment">#    include        fastcgi_params;</span></span><br><span class="line">    <span class="comment">#&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># deny access to .htaccess files, if Apache&#x27;s document root</span></span><br><span class="line">    <span class="comment"># concurs with nginx&#x27;s one</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment">#location ~ /\.ht &#123;</span></span><br><span class="line">    <span class="comment">#    deny  all;</span></span><br><span class="line">    <span class="comment">#&#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>知道了 server 块的配置信息，接下来我们来实现访问域名 doermall.com 路由到（本机 ip 地址）192.168.2.100:10000 商品服务</p>
+<p>1、首先修改本地 host 文件，将域名 doermall.com 路由到我们的虚拟机的 ip 192.168.2.100，这样就会直接路由到虚拟机上的 nginx</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/hosts</span><br><span class="line"><span class="comment"># 添加上</span></span><br><span class="line">192.168.2.200 doermall.com</span><br><span class="line"><span class="comment"># 之后机器重启让路由生效，测试浏览器访问doermall.com:9200能访问到elsasticsearch不</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618674556256-fff17f0a-9cb9-4fa1-9970-3e13794a3fdc.png#align=left&display=inline&height=493&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-17%2023.49.12.png&originHeight=900&originWidth=912&size=256777&status=done&style=none&width=500" alt="截屏2021-04-17 23.49.12.png"></p>
+<p>2、修改 nginx server 块，将 doermall.com 转发到本机的 ip：192.168.2.100:10000（因为项目是在本地，而不是在虚拟机上的，所以为本机的 ip 地址）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /mydata/nginx/conf/conf.d</span><br><span class="line">cp default.conf doermall.conf</span><br><span class="line">vi doermall.conf</span><br><span class="line"><span class="comment"># 修改后重启nginx</span></span><br><span class="line">docker restart nginx</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618675141133-e2d92727-4400-42e4-946d-2e70eab169ec.png#align=left&display=inline&height=789&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-17%2023.55.14.png&originHeight=1506&originWidth=1336&size=265664&status=done&style=none&width=700" alt="截屏2021-04-17 23.55.14.png"><br>**<br><strong>流程：</strong><br>浏览器访问 doermall.com -&gt; 前往本地 DNS 缓存查找到：doermall.com 对应 192.168.2.200 -&gt; 浏览器发起请求 192.168.2.200，请求头 host 上会携带域名 doermall.com -&gt; 虚拟机 Nginx 获取到来访请求的 host 为 doermall.com -&gt; 根据 server 块将 doermall.com 路由到宿主机 ip : 192.168.2.100:10000 商品服务</p>
 
-<p>4.前端表单提交的时候，同时需要把用户输入的验证码也放入到表单中，以便发给后端以便进行比对</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取用户输入的验证码</span></span><br><span class="line"><span class="keyword">var</span> fromData = <span class="keyword">new</span> FormData();</span><br><span class="line"><span class="keyword">var</span> verifyCode = $(<span class="string">&quot;#j_kaptcha&quot;</span>).val();</span><br><span class="line"><span class="keyword">if</span> (!verifyCode) &#123;</span><br><span class="line">  $.toast(<span class="string">&quot;验证码为空&quot;</span>);</span><br><span class="line">  <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line">formData.append(<span class="string">&quot;verifyCodeActual&quot;</span>, verifyCode);</span><br><span class="line">$.ajax(&#123;</span><br><span class="line">  url: registerShopURL,</span><br><span class="line">  type: <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">  data: formData,</span><br><span class="line">  contentType: <span class="literal">false</span>, <span class="comment">// 因为有文字和图片，所以为false</span></span><br><span class="line">  processData: <span class="literal">false</span>,</span><br><span class="line">  cache: <span class="literal">false</span>,</span><br><span class="line">  success: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (data.success) &#123;</span><br><span class="line">      $.toast(<span class="string">&quot;提交成功！&quot;</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      $.toast(<span class="string">&quot;提交失败！&quot;</span> + data.errMsg);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 不管提交是否成功，都要改变一下验证码，因为点击事件连接着一个切换图片的事件</span></span><br><span class="line">    $(<span class="string">&#x27;#kaptcha-img&#x27;</span>).click();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>5.后端在接收前端表单数据，第一步应该是检查验证码是否正确，如何检查？Kaptcha在向前端发送验证码图片的同时，就已经把验证码图片对应的正确的验证码放入的session中，所以后端只需要比对request中传来表单中验证码数据和Session中获取的数据是否一致即可，不一致就直接返回错误信息（其中Session的参数key是<code>com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY</code>）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.imooc.o2o.util;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.google.code.kaptcha.Constants;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CodeUtil</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Boolean <span class="title">checkVerifyCode</span><span class="params">(HttpServletRequest request)</span></span>&#123;</span><br><span class="line">        <span class="comment">// 在shopOperation.html中img的src发送请求给/o2o/Kaptcha给Kaptcha Servlet的时候，</span></span><br><span class="line">        <span class="comment">// 同时图片真实的验证码就会种植在session中，便于校验用户输入与真实是否相同</span></span><br><span class="line">        String verifyCodeExpected = (String)request.getSession().getAttribute(Constants.KAPTCHA_SESSION_KEY);</span><br><span class="line">        System.out.println(<span class="string">&quot;verifyCodeExpected:&quot;</span> + verifyCodeExpected);</span><br><span class="line">        String verifyCode = HttpServletRequestUtil.getString(request, <span class="string">&quot;verifyCodeActual&quot;</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;verifyCodeActual:&quot;</span> + verifyCode);</span><br><span class="line">        <span class="keyword">if</span>(verifyCode == <span class="keyword">null</span> || !verifyCode.equals(verifyCodeExpected))&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
       
        
@@ -265,35 +258,7 @@
     <div class="article-info article-info-index">
       
       
-<div class="article-tag tagcloud">
-	<i class="icon-price-tags icon"></i>
-	<ul class="article-tag-list">
-		
-		
-		<li class="article-tag-list-item">
-			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">
-				Kaptcha</a>
-		</li>
-		
-		
-	</ul>
-</div>
-
       
-<div class="article-category tagcloud">
-	<i class="icon-book icon"></i>
-	<ul class="article-tag-list">
-		
-		
-		<li class="article-tag-list-item">
-			<a href="/categories/Spring//" class="article-tag-list-link color2">
-				Spring</a>
-		</li>
-		
-		
-	</ul>
-</div>
-
       
 
       
@@ -342,7 +307,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/Spring/Kaptcha%E9%AA%8C%E8%AF%81%E7%A0%81/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/uncategorized/yuque/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -356,15 +321,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/Spring/docker%E9%85%8D%E7%BD%AEMYSQL%E9%9B%86%E7%BE%A4(%E4%B8%8A)/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Docker配置MYSQL集群(上)
-        
-      </div>
-    </a>
   
+    <a href="/2021/uncategorized/yuque/SpringBoot%E6%95%B4%E5%90%88ES%E5%90%84%E7%A7%8D%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SpringBoot整合ES各种问题解决</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -381,19 +342,6 @@
             </div>
         </div>
         
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4"><span class="toc-number">1.</span> <span class="toc-text">1. 具体步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%AE%9E%E8%B7%B5"><span class="toc-number">1.1.</span> <span class="toc-text">2. 实践</span></a></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
         
     </div>
 </aside>
@@ -419,7 +367,7 @@ if(true){
   	repo: 'blog-comments',
   	owner: 'yizhichangyuan',
   	admin: ['yizhichangyuan'],
-  	id: 'Sat Jan 16 2021 00:00:00 GMT+0800',
+  	id: 'Sun Apr 18 2021 12:15:46 GMT+0800',
   	distractionFreeMode: 'true'
 })
 gitalk.render('gitalk-container') 

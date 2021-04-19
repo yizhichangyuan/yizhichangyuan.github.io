@@ -66,7 +66,7 @@
 			</ul>
 		</nav>
 		<nav>
-			<p>总文章数：34</p>
+			<p>总文章数：35</p>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -157,6 +157,84 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-yuque/Nginx反向代理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/uncategorized/yuque/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/">Nginx反向代理</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/uncategorized/yuque/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/" class="archive-article-date">
+  	<time datetime="2021-04-18T04:15:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-18</time>
+</a>
+        
+      </header>
+    
+    <div align="center" class="post-count">
+    字数：588字 | 预计阅读时长：2分钟
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我们的项目是部署到内网的，其中 nginx 帮我们进行反向代理，当用户访问 doermall.com 的时候，我们可以利用 nginx 将请求转发给商品服务 192.168.2.100:9200 服务<br>本文只是尝试 nginx 反向代理教学，负载均衡请看**<em>Nginx 负载均衡地反向代理**</em></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /mydata/nginx/conf</span><br><span class="line">vi nginx.conf</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618673019140-ca5321c3-5c84-4f64-9d78-4f88d49f4006.png#align=left&display=inline&height=485&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-17%2023.14.30.png&originHeight=1066&originWidth=1540&size=167130&status=done&style=none&width=700" alt="截屏2021-04-17 23.14.30.png"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看默认的访问80端口nginx的server块内容</span></span><br><span class="line"><span class="built_in">cd</span> conf.d</span><br><span class="line">cat default.conf</span><br><span class="line"><span class="comment"># 内容如下</span></span><br><span class="line">server &#123;</span><br><span class="line">    listen       80;        <span class="comment"># 监听80端口</span></span><br><span class="line">    server_name  localhost;  <span class="comment"># 域名为localhost</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#charset koi8-r;</span></span><br><span class="line">    <span class="comment">#access_log  /var/log/nginx/log/host.access.log  main;</span></span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        root   /usr/share/nginx/html;</span><br><span class="line">        index  index.html index.htm;   <span class="comment"># 访问域名下的index，可以路由到index.html静态资源</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">#error_page  404              /404.html;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># redirect server error pages to the static page /50x.html</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    error_page   500 502 503 504  /50x.html;  <span class="comment"># 定义错误状态码以及对应的错误页面</span></span><br><span class="line">    location = /50x.html &#123;</span><br><span class="line">        root   /usr/share/nginx/html;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># proxy the PHP scripts to Apache listening on 127.0.0.1:80</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment">#location ~ \.php$ &#123;</span></span><br><span class="line">    <span class="comment">#    proxy_pass   http://127.0.0.1;</span></span><br><span class="line">    <span class="comment">#&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment">#location ~ \.php$ &#123;</span></span><br><span class="line">    <span class="comment">#    root           html;</span></span><br><span class="line">    <span class="comment">#    fastcgi_pass   127.0.0.1:9000;</span></span><br><span class="line">    <span class="comment">#    fastcgi_index  index.php;</span></span><br><span class="line">    <span class="comment">#    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</span></span><br><span class="line">    <span class="comment">#    include        fastcgi_params;</span></span><br><span class="line">    <span class="comment">#&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># deny access to .htaccess files, if Apache&#x27;s document root</span></span><br><span class="line">    <span class="comment"># concurs with nginx&#x27;s one</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment">#location ~ /\.ht &#123;</span></span><br><span class="line">    <span class="comment">#    deny  all;</span></span><br><span class="line">    <span class="comment">#&#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>知道了 server 块的配置信息，接下来我们来实现访问域名 doermall.com 路由到（本机 ip 地址）192.168.2.100:10000 商品服务</p>
+<p>1、首先修改本地 host 文件，将域名 doermall.com 路由到我们的虚拟机的 ip 192.168.2.100，这样就会直接路由到虚拟机上的 nginx</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/hosts</span><br><span class="line"><span class="comment"># 添加上</span></span><br><span class="line">192.168.2.200 doermall.com</span><br><span class="line"><span class="comment"># 之后机器重启让路由生效，测试浏览器访问doermall.com:9200能访问到elsasticsearch不</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618674556256-fff17f0a-9cb9-4fa1-9970-3e13794a3fdc.png#align=left&display=inline&height=493&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-17%2023.49.12.png&originHeight=900&originWidth=912&size=256777&status=done&style=none&width=500" alt="截屏2021-04-17 23.49.12.png"></p>
+<p>2、修改 nginx server 块，将 doermall.com 转发到本机的 ip：192.168.2.100:10000（因为项目是在本地，而不是在虚拟机上的，所以为本机的 ip 地址）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /mydata/nginx/conf/conf.d</span><br><span class="line">cp default.conf doermall.conf</span><br><span class="line">vi doermall.conf</span><br><span class="line"><span class="comment"># 修改后重启nginx</span></span><br><span class="line">docker restart nginx</span><br></pre></td></tr></table></figure>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618675141133-e2d92727-4400-42e4-946d-2e70eab169ec.png#align=left&display=inline&height=789&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-17%2023.55.14.png&originHeight=1506&originWidth=1336&size=265664&status=done&style=none&width=700" alt="截屏2021-04-17 23.55.14.png"><br>**<br><strong>流程：</strong><br>浏览器访问 doermall.com -&gt; 前往本地 DNS 缓存查找到：doermall.com 对应 192.168.2.200 -&gt; 浏览器发起请求 192.168.2.200，请求头 host 上会携带域名 doermall.com -&gt; 虚拟机 Nginx 获取到来访请求的 host 为 doermall.com -&gt; 根据 server 块将 doermall.com 路由到宿主机 ip : 192.168.2.100:10000 商品服务</p>
+
+      
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/uncategorized/yuque/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
   
     <article id="post-yuque/SpringBoot整合ES各种问题解决" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -480,114 +558,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/Spring/yuque/%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-yuque/设计模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/%E4%BF%AE%E8%A1%8C/yuque/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/%E4%BF%AE%E8%A1%8C/yuque/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2021-04-01T11:08:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-01</time>
-</a>
-        
-      </header>
-    
-    <div align="center" class="post-count">
-    字数：7.4k字 | 预计阅读时长：33分钟
-</div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>设计模式的目的是为了降低代码的耦合性，同时也保证代码的可维护性和扩展性，一共有 23 种设计模式。<br>分为以下三类：</p>
-<ul>
-<li>创建型设计模式</li>
-</ul>
-<p>注重于隐藏对象的创建逻辑，使用时无需 new 对象，直接获取对象</p>
-<ul>
-<li>结构性模型</li>
-</ul>
-<p>注重已有对象之间的相互组合</p>
-<ul>
-<li>行为型模式</li>
-</ul>
-<p>注重对象之间相互调用的行为，关注对象之间的通信</p>
-        
-      
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-<div class="article-tag tagcloud">
-	<i class="icon-price-tags icon"></i>
-	<ul class="article-tag-list">
-		
-		
-		<li class="article-tag-list-item">
-			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">
-				设计模式</a>
-		</li>
-		
-		
-	</ul>
-</div>
-
-      
-<div class="article-category tagcloud">
-	<i class="icon-book icon"></i>
-	<ul class="article-tag-list">
-		
-		
-		<li class="article-tag-list-item">
-			<a href="/categories/修行//" class="article-tag-list-link color3">
-				修行</a>
-		</li>
-		
-		
-	</ul>
-</div>
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/%E4%BF%AE%E8%A1%8C/yuque/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">展开全文 >></a>
         </p>
       
 
