@@ -66,7 +66,7 @@
 			</ul>
 		</nav>
 		<nav>
-			<p>总文章数：35</p>
+			<p>总文章数：36</p>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -157,6 +157,110 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-yuque/统一异常处理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/Spring/yuque/%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/">统一异常处理</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/Spring/yuque/%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" class="archive-article-date">
+  	<time datetime="2021-04-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-05</time>
+</a>
+        
+      </header>
+    
+    <div align="center" class="post-count">
+    字数：1.7k字 | 预计阅读时长：7分钟
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前面我们后端数据校验每个 controller 校验的 bean 的属性上添加上校验注解，然后在 controller 入参上加上@Valid 注解，然后通过紧跟着的 BindingResult 来进行获取校验的结果，如果错误则返回给前端，否则正常入库。这样有一个弊端就是每个 controller 都需要进行一套将错误信息封装到 Request 中的过程，这是十分重复的。我们可以利用 Advice 来解决。</p>
+<ul>
+<li>那么我们如果获取数据校验错误的信息呢？</li>
+</ul>
+<p>如果我们不添加 BindResult 来绑定抛出的结果的话，controller 则会把异常抛出，我们可以通过抛出的特定异常**@ExceptionHandler**来捕捉</p>
+<ul>
+<li>如何获取 Controller 层发出的异常</li>
+</ul>
+<p>通过注解**@ControllerAdvice<strong>或</strong>@RestControllerAdvice**注解</p>
+        
+      
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+<div class="article-tag tagcloud">
+	<i class="icon-price-tags icon"></i>
+	<ul class="article-tag-list">
+		
+		
+		<li class="article-tag-list-item">
+			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">
+				数据校验</a>
+		</li>
+		
+		
+	</ul>
+</div>
+
+      
+<div class="article-category tagcloud">
+	<i class="icon-book icon"></i>
+	<ul class="article-tag-list">
+		
+		
+		<li class="article-tag-list-item">
+			<a href="/categories/Spring//" class="article-tag-list-link color2">
+				Spring</a>
+		</li>
+		
+		
+	</ul>
+</div>
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/Spring/yuque/%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
   
     <article id="post-yuque/设计模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -473,84 +577,9 @@
 
 
   
-    <article id="post-yuque/后端数据校验" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/uncategorized/yuque/%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E6%A0%A1%E9%AA%8C/">后端数据校验</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/uncategorized/yuque/%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E6%A0%A1%E9%AA%8C/" class="archive-article-date">
-  	<time datetime="2021-03-27T17:20:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-28</time>
-</a>
-        
-      </header>
-    
-    <div align="center" class="post-count">
-    字数：839字 | 预计阅读时长：3分钟
-</div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>JSR303（java 规范提案：303 提案），是关于数据校验的规范。在前端发送的数据在前端经过校验后，发送给后台还需要经过校验后才能入库，这是因为如果有人知道你的接口就可以通过 PostMan 工具向你的接口恶意发送坏数据入库，给其他用户浏览页面就会造成不好的影响，为此需要使用后端数据校验。前台防君子后台防小人</p>
-<p>JSR 主要使用 javax.validation.constraints 定义的注解此外也可以采用 hibernate 提供的一些注解或者自定义规则注解@Pattern</p>
-<ul>
-<li>1)、给 Bean 需要校验字段添加校验注解 可以在 javax.validation.constraints，并定义 message 错误提示</li>
-<li>2)、在 Controller 方法体中对相应的 Bean 添加上**@Valid**，否则光在字段标注了注解是没有用的：public R save(<a href="/Valid">@Valid </a> <a href="/RequestBody">@RequestBody </a> BrandEntity brand)</li>
-<li>效果：校验错误以后会有默认的响应，并显示错误信息 message</li>
-<li>3)、在方法体校验参数后面紧跟 BindingResult，就可以获取到校验的结果</li>
-</ul>
-        
-      
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/uncategorized/yuque/%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E6%A0%A1%E9%AA%8C/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -686,6 +715,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">历史</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -66,7 +66,7 @@
 			</ul>
 		</nav>
 		<nav>
-			<p>总文章数：35</p>
+			<p>总文章数：36</p>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -157,6 +157,81 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-yuque/后端数据校验" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/uncategorized/yuque/%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E6%A0%A1%E9%AA%8C/">后端数据校验</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/uncategorized/yuque/%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E6%A0%A1%E9%AA%8C/" class="archive-article-date">
+  	<time datetime="2021-03-27T17:20:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-28</time>
+</a>
+        
+      </header>
+    
+    <div align="center" class="post-count">
+    字数：839字 | 预计阅读时长：3分钟
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JSR303（java 规范提案：303 提案），是关于数据校验的规范。在前端发送的数据在前端经过校验后，发送给后台还需要经过校验后才能入库，这是因为如果有人知道你的接口就可以通过 PostMan 工具向你的接口恶意发送坏数据入库，给其他用户浏览页面就会造成不好的影响，为此需要使用后端数据校验。前台防君子后台防小人</p>
+<p>JSR 主要使用 javax.validation.constraints 定义的注解此外也可以采用 hibernate 提供的一些注解或者自定义规则注解@Pattern</p>
+<ul>
+<li>1)、给 Bean 需要校验字段添加校验注解 可以在 javax.validation.constraints，并定义 message 错误提示</li>
+<li>2)、在 Controller 方法体中对相应的 Bean 添加上**@Valid**，否则光在字段标注了注解是没有用的：public R save(<a href="/Valid">@Valid </a> <a href="/RequestBody">@RequestBody </a> BrandEntity brand)</li>
+<li>效果：校验错误以后会有默认的响应，并显示错误信息 message</li>
+<li>3)、在方法体校验参数后面紧跟 BindingResult，就可以获取到校验的结果</li>
+</ul>
+        
+      
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/uncategorized/yuque/%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E6%A0%A1%E9%AA%8C/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
   
     <article id="post-yuque/分布式下文件上传" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -503,80 +578,9 @@
 
 
   
-    <article id="post-yuque/Stream流建立多级菜单" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/uncategorized/yuque/Stream%E6%B5%81%E5%BB%BA%E7%AB%8B%E5%A4%9A%E7%BA%A7%E8%8F%9C%E5%8D%95/">Stream流建立多级菜单</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/uncategorized/yuque/Stream%E6%B5%81%E5%BB%BA%E7%AB%8B%E5%A4%9A%E7%BA%A7%E8%8F%9C%E5%8D%95/" class="archive-article-date">
-  	<time datetime="2021-03-17T14:01:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-17</time>
-</a>
-        
-      </header>
-    
-    <div align="center" class="post-count">
-    字数：489字 | 预计阅读时长：2分钟
-</div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>在数据库中我们常常遇到多级分类，我们如何简单便捷地建立一个多级分类树呢？</p>
-</blockquote>
-<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615989864846-639b3558-0e78-4e44-afa7-b6a6677486c1.png#align=left&display=inline&height=478&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-17%2022.04.20.png&originHeight=478&originWidth=2344&size=176414&status=done&style=none&width=2344" alt="截屏2021-03-17 22.04.20.png"><br>背景：数据库中有表描述商品分类信息，其中 parent_cid 就是其父类分类的 id，如何从数据库中查出结果后，找出每个分类的子分类。如果有 SQL 查询，如果想找到所有的二级分类，则需要先找到所有的一级分类的 id，然后利用 in 操作找出所有的二级分类，然后三级分类还是需要再写一个 SQL 语句，然后查询完还需要将相应的 children 归并到相应的一级分类中，这是十分麻烦的，多次 SQL 查询也会造成性能比较低。</p>
-        
-      
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/uncategorized/yuque/Stream%E6%B5%81%E5%BB%BA%E7%AB%8B%E5%A4%9A%E7%BA%A7%E8%8F%9C%E5%8D%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -712,6 +716,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">历史</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
