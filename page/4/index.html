@@ -66,7 +66,7 @@
 			</ul>
 		</nav>
 		<nav>
-			<p>总文章数：36</p>
+			<p>总文章数：38</p>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -157,6 +157,215 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-微服务基础概念" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/SpringCloud/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/">微服务基础概念</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/SpringCloud/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/" class="archive-article-date">
+  	<time datetime="2021-03-17T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-18</time>
+</a>
+        
+      </header>
+    
+    <div align="center" class="post-count">
+    字数：1.2k字 | 预计阅读时长：3分钟
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>1.微服务</strong></p>
+<p>拒绝大型单体引用，基于业务边界进行服务微化拆分，各个服务独立部署运行，,每个服务之间相互调用</p>
+<p>例如：订单服务 -》商品服务 -》仓库服务</p>
+<p><strong>2.集群</strong></p>
+<p>例如：京东就是一个分布式系统，众多业务运行在不同的机器上，所有业务构成了一个大型的业务集群。</p>
+<p>集群是一个物理形态，分布式是一个工作方式</p>
+<p>分布式的每一个结点，都可以做集群，而集群并不一定就是分布式的</p>
+<p>结点：集群中一个服务器</p>
+        
+      
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+<div class="article-tag tagcloud">
+	<i class="icon-price-tags icon"></i>
+	<ul class="article-tag-list">
+		
+		
+		<li class="article-tag-list-item">
+			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">
+				微服务</a>
+		</li>
+		
+		
+	</ul>
+</div>
+
+      
+<div class="article-category tagcloud">
+	<i class="icon-book icon"></i>
+	<ul class="article-tag-list">
+		
+		
+		<li class="article-tag-list-item">
+			<a href="/categories/SpringCloud//" class="article-tag-list-link color2">
+				SpringCloud</a>
+		</li>
+		
+		
+	</ul>
+</div>
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/SpringCloud/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-Nacos如何调用其他微服务(中）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/SpringCloud/Nacos%E5%A6%82%E4%BD%95%E8%B0%83%E7%94%A8%E5%85%B6%E4%BB%96%E5%BE%AE%E6%9C%8D%E5%8A%A1(%E4%B8%AD%EF%BC%89/">Nacos：如何调用其他微服务（中）</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/SpringCloud/Nacos%E5%A6%82%E4%BD%95%E8%B0%83%E7%94%A8%E5%85%B6%E4%BB%96%E5%BE%AE%E6%9C%8D%E5%8A%A1(%E4%B8%AD%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2021-03-17T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-18</time>
+</a>
+        
+      </header>
+    
+    <div align="center" class="post-count">
+    字数：783字 | 预计阅读时长：3分钟
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>上节我们将微服务模块注册到了注册中心Nacos中，接下来就是如何实现微服务模块之间接口的调用。</p>
+<p>这里我们使用SpringCloud-Alibaba提供的OpenFeign进行微服务模块之间调用，如果微服务A需要调用微服务模块B的接口1，那么我们如何实现呢？</p>
+<p><strong>原理</strong></p>
+<p>​    微服务A、微服务B相互调用，前提是两个微服务都已经注册到注册中心Nacos中。然后微服务模块A1需要调用微服务B时，就去注册中心查看健康可用微服务模块B的地址，</p>
+        
+      
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+<div class="article-tag tagcloud">
+	<i class="icon-price-tags icon"></i>
+	<ul class="article-tag-list">
+		
+		
+		<li class="article-tag-list-item">
+			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">
+				Nacos</a>
+		</li>
+		
+		
+		
+		<li class="article-tag-list-item">
+			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">
+				微服务</a>
+		</li>
+		
+		
+	</ul>
+</div>
+
+      
+<div class="article-category tagcloud">
+	<i class="icon-book icon"></i>
+	<ul class="article-tag-list">
+		
+		
+		<li class="article-tag-list-item">
+			<a href="/categories/SpringCloud//" class="article-tag-list-link color2">
+				SpringCloud</a>
+		</li>
+		
+		
+	</ul>
+</div>
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/SpringCloud/Nacos%E5%A6%82%E4%BD%95%E8%B0%83%E7%94%A8%E5%85%B6%E4%BB%96%E5%BE%AE%E6%9C%8D%E5%8A%A1(%E4%B8%AD%EF%BC%89/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
   
     <article id="post-yuque/Stream流建立多级菜单" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -404,145 +613,6 @@
 
 
   
-    <article id="post-yuque/Nacos：如何统一配置（下）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/uncategorized/yuque/Nacos%EF%BC%9A%E5%A6%82%E4%BD%95%E7%BB%9F%E4%B8%80%E9%85%8D%E7%BD%AE%EF%BC%88%E4%B8%8B%EF%BC%89/">Nacos：如何统一配置（下）</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/uncategorized/yuque/Nacos%EF%BC%9A%E5%A6%82%E4%BD%95%E7%BB%9F%E4%B8%80%E9%85%8D%E7%BD%AE%EF%BC%88%E4%B8%8B%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2021-03-13T15:59:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-13</time>
-</a>
-        
-      </header>
-    
-    <div align="center" class="post-count">
-    字数：1.6k字 | 预计阅读时长：6分钟
-</div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-</blockquote>
-<h6 id="我们项目部署期间，如果修改配置，则需要重新打包部署到服务器上，这一过程十分繁琐，有什么简便的方法能够实现在服务不停机的情况下，动态修改配置呢？这里就要使用-Nacos-来统一管理我们的配置了。"><a href="#我们项目部署期间，如果修改配置，则需要重新打包部署到服务器上，这一过程十分繁琐，有什么简便的方法能够实现在服务不停机的情况下，动态修改配置呢？这里就要使用-Nacos-来统一管理我们的配置了。" class="headerlink" title="我们项目部署期间，如果修改配置，则需要重新打包部署到服务器上，这一过程十分繁琐，有什么简便的方法能够实现在服务不停机的情况下，动态修改配置呢？这里就要使用 Nacos 来统一管理我们的配置了。"></a>我们项目部署期间，如果修改配置，则需要重新打包部署到服务器上，这一过程十分繁琐，有什么简便的方法能够实现在服务不停机的情况下，动态修改配置呢？这里就要使用 Nacos 来统一管理我们的配置了。</h6><h3 id="一、传统使用配置模式"><a href="#一、传统使用配置模式" class="headerlink" title="一、传统使用配置模式"></a>一、传统使用配置模式</h3><p>之前我们的开发模式为，我们将需要的配置防止在 application.properies 中，然后需要使用时通过@Value(“$(配置名)”)的方式来进行引入配置，如同下面一样 👇<br>application.properties 配置</p>
-        
-      
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/uncategorized/yuque/Nacos%EF%BC%9A%E5%A6%82%E4%BD%95%E7%BB%9F%E4%B8%80%E9%85%8D%E7%BD%AE%EF%BC%88%E4%B8%8B%EF%BC%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-yuque/Nacos：如何调用其他微服务（中）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/uncategorized/yuque/Nacos%EF%BC%9A%E5%A6%82%E4%BD%95%E8%B0%83%E7%94%A8%E5%85%B6%E4%BB%96%E5%BE%AE%E6%9C%8D%E5%8A%A1%EF%BC%88%E4%B8%AD%EF%BC%89/">Nacos：如何调用其他微服务（中）</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/uncategorized/yuque/Nacos%EF%BC%9A%E5%A6%82%E4%BD%95%E8%B0%83%E7%94%A8%E5%85%B6%E4%BB%96%E5%BE%AE%E6%9C%8D%E5%8A%A1%EF%BC%88%E4%B8%AD%EF%BC%89/" class="archive-article-date">
-  	<time datetime="2021-03-13T14:14:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-13</time>
-</a>
-        
-      </header>
-    
-    <div align="center" class="post-count">
-    字数：797字 | 预计阅读时长：3分钟
-</div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>上节我们将微服务模块注册到了注册中心 Nacos 中，接下来就是如何实现微服务模块之间接口的调用。<br>这里我们使用 SpringCloud-Alibaba 提供的 OpenFeign 进行微服务模块之间调用，如果微服务 A 需要调用微服务模块 B 的接口 1，那么我们如何实现呢？</p>
-<p>首先介绍一下原理：微服务 A、微服务 B 相互调用，前提是两个微服务都已经注册到注册中心 Nacos 中。然后微服务模块 A1 需要调用微服务 B 时，就去注册中心查看健康可用微服务模块 B 的地址，然后通过 Nacos 返回一个健康可用的微服务模块 B1 的地址给微服务模块 A1，然后微服务模块通过利用 OpenFeign 向从 Nacos 中获得的地址发送<strong>HTTP 请求</strong>给微服务模块 B1 的接口 1，然后微服务 A1 调用微服务 B1 的接口 1 完成了。<br><img src="https://cdn.nlark.com/yuque/0/2021/jpeg/2648023/1616988817545-b6dc1e8c-2983-46ff-ae0b-61165a03319c.jpeg"></p>
-        
-      
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/uncategorized/yuque/Nacos%EF%BC%9A%E5%A6%82%E4%BD%95%E8%B0%83%E7%94%A8%E5%85%B6%E4%BB%96%E5%BE%AE%E6%9C%8D%E5%8A%A1%EF%BC%88%E4%B8%AD%EF%BC%89/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/5/">Next &amp;raquo;</a>
@@ -681,6 +751,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">历史</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">缓存一致性</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -66,7 +66,7 @@
 			</ul>
 		</nav>
 		<nav>
-			<p>总文章数：36</p>
+			<p>总文章数：38</p>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -157,6 +157,211 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-Java中ThreadLocal是如何保证线程安全的" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/Java%E4%B8%ADThreadLocal%E6%98%AF%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84/">JAVA中ThreadLocal是如何保证线程安全的</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/Java%E4%B8%ADThreadLocal%E6%98%AF%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84/" class="archive-article-date">
+  	<time datetime="2021-01-27T06:59:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-27</time>
+</a>
+        
+      </header>
+    
+    <div align="center" class="post-count">
+    字数：1.4k字 | 预计阅读时长：6分钟
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-线程安全"><a href="#1-线程安全" class="headerlink" title="1.线程安全"></a><span style="color:orange;">1.线程安全</span></h3><p>当多个线程试图同时对一个共享变量进行访问修改的时候，容易引发数据不安全的操作。<br>例如一个线程1正准备对变量进行修改+1时，另一个线程2也进行了修改+1，那么这个线程1进行修改的操作就可能是不成功的。</p>
+<h3 id="2-可以采取的措施"><a href="#2-可以采取的措施" class="headerlink" title="2.可以采取的措施"></a><span style="color:orange;">2.可以采取的措施</span></h3><ol>
+<li>加锁，保证线程在写入时是加锁的，其他线程的修改只能等待</li>
+<li>ThreadLocal采用的方法，每个线程访问的都是共享变量的拷贝变量</li></ol>
+        
+      
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+<div class="article-tag tagcloud">
+	<i class="icon-price-tags icon"></i>
+	<ul class="article-tag-list">
+		
+		
+		<li class="article-tag-list-item">
+			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">
+				线程</a>
+		</li>
+		
+		
+	</ul>
+</div>
+
+      
+<div class="article-category tagcloud">
+	<i class="icon-book icon"></i>
+	<ul class="article-tag-list">
+		
+		
+		<li class="article-tag-list-item">
+			<a href="/categories/线程安全//" class="article-tag-list-link color5">
+				线程安全</a>
+		</li>
+		
+		
+	</ul>
+</div>
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/Java%E4%B8%ADThreadLocal%E6%98%AF%E5%A6%82%E4%BD%95%E4%BF%9D%E8%AF%81%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-docker配置MYSQL集群(上)" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/Spring/docker%E9%85%8D%E7%BD%AEMYSQL%E9%9B%86%E7%BE%A4(%E4%B8%8A)/">Docker配置MYSQL集群(上)</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/Spring/docker%E9%85%8D%E7%BD%AEMYSQL%E9%9B%86%E7%BE%A4(%E4%B8%8A)/" class="archive-article-date">
+  	<time datetime="2021-01-27T02:41:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-27</time>
+</a>
+        
+      </header>
+    
+    <div align="center" class="post-count">
+    字数：2.2k字 | 预计阅读时长：8分钟
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>利用Docker部署MYSQL集群，可以缓解服务器的压力，接下来一起来学习使用Docker部署MYSQL集群吧！</p>
+<h3 id="1-MYSQL集群读写分离的原理知识"><a href="#1-MYSQL集群读写分离的原理知识" class="headerlink" title="1.MYSQL集群读写分离的原理知识"></a><span style="color:orange;">1.MYSQL集群读写分离的原理知识</span></h3><blockquote>
+<p>MYSQL集群是为了减轻服务器负担，防止网站面对业务过多，达到数据库操作瓶颈，防止用户的数据没有及时的记录或修改造成损失，其中MYSQL集群的主要目的就是设立一个master节点，主要负责写，还有若干个salve节点，负责读，其中涉及到master、slave数据一致性的问题。</p>
+</blockquote>
+        
+      
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+<div class="article-tag tagcloud">
+	<i class="icon-price-tags icon"></i>
+	<ul class="article-tag-list">
+		
+		
+		<li class="article-tag-list-item">
+			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">
+				Docker</a>
+		</li>
+		
+		
+		
+		<li class="article-tag-list-item">
+			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">
+				MYSQL集群</a>
+		</li>
+		
+		
+	</ul>
+</div>
+
+      
+<div class="article-category tagcloud">
+	<i class="icon-book icon"></i>
+	<ul class="article-tag-list">
+		
+		
+		<li class="article-tag-list-item">
+			<a href="/categories/Spring//" class="article-tag-list-link color2">
+				Spring</a>
+		</li>
+		
+		
+	</ul>
+</div>
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/Spring/docker%E9%85%8D%E7%BD%AEMYSQL%E9%9B%86%E7%BE%A4(%E4%B8%8A)/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
   
     <article id="post-Kaptcha验证码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -395,6 +600,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">历史</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">缓存一致性</a>
               </li>
              
               <li class="article-tag-list-item">
