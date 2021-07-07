@@ -66,7 +66,7 @@
 			</ul>
 		</nav>
 		<nav>
-			<p>总文章数：38</p>
+			<p>总文章数：39</p>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -157,6 +157,79 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-yuque/本地navicat如何连接centos虚拟机下docker内mysql容器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/uncategorized/yuque/%E6%9C%AC%E5%9C%B0navicat%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5centos%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8Bdocker%E5%86%85mysql%E5%AE%B9%E5%99%A8/">本地navicat如何连接centos虚拟机下docker内mysql容器</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/uncategorized/yuque/%E6%9C%AC%E5%9C%B0navicat%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5centos%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8Bdocker%E5%86%85mysql%E5%AE%B9%E5%99%A8/" class="archive-article-date">
+  	<time datetime="2021-03-11T12:55:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-11</time>
+</a>
+        
+      </header>
+    
+    <div align="center" class="post-count">
+    字数：392字 | 预计阅读时长：1分钟
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>首先确保宿主机能够 ping 同 centos 虚拟机</li>
+<li>centos 虚拟机需要开放 mysql 容器创建时指定的 centos 映射端口 3306，类似腾讯云中的安全组来开放</li>
+</ol>
+<p>查看 centos 中是否安装 iptables 防火墙，如果没有进行安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">/etc/sysconfig/iptables不存在，就是没有安装iptables防火墙</span><br><span class="line">可以通过以下命令安装iptables防火墙</span><br><span class="line">systemctl stop firewalld</span><br><span class="line">systemctl mask firewalld</span><br><span class="line">yum install iptables-services</span><br><span class="line">service iptables status</span><br><span class="line">//设置开机启动</span><br><span class="line">systemctl <span class="built_in">enable</span> iptables</span><br><span class="line">之后你就能找到/etc/sysconfig/iptables文件</span><br></pre></td></tr></table></figure>
+        
+      
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/uncategorized/yuque/%E6%9C%AC%E5%9C%B0navicat%E5%A6%82%E4%BD%95%E8%BF%9E%E6%8E%A5centos%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%B8%8Bdocker%E5%86%85mysql%E5%AE%B9%E5%99%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
   
     <article id="post-yuque/docker新建redis容器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -408,73 +481,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/uncategorized/yuque/%E5%88%86%E5%B8%83%E5%BC%8F%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-yuque/分布式架构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/uncategorized/yuque/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/">分布式架构</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/uncategorized/yuque/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/" class="archive-article-date">
-  	<time datetime="2021-03-01T06:55:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-01</time>
-</a>
-        
-      </header>
-    
-    <div align="center" class="post-count">
-    字数：0字 | 预计阅读时长：1分钟
-</div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/uncategorized/yuque/%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84/">展开全文 >></a>
         </p>
       
 

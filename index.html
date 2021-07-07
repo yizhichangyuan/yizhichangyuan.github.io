@@ -66,7 +66,7 @@
 			</ul>
 		</nav>
 		<nav>
-			<p>总文章数：38</p>
+			<p>总文章数：39</p>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -157,6 +157,79 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-yuque/容器中同时有两个同类型Bean存在" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/uncategorized/yuque/%E5%AE%B9%E5%99%A8%E4%B8%AD%E5%90%8C%E6%97%B6%E6%9C%89%E4%B8%A4%E4%B8%AA%E5%90%8C%E7%B1%BB%E5%9E%8BBean%E5%AD%98%E5%9C%A8/">容器中同时有两个同类型Bean存在</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/uncategorized/yuque/%E5%AE%B9%E5%99%A8%E4%B8%AD%E5%90%8C%E6%97%B6%E6%9C%89%E4%B8%A4%E4%B8%AA%E5%90%8C%E7%B1%BB%E5%9E%8BBean%E5%AD%98%E5%9C%A8/" class="archive-article-date">
+  	<time datetime="2021-07-07T02:51:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-07</time>
+</a>
+        
+      </header>
+    
+    <div align="center" class="post-count">
+    字数：225字 | 预计阅读时长：1分钟
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="解决一：对于自己写的两个同类型的-Bean"><a href="#解决一：对于自己写的两个同类型的-Bean" class="headerlink" title="解决一：对于自己写的两个同类型的 Bean"></a>解决一：对于自己写的两个同类型的 Bean</h4><p>可以使用@Primary 来标注其中一个 Bean 为主要的</p>
+<h4 id="解决二：对于依赖中可能存在两个同类型的-Bean"><a href="#解决二：对于依赖中可能存在两个同类型的-Bean" class="headerlink" title="解决二：对于依赖中可能存在两个同类型的 Bean"></a>解决二：对于依赖中可能存在两个同类型的 Bean</h4><p>例如引入 Sentinel 对 Feign 远程调用失败进行熔断返回默认数据，同时又想利用 Sleuth 对服务之间调用链进行追踪方便确认异常所在</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Field seckillFeignService <span class="keyword">in</span> com.lookstarry.doermail.product.service.impl.SkuInfoServiceImpl required a single bean, but 2 were found:</span><br><span class="line">	- feignSentinelBuilder: defined by method <span class="string">&#x27;feignSentinelBuilder&#x27;</span> <span class="keyword">in</span> class path resource [com/alibaba/cloud/sentinel/feign/SentinelFeignAutoConfiguration.class]</span><br><span class="line">	- feignHystrixBuilder: defined by method <span class="string">&#x27;feignHystrixBuilder&#x27;</span> <span class="keyword">in</span> class path resource [org/springframework/cloud/sleuth/instrument/web/client/feign/TraceFeignClientAutoConfiguration.class]</span><br></pre></td></tr></table></figure>
+<p>可以发现这两个 Bean 都是继承于 Builder 类，所以造成了同类型冲突<br>在项目启动类排除其中某个配置类，这里排除 SentinelFeignAutoConfiguration 配置类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication(exclude = SentinelFeignAutoConfiguration.class)</span></span><br></pre></td></tr></table></figure>
+<p>对于 Feign 熔断方法仍然可以适用<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1625626678283-61fc3785-ecd7-4131-bea7-8fc31d9f9e94.png#align=left&display=inline&height=56&margin=%5Bobject%20Object%5D&name=image.png&originHeight=112&originWidth=982&size=30458&status=done&style=none&width=491" alt="image.png"></p>
+
+      
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/uncategorized/yuque/%E5%AE%B9%E5%99%A8%E4%B8%AD%E5%90%8C%E6%97%B6%E6%9C%89%E4%B8%A4%E4%B8%AA%E5%90%8C%E7%B1%BB%E5%9E%8BBean%E5%AD%98%E5%9C%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
   
     <article id="post-yuque/JUC异步编排——CompletableFuture" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -481,74 +554,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/uncategorized/yuque/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-yuque/SpringBoot整合ES各种问题解决" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/uncategorized/yuque/SpringBoot%E6%95%B4%E5%90%88ES%E5%90%84%E7%A7%8D%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">SpringBoot整合ES各种问题解决</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/uncategorized/yuque/SpringBoot%E6%95%B4%E5%90%88ES%E5%90%84%E7%A7%8D%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/" class="archive-article-date">
-  	<time datetime="2021-04-15T03:24:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-15</time>
-</a>
-        
-      </header>
-    
-    <div align="center" class="post-count">
-    字数：558字 | 预计阅读时长：3分钟
-</div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="一、No-Available-Nodes"><a href="#一、No-Available-Nodes" class="headerlink" title="一、No Available Nodes"></a>一、No Available Nodes</h4><p>问题原因：<br>1、可能是版本不兼容，例如我的 SpringBoot 版本是 2.1.8.RELEASE，那么对应的 ES 版本应该在 6.2.2 到 6.8.12 之间，这里选择了 ES:6.8.4 版本<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1618457104528-5fab2852-ccf4-4063-b8e6-7804d9261d5e.png#align=left&display=inline&height=213&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-04-15%2011.25.02.png&originHeight=828&originWidth=1948&size=152387&status=done&style=none&width=500" alt="截屏2021-04-15 11.25.02.png"></p>
-        
-      
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/uncategorized/yuque/SpringBoot%E6%95%B4%E5%90%88ES%E5%90%84%E7%A7%8D%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">展开全文 >></a>
         </p>
       
 
