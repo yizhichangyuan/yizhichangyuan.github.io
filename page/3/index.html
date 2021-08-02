@@ -66,7 +66,7 @@
 			</ul>
 		</nav>
 		<nav>
-			<p>总文章数：39</p>
+			<p>总文章数：42</p>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -157,6 +157,314 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-yuque/统一异常处理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/Spring/yuque/%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/">统一异常处理</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/Spring/yuque/%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" class="archive-article-date">
+  	<time datetime="2021-04-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-05</time>
+</a>
+        
+      </header>
+    
+    <div align="center" class="post-count">
+    字数：1.7k字 | 预计阅读时长：7分钟
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前面我们后端数据校验每个 controller 校验的 bean 的属性上添加上校验注解，然后在 controller 入参上加上@Valid 注解，然后通过紧跟着的 BindingResult 来进行获取校验的结果，如果错误则返回给前端，否则正常入库。这样有一个弊端就是每个 controller 都需要进行一套将错误信息封装到 Request 中的过程，这是十分重复的。我们可以利用 Advice 来解决。</p>
+<ul>
+<li>那么我们如果获取数据校验错误的信息呢？</li>
+</ul>
+<p>如果我们不添加 BindResult 来绑定抛出的结果的话，controller 则会把异常抛出，我们可以通过抛出的特定异常**@ExceptionHandler**来捕捉</p>
+<ul>
+<li>如何获取 Controller 层发出的异常</li>
+</ul>
+<p>通过注解**@ControllerAdvice<strong>或</strong>@RestControllerAdvice**注解</p>
+        
+      
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+<div class="article-tag tagcloud">
+	<i class="icon-price-tags icon"></i>
+	<ul class="article-tag-list">
+		
+		
+		<li class="article-tag-list-item">
+			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">
+				数据校验</a>
+		</li>
+		
+		
+	</ul>
+</div>
+
+      
+<div class="article-category tagcloud">
+	<i class="icon-book icon"></i>
+	<ul class="article-tag-list">
+		
+		
+		<li class="article-tag-list-item">
+			<a href="/categories/Spring//" class="article-tag-list-link color2">
+				Spring</a>
+		</li>
+		
+		
+	</ul>
+</div>
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/Spring/yuque/%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-yuque/自定义数据校验注解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/Spring/yuque/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E6%A0%A1%E9%AA%8C%E6%B3%A8%E8%A7%A3/">自定义数据校验注解</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/Spring/yuque/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E6%A0%A1%E9%AA%8C%E6%B3%A8%E8%A7%A3/" class="archive-article-date">
+  	<time datetime="2021-04-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-05</time>
+</a>
+        
+      </header>
+    
+    <div align="center" class="post-count">
+    字数：766字 | 预计阅读时长：3分钟
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在后端数据校验时，我们通常使用 javax.validation.constraints 或@Pattern 正则注解来使用，但可能存在一种这样的情况，我们的业务场景很复杂，官方提供的校验注解可能无法为我们提供合适的功能，这时候我们可以考虑采用自定义我们的校验注解。</p>
+        
+      
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+<div class="article-tag tagcloud">
+	<i class="icon-price-tags icon"></i>
+	<ul class="article-tag-list">
+		
+		
+		<li class="article-tag-list-item">
+			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">
+				数据校验</a>
+		</li>
+		
+		
+	</ul>
+</div>
+
+      
+<div class="article-category tagcloud">
+	<i class="icon-book icon"></i>
+	<ul class="article-tag-list">
+		
+		
+		<li class="article-tag-list-item">
+			<a href="/categories/Spring//" class="article-tag-list-link color2">
+				Spring</a>
+		</li>
+		
+		
+	</ul>
+</div>
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/Spring/yuque/%E8%87%AA%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E6%A0%A1%E9%AA%8C%E6%B3%A8%E8%A7%A3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-yuque/设计模式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/%E4%BF%AE%E8%A1%8C/yuque/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/%E4%BF%AE%E8%A1%8C/yuque/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" class="archive-article-date">
+  	<time datetime="2021-04-01T11:08:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-01</time>
+</a>
+        
+      </header>
+    
+    <div align="center" class="post-count">
+    字数：7.4k字 | 预计阅读时长：33分钟
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>设计模式的目的是为了降低代码的耦合性，同时也保证代码的可维护性和扩展性，一共有 23 种设计模式。<br>分为以下三类：</p>
+<ul>
+<li>创建型设计模式</li>
+</ul>
+<p>注重于隐藏对象的创建逻辑，使用时无需 new 对象，直接获取对象</p>
+<ul>
+<li>结构性模型</li>
+</ul>
+<p>注重已有对象之间的相互组合</p>
+<ul>
+<li>行为型模式</li>
+</ul>
+<p>注重对象之间相互调用的行为，关注对象之间的通信</p>
+        
+      
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+<div class="article-tag tagcloud">
+	<i class="icon-price-tags icon"></i>
+	<ul class="article-tag-list">
+		
+		
+		<li class="article-tag-list-item">
+			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">
+				设计模式</a>
+		</li>
+		
+		
+	</ul>
+</div>
+
+      
+<div class="article-category tagcloud">
+	<i class="icon-book icon"></i>
+	<ul class="article-tag-list">
+		
+		
+		<li class="article-tag-list-item">
+			<a href="/categories/修行//" class="article-tag-list-link color3">
+				修行</a>
+		</li>
+		
+		
+	</ul>
+</div>
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/%E4%BF%AE%E8%A1%8C/yuque/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
   
     <article id="post-yuque/冷启动如何快速训练" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -297,220 +605,9 @@
 
 
   
-    <article id="post-yuque/项目部署查看日志信息" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/uncategorized/yuque/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E6%9F%A5%E7%9C%8B%E6%97%A5%E5%BF%97%E4%BF%A1%E6%81%AF/">项目部署查看日志信息</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/uncategorized/yuque/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E6%9F%A5%E7%9C%8B%E6%97%A5%E5%BF%97%E4%BF%A1%E6%81%AF/" class="archive-article-date">
-  	<time datetime="2021-03-28T16:08:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-29</time>
-</a>
-        
-      </header>
-    
-    <div align="center" class="post-count">
-    字数：484字 | 预计阅读时长：2分钟
-</div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在 o2o 项目部署到远程服务器时，发现出现报错，这时候如何及时发现错误呢？登陆远程服务器，查看 tomcat 的日志信息<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1612840638265-6dda7d31-b29f-4540-b2fc-e90dbfd298b7.png#align=left&display=inline&height=274&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-02-09%2011.17.13.png&originHeight=274&originWidth=1648&size=85164&status=done&style=none&width=1648" alt="截屏2021-02-09 11.17.13.png"></p>
-        
-      
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/uncategorized/yuque/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E6%9F%A5%E7%9C%8B%E6%97%A5%E5%BF%97%E4%BF%A1%E6%81%AF/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-yuque/后端数据校验" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/uncategorized/yuque/%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E6%A0%A1%E9%AA%8C/">后端数据校验</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/uncategorized/yuque/%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E6%A0%A1%E9%AA%8C/" class="archive-article-date">
-  	<time datetime="2021-03-27T17:20:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-28</time>
-</a>
-        
-      </header>
-    
-    <div align="center" class="post-count">
-    字数：839字 | 预计阅读时长：3分钟
-</div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>JSR303（java 规范提案：303 提案），是关于数据校验的规范。在前端发送的数据在前端经过校验后，发送给后台还需要经过校验后才能入库，这是因为如果有人知道你的接口就可以通过 PostMan 工具向你的接口恶意发送坏数据入库，给其他用户浏览页面就会造成不好的影响，为此需要使用后端数据校验。前台防君子后台防小人</p>
-<p>JSR 主要使用 javax.validation.constraints 定义的注解此外也可以采用 hibernate 提供的一些注解或者自定义规则注解@Pattern</p>
-<ul>
-<li>1)、给 Bean 需要校验字段添加校验注解 可以在 javax.validation.constraints，并定义 message 错误提示</li>
-<li>2)、在 Controller 方法体中对相应的 Bean 添加上**@Valid**，否则光在字段标注了注解是没有用的：public R save(<a href="/Valid">@Valid </a> <a href="/RequestBody">@RequestBody </a> BrandEntity brand)</li>
-<li>效果：校验错误以后会有默认的响应，并显示错误信息 message</li>
-<li>3)、在方法体校验参数后面紧跟 BindingResult，就可以获取到校验的结果</li>
-</ul>
-        
-      
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/uncategorized/yuque/%E5%90%8E%E7%AB%AF%E6%95%B0%E6%8D%AE%E6%A0%A1%E9%AA%8C/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-yuque/分布式下文件上传" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/uncategorized/yuque/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%8B%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">分布式下文件上传</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/uncategorized/yuque/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%8B%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" class="archive-article-date">
-  	<time datetime="2021-03-26T14:58:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-26</time>
-</a>
-        
-      </header>
-    
-    <div align="center" class="post-count">
-    字数：3.6k字 | 预计阅读时长：17分钟
-</div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1616770699701-f9790556-8ff5-431d-bf42-0727c09fd9c7.png#align=left&display=inline&height=305&margin=%5Bobject%20Object%5D&name=image.png&originHeight=828&originWidth=1730&size=216539&status=done&style=none&width=637" alt="image.png"><br>在微服务分布式情况下，不同于以前的单体项目校园中铺项目，是将用户上传的图片放置在单体项目所在服务器的某个文件夹下，单体应用也在这个文件夹，然后单体应用就可以直接访问。但是在分布式情况下，一个服务可能有很多实例部署在多台服务器上，如果仍然使用向单体项目一样的图片存储，则会导致该服务的其他实例的服务器上没有该用户上传的图片，所以为了解决这个问题，分布式中通过使用将用户的图片同一放置在一个位置，然后每个服务都来访问这个位置来存取图片就可以了，这里使用阿里云的对象存储 OSS。</p>
-        
-      
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/uncategorized/yuque/%E5%88%86%E5%B8%83%E5%BC%8F%E4%B8%8B%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
     </nav>
   
 

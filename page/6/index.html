@@ -66,7 +66,7 @@
 			</ul>
 		</nav>
 		<nav>
-			<p>总文章数：39</p>
+			<p>总文章数：42</p>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -157,6 +157,219 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-yuque/Nacos：如何调用其他微服务（中）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/uncategorized/yuque/Nacos%EF%BC%9A%E5%A6%82%E4%BD%95%E8%B0%83%E7%94%A8%E5%85%B6%E4%BB%96%E5%BE%AE%E6%9C%8D%E5%8A%A1%EF%BC%88%E4%B8%AD%EF%BC%89/">Nacos：如何调用其他微服务（中）</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/uncategorized/yuque/Nacos%EF%BC%9A%E5%A6%82%E4%BD%95%E8%B0%83%E7%94%A8%E5%85%B6%E4%BB%96%E5%BE%AE%E6%9C%8D%E5%8A%A1%EF%BC%88%E4%B8%AD%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2021-03-13T14:14:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-13</time>
+</a>
+        
+      </header>
+    
+    <div align="center" class="post-count">
+    字数：797字 | 预计阅读时长：3分钟
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>上节我们将微服务模块注册到了注册中心 Nacos 中，接下来就是如何实现微服务模块之间接口的调用。<br>这里我们使用 SpringCloud-Alibaba 提供的 OpenFeign 进行微服务模块之间调用，如果微服务 A 需要调用微服务模块 B 的接口 1，那么我们如何实现呢？</p>
+<p>首先介绍一下原理：微服务 A、微服务 B 相互调用，前提是两个微服务都已经注册到注册中心 Nacos 中。然后微服务模块 A1 需要调用微服务 B 时，就去注册中心查看健康可用微服务模块 B 的地址，然后通过 Nacos 返回一个健康可用的微服务模块 B1 的地址给微服务模块 A1，然后微服务模块通过利用 OpenFeign 向从 Nacos 中获得的地址发送<strong>HTTP 请求</strong>给微服务模块 B1 的接口 1，然后微服务 A1 调用微服务 B1 的接口 1 完成了。<br><img src="https://cdn.nlark.com/yuque/0/2021/jpeg/2648023/1616988817545-b6dc1e8c-2983-46ff-ae0b-61165a03319c.jpeg"></p>
+        
+      
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/uncategorized/yuque/Nacos%EF%BC%9A%E5%A6%82%E4%BD%95%E8%B0%83%E7%94%A8%E5%85%B6%E4%BB%96%E5%BE%AE%E6%9C%8D%E5%8A%A1%EF%BC%88%E4%B8%AD%EF%BC%89/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-yuque/引入SpringCloud-Nacos后出现如下错误" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/uncategorized/yuque/%E5%BC%95%E5%85%A5SpringCloud-Nacos%E5%90%8E%E5%87%BA%E7%8E%B0%E5%A6%82%E4%B8%8B%E9%94%99%E8%AF%AF/">引入SpringCloud-Nacos后出现如下错误</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/uncategorized/yuque/%E5%BC%95%E5%85%A5SpringCloud-Nacos%E5%90%8E%E5%87%BA%E7%8E%B0%E5%A6%82%E4%B8%8B%E9%94%99%E8%AF%AF/" class="archive-article-date">
+  	<time datetime="2021-03-13T09:27:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-13</time>
+</a>
+        
+      </header>
+    
+    <div align="center" class="post-count">
+    字数：158字 | 预计阅读时长：1分钟
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>引入 SpringCloud-Nacos 启动项目启动类后，出现如下错误<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1615627657531-31972978-5ad1-47cc-9b02-fa897be90b06.png#align=left&display=inline&height=222&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-03-13%2017.27.19.png&originHeight=222&originWidth=1740&size=64087&status=done&style=none&width=1740" alt="截屏2021-03-13 17.27.19.png"><br>原因在于微服务模块中&lt;spring-cloud.version&gt;2020.0.0&lt;/spring-cloud.version&gt;就是这个引起的，新的 cloud 定义方式升级了原来的包，要么更新 springboot 的包到 2.5 以后，要么就把 spring-cloud 的包改回原来伦敦地铁命名方式<br>解决方案：将微服务模块中的 spring-cloud.version 有 2020.0.0 改为如下即可</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">java.version</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">java.version</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">spring-cloud.version</span>&gt;</span>Greenwich.SR3<span class="tag">&lt;/<span class="name">spring-cloud.version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/shuttle33/article/details/112258314">https://blog.csdn.net/shuttle33/article/details/112258314</a></p>
+
+      
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/uncategorized/yuque/%E5%BC%95%E5%85%A5SpringCloud-Nacos%E5%90%8E%E5%87%BA%E7%8E%B0%E5%A6%82%E4%B8%8B%E9%94%99%E8%AF%AF/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+    <article id="post-yuque/Nacos：如何注册服务（上）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/uncategorized/yuque/Nacos%EF%BC%9A%E5%A6%82%E4%BD%95%E6%B3%A8%E5%86%8C%E6%9C%8D%E5%8A%A1%EF%BC%88%E4%B8%8A%EF%BC%89/">Nacos：如何注册服务（上）</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/uncategorized/yuque/Nacos%EF%BC%9A%E5%A6%82%E4%BD%95%E6%B3%A8%E5%86%8C%E6%9C%8D%E5%8A%A1%EF%BC%88%E4%B8%8A%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2021-03-13T08:43:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-13</time>
+</a>
+        
+      </header>
+    
+    <div align="center" class="post-count">
+    字数：1.2k字 | 预计阅读时长：5分钟
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>SpringCloud-Alibaba-Nacos 是阿里出品的一个服务发现与注册的组件，微服务需要调用其他微服务模块的服务或者微服务模块需要被其他模块调用，都需要到 Nacos 注册中心中注册该微服务模块<br><strong>如何微服务模块注册到注册中心，主要是以下几个步骤</strong></p>
+<ol>
+<li>在微服务模块引入 Nacos 的依赖</li>
+<li>启动 Nacos 服务器</li>
+<li>微服务模块设置好注册中心的接口以及该微服务模块需要注册到服务中心的名称</li>
+<li>在启动类加入  @EnableDiscoveryClient  注解表示该服务注册到 Nacos 中</li>
+</ol>
+        
+      
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/uncategorized/yuque/Nacos%EF%BC%9A%E5%A6%82%E4%BD%95%E6%B3%A8%E5%86%8C%E6%9C%8D%E5%8A%A1%EF%BC%88%E4%B8%8A%EF%BC%89/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
   
     <article id="post-yuque/本地navicat如何连接centos虚拟机下docker内mysql容器" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -299,219 +512,9 @@
 
 
   
-    <article id="post-yuque/docker创建mysql后，显示daemon is not running" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/uncategorized/yuque/docker%E5%88%9B%E5%BB%BAmysql%E5%90%8E%EF%BC%8C%E6%98%BE%E7%A4%BAdaemon%20is%20not%20running/">docker创建mysql后，显示daemon is not running</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/uncategorized/yuque/docker%E5%88%9B%E5%BB%BAmysql%E5%90%8E%EF%BC%8C%E6%98%BE%E7%A4%BAdaemon%20is%20not%20running/" class="archive-article-date">
-  	<time datetime="2021-03-10T13:16:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-10</time>
-</a>
-        
-      </header>
-    
-    <div align="center" class="post-count">
-    字数：392字 | 预计阅读时长：1分钟
-</div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>创建 mysql 容器，并通过-v 将 mysql 内的日志、数据卷、配置挂在到容器外 mydata 相应目录下，实现修改容器外 mydata 内容，会同步修改 mysql 容器中内容</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 3306:3306 --name mysql -v /mydata/mysql/<span class="built_in">log</span>:/var/<span class="built_in">log</span>/mysql -v /mydata/mysql/data:/var/lib/mysql -v /mydata/mysql/conf:/etc/mysql -e MYSQL_ROOT_PASSWORD=make1234 -d mysql:latest</span><br></pre></td></tr></table></figure>
-<p>这时候启动 mysql 容器，显示 daemon is not running，那是因为 MYSQL 新特性 secure_file_priv 对读写文件的影响。</p>
-        
-      
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/uncategorized/yuque/docker%E5%88%9B%E5%BB%BAmysql%E5%90%8E%EF%BC%8C%E6%98%BE%E7%A4%BAdaemon%20is%20not%20running/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-yuque/微服务架构图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/uncategorized/yuque/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E5%9B%BE/">微服务架构图</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/uncategorized/yuque/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E5%9B%BE/" class="archive-article-date">
-  	<time datetime="2021-03-02T16:44:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-03</time>
-</a>
-        
-      </header>
-    
-    <div align="center" class="post-count">
-    字数：667字 | 预计阅读时长：2分钟
-</div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1614703508357-a8e8f6d3-99e8-41d9-a344-21d1d22394b2.png#align=left&display=inline&height=617&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1234&originWidth=2099&size=365599&status=done&style=none&width=1049.5" alt="image.png"><br>前端部署在外网内，也就是图中左边部分，后端集群部署在内网，当外网客户端通过发送请求后，首先会通过 Nginx 集群，Nginx 集群会对请求进行分流，发送给相应的 SpringCloud Gateway 网关，网关对用户的请求进行认证授权、负载均衡，通过之后则会发送给后端的业务集群，业务集群之间相互调用采用 Feign，有些业务需要通过认证之后才能进行，所以这里用到了 OAuth2.0 进行权限验证，</p>
-        
-      
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/uncategorized/yuque/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E5%9B%BE/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-yuque/分布式基础概念" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/uncategorized/yuque/%E5%88%86%E5%B8%83%E5%BC%8F%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/">分布式基础概念</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/uncategorized/yuque/%E5%88%86%E5%B8%83%E5%BC%8F%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/" class="archive-article-date">
-  	<time datetime="2021-03-01T06:58:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-01</time>
-</a>
-        
-      </header>
-    
-    <div align="center" class="post-count">
-    字数：1.2k字 | 预计阅读时长：3分钟
-</div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>1.微服务</strong></p>
-<p>拒绝大型单体引用，基于业务边界进行服务微化拆分，各个服务独立部署运行，,每个服务之间相互调用</p>
-<p>例如：订单服务 -》商品服务 -》仓库服务</p>
-<p><strong>2.集群</strong></p>
-<p>例如：京东就是一个分布式系统，众多业务运行在不同的机器上，所有业务构成了一个大型的业务集群。<br>集群是一个物理形态，分布式是一个工作方式<br>分布式的每一个结点，都可以做集群，而集群并不一定就是分布式的<br>结点：集群中一个服务器</p>
-        
-      
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/uncategorized/yuque/%E5%88%86%E5%B8%83%E5%BC%8F%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/5/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/7/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/5/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/">Next &amp;raquo;</a>
     </nav>
   
 
