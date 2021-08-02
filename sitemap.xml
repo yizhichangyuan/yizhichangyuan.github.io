@@ -226,13 +226,6 @@
   </url>
   
   <url>
-    <loc>http://example.com/%E9%9A%8F%E7%AC%94/%E5%A5%A5%E6%96%AF%E6%9B%BC%E5%B8%9D%E5%9B%BD%E7%9A%84%E8%A1%B0%E8%90%BD%E5%8E%9F%E7%94%B1.html</loc>
-    
-    <lastmod>2021-08-02</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://example.com/%E9%9A%8F%E7%AC%94/index.html</loc>
     
     <lastmod>2021-08-02</lastmod>
@@ -240,14 +233,14 @@
   </url>
   
   <url>
-    <loc>http://example.com/2021/SpringCloud/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/</loc>
+    <loc>http://example.com/%E9%9A%8F%E7%AC%94/%E5%A5%A5%E6%96%AF%E6%9B%BC%E5%B8%9D%E5%9B%BD%E7%9A%84%E8%A1%B0%E8%90%BD%E5%8E%9F%E7%94%B1.html</loc>
     
     <lastmod>2021-08-02</lastmod>
     
   </url>
   
   <url>
-    <loc>http://example.com/blog-photo/videos.html</loc>
+    <loc>http://example.com/blog-photo/index.html</loc>
     
     <lastmod>2021-08-02</lastmod>
     
@@ -268,14 +261,21 @@
   </url>
   
   <url>
-    <loc>http://example.com/blog-photo/index.html</loc>
+    <loc>http://example.com/2021/%E4%B8%AD%E4%B8%9C%E6%88%98%E4%BA%89%E5%8F%B2/%E5%A5%A5%E6%96%AF%E6%9B%BC%E5%B8%9D%E5%9B%BD%E7%9A%84%E8%A1%B0%E8%90%BD%E5%8E%9F%E7%94%B1/</loc>
     
     <lastmod>2021-08-02</lastmod>
     
   </url>
   
   <url>
-    <loc>http://example.com/2021/%E4%B8%AD%E4%B8%9C%E6%88%98%E4%BA%89%E5%8F%B2/%E5%A5%A5%E6%96%AF%E6%9B%BC%E5%B8%9D%E5%9B%BD%E7%9A%84%E8%A1%B0%E8%90%BD%E5%8E%9F%E7%94%B1/</loc>
+    <loc>http://example.com/2021/SpringCloud/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5/</loc>
+    
+    <lastmod>2021-08-02</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://example.com/blog-photo/videos.html</loc>
     
     <lastmod>2021-08-02</lastmod>
     
@@ -317,14 +317,14 @@
   </url>
   
   <url>
-    <loc>http://example.com/2021/Spring/Kaptcha%E9%AA%8C%E8%AF%81%E7%A0%81/</loc>
+    <loc>http://example.com/2021/SpringCloud/Nacos%EF%BC%9A%E5%A6%82%E6%9E%9C%E6%B3%A8%E5%86%8C%E6%9C%8D%E5%8A%A1%EF%BC%88%E4%B8%8A%EF%BC%89/</loc>
     
     <lastmod>2021-08-02</lastmod>
     
   </url>
   
   <url>
-    <loc>http://example.com/2021/SpringCloud/Nacos%EF%BC%9A%E5%A6%82%E6%9E%9C%E6%B3%A8%E5%86%8C%E6%9C%8D%E5%8A%A1%EF%BC%88%E4%B8%8A%EF%BC%89/</loc>
+    <loc>http://example.com/2021/Spring/Kaptcha%E9%AA%8C%E8%AF%81%E7%A0%81/</loc>
     
     <lastmod>2021-08-02</lastmod>
     
@@ -396,13 +396,6 @@
   </url>
   
   <url>
-    <loc>http://example.com/tags/Mybatis/</loc>
-    <lastmod>2021-08-02</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://example.com/tags/%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2021-08-02</lastmod>
     <changefreq>daily</changefreq>
@@ -432,6 +425,13 @@
   
   <url>
     <loc>http://example.com/tags/%E6%95%B0%E6%8D%AE%E6%A0%A1%E9%AA%8C/</loc>
+    <lastmod>2021-08-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://example.com/tags/Mybatis/</loc>
     <lastmod>2021-08-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
