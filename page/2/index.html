@@ -66,7 +66,7 @@
 			</ul>
 		</nav>
 		<nav>
-			<p>总文章数：46</p>
+			<p>总文章数：47</p>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -157,6 +157,75 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-yuque/秒杀" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/uncategorized/yuque/%E7%A7%92%E6%9D%80/">秒杀</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/uncategorized/yuque/%E7%A7%92%E6%9D%80/" class="archive-article-date">
+  	<time datetime="2021-07-02T11:57:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-02</time>
+</a>
+        
+      </header>
+    
+    <div align="center" class="post-count">
+    字数：2.6k字 | 预计阅读时长：10分钟
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1、秒杀业务"><a href="#1、秒杀业务" class="headerlink" title="1、秒杀业务"></a>1、秒杀业务</h3><p>秒杀具有瞬间高并发的特点，针对这一特点，必须要做到限流 + 异步 + 缓存（页面静态化）+ 独立部署</p>
+<p>秒杀业务最好要求独立部署，是一个独立模块，不和其他服务模块混写在一起，这样大并发进来，也不至于将其他服务模块挤占下线。<br>缓存需要使用 Redis（时机就是后台将商品上架时放入 Redis 中）否则所有请求打在 db 上，会让数据库崩溃<br>秒杀商品的库存信息也应该放进库存里，从而可以商品购买可以更新库存</p>
+        
+      
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/uncategorized/yuque/%E7%A7%92%E6%9D%80/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
   
     <article id="post-yuque/接口幂等性" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -405,106 +474,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/uncategorized/yuque/JUC%E5%BC%82%E6%AD%A5%E7%BC%96%E6%8E%92%E2%80%94%E2%80%94CompletableFuture/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-yuque/redis缓存数据一致性问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/redis/yuque/redis%E7%BC%93%E5%AD%98%E6%95%B0%E6%8D%AE%E4%B8%80%E8%87%B4%E6%80%A7%E9%97%AE%E9%A2%98/">redis缓存数据一致性问题</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/redis/yuque/redis%E7%BC%93%E5%AD%98%E6%95%B0%E6%8D%AE%E4%B8%80%E8%87%B4%E6%80%A7%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2021-04-25T14:38:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-25</time>
-</a>
-        
-      </header>
-    
-    <div align="center" class="post-count">
-    字数：1.2k字 | 预计阅读时长：4分钟
-</div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>redis 缓存数据一致性问题就是指 redis 中缓存的数据与数据库中对应的数据不一致<br>通常解决这种 redis 不一致问题有两种解决方式：</p>
-<ul>
-<li>双写模式</li>
-<li>失效模式</li>
-</ul>
-        
-      
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-<div class="article-tag tagcloud">
-	<i class="icon-price-tags icon"></i>
-	<ul class="article-tag-list">
-		
-		
-		<li class="article-tag-list-item">
-			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">
-				缓存一致性</a>
-		</li>
-		
-		
-	</ul>
-</div>
-
-      
-<div class="article-category tagcloud">
-	<i class="icon-book icon"></i>
-	<ul class="article-tag-list">
-		
-		
-		<li class="article-tag-list-item">
-			<a href="/categories/redis//" class="article-tag-list-link color1">
-				redis</a>
-		</li>
-		
-		
-	</ul>
-</div>
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/redis/yuque/redis%E7%BC%93%E5%AD%98%E6%95%B0%E6%8D%AE%E4%B8%80%E8%87%B4%E6%80%A7%E9%97%AE%E9%A2%98/">展开全文 >></a>
         </p>
       
 

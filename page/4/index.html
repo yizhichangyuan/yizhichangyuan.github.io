@@ -66,7 +66,7 @@
 			</ul>
 		</nav>
 		<nav>
-			<p>总文章数：46</p>
+			<p>总文章数：47</p>
 		</nav>
 		<nav class="header-smart-menu">
     		
@@ -157,6 +157,110 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-yuque/统一异常处理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/Spring/yuque/%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/">统一异常处理</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2021/Spring/yuque/%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" class="archive-article-date">
+  	<time datetime="2021-04-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-05</time>
+</a>
+        
+      </header>
+    
+    <div align="center" class="post-count">
+    字数：1.7k字 | 预计阅读时长：7分钟
+</div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前面我们后端数据校验每个 controller 校验的 bean 的属性上添加上校验注解，然后在 controller 入参上加上@Valid 注解，然后通过紧跟着的 BindingResult 来进行获取校验的结果，如果错误则返回给前端，否则正常入库。这样有一个弊端就是每个 controller 都需要进行一套将错误信息封装到 Request 中的过程，这是十分重复的。我们可以利用 Advice 来解决。</p>
+<ul>
+<li>那么我们如果获取数据校验错误的信息呢？</li>
+</ul>
+<p>如果我们不添加 BindResult 来绑定抛出的结果的话，controller 则会把异常抛出，我们可以通过抛出的特定异常**@ExceptionHandler**来捕捉</p>
+<ul>
+<li>如何获取 Controller 层发出的异常</li>
+</ul>
+<p>通过注解**@ControllerAdvice<strong>或</strong>@RestControllerAdvice**注解</p>
+        
+      
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+<div class="article-tag tagcloud">
+	<i class="icon-price-tags icon"></i>
+	<ul class="article-tag-list">
+		
+		
+		<li class="article-tag-list-item">
+			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">
+				数据校验</a>
+		</li>
+		
+		
+	</ul>
+</div>
+
+      
+<div class="article-category tagcloud">
+	<i class="icon-book icon"></i>
+	<ul class="article-tag-list">
+		
+		
+		<li class="article-tag-list-item">
+			<a href="/categories/Spring//" class="article-tag-list-link color2">
+				Spring</a>
+		</li>
+		
+		
+	</ul>
+</div>
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/Spring/yuque/%E7%BB%9F%E4%B8%80%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
   
     <article id="post-yuque/自定义数据校验注解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -473,74 +577,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/uncategorized/yuque/WebMvcConfigurer/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-    <article id="post-yuque/项目部署查看日志信息" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2021/uncategorized/yuque/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E6%9F%A5%E7%9C%8B%E6%97%A5%E5%BF%97%E4%BF%A1%E6%81%AF/">项目部署查看日志信息</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2021/uncategorized/yuque/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E6%9F%A5%E7%9C%8B%E6%97%A5%E5%BF%97%E4%BF%A1%E6%81%AF/" class="archive-article-date">
-  	<time datetime="2021-03-28T16:08:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-29</time>
-</a>
-        
-      </header>
-    
-    <div align="center" class="post-count">
-    字数：484字 | 预计阅读时长：2分钟
-</div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在 o2o 项目部署到远程服务器时，发现出现报错，这时候如何及时发现错误呢？登陆远程服务器，查看 tomcat 的日志信息<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1612840638265-6dda7d31-b29f-4540-b2fc-e90dbfd298b7.png#align=left&display=inline&height=274&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-02-09%2011.17.13.png&originHeight=274&originWidth=1648&size=85164&status=done&style=none&width=1648" alt="截屏2021-02-09 11.17.13.png"></p>
-        
-      
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/uncategorized/yuque/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E6%9F%A5%E7%9C%8B%E6%97%A5%E5%BF%97%E4%BF%A1%E6%81%AF/">展开全文 >></a>
         </p>
       
 
