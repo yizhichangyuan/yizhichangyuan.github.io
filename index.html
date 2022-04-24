@@ -403,17 +403,13 @@
       </header>
     
     <div align="center" class="post-count">
-    字数：225字 | 预计阅读时长：1分钟
+    字数：283字 | 预计阅读时长：1分钟
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="解决一：对于自己写的两个同类型的-Bean"><a href="#解决一：对于自己写的两个同类型的-Bean" class="headerlink" title="解决一：对于自己写的两个同类型的 Bean"></a>解决一：对于自己写的两个同类型的 Bean</h4><p>可以使用@Primary 来标注其中一个 Bean 为主要的</p>
-<h4 id="解决二：对于依赖中可能存在两个同类型的-Bean"><a href="#解决二：对于依赖中可能存在两个同类型的-Bean" class="headerlink" title="解决二：对于依赖中可能存在两个同类型的 Bean"></a>解决二：对于依赖中可能存在两个同类型的 Bean</h4><p>例如引入 Sentinel 对 Feign 远程调用失败进行熔断返回默认数据，同时又想利用 Sleuth 对服务之间调用链进行追踪方便确认异常所在</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Field seckillFeignService <span class="keyword">in</span> com.lookstarry.doermail.product.service.impl.SkuInfoServiceImpl required a single bean, but 2 were found:</span><br><span class="line">	- feignSentinelBuilder: defined by method <span class="string">&#x27;feignSentinelBuilder&#x27;</span> <span class="keyword">in</span> class path resource [com/alibaba/cloud/sentinel/feign/SentinelFeignAutoConfiguration.class]</span><br><span class="line">	- feignHystrixBuilder: defined by method <span class="string">&#x27;feignHystrixBuilder&#x27;</span> <span class="keyword">in</span> class path resource [org/springframework/cloud/sleuth/instrument/web/client/feign/TraceFeignClientAutoConfiguration.class]</span><br></pre></td></tr></table></figure>
-<p>可以发现这两个 Bean 都是继承于 Builder 类，所以造成了同类型冲突<br>在项目启动类排除其中某个配置类，这里排除 SentinelFeignAutoConfiguration 配置类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication(exclude = SentinelFeignAutoConfiguration.class)</span></span><br></pre></td></tr></table></figure>
-<p>对于 Feign 熔断方法仍然可以适用<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1625626678283-61fc3785-ecd7-4131-bea7-8fc31d9f9e94.png#align=left&display=inline&height=56&margin=%5Bobject%20Object%5D&name=image.png&originHeight=112&originWidth=982&size=30458&status=done&style=none&width=491" alt="image.png"></p>
-
+        <p>本文主要介绍容器中同时存在两个同类型的 Bena 解决方法</p>
+<h4 id="解决一：对于自己写的两个同类型的-Bean"><a href="#解决一：对于自己写的两个同类型的-Bean" class="headerlink" title="解决一：对于自己写的两个同类型的 Bean"></a>解决一：对于自己写的两个同类型的 Bean</h4><p>可以使用@Primary 来标注其中一个 Bean 为主要的</p>
+        
       
       
 
