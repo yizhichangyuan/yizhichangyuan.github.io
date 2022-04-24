@@ -9,15 +9,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>ThreadPoolExecutor | 一止长渊的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1、七个参数五种状态四个饱和策略（参数选择、饱和策略选择）构造函数七个参数：  corePoolSize：最小可同时运行的线程数量 maximumPoolSize：最大可同时运行的线程数量（当队列中存放的任务达到了队列容量时，当前可以同时运行的线程数量变为最大线程数） keepAliveTime：当线程池的数量超过 corePoolSize 时，这时候如果没有任务提交，corePoolSize 以">
+  <meta name="description" content="本文中围绕着 ThreadPoolExecutor 将进行相关源码解析  入参参数解析 execute 方法 Worker 类 addWorker 创建新线程 runWorker 方法 getTask 方法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ThreadPoolExecutor">
 <meta property="og:url" content="http://example.com/2021/uncategorized/yuque/ThreadPoolExecutor/index.html">
 <meta property="og:site_name" content="一止长渊的博客">
-<meta property="og:description" content="1、七个参数五种状态四个饱和策略（参数选择、饱和策略选择）构造函数七个参数：  corePoolSize：最小可同时运行的线程数量 maximumPoolSize：最大可同时运行的线程数量（当队列中存放的任务达到了队列容量时，当前可以同时运行的线程数量变为最大线程数） keepAliveTime：当线程池的数量超过 corePoolSize 时，这时候如果没有任务提交，corePoolSize 以">
+<meta property="og:description" content="本文中围绕着 ThreadPoolExecutor 将进行相关源码解析  入参参数解析 execute 方法 Worker 类 addWorker 创建新线程 runWorker 方法 getTask 方法">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-08-04T04:23:34.000Z">
-<meta property="article:modified_time" content="2021-08-25T12:25:59.271Z">
+<meta property="article:modified_time" content="2022-04-24T15:59:46.400Z">
 <meta property="article:author" content="一止长渊">
 <meta property="article:tag" content="JAVA 后端 Spring">
 <meta name="twitter:card" content="summary">
@@ -188,11 +188,22 @@
       </header>
     
     <div align="center" class="post-count">
-    字数：4.8k字 | 预计阅读时长：19分钟
+    字数：4.8k字 | 预计阅读时长：20分钟
 </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1、七个参数五种状态四个饱和策略（参数选择、饱和策略选择）"><a href="#1、七个参数五种状态四个饱和策略（参数选择、饱和策略选择）" class="headerlink" title="1、七个参数五种状态四个饱和策略（参数选择、饱和策略选择）"></a>1、七个参数五种状态四个饱和策略（参数选择、饱和策略选择）</h3><p><strong>构造函数七个参数</strong>：</p>
+        <p>本文中围绕着 ThreadPoolExecutor 将进行相关源码解析</p>
+<ul>
+<li>入参参数解析</li>
+<li>execute 方法</li>
+<li>Worker 类</li>
+<li>addWorker 创建新线程</li>
+<li>runWorker 方法</li>
+<li>getTask 方法</li>
+</ul>
+<a id="more"></a>
+
+<h3 id="1、七个参数五种状态四个饱和策略（参数选择、饱和策略选择）"><a href="#1、七个参数五种状态四个饱和策略（参数选择、饱和策略选择）" class="headerlink" title="1、七个参数五种状态四个饱和策略（参数选择、饱和策略选择）"></a>1、七个参数五种状态四个饱和策略（参数选择、饱和策略选择）</h3><p><strong>构造函数七个参数</strong>：</p>
 <ul>
 <li>corePoolSize：最小可同时运行的线程数量</li>
 <li>maximumPoolSize：最大可同时运行的线程数量（当队列中存放的任务达到了队列容量时，当前可以同时运行的线程数量变为最大线程数）</li>
@@ -205,7 +216,7 @@
 <li>ThreadFactory：线程工程</li>
 <li>handler：饱和策略（在同时运行的线程数量达到了 maximumPoolSize 并且队列达到最大容量，此时再进入的线程就会执行饱和策略）</li>
 </ul>
-<p><strong>corePoolSize 参数怎么设置：<br>**<br>优先按照</strong>机器性能<strong>corePoolSize 需要查看</strong>任务类型<strong>是 CPU 密集型还是 IO 密集型以及</strong>CPU 核心数<strong>然后再来看</strong>实际任务是多少<strong>，如果太大了的话，就要考虑</strong>集群了**</p>
+<p><strong>corePoolSize<br>优先按照</strong>机器性能<strong>corePoolSize 需要查看</strong>任务类型<strong>是 CPU 密集型还是 IO 密集型以及</strong>CPU 核心数<strong>然后再来看</strong>实际任务是多少<strong>，如果太大了的话，就要考虑</strong>集群了**</p>
 <ul>
 <li>CPU 密集型：CPU 核心数 + 1</li>
 <li>IO 密集型：CPU 核心数 * 2</li>
@@ -267,7 +278,6 @@
 </ul>
 </li>
 </ul>
-<p>**</p>
 <h3 id="3、Worker-类"><a href="#3、Worker-类" class="headerlink" title="3、Worker 类"></a>3、Worker 类</h3><p>Worker 类是继承了 AQS 的，目的是 Worker 对象封装的线程在运行期间处理任务时上锁，防止被其他操作中断 interpret，ThreadPoolExecutor 其他方法需要终端 Worker 时，需要首先获得 Worker 中 AQS 的锁；interruptIdleWorkers 在进行中断时会使用 tryLock 来判断该工作线程是否正在处理任务，如果 tryLock 返回 true，说明该工作线程当前未执行任务，这时才可以被中断。是要中断工作线程，还要判断工作线程是否是空闲的，如果工作线程正在处理任务，就不应该发生中断；</p>
 <p>所以面试回答如何 ThreadPollExecutor 如何判断一个线程当前是空闲状态还是处理任务，只需要通过该 Worker 查看是否上锁了即可，如果上锁了说明在处理任务，任务处理完毕才会释放该锁，在处理任务期间由于加上了锁，其他人是无法中断的，中断前需要获得该锁</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">shutdown</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 获取主锁，保证shutDown期间其他方法无法对线程进行操作，防止别人在SHUTDOWN期间，又创建了新的线程</span></span><br><span class="line">    <span class="keyword">final</span> ReentrantLock mainLock = <span class="keyword">this</span>.mainLock;</span><br><span class="line">    mainLock.lock();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">// 检查是否可以中断</span></span><br><span class="line">        checkShutdownAccess();</span><br><span class="line">        advanceRunState(SHUTDOWN);</span><br><span class="line">        <span class="comment">// 停止所有空闲的线程，怎么判断一个线程是否空闲？查看这个Worker是否上锁即可，没有上锁就是空闲中断该线程</span></span><br><span class="line">        interruptIdleWorkers();</span><br><span class="line">        onShutdown(); <span class="comment">// hook for ScheduledThreadPoolExecutor</span></span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        mainLock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">    tryTerminate();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">interruptIdleWorkers</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    interruptIdleWorkers(<span class="keyword">false</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">interruptIdleWorkers</span><span class="params">(<span class="keyword">boolean</span> onlyOne)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> ReentrantLock mainLock = <span class="keyword">this</span>.mainLock;</span><br><span class="line">    mainLock.lock();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="comment">// 对workers集合每个worker进行遍历，发现没上锁就表明空闲，中断该Worker线程</span></span><br><span class="line">        <span class="keyword">for</span> (Worker w : workers) &#123;</span><br><span class="line">            Thread t = w.thread;</span><br><span class="line">            <span class="comment">// 只能中断空闲的线程，如何判断一个线程是在处理任务还是在空闲状态呢？</span></span><br><span class="line">            <span class="comment">// 只需要上没上锁，tryLock就是尝试上锁，上锁成功说明可以中断，中断完后再释放该锁方便下次唤醒该线程</span></span><br><span class="line">            <span class="keyword">if</span> (!t.isInterrupted() &amp;&amp; w.tryLock()) &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    t.interrupt();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (SecurityException ignore) &#123;</span><br><span class="line">                &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">                    w.unlock();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (onlyOne)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        mainLock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -472,7 +482,7 @@ gitalk.render('gitalk-container')
       
       </div>
     	<div class="footer-center">
-    		&copy; 2021 一止长渊
+    		&copy; 2022 一止长渊
             <a href="http://hexo.io/" target="_blank"> Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
     	</div>
     </div>
