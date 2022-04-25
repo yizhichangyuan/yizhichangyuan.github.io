@@ -225,7 +225,7 @@
             <section class="inner">
                 <section class="inner-main">
                     <div class="post">
-    <article id="post-cl2ekodx4002xbhlwfhbn9ppu" class="article article-type-post" itemscope
+    <article id="post-cl2eksaij002xe3op5v7q85yg" class="article article-type-post" itemscope
     itemprop="blogPost">
 
     <div class="article-inner">
@@ -265,7 +265,7 @@
             
                 
             <div class="article-busuanzi">
-                <span>字数：4.8k字 | 预计阅读时长：20分钟</span>
+                <span>字数：4.8k字 | 预计阅读时长：19分钟</span>
             </div>
         </div>
 
@@ -287,9 +287,9 @@
 <li>maximumPoolSize：最大可同时运行的线程数量（当队列中存放的任务达到了队列容量时，当前可以同时运行的线程数量变为最大线程数）</li>
 <li>keepAliveTime：当线程池的数量超过 corePoolSize 时，这时候如果没有任务提交，corePoolSize 以外空闲的线程经过 keepAliveTime 后会被回收销毁</li>
 <li>unit：keepAliveTime 单位</li>
-<li>BlockingQueue <strong>任务队列</strong>：当线程池中同时运行的线程数量超过 corePoolSize，新进入的任务会加入到任务队列中</li>
+<li>BlockingQueue <strong>任务队列</strong>：当线程池中同时运行的线程数量超过 corePoolSize，新进入的任务会加入到任务队列</li>
 </ul>
-<p>（BlockingQueue 叫做阻塞队列的特殊含义就是：当阻塞队列中没有任务，调用 get 方法来获取队列中元素就会陷入阻塞，直到队列不为空）</p>
+<p>BlockingQueue 叫做阻塞队列的特殊含义就是：当阻塞队列中没有任务，调用 get 方法来获取队列中元素就会陷入阻塞，直到队列不为空</p>
 <ul>
 <li>ThreadFactory：线程工程</li>
 <li>handler：饱和策略（在同时运行的线程数量达到了 maximumPoolSize 并且队列达到最大容量，此时再进入的线程就会执行饱和策略）</li>
