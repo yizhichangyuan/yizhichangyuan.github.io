@@ -19,7 +19,7 @@
     <meta property="og:title" content= "秒杀 | 一止长渊的博客"  />
     <meta property="og:description" content= "&lt;h3 id=&#34;1、秒杀业务&#34;&gt;&lt;a href=&#34;#1、秒杀业务&#34; class=&#34;headerlink&#34; title=&#34;1、秒杀业务&#34;&gt;&lt;/a&gt;1、秒杀业务&lt;/h3&gt;&lt;p&gt;秒杀具有瞬间高并发的特点，针对这一特点，必须要做到限流 + 异步 + 缓存（页面静态化）+ 独立部署&lt;/p&gt;
 &lt;p&gt;秒杀业务最好要求独立部署，是一个独立模块，不和其他服务模块混写在一起，这样大并发进来，也不至于将其他服务模块挤占下线。&lt;br&gt;缓存需要使用 Redis（时机就是后台将商品上架时放入 Redis 中）否则所有请求打在 db 上，会让数据库崩溃&lt;br&gt;秒杀商品的库存信息也应该放进库存里，从而可以商品购买可以更新库存&lt;/p&gt;" />
-    <meta property="og:url" content="http://example.com/2021/uncategorized/yuque/%E7%A7%92%E6%9D%80/index.html" />
+    <meta property="og:url" content="https://yizhichangyuan.github.io/2021/uncategorized/yuque/%E7%A7%92%E6%9D%80/index.html" />
     <meta property="og:site_name" content="" />
     <meta property="article:author" content="一止长渊" />
     <meta property="article:publisher" content="" />
@@ -34,12 +34,12 @@
 &lt;p&gt;秒杀业务最好要求独立部署，是一个独立模块，不和其他服务模块混写在一起，这样大并发进来，也不至于将其他服务模块挤占下线。&lt;br&gt;缓存需要使用 Redis（时机就是后台将商品上架时放入 Redis 中）否则所有请求打在 db 上，会让数据库崩溃&lt;br&gt;秒杀商品的库存信息也应该放进库存里，从而可以商品购买可以更新库存&lt;/p&gt;",
             "author": { "@type": "Person", "name": "一止长渊" },
             "@type": "BlogPosting",
-            "url": "http://example.com/2021/uncategorized/yuque/%E7%A7%92%E6%9D%80/index.html",
+            "url": "https://yizhichangyuan.github.io/2021/uncategorized/yuque/%E7%A7%92%E6%9D%80/index.html",
             "publisher": {
             "@type": "Organization",
             "logo": {
                 "@type": "ImageObject",
-                "url": "http://example.com/images/self-photo.jpeg"
+                "url": "https://yizhichangyuan.github.io/images/self-photo.jpeg"
             },
             "name": "一止长渊"
             },
@@ -47,7 +47,7 @@
             "datePublished": "2021-07-02T11:57:05.000Z",
             "mainEntityOfPage": {
                 "@type": "WebPage",
-                "@id": "http://example.com/2021/uncategorized/yuque/%E7%A7%92%E6%9D%80/index.html"
+                "@id": "https://yizhichangyuan.github.io/2021/uncategorized/yuque/%E7%A7%92%E6%9D%80/index.html"
             },
             "@context": "http://schema.org"
         }
@@ -190,7 +190,7 @@
             <section class="inner">
                 <section class="inner-main">
                     <div class="post">
-    <article id="post-cl2ejptle002bdjod6pp3bsyp" class="article article-type-post" itemscope
+    <article id="post-cl2ejxn2c002bd2oc72nb3ac3" class="article article-type-post" itemscope
     itemprop="blogPost">
 
     <div class="article-inner">
@@ -451,15 +451,15 @@ public class SecKillSkuScheduled &#123;
     <section class="share">
         <div class="share-title">分享</div>
         <a class="share-item" target="_blank"
-            href="https://twitter.com/share?text=秒杀 - 一止长渊的博客&url=http://example.com/2021/uncategorized/yuque/%E7%A7%92%E6%9D%80/">
+            href="https://twitter.com/share?text=秒杀 - 一止长渊的博客&url=https://yizhichangyuan.github.io/2021/uncategorized/yuque/%E7%A7%92%E6%9D%80/">
             <box-icon type='logo' name='twitter'></box-icon>
         </a>
         <a class="share-item" target="_blank"
-            href="https://www.facebook.com/sharer.php?title=秒杀 - 一止长渊的博客&u=http://example.com/2021/uncategorized/yuque/%E7%A7%92%E6%9D%80/">
+            href="https://www.facebook.com/sharer.php?title=秒杀 - 一止长渊的博客&u=https://yizhichangyuan.github.io/2021/uncategorized/yuque/%E7%A7%92%E6%9D%80/">
             <box-icon name='facebook-square' type='logo' ></box-icon>
         </a>
         <!-- <a class="share-item" target="_blank"
-            href="https://service.weibo.com/share/share.php?title=秒杀 - 一止长渊的博客&url=http://example.com/2021/uncategorized/yuque/%E7%A7%92%E6%9D%80/&pic=">
+            href="https://service.weibo.com/share/share.php?title=秒杀 - 一止长渊的博客&url=https://yizhichangyuan.github.io/2021/uncategorized/yuque/%E7%A7%92%E6%9D%80/&pic=">
             <div class="n-icon n-icon-weibo"></div>
         </a> -->
     </section>

@@ -23,7 +23,7 @@
 &lt;h3 id=&#34;一、应用场景&#34;&gt;&lt;a href=&#34;#一、应用场景&#34; class=&#34;headerlink&#34; title=&#34;一、应用场景&#34;&gt;&lt;/a&gt;一、应用场景&lt;/h3&gt;&lt;p&gt;异步、削峰、解耦&lt;/p&gt;
 &lt;h4 id=&#34;1-异步&#34;&gt;&lt;a href=&#34;#1-异步&#34; class=&#34;headerlink&#34; title=&#34;1.异步&#34;&gt;&lt;/a&gt;1.异步&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.nlark.com/yuque/0/2021/png/2648023/1621338379093-fd517de9-ba79-42d8-9033-e7f33b406df1.png#align=left&amp;display=inline&amp;height=421&amp;margin=%5Bobject%20Object%5D&amp;name=%E6%88%AA%E5%B1%8F2021-05-18%2019.45.28.png&amp;originHeight=1066&amp;originWidth=1772&amp;size=603370&amp;status=done&amp;style=none&amp;width=700&#34; alt=&#34;截屏2021-05-18 19.45.28.png&#34;&gt;&lt;br&gt;&lt;strong&gt;例如用户注册为例&lt;/strong&gt;&lt;br&gt;图 1：需要将用户信息写入到数据库中，然后发送注册邮件和注册短信，如果按照图 1 的方式顺序进行就会响应达到 150ms；&lt;br&gt;图 2：如果使用 CompletableFuture 进行异步编排，将发送注册邮件和发送注册信息进行并行处理，等待两者都完成就进行返回，则响应可以缩减到 100ms&lt;br&gt;图 3：其实我们并不关心发送注册邮件和短信是否成功，即使有时候是不成功的状态也是可以理解的，只要用户重复几次就行。只要将注册信息写入数据库，然后将消息写入到消息队列中，就立即返回，延迟就只需要 55ms，发送注册邮件和发送注册短信会由其他微服务从消息队列中取出消息进行处理，这样就可以将延迟进行进一步缩短。&lt;/p&gt;
 &lt;h4 id=&#34;2-解耦&#34;&gt;&lt;a href=&#34;#2-解耦&#34; class=&#34;headerlink&#34; title=&#34;2.解耦&#34;&gt;&lt;/a&gt;2.解耦&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.nlark.com/yuque/0/2021/png/2648023/1621339118945-ef11d72e-bd9e-4778-831e-ab2af9656f81.png#align=left&amp;display=inline&amp;height=550&amp;margin=%5Bobject%20Object%5D&amp;name=%E6%88%AA%E5%B1%8F2021-05-18%2019.58.18.png&amp;originHeight=888&amp;originWidth=808&amp;size=261107&amp;status=done&amp;style=none&amp;width=500&#34; alt=&#34;截屏2021-05-18 19.58.18.png&#34;&gt;&lt;br&gt;当服务之间进行相互调用时，例如订单服务下单时需要调用库存服务进行出库操作，但是库存系统经常进行升级，导致接口参数经常发生变化，如果是使用 Feign 进行调用，当库存系统进行升级了，订单系统中的 Feign 接口就会发生变动。如果使用消息队列就可以进行解耦，当订单系统下订单后向消息队列中写入消息：某某下了一个订单，购置商品 xxx 几件，然后库存系统从消息队列中取出消息即可，这样就进行了解耦。&lt;/p&gt;" />
-    <meta property="og:url" content="http://example.com/2021/uncategorized/yuque/Message%20Queue%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E2%80%94%E2%80%94RabbitMQ/index.html" />
+    <meta property="og:url" content="https://yizhichangyuan.github.io/2021/uncategorized/yuque/Message%20Queue%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E2%80%94%E2%80%94RabbitMQ/index.html" />
     <meta property="og:site_name" content="" />
     <meta property="article:author" content="一止长渊" />
     <meta property="article:publisher" content="" />
@@ -44,12 +44,12 @@
 &lt;h4 id=&#34;2-解耦&#34;&gt;&lt;a href=&#34;#2-解耦&#34; class=&#34;headerlink&#34; title=&#34;2.解耦&#34;&gt;&lt;/a&gt;2.解耦&lt;/h4&gt;&lt;p&gt;&lt;img src=&#34;https://cdn.nlark.com/yuque/0/2021/png/2648023/1621339118945-ef11d72e-bd9e-4778-831e-ab2af9656f81.png#align=left&amp;display=inline&amp;height=550&amp;margin=%5Bobject%20Object%5D&amp;name=%E6%88%AA%E5%B1%8F2021-05-18%2019.58.18.png&amp;originHeight=888&amp;originWidth=808&amp;size=261107&amp;status=done&amp;style=none&amp;width=500&#34; alt=&#34;截屏2021-05-18 19.58.18.png&#34;&gt;&lt;br&gt;当服务之间进行相互调用时，例如订单服务下单时需要调用库存服务进行出库操作，但是库存系统经常进行升级，导致接口参数经常发生变化，如果是使用 Feign 进行调用，当库存系统进行升级了，订单系统中的 Feign 接口就会发生变动。如果使用消息队列就可以进行解耦，当订单系统下订单后向消息队列中写入消息：某某下了一个订单，购置商品 xxx 几件，然后库存系统从消息队列中取出消息即可，这样就进行了解耦。&lt;/p&gt;",
             "author": { "@type": "Person", "name": "一止长渊" },
             "@type": "BlogPosting",
-            "url": "http://example.com/2021/uncategorized/yuque/Message%20Queue%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E2%80%94%E2%80%94RabbitMQ/index.html",
+            "url": "https://yizhichangyuan.github.io/2021/uncategorized/yuque/Message%20Queue%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E2%80%94%E2%80%94RabbitMQ/index.html",
             "publisher": {
             "@type": "Organization",
             "logo": {
                 "@type": "ImageObject",
-                "url": "http://example.com/images/self-photo.jpeg"
+                "url": "https://yizhichangyuan.github.io/images/self-photo.jpeg"
             },
             "name": "一止长渊"
             },
@@ -57,7 +57,7 @@
             "datePublished": "2021-05-18T11:29:27.000Z",
             "mainEntityOfPage": {
                 "@type": "WebPage",
-                "@id": "http://example.com/2021/uncategorized/yuque/Message%20Queue%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E2%80%94%E2%80%94RabbitMQ/index.html"
+                "@id": "https://yizhichangyuan.github.io/2021/uncategorized/yuque/Message%20Queue%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E2%80%94%E2%80%94RabbitMQ/index.html"
             },
             "@context": "http://schema.org"
         }
@@ -200,7 +200,7 @@
             <section class="inner">
                 <section class="inner-main">
                     <div class="post">
-    <article id="post-cl2ejptlr002vdjod98ga1n3i" class="article article-type-post" itemscope
+    <article id="post-cl2ejxn2o002ud2ocg4nn6syt" class="article article-type-post" itemscope
     itemprop="blogPost">
 
     <div class="article-inner">
@@ -615,15 +615,15 @@ System.out.println(&quot;Fail Message[&quot; + message + &quot;]==&gt;relayCode[
     <section class="share">
         <div class="share-title">分享</div>
         <a class="share-item" target="_blank"
-            href="https://twitter.com/share?text=Message Queue消息队列——RabbitMQ - 一止长渊的博客&url=http://example.com/2021/uncategorized/yuque/Message%20Queue%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E2%80%94%E2%80%94RabbitMQ/">
+            href="https://twitter.com/share?text=Message Queue消息队列——RabbitMQ - 一止长渊的博客&url=https://yizhichangyuan.github.io/2021/uncategorized/yuque/Message%20Queue%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E2%80%94%E2%80%94RabbitMQ/">
             <box-icon type='logo' name='twitter'></box-icon>
         </a>
         <a class="share-item" target="_blank"
-            href="https://www.facebook.com/sharer.php?title=Message Queue消息队列——RabbitMQ - 一止长渊的博客&u=http://example.com/2021/uncategorized/yuque/Message%20Queue%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E2%80%94%E2%80%94RabbitMQ/">
+            href="https://www.facebook.com/sharer.php?title=Message Queue消息队列——RabbitMQ - 一止长渊的博客&u=https://yizhichangyuan.github.io/2021/uncategorized/yuque/Message%20Queue%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E2%80%94%E2%80%94RabbitMQ/">
             <box-icon name='facebook-square' type='logo' ></box-icon>
         </a>
         <!-- <a class="share-item" target="_blank"
-            href="https://service.weibo.com/share/share.php?title=Message Queue消息队列——RabbitMQ - 一止长渊的博客&url=http://example.com/2021/uncategorized/yuque/Message%20Queue%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E2%80%94%E2%80%94RabbitMQ/&pic=">
+            href="https://service.weibo.com/share/share.php?title=Message Queue消息队列——RabbitMQ - 一止长渊的博客&url=https://yizhichangyuan.github.io/2021/uncategorized/yuque/Message%20Queue%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%E2%80%94%E2%80%94RabbitMQ/&pic=">
             <div class="n-icon n-icon-weibo"></div>
         </a> -->
     </section>
