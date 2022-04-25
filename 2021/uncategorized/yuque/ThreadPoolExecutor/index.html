@@ -225,7 +225,7 @@
             <section class="inner">
                 <section class="inner-main">
                     <div class="post">
-    <article id="post-cl2eksaij002xe3op5v7q85yg" class="article article-type-post" itemscope
+    <article id="post-cl2ektme1002xd9orfhunejfs" class="article article-type-post" itemscope
     itemprop="blogPost">
 
     <div class="article-inner">
@@ -265,7 +265,7 @@
             
                 
             <div class="article-busuanzi">
-                <span>字数：4.8k字 | 预计阅读时长：19分钟</span>
+                <span>字数：4.8k字 | 预计阅读时长：20分钟</span>
             </div>
         </div>
 
@@ -281,8 +281,7 @@
 </ul>
 <a id="more"></a>
 
-<h3 id="1、七个参数五种状态四个饱和策略（参数选择、饱和策略选择）"><a href="#1、七个参数五种状态四个饱和策略（参数选择、饱和策略选择）" class="headerlink" title="1、七个参数五种状态四个饱和策略（参数选择、饱和策略选择）"></a>1、七个参数五种状态四个饱和策略（参数选择、饱和策略选择）</h3><p><strong>构造函数七个参数</strong>：</p>
-<ul>
+<h3 id="1、七个参数五种状态四个饱和策略（参数选择、饱和策略选择）"><a href="#1、七个参数五种状态四个饱和策略（参数选择、饱和策略选择）" class="headerlink" title="1、七个参数五种状态四个饱和策略（参数选择、饱和策略选择）"></a>1、七个参数五种状态四个饱和策略（参数选择、饱和策略选择）</h3><h4 id="构造函数七个参数："><a href="#构造函数七个参数：" class="headerlink" title="构造函数七个参数："></a>构造函数七个参数：</h4><ul>
 <li>corePoolSize：最小可同时运行的线程数量</li>
 <li>maximumPoolSize：最大可同时运行的线程数量（当队列中存放的任务达到了队列容量时，当前可以同时运行的线程数量变为最大线程数）</li>
 <li>keepAliveTime：当线程池的数量超过 corePoolSize 时，这时候如果没有任务提交，corePoolSize 以外空闲的线程经过 keepAliveTime 后会被回收销毁</li>
@@ -294,22 +293,20 @@
 <li>ThreadFactory：线程工程</li>
 <li>handler：饱和策略（在同时运行的线程数量达到了 maximumPoolSize 并且队列达到最大容量，此时再进入的线程就会执行饱和策略）</li>
 </ul>
-<p><strong>corePoolSize<br>优先按照</strong>机器性能<strong>corePoolSize 需要查看</strong>任务类型<strong>是 CPU 密集型还是 IO 密集型以及</strong>CPU 核心数<strong>然后再来看</strong>实际任务是多少<strong>，如果太大了的话，就要考虑</strong>集群了**</p>
+<h4 id="corePoolSize-参数怎么设置："><a href="#corePoolSize-参数怎么设置：" class="headerlink" title="corePoolSize 参数怎么设置："></a>corePoolSize 参数怎么设置：</h4><p>优先按照<strong>机器性能</strong>corePoolSize 需要查看<strong>任务类型</strong>是 CPU 密集型还是 IO 密集型以及<strong>CPU 核心数</strong>然后再来看<strong>实际任务是多少</strong>，如果太大了的话，就要考虑<strong>集群了</strong></p>
 <ul>
 <li>CPU 密集型：CPU 核心数 + 1</li>
 <li>IO 密集型：CPU 核心数 * 2</li>
 </ul>
 <p>此外还要根据具体 QPS 并发量来看：<br>例如每秒的并发量为 500 ~ 1000，每个任务处理时间 0.1 秒，最大可忍受响应时间 1s<br>那么单个线程，1 秒内最多可以执行完 1 / 0.1 = 10 个任务<br>在多线程的情况下，需要将 1s 内进来的任务全部处理完，也就是  (500 ~ 1000)_0.1 = 50~100 个线程<br>那么 corePoolSize 可以设置大于等于 50，根据 8020 原则，80%的时间每秒任务数是小于 1000 _ 0.8 = 800 的， 那么 corePoolSize 就可以设置成 80<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/riemann_/article/details/104704197">https://blog.csdn.net/riemann_/article/details/104704197</a></p>
-<p><strong>maxPoolSize 参数：</strong><br>最大线程数生产环境中可以设置成 corePoolSize 一样，可以减少处理过程中创建线程的开销</p>
-<p><strong>拒绝策略选择：</strong><br>根据执行的任务重不重要，如果不重要则可以执行 discard 直接丢弃策略，如果重要可以利用 CallRunPolicy（CallerRunsPolicy 适合大量的计算任务执行）或一些缓冲机制来执行（不让超过我执行最大请求数在网关层面进来，或者利用 Sleuth 超过指定 QPS 请求进行熔断执行返回默认数据）</p>
-<p><strong>BlockingQueue 任务队列：</strong><br>corePoolSize 确定为 80 之后，0.1 最多 80 个任务执行完毕，根据最大响应时间 1s，队列里的线程可以等待 1s，也就是任务队列中的任务都需要在 1s 内全部完成清空，那么就是 1 /0.1 * 80 = 800</p>
-<p><strong>创建线程的两个条件：</strong></p>
-<ul>
+<h4 id="maxPoolSize-参数："><a href="#maxPoolSize-参数：" class="headerlink" title="maxPoolSize 参数："></a>maxPoolSize 参数：</h4><p>最大线程数生产环境中可以设置成 corePoolSize 一样，可以减少处理过程中创建线程的开销</p>
+<h4 id="拒绝策略选择："><a href="#拒绝策略选择：" class="headerlink" title="拒绝策略选择："></a>拒绝策略选择：</h4><p>根据执行的任务重不重要，如果不重要则可以执行 discard 直接丢弃策略，如果重要可以利用 CallRunPolicy（CallerRunsPolicy 适合大量的计算任务执行）或一些缓冲机制来执行（不让超过我执行最大请求数在网关层面进来，或者利用 Sleuth 超过指定 QPS 请求进行熔断执行返回默认数据）</p>
+<h4 id="BlockingQueue-任务队列："><a href="#BlockingQueue-任务队列：" class="headerlink" title="BlockingQueue 任务队列："></a>BlockingQueue 任务队列：</h4><p>corePoolSize 确定为 80 之后，0.1 最多 80 个任务执行完毕，根据最大响应时间 1s，队列里的线程可以等待 1s，也就是任务队列中的任务都需要在 1s 内全部完成清空，那么就是 1 /0.1 * 80 = 800</p>
+<h4 id="创建线程的两个条件："><a href="#创建线程的两个条件：" class="headerlink" title="创建线程的两个条件："></a>创建线程的两个条件：</h4><ul>
 <li>线程池处于 running 状态（硬性条件）</li>
 <li>同时运行数量小于 corePoolSize 或者队列已满但是还未达到 maximumPoolSize</li>
 </ul>
-<p><strong>执行饱和策略的时机：</strong></p>
-<ul>
+<h4 id="执行饱和策略的时机："><a href="#执行饱和策略的时机：" class="headerlink" title="执行饱和策略的时机："></a>执行饱和策略的时机：</h4><ul>
 <li>线程数到达 maximumPoolSize，且此时任务队列已经满了</li>
 <li>线程池处于 ShutDown 状态即以上，新进入的任务会被执行饱和策略（线程池调用 shutdown 方法后，会等待线程池中的任务执行完毕，在调用 shutdown 和线程池真正 shutdown 之间提交任务，会拒绝新任务）</li>
 </ul>
@@ -343,8 +340,7 @@
 <p>ThreadPoolExecutor 内部有 AtomicInteger，其中高三位为标记线程池状态（五种），线程个数（低 29 位，允许最大线程数量为 2 ^ 29 - 1）</p>
 <pre><code class="java">private final AtomicInteger ctl = new AtomicInteger(ctlOf(RUNNING, 0));
 </code></pre>
-<p><strong>线程池五种状态：</strong></p>
-<pre><code class="java">//（高3位）：11100000000000000000000000000000
+<h4 id="线程池五种状态："><a href="#线程池五种状态：" class="headerlink" title="线程池五种状态："></a>线程池五种状态：</h4><pre><code class="java">//（高3位）：11100000000000000000000000000000
 //此时接受新任务并且处理阻塞队列里的任务
 private static final int RUNNING    = -1 &lt;&lt; COUNT_BITS;
 
@@ -364,8 +360,7 @@ private static final int TIDYING    =  2 &lt;&lt; COUNT_BITS;
 //终止状态。terminated方法调用完成以后的状态
 private static final int TERMINATED =  3 &lt;&lt; COUNT_BITS;//
 </code></pre>
-<p><strong>4 种饱和策略（执行时机：线程池中同时运行的线程数量达到了 maximumPoolSize 并且任务队列容量已满）</strong></p>
-<ul>
+<h4 id="4-种饱和策略（执行时机：线程池中同时运行的线程数量达到了-maximumPoolSize-并且任务队列容量已满）"><a href="#4-种饱和策略（执行时机：线程池中同时运行的线程数量达到了-maximumPoolSize-并且任务队列容量已满）" class="headerlink" title="4 种饱和策略（执行时机：线程池中同时运行的线程数量达到了 maximumPoolSize 并且任务队列容量已满）"></a>4 种饱和策略（执行时机：线程池中同时运行的线程数量达到了 maximumPoolSize 并且任务队列容量已满）</h4><ul>
 <li>CallerRunsPolicy（直接调用 Runnable 任务自己的 run 方法，会当做一个普通方法执行）</li>
 </ul>
 <pre><code class="java"> //如果线程池的线程数量达到上限，该策略会把任务队列中的任务放在调用者线程当中运行；
