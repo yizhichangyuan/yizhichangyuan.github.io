@@ -9,7 +9,7 @@
     
     <title>秒杀 | 一止长渊的博客</title>
 
-    <meta name="description" content="&lt;h3 id=&#34;1、秒杀业务&#34;&gt;&lt;a href=&#34;#1、秒杀业务&#34; class=&#34;headerlink&#34; title=&#34;1、秒杀业务&#34;&gt;&lt;/a&gt;1、秒杀业务&lt;/h3&gt;&lt;p&gt;秒杀具有瞬间高并发的特点，针对这一特点，必须要做到限流 + 异步 + 缓存（页面静态化）+ 独立部署&lt;/p&gt;
+    <meta name="description" content="&lt;h3 id=&#34;一、秒杀业务&#34;&gt;&lt;a href=&#34;#一、秒杀业务&#34; class=&#34;headerlink&#34; title=&#34;一、秒杀业务&#34;&gt;&lt;/a&gt;一、秒杀业务&lt;/h3&gt;&lt;p&gt;秒杀具有瞬间高并发的特点，针对这一特点，必须要做到限流 + 异步 + 缓存（页面静态化）+ 独立部署&lt;/p&gt;
 &lt;p&gt;秒杀业务最好要求独立部署，是一个独立模块，不和其他服务模块混写在一起，这样大并发进来，也不至于将其他服务模块挤占下线。&lt;br&gt;缓存需要使用 Redis（时机就是后台将商品上架时放入 Redis 中）否则所有请求打在 db 上，会让数据库崩溃&lt;br&gt;秒杀商品的库存信息也应该放进库存里，从而可以商品购买可以更新库存&lt;/p&gt;">
     <meta name="keywords" content="JAVA 后端 Spring">
 
@@ -18,20 +18,20 @@
     <meta property="og:locale" content="en" />
     <meta property="og:type" content="article" />
     <meta property="og:title" content= "秒杀 | 一止长渊的博客"  />
-    <meta property="og:description" content= "&lt;h3 id=&#34;1、秒杀业务&#34;&gt;&lt;a href=&#34;#1、秒杀业务&#34; class=&#34;headerlink&#34; title=&#34;1、秒杀业务&#34;&gt;&lt;/a&gt;1、秒杀业务&lt;/h3&gt;&lt;p&gt;秒杀具有瞬间高并发的特点，针对这一特点，必须要做到限流 + 异步 + 缓存（页面静态化）+ 独立部署&lt;/p&gt;
+    <meta property="og:description" content= "&lt;h3 id=&#34;一、秒杀业务&#34;&gt;&lt;a href=&#34;#一、秒杀业务&#34; class=&#34;headerlink&#34; title=&#34;一、秒杀业务&#34;&gt;&lt;/a&gt;一、秒杀业务&lt;/h3&gt;&lt;p&gt;秒杀具有瞬间高并发的特点，针对这一特点，必须要做到限流 + 异步 + 缓存（页面静态化）+ 独立部署&lt;/p&gt;
 &lt;p&gt;秒杀业务最好要求独立部署，是一个独立模块，不和其他服务模块混写在一起，这样大并发进来，也不至于将其他服务模块挤占下线。&lt;br&gt;缓存需要使用 Redis（时机就是后台将商品上架时放入 Redis 中）否则所有请求打在 db 上，会让数据库崩溃&lt;br&gt;秒杀商品的库存信息也应该放进库存里，从而可以商品购买可以更新库存&lt;/p&gt;" />
     <meta property="og:url" content="https://yizhichangyuan.github.io/2021/uncategorized/yuque/%E7%A7%92%E6%9D%80/index.html" />
     <meta property="og:site_name" content="" />
     <meta property="article:author" content="一止长渊" />
     <meta property="article:publisher" content="" />
-    <meta property="og:description" content="&lt;h3 id=&#34;1、秒杀业务&#34;&gt;&lt;a href=&#34;#1、秒杀业务&#34; class=&#34;headerlink&#34; title=&#34;1、秒杀业务&#34;&gt;&lt;/a&gt;1、秒杀业务&lt;/h3&gt;&lt;p&gt;秒杀具有瞬间高并发的特点，针对这一特点，必须要做到限流 + 异步 + 缓存（页面静态化）+ 独立部署&lt;/p&gt;
+    <meta property="og:description" content="&lt;h3 id=&#34;一、秒杀业务&#34;&gt;&lt;a href=&#34;#一、秒杀业务&#34; class=&#34;headerlink&#34; title=&#34;一、秒杀业务&#34;&gt;&lt;/a&gt;一、秒杀业务&lt;/h3&gt;&lt;p&gt;秒杀具有瞬间高并发的特点，针对这一特点，必须要做到限流 + 异步 + 缓存（页面静态化）+ 独立部署&lt;/p&gt;
 &lt;p&gt;秒杀业务最好要求独立部署，是一个独立模块，不和其他服务模块混写在一起，这样大并发进来，也不至于将其他服务模块挤占下线。&lt;br&gt;缓存需要使用 Redis（时机就是后台将商品上架时放入 Redis 中）否则所有请求打在 db 上，会让数据库崩溃&lt;br&gt;秒杀商品的库存信息也应该放进库存里，从而可以商品购买可以更新库存&lt;/p&gt;" />
     <meta name="twitter:title" content="秒杀 | 一止长渊的博客"/>
-    <meta name="twitter:description" content="&lt;h3 id=&#34;1、秒杀业务&#34;&gt;&lt;a href=&#34;#1、秒杀业务&#34; class=&#34;headerlink&#34; title=&#34;1、秒杀业务&#34;&gt;&lt;/a&gt;1、秒杀业务&lt;/h3&gt;&lt;p&gt;秒杀具有瞬间高并发的特点，针对这一特点，必须要做到限流 + 异步 + 缓存（页面静态化）+ 独立部署&lt;/p&gt;
+    <meta name="twitter:description" content="&lt;h3 id=&#34;一、秒杀业务&#34;&gt;&lt;a href=&#34;#一、秒杀业务&#34; class=&#34;headerlink&#34; title=&#34;一、秒杀业务&#34;&gt;&lt;/a&gt;一、秒杀业务&lt;/h3&gt;&lt;p&gt;秒杀具有瞬间高并发的特点，针对这一特点，必须要做到限流 + 异步 + 缓存（页面静态化）+ 独立部署&lt;/p&gt;
 &lt;p&gt;秒杀业务最好要求独立部署，是一个独立模块，不和其他服务模块混写在一起，这样大并发进来，也不至于将其他服务模块挤占下线。&lt;br&gt;缓存需要使用 Redis（时机就是后台将商品上架时放入 Redis 中）否则所有请求打在 db 上，会让数据库崩溃&lt;br&gt;秒杀商品的库存信息也应该放进库存里，从而可以商品购买可以更新库存&lt;/p&gt;"/>
     <script type="application/ld+json">
         {
-            "description": "&lt;h3 id=&#34;1、秒杀业务&#34;&gt;&lt;a href=&#34;#1、秒杀业务&#34; class=&#34;headerlink&#34; title=&#34;1、秒杀业务&#34;&gt;&lt;/a&gt;1、秒杀业务&lt;/h3&gt;&lt;p&gt;秒杀具有瞬间高并发的特点，针对这一特点，必须要做到限流 + 异步 + 缓存（页面静态化）+ 独立部署&lt;/p&gt;
+            "description": "&lt;h3 id=&#34;一、秒杀业务&#34;&gt;&lt;a href=&#34;#一、秒杀业务&#34; class=&#34;headerlink&#34; title=&#34;一、秒杀业务&#34;&gt;&lt;/a&gt;一、秒杀业务&lt;/h3&gt;&lt;p&gt;秒杀具有瞬间高并发的特点，针对这一特点，必须要做到限流 + 异步 + 缓存（页面静态化）+ 独立部署&lt;/p&gt;
 &lt;p&gt;秒杀业务最好要求独立部署，是一个独立模块，不和其他服务模块混写在一起，这样大并发进来，也不至于将其他服务模块挤占下线。&lt;br&gt;缓存需要使用 Redis（时机就是后台将商品上架时放入 Redis 中）否则所有请求打在 db 上，会让数据库崩溃&lt;br&gt;秒杀商品的库存信息也应该放进库存里，从而可以商品购买可以更新库存&lt;/p&gt;",
             "author": { "@type": "Person", "name": "一止长渊" },
             "@type": "BlogPosting",
@@ -193,7 +193,7 @@
             <section class="inner">
                 <section class="inner-main">
                     <div class="post">
-    <article id="post-cl2eoamhs002bctolh9gb8b44" class="article article-type-post" itemscope
+    <article id="post-cl2epm2hx002bbtom7od35eyk" class="article article-type-post" itemscope
     itemprop="blogPost">
 
     <div class="article-inner">
@@ -238,12 +238,34 @@
         </div>
 
         <div class="article-entry post-inner-html hairline" itemprop="articleBody">
-            <h3 id="1、秒杀业务"><a href="#1、秒杀业务" class="headerlink" title="1、秒杀业务"></a>1、秒杀业务</h3><p>秒杀具有瞬间高并发的特点，针对这一特点，必须要做到限流 + 异步 + 缓存（页面静态化）+ 独立部署</p>
+            <h3 id="一、秒杀业务"><a href="#一、秒杀业务" class="headerlink" title="一、秒杀业务"></a>一、秒杀业务</h3><p>秒杀具有瞬间高并发的特点，针对这一特点，必须要做到限流 + 异步 + 缓存（页面静态化）+ 独立部署</p>
 <p>秒杀业务最好要求独立部署，是一个独立模块，不和其他服务模块混写在一起，这样大并发进来，也不至于将其他服务模块挤占下线。<br>缓存需要使用 Redis（时机就是后台将商品上架时放入 Redis 中）否则所有请求打在 db 上，会让数据库崩溃<br>秒杀商品的库存信息也应该放进库存里，从而可以商品购买可以更新库存</p>
 <a id="more"></a>
 
-<h3 id="2、定时任务"><a href="#2、定时任务" class="headerlink" title="2、定时任务"></a>2、定时任务</h3><p>定时任务有很多场景使用：例如每天对交易流水需要和支付宝进行对账，每月定期进行财务汇总<br>定时任务有很多实现方法：例如 JAVA 原生里面的 Timer，QUARTZ 框架</p>
-<h4 id="1、cron-表达式"><a href="#1、cron-表达式" class="headerlink" title="1、cron 表达式"></a>1、cron 表达式</h4><p>语法：秒 分 时 日 月 周 年（Spring 不支持年，周的含义是周几的意思，周日是 1，周一是 2 以此类推，周和日位置必须要一个写<em>，一个写?，防止周几和日冲突）<br>特殊字符：<br>，：枚举；<br>(cron=”7,9,23 * * \</em> _ ?”)：任意时刻的 7,9，23 秒启动这个任务； -：范围：<br>(cron=”7-20 _ * * _ ?”):任意时刻的 7-20 秒之间，每秒启动一次<br>_：任意；<br><strong>指定位置的任意时刻都可以</strong><br>/：步长；<br>(cron=”7/5 * * * _ ?”)：第 7 秒启动，每 5 秒一次；<br>(cron=”_/5 * * * _ ?”)：任意秒启动，每 5 秒一次；<br>？：（出现在日和周几的位置）：为了防止日和周冲突，在周和日上如果要写通配符使<br>用?<br>(cron=”_ * _ 1 _ ?”)：每月的 1 号，启动这个任务；<br>L：（出现在日和周的位置）”，<br>last：最后一个<br>(cron=”* * _ ? _ 3L”)：每月的最后一个周二<br>W：<br>Work Day：工作日<br>(cron=”* * _ W _ ?”)：每个月的工作日触发<br>(cron=”* * _ LW _ ?”)：每个月的最后一个工作日触发 #：*<em>第几个 **<br>(cron=”\</em> * _ ? _ 5#2”)：每个月的第 2 个周 4</p>
+<h3 id="二、定时任务"><a href="#二、定时任务" class="headerlink" title="二、定时任务"></a>二、定时任务</h3><p>定时任务有很多场景使用：例如每天对交易流水需要和支付宝进行对账，每月定期进行财务汇总<br>定时任务有很多实现方法：例如 JAVA 原生里面的 Timer，QUARTZ 框架</p>
+<h4 id="1、cron-表达式"><a href="#1、cron-表达式" class="headerlink" title="1、cron 表达式"></a>1、cron 表达式</h4><p>语法：秒 分 时 日 月 周 年（Spring 不支持年，周的含义是周几的意思，周日是 1，周一是 2 以此类推，周和日位置必须要一个写*，一个写?，防止周几和日冲突）<br>特殊字符：</p>
+<pre><code>，：枚举；
+(cron=&quot;7,9,23 * * * * ?&quot;)：任意时刻的 7,9，23 秒启动这个任务；
+-：范围：
+(cron=&quot;7-20 * * * * ?&quot;):任意时刻的 7-20 秒之间，每秒启动一次
+*：任意；
+指定位置的任意时刻都可以
+/：步长；
+(cron=&quot;7/5 * * * * ?&quot;)：第 7 秒启动，每 5 秒一次；
+(cron=&quot;*/5 * * * * ?&quot;)：任意秒启动，每 5 秒一次；
+？：（出现在日和周几的位置）：为了防止日和周冲突，在周和日上如果要写通配符使
+用?
+(cron=&quot;* * * 1 * ?&quot;)：每月的 1 号，启动这个任务；
+L：（出现在日和周的位置）”，
+last：最后一个
+(cron=&quot;* * * ? * 3L&quot;)：每月的最后一个周二
+W：
+Work Day：工作日
+(cron=&quot;* * * W * ?&quot;)：每个月的工作日触发
+(cron=&quot;* * * LW * ?&quot;)：每个月的最后一个工作日触发
+#：第几个
+(cron=&quot;* * * ? * 5#2&quot;)：每个月的第 2 个周 4
+</code></pre>
 <h4 id="2、Spring-中使用-Scheduled-来定时任务"><a href="#2、Spring-中使用-Scheduled-来定时任务" class="headerlink" title="2、Spring 中使用 Scheduled 来定时任务"></a>2、Spring 中使用 Scheduled 来定时任务</h4><p>1.<strong>@EnableScheduling</strong> 开启定时任务，**@Component**该类要放入到容器中 2.只要在方法上添加@Scheduled，属性 cron 中写入时间表达式</p>
 <pre><code class="java">/**
  * @PackageName:com.lookstarry.doermall.seckill.scheduled
@@ -272,7 +294,7 @@ public class HelloSchedule &#123;
         Thread.sleep(3000);
     &#125;
 </code></pre>
-<p>但实际上每个任务不是每秒都执行一次，而是间隔了<strong>4 秒</strong><br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1625233285066-c8c050ab-5c13-4a9c-ab41-844f9256f2df.png#align=left&display=inline&height=230&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-07-02%2021.41.19.png&originHeight=230&originWidth=904&size=55867&status=done&style=none&width=904" alt="截屏2021-07-02 21.41.19.png"><br>**</p>
+<p>但实际上每个任务不是每秒都执行一次，而是间隔了<strong>4 秒</strong><br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1625233285066-c8c050ab-5c13-4a9c-ab41-844f9256f2df.png#crop=0&crop=0&crop=1&crop=1&height=230&id=AZR9d&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-07-02%2021.41.19.png&originHeight=230&originWidth=904&originalType=binary%E2%88%B6=1&rotation=0&showTitle=false&size=55867&status=done&style=none&title=&width=904" alt="截屏2021-07-02 21.41.19.png"></p>
 <h4 id="3、那么如何使用-Scheduled-不阻塞下一个定时任务的执行呢？"><a href="#3、那么如何使用-Scheduled-不阻塞下一个定时任务的执行呢？" class="headerlink" title="3、那么如何使用@Scheduled 不阻塞下一个定时任务的执行呢？"></a>3、那么如何使用@Scheduled 不阻塞下一个定时任务的执行呢？</h4><p><strong>方法一：</strong>使用异步编排，让业务运行以异步的方式，自己提交到线程池</p>
 <pre><code class="java">    @Scheduled(cron = &quot;* * * * * ?&quot;)
     public void hello()&#123;
@@ -281,15 +303,15 @@ public class HelloSchedule &#123;
         &#125;, executor);
     &#125;
 </code></pre>
-<p>**<br><strong>方法二：</strong>SpringBoot 支持定时任务线程池<br>通过查看 TaskScheduledAutoConfiguration 的默认自动配置 TaskSchedulingProperties<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1625233761919-94dcbc6b-4046-47d4-9476-2da46c930e6d.png#align=left&display=inline&height=418&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-07-02%2021.48.36.png&originHeight=926&originWidth=1552&size=153244&status=done&style=none&width=700" alt="截屏2021-07-02 21.48.36.png"><br>可以看到<strong>执行定时任务的线程池只有一个</strong>，因此@Scheduled 在执行耗时比较长的任务，因此会阻塞下一个定时任务执行，造成不守时<br>配置文件中添加如下：</p>
+<p><strong>方法二：</strong>SpringBoot 支持定时任务线程池<br>通过查看 TaskScheduledAutoConfiguration 的默认自动配置 TaskSchedulingProperties<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1625233761919-94dcbc6b-4046-47d4-9476-2da46c930e6d.png#crop=0&crop=0&crop=1&crop=1&height=418&id=cTALC&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-07-02%2021.48.36.png&originHeight=926&originWidth=1552&originalType=binary%E2%88%B6=1&rotation=0&showTitle=false&size=153244&status=done&style=none&title=&width=700" alt="截屏2021-07-02 21.48.36.png"><br>可以看到<strong>执行定时任务的线程池只有一个</strong>，因此@Scheduled 在执行耗时比较长的任务，因此会阻塞下一个定时任务执行，造成不守时<br>配置文件中添加如下：</p>
 <pre><code class="yaml">spring:
   task:
     scheduling:
       pool:
         size: 5
 </code></pre>
-<p>可以看出如下也还是 4 秒才执行，在高版本中的 Spring 中可以生效，但经常容易失效。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1625234402841-99dd1a49-0488-4c90-ac15-4d71131c311b.png#align=left&display=inline&height=216&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-07-02%2022.00.00.png&originHeight=216&originWidth=956&size=56417&status=done&style=none&width=956" alt="截屏2021-07-02 22.00.00.png"></p>
-<p><strong>方法三</strong>、让定时任务异步执行（也可以在普通方法上使用这个，A.B()也是异步调用运行方法 B）<br>1.@EnableAsync 开启异步任务功能 2.需要异步定时任务方法上标注@Async</p>
+<p>可以看出如下也还是 4 秒才执行，在高版本中的 Spring 中可以生效，但经常容易失效。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1625234402841-99dd1a49-0488-4c90-ac15-4d71131c311b.png#crop=0&crop=0&crop=1&crop=1&height=216&id=TOzgl&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-07-02%2022.00.00.png&originHeight=216&originWidth=956&originalType=binary%E2%88%B6=1&rotation=0&showTitle=false&size=56417&status=done&style=none&title=&width=956" alt="截屏2021-07-02 22.00.00.png"></p>
+<p><strong>方法三</strong>、让<strong>定时任务异步执行</strong>（也可以在普通方法上使用这个，A.B()也是异步调用运行方法 B）<br>1.@EnableAsync 开启异步任务功能 2.需要异步定时任务方法上标注@Async</p>
 <pre><code class="java">@Slf4j
 @EnableAsync
 @Component
@@ -303,7 +325,7 @@ public class HelloSchedule &#123;
     &#125;
 &#125;
 </code></pre>
-<p>可以看到定时任务不会被上一个定时任务阻塞，而是变成每秒执行一次<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1625235366324-df51e0b7-9678-43bf-87f3-f20477e24bb8.png#align=left&display=inline&height=159&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-07-02%2022.16.00.png&originHeight=220&originWidth=966&size=53845&status=done&style=none&width=700" alt="截屏2021-07-02 22.16.00.png"><br>异步执行的自动配置类在 TaskExecutionAutoConfiguration，其也是使用线程池来实现异步任务，默认属性是绑定在 TaskExecutionProperties 中<img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1625235684598-be9c0a23-bb43-4b39-b190-6750027802f0.png#align=left&display=inline&height=36&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-07-02%2022.21.20.png&originHeight=36&originWidth=1582&size=19665&status=done&style=none&width=1582" alt="截屏2021-07-02 22.21.20.png"><br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1625235713473-9d8d54a9-c878-43f0-b8f3-717b6bf97c3c.png#align=left&display=inline&height=91&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-07-02%2022.21.50.png&originHeight=112&originWidth=858&size=27389&status=done&style=none&width=700" alt="截屏2021-07-02 22.21.50.png"><br>默认线程池数量大小为 8，最大为 Integer.MAX_VALUE，所以要限定一下</p>
+<p>可以看到定时任务不会被上一个定时任务阻塞，而是变成每秒执行一次<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1625235366324-df51e0b7-9678-43bf-87f3-f20477e24bb8.png#crop=0&crop=0&crop=1&crop=1&height=159&id=FuuWG&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-07-02%2022.16.00.png&originHeight=220&originWidth=966&originalType=binary%E2%88%B6=1&rotation=0&showTitle=false&size=53845&status=done&style=none&title=&width=700" alt="截屏2021-07-02 22.16.00.png"><br>异步执行的自动配置类在 TaskExecutionAutoConfiguration，其也是使用线程池<strong>ThreadPoolTaskExecutor</strong>来实现异步任务，默认属性是绑定在 TaskExecutionProperties 中<img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1625235684598-be9c0a23-bb43-4b39-b190-6750027802f0.png#crop=0&crop=0&crop=1&crop=1&height=36&id=HvtHJ&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-07-02%2022.21.20.png&originHeight=36&originWidth=1582&originalType=binary%E2%88%B6=1&rotation=0&showTitle=false&size=19665&status=done&style=none&title=&width=1582" alt="截屏2021-07-02 22.21.20.png"><br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1625235713473-9d8d54a9-c878-43f0-b8f3-717b6bf97c3c.png#crop=0&crop=0&crop=1&crop=1&height=91&id=T7DBK&margin=%5Bobject%20Object%5D&name=%E6%88%AA%E5%B1%8F2021-07-02%2022.21.50.png&originHeight=112&originWidth=858&originalType=binary%E2%88%B6=1&rotation=0&showTitle=false&size=27389&status=done&style=none&title=&width=700" alt="截屏2021-07-02 22.21.50.png"><br>默认线程池数量大小为 8，最大为 Integer.MAX_VALUE，所以要限定一下</p>
 <pre><code class="yaml">spring:
   task:
     execution:
@@ -321,19 +343,18 @@ public class HelloSchedule &#123;
 <ul>
 <li>秒杀商品 Hash 结构，该结构的 redis key 为秒杀活动的 id：</li>
 </ul>
-<p>hash 中每个 entry 的 key 为 skuId<br>value 为商品基本信息、活动开始时间及结束时间、随机码</p>
+<p>hash 中每个 entry 的 key 为 skuId<br>value 为商品基本信息、活动开始时间及结束时间、<strong>随机码</strong></p>
 <ul>
-<li><strong>秒杀商品分布式信号量（分布式对象 Redisson</strong> <strong>Semophare，进行限流）</strong></li>
+<li><strong>秒杀商品分布式信号量（分布式对象 Redisson</strong> <strong>Semaphare，进行限流）</strong></li>
 </ul>
-<p><strong>key 为随机码作为 key，防止内部开发人员知晓商品 id 后，恶意修改秒杀商品库存</strong><br>每个秒杀请求进来后都会将库存量-1，当库存量为 0 的时候，后续秒杀请求就不应该再创建成功，为了满足分布式以及锁机制，使用秒杀商品库存量作为分布式信号量的值，依此作为秒杀商品库存扣减信息。这样可以将获取到信号量的请求才视为秒杀成功，进行后续的操作。此外 Semophare 的名称也是一个值得考究的地方，为了防止内部开发人员知道秒杀商品 id 后，恶意修改秒杀商品库存，<strong>Semophare 的名称使用上面的随机码</strong>。</p>
-<p>**<br><strong>随机码目的（防止恶意攻击，隐藏秒杀地址）：</strong><br>如果秒杀请求设置为 seckill?skuId=1，别人可以通过常规 sku 商品页面知晓 skuId 后，在秒杀时利用软件恶意发送请求进行秒杀操作；通过设置随机码后，秒杀请求改为 seckill?skuId=1&amp;key=fasdfasfdasga，不仅需要验证 skuId 是否是秒杀商品，还要验证随机码是否与 Redis 中正确，这样可以防止别人利用软件恶意秒杀</p>
-<p><strong>秒杀商品分布式信号量 Semophare 目的：</strong><br>信号量是一种锁，它可以让用户限制一项资源最多能够同时被多少个进程访问，获取信号量失败通常直接退出，并向用户提示“资源繁忙”，可以快速结束请求的处理，也起到一个限流的目的。假如商品秒杀库存只要 100 个，现在有 100 万请求放进来，每进来一个请求就将这个分布式信号量-1，如果能减就放行该请求来进行后续数据库的操作，如果不能减就不进行后续操作，就会阻塞很短的时间，整个请求就会很快地处理释放，才能拥有处理大并发的能力。</p>
+<p><strong>key 为随机码作为 key，防止内部开发人员知晓商品 id 后，恶意修改秒杀商品库存</strong><br>每个秒杀请求进来后都会将库存量-1，当库存量为 0 的时候，后续秒杀请求就不应该再创建成功，为了满足分布式以及锁机制，使用秒杀商品库存量作为分布式信号量的值，依此作为秒杀商品库存扣减信息。这样可以将获取到信号量的请求才视为秒杀成功，进行后续的操作。此外 Semophare 的名称也是一个值得考究的地方，为了防止内部开发人员知道秒杀商品 id 后，恶意修改秒杀商品库存，<strong>Semophare 的名称使用上面的随机码。</strong></p>
+<p><strong>随机码目的（防止恶意攻击，隐藏秒杀地址）：</strong><br>如果秒杀请求设置为 seckill?skuId=1，别人可以通过常规 sku 商品页面知晓 skuId 后，在秒杀时利用软件恶意发送请求进行秒杀操作；通过设置随机码后，秒杀请求改为 seckill?skuId=1&amp;key=fasdfasfdasga，不仅需要验证 skuId 是否是秒杀商品，还要验证随机码是否与 Redis 中正确，这样可以防止别人利用软件恶意秒杀</p>
+<p><strong>秒杀商品分布式信号量 Semophare 目的：</strong><br>信号量是一种锁，它可以让用户限制一项资源最多能够同时被多少个进程访问，获取信号量失败通常直接退出，并向用户提示“资源繁忙”，<strong>可以快速结束请求的处理</strong>，也起到一个限流的目的。假如商品秒杀库存只要 100 个，现在有 100 万请求放进来，每进来一个请求就将这个分布式信号量-1，如果能减就放行该请求来进行后续数据库的操作，如果不能减就不进行后续操作，就会阻塞很短的时间，整个请求就会很快地处理释放，才能拥有处理大并发的能力。</p>
 <pre><code class="java">String semaphoreKey = SecKillRedisKey.SECKILL_STOCK_SEMPHORE + token;
 RSemaphore semaphore = redisson.getSemaphore(semaphoreKey);
 // 信号量的值就为商品可以秒杀的库存量
 semaphore.trySetPermits(skuRelationEntity.getSeckillCount().intValue());
 </code></pre>
-<p>**</p>
 <h4 id="5、定时任务——分布式下的问题（幂等性问题）"><a href="#5、定时任务——分布式下的问题（幂等性问题）" class="headerlink" title="5、定时任务——分布式下的问题（幂等性问题）"></a>5、定时任务——分布式下的问题（幂等性问题）</h4><p>分布式情况下，多台机器都有相同的定时任务，我们其实只要求有一台机器的定时任务进行运行即可，如果不处理那么多台机器的定时任务都会进行，就会造成 Redis 中由于随机码不同，造成 Key 不同，Semophare 重复设置。<br>可以考虑使用分布式定时任务 xxl-job 或者加入分布式锁，首先获得到分布式锁的机器才会进行定时任务，此外业务层放入 redis 时，也要提前判断 key 是否存在</p>
 <pre><code class="java">@Slf4j
 @Service
