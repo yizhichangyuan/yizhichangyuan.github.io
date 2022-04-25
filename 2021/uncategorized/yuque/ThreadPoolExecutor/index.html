@@ -228,7 +228,7 @@
             <section class="inner">
                 <section class="inner-main">
                     <div class="post">
-    <article id="post-cl2epn1wf002xbnoma54cc3g4" class="article article-type-post" itemscope
+    <article id="post-cl2epo3ik002xcfou9cqe1y2g" class="article article-type-post" itemscope
     itemprop="blogPost">
 
     <div class="article-inner">
@@ -528,7 +528,7 @@ private static final int TERMINATED =  3 &lt;&lt; COUNT_BITS;//
         &#125;
     &#125;
 </code></pre>
-<h3 id="3、addWorker-创建新线程并取出队列中队首任务执行"><a href="#3、addWorker-创建新线程并取出队列中队首任务执行" class="headerlink" title="3、addWorker 创建新线程并取出队列中队首任务执行"></a>3、addWorker 创建新线程并取出队列中队首任务执行</h3><p>addWorker 第一步：for 循环 cas 让 worker 数量+1<br>addWorker 第二步：利用线程工厂新创建的线程和队列中的第一个任务封装到 Woker 中，并通过抢占 ReentrantLock 将新创建的 worker 对象加入到 Woker 集合中<br>addWorker 第一步：启动新创建的线程执行任务</p>
+<h3 id="4、addWorker-创建新线程并取出队列中队首任务执行"><a href="#4、addWorker-创建新线程并取出队列中队首任务执行" class="headerlink" title="4、addWorker 创建新线程并取出队列中队首任务执行"></a>4、addWorker 创建新线程并取出队列中队首任务执行</h3><p>addWorker 第一步：for 循环 cas 让 worker 数量+1<br>addWorker 第二步：利用线程工厂新创建的线程和队列中的第一个任务封装到 Woker 中，并通过抢占 ReentrantLock 将新创建的 worker 对象加入到 Woker 集合中<br>addWorker 第一步：启动新创建的线程执行任务</p>
 <p>addWorker 方法主要执行了三个功能，可以看到要添加新的线程还是比较困难重重：<br>1.for 循环 cas 检查线程池状态和线程池中同时运行线程数量，如果符合条件则尝试将 worker 数量 + 1（此时新 worker 还未创建，只是把 worker 数量加 1 成功）<br>2.cas worker 数量加 1 操作成功，则才会利用线程工厂创建一个新线程并取出队列中的第一个任务封装到 Worker 中，此时线程还是未启动，只有接下来抢占可重入锁 ReentrantLock，将新建的 Worker 对象加入到 workers 集合中 3.加入到 workers 集合中成功，start 启动这个线程</p>
 <pre><code class="java">    private boolean addWorker(Runnable firstTask, boolean core) &#123;
         retry:
@@ -601,7 +601,7 @@ private static final int TERMINATED =  3 &lt;&lt; COUNT_BITS;//
         return workerStarted;
     &#125;
 </code></pre>
-<h3 id><a href="#" class="headerlink" title></a></h3><h3 id="4、runWorker-方法"><a href="#4、runWorker-方法" class="headerlink" title="4、runWorker 方法"></a>4、runWorker 方法</h3><p>while 轮询去 BlockingQueue 中去获取任务然后执行任务，如果队列为空，则该 Worker 就会进入阻塞</p>
+<h3 id><a href="#" class="headerlink" title></a></h3><h3 id="5、runWorker-方法"><a href="#5、runWorker-方法" class="headerlink" title="5、runWorker 方法"></a>5、runWorker 方法</h3><p>while 轮询去 BlockingQueue 中去获取任务然后执行任务，如果队列为空，则该 Worker 就会进入阻塞</p>
 <pre><code class="java">    final void runWorker(Worker w) &#123;
         // 获取当前线程
         Thread wt = Thread.currentThread();
@@ -701,7 +701,7 @@ private static final int TERMINATED =  3 &lt;&lt; COUNT_BITS;//
         &#125;
     &#125;
 </code></pre>
-<h3 id="5、getTask-方法"><a href="#5、getTask-方法" class="headerlink" title="5、getTask 方法"></a>5、getTask 方法</h3><p>1、检查线程池以及队列任务状态<br>2、根据 maximumPoolSize、超时时间和队列任务控制线程数量（当线程数量超过 maximumPoolSize，不会再分配任务给该空闲线程，而是将该空闲线程杀掉）<br>3、满足条件从 workQueue 队列中获取任务；<br><strong>为了防止空闲线程都来空任务队列获取任务全部陷入阻塞的状态，此时的 worker 因为空闲肯定是 AOS 没有上锁的，然后 shutdown 方法可以调用 interruptIdleWorkers 方法来给未上锁的 worker（能够上锁就表明是空闲状态），就可以进行中断<br>抛出 InterruptedException 后接触阻塞的状态</strong></p>
+<h3 id="6、getTask-方法"><a href="#6、getTask-方法" class="headerlink" title="6、getTask 方法"></a>6、getTask 方法</h3><p>1、检查线程池以及队列任务状态<br>2、根据 maximumPoolSize、超时时间和队列任务控制线程数量（当线程数量超过 maximumPoolSize，不会再分配任务给该空闲线程，而是将该空闲线程杀掉）<br>3、满足条件从 workQueue 队列中获取任务；<br><strong>为了防止空闲线程都来空任务队列获取任务全部陷入阻塞的状态，此时的 worker 因为空闲肯定是 AOS 没有上锁的，然后 shutdown 方法可以调用 interruptIdleWorkers 方法来给未上锁的 worker（能够上锁就表明是空闲状态），就可以进行中断<br>抛出 InterruptedException 后接触阻塞的状态</strong></p>
 <pre><code class="java">private Runnable getTask() &#123;
         //超时标志
         boolean timedOut = false; // Did the last poll() time out?
