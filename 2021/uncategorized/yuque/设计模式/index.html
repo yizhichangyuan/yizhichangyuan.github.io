@@ -41,7 +41,7 @@
 &lt;li&gt;行为型模式&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;注重对象之间相互调用的行为，关注对象之间的通信&lt;/p&gt;" />
-    <meta property="og:url" content="https://yizhichangyuan.github.io/2021/%E4%BF%AE%E8%A1%8C/yuque/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.html" />
+    <meta property="og:url" content="https://yizhichangyuan.github.io/2021/uncategorized/yuque/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.html" />
     <meta property="og:site_name" content="" />
     <meta property="article:author" content="一止长渊" />
     <meta property="article:publisher" content="" />
@@ -89,7 +89,7 @@
 &lt;p&gt;注重对象之间相互调用的行为，关注对象之间的通信&lt;/p&gt;",
             "author": { "@type": "Person", "name": "一止长渊" },
             "@type": "BlogPosting",
-            "url": "https://yizhichangyuan.github.io/2021/%E4%BF%AE%E8%A1%8C/yuque/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.html",
+            "url": "https://yizhichangyuan.github.io/2021/uncategorized/yuque/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.html",
             "publisher": {
             "@type": "Organization",
             "logo": {
@@ -102,7 +102,7 @@
             "datePublished": "2021-04-01T11:08:09.000Z",
             "mainEntityOfPage": {
                 "@type": "WebPage",
-                "@id": "https://yizhichangyuan.github.io/2021/%E4%BF%AE%E8%A1%8C/yuque/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.html"
+                "@id": "https://yizhichangyuan.github.io/2021/uncategorized/yuque/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.html"
             },
             "@context": "http://schema.org"
         }
@@ -245,7 +245,7 @@
             <section class="inner">
                 <section class="inner-main">
                     <div class="post">
-    <article id="post-cl2ektme50034d9orb1pjhkby" class="article article-type-post" itemscope
+    <article id="post-cl2elp1y00034cpop38id192v" class="article article-type-post" itemscope
     itemprop="blogPost">
 
     <div class="article-inner">
@@ -274,10 +274,6 @@
   <time datetime="2021-04-01T11:08:09.000Z" itemprop="datePublished">2021-04-01</time>
 </div>
 
-            
-            <div class="article-category">
-                <a class="article-category-link" href="/categories/%E4%BF%AE%E8%A1%8C/">修行</a>
-            </div>
             
 
             
@@ -313,9 +309,9 @@
 <p>注重对象之间相互调用的行为，关注对象之间的通信</p>
 <a id="more"></a>
 
-<h4 id="1-工厂模式"><a href="#1-工厂模式" class="headerlink" title="1.工厂模式"></a>1.工厂模式</h4><p>应用场景：如某一个系列有众多产品，但是属于同系，客户端只会用到这些同系产品的某一个，就可以使用工厂模式。<br>方式：定义一个创建对象的接口，让其子类自己决定实例化哪一个工厂类，工厂模式使其创建过程延迟到子类进行。<br>实现：同系产品都实现同一个接口（这里接口定义了行为），工厂类根据名称创建该接口的实例对象。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617275734178-cde98717-f4ee-4775-b9be-da55f521e9cd.png#align=left&display=inline&height=221&margin=%5Bobject%20Object%5D&name=image.png&originHeight=441&originWidth=772&size=61693&status=done&style=none&width=386" alt="image.png"></p>
-<h4 id="2-抽象工厂模式"><a href="#2-抽象工厂模式" class="headerlink" title="2.抽象工厂模式"></a>2.抽象工厂模式</h4><p>抽象工厂模式简单而言就是工厂的工厂，我们通过一个超级工厂来创建其他的工厂，这里的抽象字面含义指的是工厂类是继承于抽象工厂类。<br>应用场景：如我们有多个系列，每个系列下有同族的众多产品，客户端只会用到某个系列中的某一个产品，这里就可以使用抽象工厂模式。这里每个系列下          的产品都实现该系列下定义的接口（接口提供该系列的行为模式），<strong>这里的系列就对应于工厂</strong>，工厂都继承自一个抽象工厂类（抽象工厂类定义了类模              板），用户通过超级工厂，选择某个系列就是选择某个工厂，然后通过该工厂来选择对象（该系列下的产品）。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617276071459-53e950e4-66cc-4ae8-ace7-dda07456da0b.png#align=left&display=inline&height=330&margin=%5Bobject%20Object%5D&name=image.png&originHeight=660&originWidth=1024&size=136342&status=done&style=none&width=512" alt="image.png"></p>
-<h4 id="3-单例模式"><a href="#3-单例模式" class="headerlink" title="3.单例模式"></a>3.单例模式</h4><p>将构造函数私有化，然后暴露一个接口来返回创建好的单例对象，可以避免频繁地创建和销毁对象的开销<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617289119283-4d7c6029-ebb8-49b8-a59f-fc55f60833b1.png#align=left&display=inline&height=241&margin=%5Bobject%20Object%5D&name=image.png&originHeight=481&originWidth=457&size=38884&status=done&style=none&width=228.5" alt="image.png"><br>按照单例对象创建时间可分为：</p>
+<h4 id="1-工厂模式"><a href="#1-工厂模式" class="headerlink" title="1.工厂模式"></a>1.工厂模式</h4><p>应用场景：如某一个系列有众多产品，但是属于同系，客户端只会用到这些同系产品的某一个，就可以使用工厂模式。<br>方式：定义一个创建对象的接口，让其子类自己决定实例化哪一个工厂类，工厂模式使其创建过程延迟到子类进行。<br>实现：同系产品都实现同一个接口（这里接口定义了行为），工厂类根据名称创建该接口的实例对象。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617275734178-cde98717-f4ee-4775-b9be-da55f521e9cd.png#crop=0&crop=0&crop=1&crop=1&height=221&id=Ad72g&margin=%5Bobject%20Object%5D&name=image.png&originHeight=441&originWidth=772&originalType=binary%E2%88%B6=1&rotation=0&showTitle=false&size=61693&status=done&style=none&title=&width=386" alt="image.png"></p>
+<h4 id="2-抽象工厂模式"><a href="#2-抽象工厂模式" class="headerlink" title="2.抽象工厂模式"></a>2.抽象工厂模式</h4><p>抽象工厂模式简单而言就是工厂的工厂，我们通过一个超级工厂来创建其他的工厂，这里的抽象字面含义指的是工厂类是继承于抽象工厂类。<br>应用场景：如我们有多个系列，每个系列下有同族的众多产品，客户端只会用到某个系列中的某一个产品，这里就可以使用抽象工厂模式。这里每个系列下          的产品都实现该系列下定义的接口（接口提供该系列的行为模式），<strong>这里的系列就对应于工厂</strong>，工厂都继承自一个抽象工厂类（抽象工厂类定义了类模              板），用户通过超级工厂，选择某个系列就是选择某个工厂，然后通过该工厂来选择对象（该系列下的产品）。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617276071459-53e950e4-66cc-4ae8-ace7-dda07456da0b.png#crop=0&crop=0&crop=1&crop=1&height=330&id=OpBfd&margin=%5Bobject%20Object%5D&name=image.png&originHeight=660&originWidth=1024&originalType=binary%E2%88%B6=1&rotation=0&showTitle=false&size=136342&status=done&style=none&title=&width=512" alt="image.png"></p>
+<h4 id="3-单例模式"><a href="#3-单例模式" class="headerlink" title="3.单例模式"></a>3.单例模式</h4><p>将构造函数私有化，然后暴露一个接口来返回创建好的单例对象，可以避免频繁地创建和销毁对象的开销<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617289119283-4d7c6029-ebb8-49b8-a59f-fc55f60833b1.png#crop=0&crop=0&crop=1&crop=1&height=241&id=cQPLF&margin=%5Bobject%20Object%5D&name=image.png&originHeight=481&originWidth=457&originalType=binary%E2%88%B6=1&rotation=0&showTitle=false&size=38884&status=done&style=none&title=&width=228.5" alt="image.png"><br>按照单例对象创建时间可分为：</p>
 <ul>
 <li>饿汉模式（类加载期间就创建好对象了，这是线程安全的）</li>
 </ul>
@@ -391,9 +387,9 @@
     &#125;
 &#125;
 </code></pre>
-<h4 id="4-建造者模式"><a href="#4-建造者模式" class="headerlink" title="4.建造者模式"></a>4.建造者模式</h4><p>从字面上看，一个复杂的对象是一步一步通过简单的对象建立组合起来的，一个 Builder 类会一步一步构造最终的对象。该 Builder 类是独立于其他对象的。还是拿产品系列来说，两个系列的产品，要从每个系列中挑出一个产品进行搭配组合成套餐销售，这时候就可以利用建造者模式，将最后组合的套餐当做复杂的对象，这个套餐可以有两个系列中的产品自由组合。因为都是产品所以可以抽离出一个公共接口 Item，然后两个系列去实现 Item 接口，系列之下的产品同宗同源，但是有微小的差异，那么可以通过继承系列的类覆写实现微小差异，然后最后通过 Builder 自由组合这些产品。<br>我们假设一个快餐店的商业案例，其中，一个典型的套餐可以是一个汉堡（Burger）和一杯冷饮（Cold drink）。汉堡（Burger）可以是素食汉堡（Veg Burger）或鸡肉汉堡（Chicken Burger），它们是包在纸盒中。冷饮（Cold drink）可以是可口可乐（coke）或百事可乐（pepsi），它们是装在瓶子中。我们将创建一个表示食物条目（比如汉堡和冷饮）的 Item 接口和实现 <strong>Item 接口的实体类</strong>，以及一个表示食物包装的 Packing 接口和实现 Packing 接口的实体类，汉堡是包在纸盒中，冷饮是装在瓶子中。然后我们创建一个 Meal 类，**带有 Item 的 ArrayList **和一个通过结合 Item 来创建不同类型的 Meal 对象的 MealBuilder。BuilderPatternDemo 类使用 MealBuilder 来创建一个 Meal。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617290426463-b6bfbbe4-bea8-4596-a557-26bd4b7ccf6a.png#align=left&display=inline&height=338&margin=%5Bobject%20Object%5D&name=image.png&originHeight=676&originWidth=804&size=65997&status=done&style=none&width=402" alt="image.png"></p>
+<h4 id="4-建造者模式"><a href="#4-建造者模式" class="headerlink" title="4.建造者模式"></a>4.建造者模式</h4><p>从字面上看，一个复杂的对象是一步一步通过简单的对象建立组合起来的，一个 Builder 类会一步一步构造最终的对象。该 Builder 类是独立于其他对象的。还是拿产品系列来说，两个系列的产品，要从每个系列中挑出一个产品进行搭配组合成套餐销售，这时候就可以利用建造者模式，将最后组合的套餐当做复杂的对象，这个套餐可以有两个系列中的产品自由组合。因为都是产品所以可以抽离出一个公共接口 Item，然后两个系列去实现 Item 接口，系列之下的产品同宗同源，但是有微小的差异，那么可以通过继承系列的类覆写实现微小差异，然后最后通过 Builder 自由组合这些产品。<br>我们假设一个快餐店的商业案例，其中，一个典型的套餐可以是一个汉堡（Burger）和一杯冷饮（Cold drink）。汉堡（Burger）可以是素食汉堡（Veg Burger）或鸡肉汉堡（Chicken Burger），它们是包在纸盒中。冷饮（Cold drink）可以是可口可乐（coke）或百事可乐（pepsi），它们是装在瓶子中。我们将创建一个表示食物条目（比如汉堡和冷饮）的 Item 接口和实现 <strong>Item 接口的实体类</strong>，以及一个表示食物包装的 Packing 接口和实现 Packing 接口的实体类，汉堡是包在纸盒中，冷饮是装在瓶子中。然后我们创建一个 Meal 类，**带有 Item 的 ArrayList **和一个通过结合 Item 来创建不同类型的 Meal 对象的 MealBuilder。BuilderPatternDemo 类使用 MealBuilder 来创建一个 Meal。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617290426463-b6bfbbe4-bea8-4596-a557-26bd4b7ccf6a.png#crop=0&crop=0&crop=1&crop=1&height=338&id=LQU9I&margin=%5Bobject%20Object%5D&name=image.png&originHeight=676&originWidth=804&originalType=binary%E2%88%B6=1&rotation=0&showTitle=false&size=65997&status=done&style=none&title=&width=402" alt="image.png"></p>
 <h4 id="5-原型模式"><a href="#5-原型模式" class="headerlink" title="5.原型模式"></a>5.原型模式</h4><p>字面解释：就是以一个对象实例为原型，复制出一个新的对象<br>场景：创建一个对象需要消耗很多的资源，例如多次的 SQL 查询注入属性，我们就可以利用这种方式，可以避免创建对象时需要多次 SQL 查询，只要以第一次创建的对象为原型复制一个出<br>来就好了<br>如何使用：这种模式是实现了一个原型接口，该接口用于创建当前对象的克隆。<br>其中 Shape 抽象类需要实现 Cloneable 接口，用于后续的复制对象。</p>
-<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617291246404-dfcab769-5497-48cf-8286-d6d9daa81fcf.png#align=left&display=inline&height=298&margin=%5Bobject%20Object%5D&name=image.png&originHeight=596&originWidth=802&size=59416&status=done&style=none&width=401" alt="image.png"><br>抽象类实现 Cloneable 接口</p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617291246404-dfcab769-5497-48cf-8286-d6d9daa81fcf.png#crop=0&crop=0&crop=1&crop=1&height=298&id=DVm0k&margin=%5Bobject%20Object%5D&name=image.png&originHeight=596&originWidth=802&originalType=binary%E2%88%B6=1&rotation=0&showTitle=false&size=59416&status=done&style=none&title=&width=401" alt="image.png"><br>抽象类实现 Cloneable 接口</p>
 <pre><code class="java">public abstract class Shape implements Cloneable &#123;
 
    private String id;
@@ -480,7 +476,7 @@ public class ShapeCache &#123;
    &#125;
 &#125;
 </code></pre>
-<h4 id="6-适配器模式"><a href="#6-适配器模式" class="headerlink" title="6.适配器模式"></a>6.适配器模式</h4><p>将现有的一个接口添加一些功能来应对用户新增加的需求，在原有的接口功能仍然可以使用的情况下，增加扩展性。<br>优点：适配器模式使得原本由于接口不兼容而不能一起工作的那些类可以一起工作<br>缺点：过多地使用适配器，会让系统非常零乱，不易整体进行把握。比如，明明看到调用的是 A 接口，其实内部被适配成了 B 接口的实现。<br>例如现有一个类 AudioPlayer 可以播放 mp3 格式歌曲，但用户希望 AudioPlayer 在现有基础上还可以播放 VLC 和 Mp4 格式歌曲，那么可以对 AudioPlayer 内部播放 Mp4 歌曲，实质上是调用的成员变量 MediaAdpter 对象中的 AdvancedMeidPlayer 进行播放相应格式歌曲。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617292901588-d7582ade-a2c2-4617-b560-8237792b67c8.png#align=left&display=inline&height=285&margin=%5Bobject%20Object%5D&name=image.png&originHeight=569&originWidth=1056&size=46113&status=done&style=none&width=528" alt="image.png"></p>
+<h4 id="6-适配器模式"><a href="#6-适配器模式" class="headerlink" title="6.适配器模式"></a>6.适配器模式</h4><p>将现有的一个接口添加一些功能来应对用户新增加的需求，在原有的接口功能仍然可以使用的情况下，增加扩展性。<br>优点：适配器模式使得原本由于接口不兼容而不能一起工作的那些类可以一起工作<br>缺点：过多地使用适配器，会让系统非常零乱，不易整体进行把握。比如，明明看到调用的是 A 接口，其实内部被适配成了 B 接口的实现。<br>例如现有一个类 AudioPlayer 可以播放 mp3 格式歌曲，但用户希望 AudioPlayer 在现有基础上还可以播放 VLC 和 Mp4 格式歌曲，那么可以对 AudioPlayer 内部播放 Mp4 歌曲，实质上是调用的成员变量 MediaAdpter 对象中的 AdvancedMeidPlayer 进行播放相应格式歌曲。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617292901588-d7582ade-a2c2-4617-b560-8237792b67c8.png#crop=0&crop=0&crop=1&crop=1&height=285&id=pHFeq&margin=%5Bobject%20Object%5D&name=image.png&originHeight=569&originWidth=1056&originalType=binary%E2%88%B6=1&rotation=0&showTitle=false&size=46113&status=done&style=none&title=&width=528" alt="image.png"></p>
 <p>MediaAdapter 实现 MediaPlayer 接口是为了保证和 AudioPlayer 同样的 Play 接口。</p>
 <pre><code class="java">public class MediaAdapter implements MediaPlayer &#123;
 
@@ -528,7 +524,7 @@ public class ShapeCache &#123;
    &#125;
 &#125;
 </code></pre>
-<h4 id="7-桥接模式"><a href="#7-桥接模式" class="headerlink" title="7.桥接模式"></a>7.桥接模式</h4><p>桥接模式就是将抽象化和实现化解耦，简单意义上讲就是在底层 API 和用户使用之间加了一层，这一层的目的就是为了解耦，便于用户选择底层那个 API 来使用<br>这里的 Shape 就是中间层，这里的 Shape 是抽象类，将底层的 DrawAPI 和用户之间使用 Circle 解耦开，使得用户可以指定使用具体 DrawAPI 来进行使用，而不需改变原有的使用习惯。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617345092635-3f32bbf8-8a36-4e32-942f-09ecf6edc57d.png#align=left&display=inline&height=235&margin=%5Bobject%20Object%5D&name=image.png&originHeight=470&originWidth=760&size=44524&status=done&style=none&width=380" alt="image.png"><br>底层 API 统一接口</p>
+<h4 id="7-桥接模式"><a href="#7-桥接模式" class="headerlink" title="7.桥接模式"></a>7.桥接模式</h4><p>桥接模式就是将抽象化和实现化解耦，简单意义上讲就是在底层 API 和用户使用之间加了一层，这一层的目的就是为了解耦，便于用户选择底层那个 API 来使用<br>这里的 Shape 就是中间层，这里的 Shape 是抽象类，将底层的 DrawAPI 和用户之间使用 Circle 解耦开，使得用户可以指定使用具体 DrawAPI 来进行使用，而不需改变原有的使用习惯。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617345092635-3f32bbf8-8a36-4e32-942f-09ecf6edc57d.png#crop=0&crop=0&crop=1&crop=1&height=235&id=yA0FP&margin=%5Bobject%20Object%5D&name=image.png&originHeight=470&originWidth=760&originalType=binary%E2%88%B6=1&rotation=0&showTitle=false&size=44524&status=done&style=none&title=&width=380" alt="image.png"><br>底层 API 统一接口</p>
 <pre><code class="java">public interface DrawAPI &#123;
    public void drawCircle(int radius, int x, int y);
 &#125;
@@ -571,9 +567,9 @@ public class ShapeCache &#123;
 </ul>
 </li>
 </ul>
-<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617346488356-c0506c1d-d1a2-4262-af36-8e5bfcd24ae1.png#align=left&display=inline&height=344&margin=%5Bobject%20Object%5D&name=image.png&originHeight=687&originWidth=1086&size=70997&status=done&style=none&width=543" alt="image.png"></p>
-<h4 id="9-组合模式"><a href="#9-组合模式" class="headerlink" title="9.组合模式"></a>9.组合模式</h4><p>组合模式根据树形结构的方式来构造对象，简单而言：就是一个对象内部有一个成员变量是自己对象组的列表，也就是相当于 children 的关系，该类提供了修改相同对象组的方式。<br>例如：一个雇员 A，手下也有很多雇员来管理，就形成了一个金字塔形的结构，雇员 A 提供了修改其雇员列表的接口，便于人员调动离职。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617347767243-7429d61f-b06e-4644-b1df-913f4a4ba5d6.png#align=left&display=inline&height=253&margin=%5Bobject%20Object%5D&name=image.png&originHeight=506&originWidth=487&size=32909&status=done&style=none&width=243.5" alt="image.png"></p>
-<h4 id="10-装饰器模式"><a href="#10-装饰器模式" class="headerlink" title="10.装饰器模式"></a>10.装饰器模式</h4><p>装饰：从字面上看就是在原有底部部件不变化的情况下，加上一些功能。专业点就是向一个现有的对象增加一些功能而不改变其代码结构。<br>我们可以联想到子类继承的方式来实现这样的功能，该种模式是运用在不想增加很多子类的情况下还想扩展类的功能。<br>例如：我们只有绘制形状的对象 Circle 和 Rrctangle，我们想增加一项功能那就是可以绘制某种颜色的对象而不采用子类继承覆写的方式，就可以使用装饰器模式。这里的 ShapeDecorator 之所以去实现 Shape 接口，就是同一定义了 draw 行为模式，然后在 draw 中添加上自己的功能。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617348572554-70941dac-0068-4a2a-94d7-3f382db1d25d.png#align=left&display=inline&height=275&margin=%5Bobject%20Object%5D&name=image.png&originHeight=550&originWidth=854&size=54611&status=done&style=none&width=427" alt="image.png"></p>
+<p><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617346488356-c0506c1d-d1a2-4262-af36-8e5bfcd24ae1.png#crop=0&crop=0&crop=1&crop=1&height=344&id=X1wCx&margin=%5Bobject%20Object%5D&name=image.png&originHeight=687&originWidth=1086&originalType=binary%E2%88%B6=1&rotation=0&showTitle=false&size=70997&status=done&style=none&title=&width=543" alt="image.png"></p>
+<h4 id="9-组合模式"><a href="#9-组合模式" class="headerlink" title="9.组合模式"></a>9.组合模式</h4><p>组合模式根据树形结构的方式来构造对象，简单而言：就是一个对象内部有一个成员变量是自己对象组的列表，也就是相当于 children 的关系，该类提供了修改相同对象组的方式。<br>例如：一个雇员 A，手下也有很多雇员来管理，就形成了一个金字塔形的结构，雇员 A 提供了修改其雇员列表的接口，便于人员调动离职。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617347767243-7429d61f-b06e-4644-b1df-913f4a4ba5d6.png#crop=0&crop=0&crop=1&crop=1&height=253&id=D3yFk&margin=%5Bobject%20Object%5D&name=image.png&originHeight=506&originWidth=487&originalType=binary%E2%88%B6=1&rotation=0&showTitle=false&size=32909&status=done&style=none&title=&width=243.5" alt="image.png"></p>
+<h4 id="10-装饰器模式"><a href="#10-装饰器模式" class="headerlink" title="10.装饰器模式"></a>10.装饰器模式</h4><p>装饰：从字面上看就是在原有底部部件不变化的情况下，加上一些功能。专业点就是向一个现有的对象增加一些功能而不改变其代码结构。<br>我们可以联想到子类继承的方式来实现这样的功能，该种模式是运用在不想增加很多子类的情况下还想扩展类的功能。<br>例如：我们只有绘制形状的对象 Circle 和 Rrctangle，我们想增加一项功能那就是可以绘制某种颜色的对象而不采用子类继承覆写的方式，就可以使用装饰器模式。这里的 ShapeDecorator 之所以去实现 Shape 接口，就是同一定义了 draw 行为模式，然后在 draw 中添加上自己的功能。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617348572554-70941dac-0068-4a2a-94d7-3f382db1d25d.png#crop=0&crop=0&crop=1&crop=1&height=275&id=pTyQ4&margin=%5Bobject%20Object%5D&name=image.png&originHeight=550&originWidth=854&originalType=binary%E2%88%B6=1&rotation=0&showTitle=false&size=54611&status=done&style=none&title=&width=427" alt="image.png"></p>
 <pre><code class="java">public abstract class ShapeDecorator implements Shape &#123;
    protected Shape decoratedShape;
 
@@ -622,8 +618,8 @@ public class DecoratorPatternDemo &#123;
    &#125;
 &#125;
 </code></pre>
-<h4 id="11-外观模式"><a href="#11-外观模式" class="headerlink" title="11.外观模式"></a>11.外观模式</h4><p>外观模式（Facade Pattern）隐藏系统的复杂性，并向客户端提供了一个客户端可以访问系统的接口。例如：系统有很多功能，每个功能由一个类来实现，通过将各功能统一放置在一个接口中，然后让客户端调用这个接口，隐藏了各个功能的复杂性。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617350323504-a170c981-7114-4a82-8296-55ba6b965672.png#align=left&display=inline&height=298&margin=%5Bobject%20Object%5D&name=image.png&originHeight=595&originWidth=845&size=54485&status=done&style=none&width=422.5" alt="image.png"></p>
-<h4 id="12-享元模式"><a href="#12-享元模式" class="headerlink" title="12.享元模式"></a>12.享元模式</h4><p>主要目的：重用现有的对象，避免频繁的创建和销毁类，核心就是利用工厂类中成员变量 HashMap 来存储创建过的对象，下次请求先去 HashMap 查找，如果没有则创建放入到 HashMap 中然后返回。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617350809235-6aba5b24-83ce-4b0e-a903-48e015e850c6.png#align=left&display=inline&height=259&margin=%5Bobject%20Object%5D&name=image.png&originHeight=517&originWidth=594&size=48426&status=done&style=none&width=297" alt="image.png"></p>
+<h4 id="11-外观模式"><a href="#11-外观模式" class="headerlink" title="11.外观模式"></a>11.外观模式</h4><p>外观模式（Facade Pattern）隐藏系统的复杂性，并向客户端提供了一个客户端可以访问系统的接口。例如：系统有很多功能，每个功能由一个类来实现，通过将各功能统一放置在一个接口中，然后让客户端调用这个接口，隐藏了各个功能的复杂性。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617350323504-a170c981-7114-4a82-8296-55ba6b965672.png#crop=0&crop=0&crop=1&crop=1&height=298&id=aYms9&margin=%5Bobject%20Object%5D&name=image.png&originHeight=595&originWidth=845&originalType=binary%E2%88%B6=1&rotation=0&showTitle=false&size=54485&status=done&style=none&title=&width=422.5" alt="image.png"></p>
+<h4 id="12-享元模式"><a href="#12-享元模式" class="headerlink" title="12.享元模式"></a>12.享元模式</h4><p>主要目的：重用现有的对象，避免频繁的创建和销毁类，核心就是利用工厂类中成员变量 HashMap 来存储创建过的对象，下次请求先去 HashMap 查找，如果没有则创建放入到 HashMap 中然后返回。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617350809235-6aba5b24-83ce-4b0e-a903-48e015e850c6.png#crop=0&crop=0&crop=1&crop=1&height=259&id=xM7Mm&margin=%5Bobject%20Object%5D&name=image.png&originHeight=517&originWidth=594&originalType=binary%E2%88%B6=1&rotation=0&showTitle=false&size=48426&status=done&style=none&title=&width=297" alt="image.png"></p>
 <pre><code class="java">import java.util.HashMap;
 
 public class ShapeFactory &#123;
@@ -641,7 +637,7 @@ public class ShapeFactory &#123;
    &#125;
 &#125;
 </code></pre>
-<h4 id="13-代理模式"><a href="#13-代理模式" class="headerlink" title="13.代理模式"></a>13.代理模式</h4><p>代理模式就是有点类似 AOP 切向中的代理，利用接口实现返回与现有对象相同接口的对象，只不过这个对象织入了增强的逻辑。<br>核心：为其他对象提供一种代理以控制对这个对象的访问，主要为了隐藏创建对象的复杂性，例如需要大量的属性注入，这里就是可以利用代理模式来隐藏创建对象的复杂性，使得用户可以比较轻易的使用。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617351164692-41da655a-f4e7-4710-83a3-c85f26e1b792.png#align=left&display=inline&height=183&margin=%5Bobject%20Object%5D&name=image.png&originHeight=365&originWidth=742&size=38864&status=done&style=none&width=371" alt="image.png"></p>
+<h4 id="13-代理模式"><a href="#13-代理模式" class="headerlink" title="13.代理模式"></a>13.代理模式</h4><p>代理模式就是有点类似 AOP 切向中的代理，利用接口实现返回与现有对象相同接口的对象，只不过这个对象织入了增强的逻辑。<br>核心：为其他对象提供一种代理以控制对这个对象的访问，主要为了隐藏创建对象的复杂性，例如需要大量的属性注入，这里就是可以利用代理模式来隐藏创建对象的复杂性，使得用户可以比较轻易的使用。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617351164692-41da655a-f4e7-4710-83a3-c85f26e1b792.png#crop=0&crop=0&crop=1&crop=1&height=183&id=LXW3G&margin=%5Bobject%20Object%5D&name=image.png&originHeight=365&originWidth=742&originalType=binary%E2%88%B6=1&rotation=0&showTitle=false&size=38864&status=done&style=none&title=&width=371" alt="image.png"></p>
 <pre><code class="java">public class ProxyImage implements Image&#123;
 
    private RealImage realImage;
@@ -660,7 +656,7 @@ public class ShapeFactory &#123;
    &#125;
 &#125;
 </code></pre>
-<h4 id="14-责任链模式"><a href="#14-责任链模式" class="headerlink" title="14.责任链模式"></a>14.责任链模式</h4><p>责任链模式就是一条链上各司其职，对于传入的请求一次经过链上的每一环进行处理，每一个环处理完毕该环应该做的事情后，显示调用下一环来处理该请求，这样一环套一环就形成了一个责任链。<br>核心：每一个环中提供一个 set 方法来设置下一环，然后在 logMessage 先处理自己的事情后，再显示调用下一环处理。<br>场景：例如日志中，ERROR 级别的日志在完成向终端输入 ERROR 错误信息后，还会保存到文件中，这里就是 ErrorLogger -&gt; FileLogger<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617351753340-97e228fb-f6d8-4fdb-8c43-43bcccc40587.png#align=left&display=inline&height=273&margin=%5Bobject%20Object%5D&name=image.png&originHeight=545&originWidth=854&size=53904&status=done&style=none&width=427" alt="image.png"></p>
+<h4 id="14-责任链模式"><a href="#14-责任链模式" class="headerlink" title="14.责任链模式"></a>14.责任链模式</h4><p>责任链模式就是一条链上各司其职，对于传入的请求一次经过链上的每一环进行处理，每一个环处理完毕该环应该做的事情后，显示调用下一环来处理该请求，这样一环套一环就形成了一个责任链。<br>核心：每一个环中提供一个 set 方法来设置下一环，然后在 logMessage 先处理自己的事情后，再显示调用下一环处理。<br>场景：例如日志中，ERROR 级别的日志在完成向终端输入 ERROR 错误信息后，还会保存到文件中，这里就是 ErrorLogger -&gt; FileLogger<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617351753340-97e228fb-f6d8-4fdb-8c43-43bcccc40587.png#crop=0&crop=0&crop=1&crop=1&height=273&id=wvob3&margin=%5Bobject%20Object%5D&name=image.png&originHeight=545&originWidth=854&originalType=binary%E2%88%B6=1&rotation=0&showTitle=false&size=53904&status=done&style=none&title=&width=427" alt="image.png"></p>
 <pre><code class="java">public abstract class AbstractLogger &#123;
    public static int INFO = 1;
    public static int DEBUG = 2;
@@ -736,7 +732,7 @@ public class FileLogger extends AbstractLogger &#123;
    &#125;
 &#125;
 </code></pre>
-<h4 id="15-命令模式"><a href="#15-命令模式" class="headerlink" title="15.命令模式"></a>15.命令模式</h4><p>命令模式就是将命令包裹在对象中，然后传递给实现命令者，这过程就涉及到三者：命令发出者（请求）、命令、命令执行者。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617371840721-4bebe15c-629d-4b6e-b8cd-10325f7a7641.png#align=left&display=inline&height=299&margin=%5Bobject%20Object%5D&name=image.png&originHeight=597&originWidth=711&size=53720&status=done&style=none&width=355.5" alt="image.png"></p>
+<h4 id="15-命令模式"><a href="#15-命令模式" class="headerlink" title="15.命令模式"></a>15.命令模式</h4><p>命令模式就是将命令包裹在对象中，然后传递给实现命令者，这过程就涉及到三者：命令发出者（请求）、命令、命令执行者。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617371840721-4bebe15c-629d-4b6e-b8cd-10325f7a7641.png#crop=0&crop=0&crop=1&crop=1&height=299&id=xMzQg&margin=%5Bobject%20Object%5D&name=image.png&originHeight=597&originWidth=711&originalType=binary%E2%88%B6=1&rotation=0&showTitle=false&size=53720&status=done&style=none&title=&width=355.5" alt="image.png"></p>
 <pre><code class="java">// 请求
 public class Stock &#123;
 
@@ -814,7 +810,7 @@ public class CommandPatternDemo &#123;
    &#125;
 &#125;
 </code></pre>
-<h4 id="16-解释器模式"><a href="#16-解释器模式" class="headerlink" title="16.解释器模式"></a>16.解释器模式</h4><p>通常用在评估语言，因为语言的判断有许多且或的判断，那么就可以利用解释器模式通过将判断进行且或的组合从而判断语言的正确性。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617372843133-bc6f00bd-2664-4c3b-a37e-ffa87131656b.png#align=left&display=inline&height=244&margin=%5Bobject%20Object%5D&name=image.png&originHeight=488&originWidth=536&size=134937&status=done&style=none&width=268" alt="image.png"></p>
+<h4 id="16-解释器模式"><a href="#16-解释器模式" class="headerlink" title="16.解释器模式"></a>16.解释器模式</h4><p>通常用在评估语言，因为语言的判断有许多且或的判断，那么就可以利用解释器模式通过将判断进行且或的组合从而判断语言的正确性。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617372843133-bc6f00bd-2664-4c3b-a37e-ffa87131656b.png#crop=0&crop=0&crop=1&crop=1&height=244&id=obVbN&margin=%5Bobject%20Object%5D&name=image.png&originHeight=488&originWidth=536&originalType=binary%E2%88%B6=1&rotation=0&showTitle=false&size=134937&status=done&style=none&title=&width=268" alt="image.png"></p>
 <pre><code class="java">// 原子判断
 public class TerminalExpression implements Expression &#123;
 
@@ -894,7 +890,7 @@ public class InterpreterPatternDemo &#123;
    &#125;
 &#125;
 </code></pre>
-<h4 id="17-迭代器模式"><a href="#17-迭代器模式" class="headerlink" title="17.迭代器模式"></a>17.迭代器模式</h4><p>通过集合类内部封装一个实现了 Iterator 接口的类，通过该内部类来迭代访问集合内部的数据，用户而不需要去关心集合内部遍历的细节，Iterator 对外提供了一个统一的遍历集合的行为模式。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617373706496-cbb9d82c-5eb0-4eae-aa66-cbf1b9bed142.png#align=left&display=inline&height=137&margin=%5Bobject%20Object%5D&name=image.png&originHeight=273&originWidth=560&size=77269&status=done&style=none&width=280" alt="image.png"></p>
+<h4 id="17-迭代器模式"><a href="#17-迭代器模式" class="headerlink" title="17.迭代器模式"></a>17.迭代器模式</h4><p>通过集合类内部封装一个实现了 Iterator 接口的类，通过该内部类来迭代访问集合内部的数据，用户而不需要去关心集合内部遍历的细节，Iterator 对外提供了一个统一的遍历集合的行为模式。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617373706496-cbb9d82c-5eb0-4eae-aa66-cbf1b9bed142.png#crop=0&crop=0&crop=1&crop=1&height=137&id=DITp4&margin=%5Bobject%20Object%5D&name=image.png&originHeight=273&originWidth=560&originalType=binary%E2%88%B6=1&rotation=0&showTitle=false&size=77269&status=done&style=none&title=&width=280" alt="image.png"></p>
 <pre><code class="java">public interface Iterator &#123;
    public boolean hasNext();
    public Object next();
@@ -963,7 +959,7 @@ public class NameRepository implements Container &#123;
    &#125;
 &#125;
 </code></pre>
-<h4 id="18-中介者模式"><a href="#18-中介者模式" class="headerlink" title="18.中介者模式"></a>18.中介者模式</h4><p>用一个中介对象来封装一系列的对象交互，中介者使各对象不需要显式地相互引用，从而使其耦合松散，而且可以独立地改变它们之间的交互，该类通常处理不同类之间的通信。<br>也就是每个对象在调用自己的功能时，其实是在调用中介对象提供的功能。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617374054516-fc89f2c0-53d0-4138-816c-596967ec519a.png#align=left&display=inline&height=68&margin=%5Bobject%20Object%5D&name=image.png&originHeight=135&originWidth=560&size=40036&status=done&style=none&width=280" alt="image.png"></p>
+<h4 id="18-中介者模式"><a href="#18-中介者模式" class="headerlink" title="18.中介者模式"></a>18.中介者模式</h4><p>用一个中介对象来封装一系列的对象交互，中介者使各对象不需要显式地相互引用，从而使其耦合松散，而且可以独立地改变它们之间的交互，该类通常处理不同类之间的通信。<br>也就是每个对象在调用自己的功能时，其实是在调用中介对象提供的功能。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617374054516-fc89f2c0-53d0-4138-816c-596967ec519a.png#crop=0&crop=0&crop=1&crop=1&height=68&id=N7k0m&margin=%5Bobject%20Object%5D&name=image.png&originHeight=135&originWidth=560&originalType=binary%E2%88%B6=1&rotation=0&showTitle=false&size=40036&status=done&style=none&title=&width=280" alt="image.png"></p>
 <pre><code class="java">import java.util.Date;
 
 public class ChatRoom &#123;
@@ -1003,7 +999,7 @@ public class MediatorPatternDemo &#123;
    &#125;
 &#125;
 </code></pre>
-<h4 id="19-备忘录模式"><a href="#19-备忘录模式" class="headerlink" title="19.备忘录模式"></a>19.备忘录模式</h4><p>备忘录模式就是可以保存对象状态（成员变量）到另一个封装的对象中，然后该对象可以通过保存的存档来恢复自身的成员变量到旧值。<br>故对象内部需要提供一个保存成员变量到另一个对象的方法以及恢复成员变量到指定的存档。<br>这里的 Memento 就是存档，用来保存 Originator 的成员变量，Originator 类提供一个主动保存存档的方法 saveStateToMemento，以及恢复状态到指定存档 getStateFromMemento，存档保存在 CareTaker 中<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617375040102-42e07ae4-a0b6-4768-b1b5-94d2f3fe53d4.png#align=left&display=inline&height=321&margin=%5Bobject%20Object%5D&name=image.png&originHeight=360&originWidth=560&size=82552&status=done&style=none&width=500" alt="image.png"></p>
+<h4 id="19-备忘录模式"><a href="#19-备忘录模式" class="headerlink" title="19.备忘录模式"></a>19.备忘录模式</h4><p>备忘录模式就是可以保存对象状态（成员变量）到另一个封装的对象中，然后该对象可以通过保存的存档来恢复自身的成员变量到旧值。<br>故对象内部需要提供一个保存成员变量到另一个对象的方法以及恢复成员变量到指定的存档。<br>这里的 Memento 就是存档，用来保存 Originator 的成员变量，Originator 类提供一个主动保存存档的方法 saveStateToMemento，以及恢复状态到指定存档 getStateFromMemento，存档保存在 CareTaker 中<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617375040102-42e07ae4-a0b6-4768-b1b5-94d2f3fe53d4.png#crop=0&crop=0&crop=1&crop=1&height=321&id=S5iSm&margin=%5Bobject%20Object%5D&name=image.png&originHeight=360&originWidth=560&originalType=binary%E2%88%B6=1&rotation=0&showTitle=false&size=82552&status=done&style=none&title=&width=500" alt="image.png"></p>
 <pre><code class="java">public class Originator &#123;
    private String state;
 
@@ -1071,7 +1067,7 @@ public class MementoPatternDemo &#123;
    &#125;
 &#125;
 </code></pre>
-<h4 id="20-观察者模式"><a href="#20-观察者模式" class="headerlink" title="20.观察者模式"></a>20.观察者模式</h4><p>当被观察的对象成员变量发生变化时，将会通知其所有的观察者了，为此被观察的对象需要有个成员变量是列表用来存放其观察者们，此外观察者需要获取到被观察对象的成员变量，为此观察者需要添加被观察的对象为成员变量，此外添加被观察的对象为成员变量的同时，还将观察者加入到被观察对象的列表中。<br>缺点：如果顺序执行，某一观察者错误会导致系统卡壳，一般采用异步方式。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617381005353-a66a1f55-dc96-49ef-883f-40b60c2387ef.png#align=left&display=inline&height=345&margin=%5Bobject%20Object%5D&name=image.png&originHeight=386&originWidth=560&size=111372&status=done&style=none&width=500" alt="image.png"></p>
+<h4 id="20-观察者模式"><a href="#20-观察者模式" class="headerlink" title="20.观察者模式"></a>20.观察者模式</h4><p>当被观察的对象成员变量发生变化时，将会通知其所有的观察者了，为此被观察的对象需要有个成员变量是列表用来存放其观察者们，此外观察者需要获取到被观察对象的成员变量，为此观察者需要添加被观察的对象为成员变量，此外添加被观察的对象为成员变量的同时，还将观察者加入到被观察对象的列表中。<br>缺点：如果顺序执行，某一观察者错误会导致系统卡壳，一般采用异步方式。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617381005353-a66a1f55-dc96-49ef-883f-40b60c2387ef.png#crop=0&crop=0&crop=1&crop=1&height=345&id=c6YnZ&margin=%5Bobject%20Object%5D&name=image.png&originHeight=386&originWidth=560&originalType=binary%E2%88%B6=1&rotation=0&showTitle=false&size=111372&status=done&style=none&title=&width=500" alt="image.png"></p>
 <pre><code class="java">// 被观察的对象有一个成员变量列表来存放观察者，在setState即成员变量发生变化的时候，通知所有的观察者
 public class Subject &#123;
 
@@ -1149,8 +1145,8 @@ public class ObserverPatternDemo &#123;
    &#125;
 &#125;
 </code></pre>
-<h4 id="21-状态模式"><a href="#21-状态模式" class="headerlink" title="21.状态模式"></a>21.状态模式</h4><p>一个实例对象的行为根据它所处的状态而发生改变，在状态模式中，我们创建表示各种状态的对象和一个行为随着状态对象改变而改变的 context 对象。<br>我们将创建一个 State 接口和实现了 State 接口的实体状态类。Context 是一个带有某个状态的类，一般一个对象处于什么状态，是通过 State 中的 doAction 将对象填入，然后对象中还有一个 state 表示当前状态，对象作出的行为实际上是通过 State 中的 doAction 来设置。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617381535763-4bc8c374-f135-4f90-ad44-a851bcd7df48.png#align=left&display=inline&height=346&margin=%5Bobject%20Object%5D&name=image.png&originHeight=387&originWidth=560&size=78650&status=done&style=none&width=500" alt="image.png"></p>
-<h4 id="22-空对象模式"><a href="#22-空对象模式" class="headerlink" title="22.空对象模式"></a>22.空对象模式</h4><p>就是根据用户的查询条件来给予产品列表中的某一项，当产品列表中没有符合用户查询条件的，就返回一个空对象提供一个默认的行为。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617382234173-65c514f4-1e39-4628-9989-cd17e31ee5bf.png#align=left&display=inline&height=270&margin=%5Bobject%20Object%5D&name=image.png&originHeight=302&originWidth=560&size=108236&status=done&style=none&width=500" alt="image.png"></p>
+<h4 id="21-状态模式"><a href="#21-状态模式" class="headerlink" title="21.状态模式"></a>21.状态模式</h4><p>一个实例对象的行为根据它所处的状态而发生改变，在状态模式中，我们创建表示各种状态的对象和一个行为随着状态对象改变而改变的 context 对象。<br>我们将创建一个 State 接口和实现了 State 接口的实体状态类。Context 是一个带有某个状态的类，一般一个对象处于什么状态，是通过 State 中的 doAction 将对象填入，然后对象中还有一个 state 表示当前状态，对象作出的行为实际上是通过 State 中的 doAction 来设置。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617381535763-4bc8c374-f135-4f90-ad44-a851bcd7df48.png#crop=0&crop=0&crop=1&crop=1&height=346&id=BHHQk&margin=%5Bobject%20Object%5D&name=image.png&originHeight=387&originWidth=560&originalType=binary%E2%88%B6=1&rotation=0&showTitle=false&size=78650&status=done&style=none&title=&width=500" alt="image.png"></p>
+<h4 id="22-空对象模式"><a href="#22-空对象模式" class="headerlink" title="22.空对象模式"></a>22.空对象模式</h4><p>就是根据用户的查询条件来给予产品列表中的某一项，当产品列表中没有符合用户查询条件的，就返回一个空对象提供一个默认的行为。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617382234173-65c514f4-1e39-4628-9989-cd17e31ee5bf.png#crop=0&crop=0&crop=1&crop=1&height=270&id=l8e59&margin=%5Bobject%20Object%5D&name=image.png&originHeight=302&originWidth=560&originalType=binary%E2%88%B6=1&rotation=0&showTitle=false&size=108236&status=done&style=none&title=&width=500" alt="image.png"></p>
 <pre><code class="java">public abstract class AbstractCustomer &#123;
    protected String name;
    public abstract boolean isNil();
@@ -1219,7 +1215,7 @@ public class NullPatternDemo &#123;
    &#125;
 &#125;
 </code></pre>
-<h4 id="23-策略模式"><a href="#23-策略模式" class="headerlink" title="23.策略模式"></a>23.策略模式</h4><p>在策略模式（Strategy Pattern）中，一个类的行为或其算法可以在运行时更改。也就是说类的行为根据其采用的策略而发生改变<br>代码实现：因为有很多策略，为此我们抽象处一个策略接口定义策略的行为，类的行为中有一个成员变量是策略接口的实现类，其行为实际是调用策略的行为来实现。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617382549181-8961496c-381c-4cef-b571-54f984eba9a0.png#align=left&display=inline&height=287&margin=%5Bobject%20Object%5D&name=image.png&originHeight=321&originWidth=560&size=95853&status=done&style=none&width=500" alt="image.png"></p>
+<h4 id="23-策略模式"><a href="#23-策略模式" class="headerlink" title="23.策略模式"></a>23.策略模式</h4><p>在策略模式（Strategy Pattern）中，一个类的行为或其算法可以在运行时更改。也就是说类的行为根据其采用的策略而发生改变<br>代码实现：因为有很多策略，为此我们抽象处一个策略接口定义策略的行为，类的行为中有一个成员变量是策略接口的实现类，其行为实际是调用策略的行为来实现。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617382549181-8961496c-381c-4cef-b571-54f984eba9a0.png#crop=0&crop=0&crop=1&crop=1&height=287&id=dvdQg&margin=%5Bobject%20Object%5D&name=image.png&originHeight=321&originWidth=560&originalType=binary%E2%88%B6=1&rotation=0&showTitle=false&size=95853&status=done&style=none&title=&width=500" alt="image.png"></p>
 <pre><code class="java">// 策略接口
 public interface Strategy &#123;
    // 策略的执行方式
@@ -1269,7 +1265,7 @@ public class StrategyPatternDemo &#123;
    &#125;
 &#125;
 </code></pre>
-<h4 id="24-模板模式"><a href="#24-模板模式" class="headerlink" title="24.模板模式"></a>24.模板模式</h4><p>就是一个抽象类已经将行为执行步骤确定下来，你需要做的就是实现该抽象类中这每一个步骤，然后就可以调用行为实现逻辑了。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617382849113-48d4a563-24cd-4190-80a3-f99cb6797c7f.png#align=left&display=inline&height=332&margin=%5Bobject%20Object%5D&name=image.png&originHeight=372&originWidth=560&size=84522&status=done&style=none&width=500" alt="image.png"></p>
+<h4 id="24-模板模式"><a href="#24-模板模式" class="headerlink" title="24.模板模式"></a>24.模板模式</h4><p>就是一个抽象类已经将行为执行步骤确定下来，你需要做的就是实现该抽象类中这每一个步骤，然后就可以调用行为实现逻辑了。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617382849113-48d4a563-24cd-4190-80a3-f99cb6797c7f.png#crop=0&crop=0&crop=1&crop=1&height=332&id=k3lqk&margin=%5Bobject%20Object%5D&name=image.png&originHeight=372&originWidth=560&originalType=binary%E2%88%B6=1&rotation=0&showTitle=false&size=84522&status=done&style=none&title=&width=500" alt="image.png"></p>
 <pre><code class="java">public abstract class Game &#123;
    abstract void initialize();
    abstract void startPlay();
@@ -1337,7 +1333,7 @@ public class TemplatePatternDemo &#123;
    &#125;
 &#125;
 </code></pre>
-<h4 id="25-访问者模式"><a href="#25-访问者模式" class="headerlink" title="25.访问者模式"></a>25.访问者模式</h4><p>访问者模式就是可以在一个类中提供一个接口来放入访问者，其每一个组件都可以接受 accept 外来的访问者，元素对象已接受访问者对象，这样访问者对象就可以处理元素对象上的操作。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617383266169-77ca8b82-7b2e-485a-94c0-7982f7036148.png#align=left&display=inline&height=369&margin=%5Bobject%20Object%5D&name=image.png&originHeight=413&originWidth=560&size=92050&status=done&style=none&width=500" alt="image.png"></p>
+<h4 id="25-访问者模式"><a href="#25-访问者模式" class="headerlink" title="25.访问者模式"></a>25.访问者模式</h4><p>访问者模式就是可以在一个类中提供一个接口来放入访问者，其每一个组件都可以接受 accept 外来的访问者，元素对象已接受访问者对象，这样访问者对象就可以处理元素对象上的操作。<br><img src="https://cdn.nlark.com/yuque/0/2021/png/2648023/1617383266169-77ca8b82-7b2e-485a-94c0-7982f7036148.png#crop=0&crop=0&crop=1&crop=1&height=369&id=vCQTQ&margin=%5Bobject%20Object%5D&name=image.png&originHeight=413&originWidth=560&originalType=binary%E2%88%B6=1&rotation=0&showTitle=false&size=92050&status=done&style=none&title=&width=500" alt="image.png"></p>
 <pre><code class="java">public interface ComputerPart &#123;
    public void accept(ComputerPartVisitor computerPartVisitor);
 &#125;
@@ -1450,15 +1446,15 @@ public class VisitorPatternDemo &#123;
     <section class="share">
         <div class="share-title">分享</div>
         <a class="share-item" target="_blank"
-            href="https://twitter.com/share?text=设计模式 - 一止长渊的博客&url=https://yizhichangyuan.github.io/2021/%E4%BF%AE%E8%A1%8C/yuque/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+            href="https://twitter.com/share?text=设计模式 - 一止长渊的博客&url=https://yizhichangyuan.github.io/2021/uncategorized/yuque/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
             <box-icon type='logo' name='twitter'></box-icon>
         </a>
         <a class="share-item" target="_blank"
-            href="https://www.facebook.com/sharer.php?title=设计模式 - 一止长渊的博客&u=https://yizhichangyuan.github.io/2021/%E4%BF%AE%E8%A1%8C/yuque/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+            href="https://www.facebook.com/sharer.php?title=设计模式 - 一止长渊的博客&u=https://yizhichangyuan.github.io/2021/uncategorized/yuque/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
             <box-icon name='facebook-square' type='logo' ></box-icon>
         </a>
         <!-- <a class="share-item" target="_blank"
-            href="https://service.weibo.com/share/share.php?title=设计模式 - 一止长渊的博客&url=https://yizhichangyuan.github.io/2021/%E4%BF%AE%E8%A1%8C/yuque/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/&pic=">
+            href="https://service.weibo.com/share/share.php?title=设计模式 - 一止长渊的博客&url=https://yizhichangyuan.github.io/2021/uncategorized/yuque/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/&pic=">
             <div class="n-icon n-icon-weibo"></div>
         </a> -->
     </section>
@@ -1519,7 +1515,7 @@ public class VisitorPatternDemo &#123;
   <div class="widget-wrap widget-cate">
     <div class="widget-title"><span>Categories</span></div>
     <div class="widget-inner">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Spring/">Spring</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SpringCloud/">SpringCloud</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/">redis</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E4%B8%9C%E6%88%98%E4%BA%89%E5%8F%B2/">中东战争史</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%BF%AE%E8%A1%8C/">修行</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/">线程安全</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Spring/">Spring</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/SpringCloud/">SpringCloud</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/">redis</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E4%B8%AD%E4%B8%9C%E6%88%98%E4%BA%89%E5%8F%B2/">中东战争史</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/">线程安全</a></li></ul>
     </div>
   </div>
 
